@@ -3,4 +3,4 @@
 
 - [ ] #chat.js - fix message not showing up
 - [ ] #chat.js - add send message function
-- [ ] Task 3
+- [ ] #index.html - add navbar redirect to login and chat
