@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/assets/css/chat.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
+
+    <!-- JS -->
+    <script src="assets/js/chat.js"></script>
+</head>
+
+<body>
+
+    <div class="container chat-window">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        Chat with <span id="target-user">Target User</span> (UserID: <span
+                            id="other-user-id">OTHER_USER_ID</span>)
+                    </div>
+                    <div class="card-body message-history" id="message-history">
+                        <!-- Message history will be loaded here -->
+                    </div>
+                    <div class="card-footer">
+                        <textarea class="form-control send-message-input" id="message-input" rows="3"
+                            placeholder="Type your message here..."></textarea>
+                        <button class="btn btn-primary mt-2" id="send-button">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

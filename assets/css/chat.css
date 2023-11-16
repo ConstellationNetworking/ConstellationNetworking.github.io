@@ -1,0 +1,24 @@
+.chat-window {
+    max-width: 800px;
+    margin: 30px auto;
+}
+.message-history {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.message {
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.sent {
+    background-color: #dcf8c6;
+    text-align: right;
+}
+.received {
+    background-color: #ebebeb;
+    text-align: left;
+}
