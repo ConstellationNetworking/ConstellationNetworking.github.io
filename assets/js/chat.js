@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageHistory = document.getElementById('message-history');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
-    const otherUserID = document.getElementById('other-user-id').textContent; // Replace with actual ID
+    let otherUserID = null; // This will be set after searching for a user
 
     const auth = firebase.auth();
 
@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         messageText: messageText,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     })
-                    .then(() => {
-                        messageInput.value = '';
-                        console.log(`Message "${messageText}" sent successfully`);
-                    })
-                    .catch(error => {
-                        console.error("Error sending message: ", error);
-                        alert(`Error sending message: ${error}}`)
-                    });
+                        .then(() => {
+                            messageInput.value = '';
+                            console.log(`Message "${messageText}" sent successfully`);
+                        })
+                        .catch(error => {
+                            console.error("Error sending message: ", error);
+                            alert(`Error sending message: ${error}}`)
+                        });
                 }
             };
 
@@ -88,6 +88,87 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '/signin.html';
         }
     });
+    let currentChatUserID = null;
+
+    // Function to update the chat with the new user
+    function updateChat(user) {
+        const targetUser = document.getElementById('target-user');
+        const otherUserIdElem = document.getElementById('other-user-id');
+
+        // Set the name and ID in the chat header
+        targetUser.textContent = user.name; // Assuming 'name' is the field in the user document
+        otherUserIdElem.textContent = user.id;
+
+        // Update the currentChatUserID
+        otherUserID = user.id;
+
+        // Remove existing chat messages
+        document.getElementById('message-history').innerHTML = '';
+
+        // Now, start listening for messages with the new chat
+        startListeningForMessages(otherUserID);
+    }
+
+    // Function to search for a user by email
+    function searchUserByEmail(email) {
+        const usersCollection = firebase.firestore().collection('Users');
+
+        usersCollection.where('email', '==', email).get()
+            .then(snapshot => {
+                if (!snapshot.empty) {
+                    // User found
+                    const userDoc = snapshot.docs[0];
+                    const user = userDoc.data();
+                    user.id = userDoc.id; // Include the doc ID in the user data
+                    updateChat(user);
+                    console.log('User found:', user)
+                } else {
+                    // No user found
+                    console.log('No user found with that email.');
+                    alert('No user found with that email.');
+                }
+            })
+            .catch(error => {
+                console.error("Error searching for user: ", error);
+                alert(`Error searching for user: ${error}`);
+            });
+    }
+
+    document.getElementById('search-user-button').addEventListener('click', () => {
+        const email = document.getElementById('user-search-email').value;
+        searchUserByEmail(email);
+    });
+
+    function startListeningForMessages(otherUserID) {
+        const messagesCollection = db.collection('Messages');
+
+        // Listen for sent messages
+        messagesCollection
+            .where('senderId', '==', auth.currentUser.uid)
+            .where('receiverId', '==', otherUserID)
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        updateChatHistory(change);
+                    }
+                });
+            });
+
+        // Listen for received messages
+        messagesCollection
+            .where('senderId', '==', otherUserID)
+            .where('receiverId', '==', auth.currentUser.uid)
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        updateChatHistory(change);
+                    }
+                });
+            });
+    }
+
 
     // Define the signout function here if needed
     function signout() {
