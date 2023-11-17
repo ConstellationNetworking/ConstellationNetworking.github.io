@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const auth = firebase.auth();
 
+    // Assuming you have an input field with the ID 'user-search-email'
+    const emailSearchInput = document.getElementById('user-search-email');
+    emailSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevents the default behavior of the Enter key
+            searchUserByEmail(emailSearchInput.value);
+        }
+    });
+
+
     auth.onAuthStateChanged(function (user) {
         if (user) {
             console.log('User signed in:', user);
@@ -70,10 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             messageInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevents the default behavior of the Enter key
                     sendMessage();
                 }
             });
+            
 
         } else {
             console.log('User is not signed in');
