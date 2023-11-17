@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     console.log('User found:', user)
+                    alert('Start texting with ' + user.name)
                 } else {
                     // No user found
                     console.log('No user found with that email.');
