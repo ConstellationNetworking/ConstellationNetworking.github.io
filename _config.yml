@@ -1,0 +1,13 @@
+# Site settings
+title: Constellation
+email: work.jerrywu@gmail.com
+description: >- 
+  Constellation is a networking platform designed to connect professionals across various industries. Explore, connect, and grow your network with us.
+baseurl: "" # No subpath needed as we're hosting at the root of the domain
+url: "https://constellationnetworking.github.io" # The base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
