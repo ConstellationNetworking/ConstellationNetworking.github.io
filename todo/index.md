@@ -8,3 +8,4 @@
 - [ ] `#chat.html` - add option to search user by email and start conversation
 - [ ] `#index.html` - change layout
 - [ ] add accounts page
+- [ ] `#chat.html` - <span style="color:red;">fix chat logic not working</span>
