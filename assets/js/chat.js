@@ -7,20 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const auth = firebase.auth();
 
-    const updateChatHistory = (change) => {
-        const message = change.doc.data();
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        if (message.senderId === auth.currentUser.uid) {
-            messageElement.classList.add('sent');
-        } else {
-            messageElement.classList.add('received');
-        }
-        messageElement.textContent = message.messageText;
-        messageHistory.appendChild(messageElement);
-        messageHistory.scrollTop = messageHistory.scrollHeight;
-    };
-
     auth.onAuthStateChanged(function (user) {
         if (user) {
             console.log('User signed in:', user);
@@ -62,16 +48,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         messageText: messageText,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     })
-                        .then(() => {
+                        .then((docRef) => {
                             messageInput.value = '';
                             console.log(`Message "${messageText}" sent successfully`);
+                            // Retrieve the message to get the timestamp
+                            docRef.get().then((doc) => {
+                                if (doc.exists) {
+                                    updateChatHistory({ doc: doc, type: "added" });
+                                }
+                            });
                         })
                         .catch(error => {
                             console.error("Error sending message: ", error);
-                            alert(`Error sending message: ${error}}`)
+                            alert(`Error sending message: ${error}`)
                         });
                 }
             };
+
 
             sendButton.addEventListener('click', sendMessage);
 
@@ -109,6 +102,47 @@ document.addEventListener('DOMContentLoaded', function () {
         startListeningForMessages(otherUserID);
     }
 
+    let messageArray = [];
+
+    const updateChatHistory = (change) => {
+        const message = change.doc.data();
+        // Adding a check for the timestamp, as the server timestamp might be set asynchronously
+        if (message.timestamp) {
+            messageArray.push({
+                timestamp: message.timestamp.toMillis(), // Convert to milliseconds for proper comparison
+                message: message,
+                element: buildMessageElement(message)
+            });
+
+            // Sort messages by timestamp in ascending order
+            messageArray.sort((a, b) => a.timestamp - b.timestamp);
+
+            // Clear existing messages
+            messageHistory.innerHTML = '';
+
+            // Append sorted messages
+            messageArray.forEach(item => {
+                messageHistory.appendChild(item.element);
+            });
+
+            // Scroll to the bottom
+            messageHistory.scrollTop = messageHistory.scrollHeight;
+        }
+    };
+
+
+    function buildMessageElement(message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        if (message.senderId === auth.currentUser.uid) {
+            messageElement.classList.add('sent');
+        } else {
+            messageElement.classList.add('received');
+        }
+        messageElement.textContent = message.messageText;
+        return messageElement;
+    }
+
     // Function to search for a user by email
     function searchUserByEmail(email) {
         const usersCollection = firebase.firestore().collection('Users');
@@ -122,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     console.log('User found:', user)
-                    alert('Start texting with ' + user.name)
+                    alert('Start texting with ' + user.name + '!')
                 } else {
                     // No user found
                     console.log('No user found with that email.');
