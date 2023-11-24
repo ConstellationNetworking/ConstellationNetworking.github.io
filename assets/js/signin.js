@@ -85,7 +85,9 @@ function signup() {
                         name: nameForm,
                         email: emailForm,
                         password: passwordForm,
-                        senderId: user.uid
+                        senderId: user.uid,
+                        profileIMG: '', // url to firebase storage profile pic link
+                        userHistory: {'': ''}
                     })
                         .then(() => {
                             user.sendEmailVerification()
