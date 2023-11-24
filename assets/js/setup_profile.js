@@ -90,72 +90,6 @@ function validateForm() {
             } else {
                 uploadProfilePicture();
             }
-
-            // event.preventDefault();
-            // if (!firebase.storage) {
-            //     console.log('Firebase storage is not available.');
-            //     return;
-            // }
-
-            // // upload profile pic to storage
-            // const file = profilePictureImageInput.files[0];
-
-            // auth.onAuthStateChanged(function (user) {
-            //     if (user) {
-            //         if (file) {
-            //             const reader = new FileReader();
-            //             reader.onload = function (e) {
-            //                 const img = new Image();
-            //                 img.onload = function () {
-            //                     if (img.width === img.height) {
-            //                         const storageRef = firebase.storage().ref();
-            //                         const fileExtension = file.name.split('.').pop();
-            //                         const filename = `${user.uid}.${fileExtension}`
-            //                         const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
-
-            //                         userProfileImageRef.put(file).then((snapshot) => {
-            //                             console.log('Uploaded a profile picture');
-
-            //                             snapshot.ref.getDownloadURL().then((downloadURL) => {
-            //                                 // update profile details
-            //                                 const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
-            //                                 currentUserRef.get().then((doc) => {
-            //                                     if (doc.exists) {
-            //                                         currentUserRef.update({
-            //                                             name: fullNameInput.value,
-            //                                             bio: bioInput.value,
-            //                                             profileIMG: downloadURL
-            //                                         }).then(() => {
-            //                                             window.location.href = '/chat.html';
-            //                                         }).catch((error) => {
-            //                                             alert('Error updating profile. Please try again later.');
-            //                                         })
-            //                                     }
-            //                                 });
-            //                             })
-            //                         })
-            //                     } else {
-            //                         alert('Please upload a square image.')
-            //                     }
-            //                 }
-
-            //                 img.onerror = function () {
-            //                     alert('There was an error reading the image.')
-            //                 }
-
-            //                 img.src = e.target.result;
-            //             };
-
-            //             reader.onerror = function () {
-            //                 console.log('There was an error reading the file.');
-            //             }
-
-            //             reader.readAsDataURL(file);
-            //         } else {
-            //             alert('Please upload a profile picture.')
-            //         }
-            //     }
-            // })
         });
 
     document.getElementById("profile-picture-picker").addEventListener("change", (event) => {
@@ -244,7 +178,7 @@ function submitProfile() {
 function updateUserProfile(downloadURL, auth, db) {
     const fullNameInput = document.getElementById("edit-profile-full-name");
     const bioInput = document.getElementById("bio");
-    
+
     if (auth.currentUser) {
         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
 
@@ -319,50 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     userEmail.value = data.email;
                 }
             });
-
-            // useDefaultButton.addEventListener('click', () => {
-            //     const defaultURL = '/assets/img/default_user.jpeg';
-
-            //     // upload default picture
-            //     const storageRef = firebase.storage().ref();
-            //     const filename = `${user.uid}.jpeg`
-            //     const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
-
-            //     fetch(defaultURL)
-            //         .then(response => response.blob())
-            //         .then(blob => {
-            //             const userProfileImageRef = storageRef.child(`users_profilePic/${user.uid}.jpeg`);
-            //             return userProfileImageRef.put(blob);
-            //         })
-            //         .then(snapshot => {
-            //             console.log('Uploaded default picture')
-
-            //             return snapshot.ref.getDownloadURL();
-            //         })
-            //         .then(downloadURL => {
-            //             const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
-            //             currentUserRef.get().then((doc) => {
-            //                 if (doc.exists) {
-            //                     return currentUserRef.update({
-            //                         name: fullNameInput.value,
-            //                         bio: bioInput.value,
-            //                         profileIMG: downloadURL
-            //                     })
-            //                         .catch((error) => {
-            //                             alert('Error updating profile. Please try again later.');
-            //                         })
-            //                 }
-            //             });
-            //         })
-            //         .then(() => {
-            //             console.log('Updated profile with default image')
-            //             // window.location.href = '/chat.html';
-            //         })
-            //         .catch(error => {
-            //             console.log(error);
-            //             alert('Error setting default picture. Please try again later.');
-            //         })
-            // })
         } else {
             alert('Cannot get current user details. Please sign in first or refresh the page.');
             window.location.href = '/signin.html';
