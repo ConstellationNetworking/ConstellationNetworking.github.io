@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const user = userDoc.data();
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
-                    console.log('User found:', user)
+                    emailSearchInput.value = '';
 
                     // add user to userHistory
                     if (auth.currentUser) {
@@ -334,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     console.log('User found:', user)
+                    emailSearchInput.value = '';
 
                     // add user to userHistory
                     if (auth.currentUser) {
