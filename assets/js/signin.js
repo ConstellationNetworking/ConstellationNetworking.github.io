@@ -52,7 +52,7 @@ function login() {
         .then((userCredential) => {
             console.log('login successful:', userCredential.user);
             // redirect to accounts or perform other actions
-            if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/chat.html'; }
+            if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
         })
         .catch((error) => {
             if (error.code === 'auth/user-not-found') {
@@ -94,7 +94,7 @@ function signup() {
                                 .then(() => {
                                     alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
 
-                                    if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/chat.html'; }
+                                    if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
                                 })
                         })
                         .catch((error) => {
@@ -115,3 +115,19 @@ function signup() {
             }
         })
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login-password').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevents the default behavior of the Enter key
+            login();
+        }
+    });
+
+    document.getElementById('signup-password').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevents the default behavior of the Enter key
+            signup();
+        }
+    });
+})
