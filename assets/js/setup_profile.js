@@ -1,6 +1,18 @@
 import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 
+let useDefaultImageFlag = false;
+
 function validateForm() {
+    let auth = firebase.auth();
+    let db = firebase.firestore();
+
+    const profilePictureImageInput = document.getElementById("profile-picture-picker");
+    const bioInput = document.getElementById("bio");
+    const fullNameInput = document.getElementById("edit-profile-full-name");
+    const useridInput = document.getElementById('edit-profile-userid');
+    const userEmail = document.getElementById('edit-profile-email');
+    const submitButton = document.getElementById('submitButton');
+
     const form =
         document.getElementById("setup-profile-form") ||
         document.getElementById("edit-profile-form");
@@ -54,7 +66,7 @@ function validateForm() {
                 },
                 {
                     rule: "maxLength",
-                    value: 150,
+                    value: 300,
                 },
             ],
             {
@@ -73,30 +85,201 @@ function validateForm() {
             }
         )
         .onSuccess((event) => {
-            const baseUrl = getBaseUrl();
-            const hasProfilePicture =
-                profilePictureImage.src != `${baseUrl}images/default-pfp.jpg`;
-
-            if (hasProfilePicture) {
-                HTMLFormElement.prototype.submit.call(form);
+            if (useDefaultImageFlag) {
+                useDefaultImage();
+            } else {
+                uploadProfilePicture();
             }
+
+            // event.preventDefault();
+            // if (!firebase.storage) {
+            //     console.log('Firebase storage is not available.');
+            //     return;
+            // }
+
+            // // upload profile pic to storage
+            // const file = profilePictureImageInput.files[0];
+
+            // auth.onAuthStateChanged(function (user) {
+            //     if (user) {
+            //         if (file) {
+            //             const reader = new FileReader();
+            //             reader.onload = function (e) {
+            //                 const img = new Image();
+            //                 img.onload = function () {
+            //                     if (img.width === img.height) {
+            //                         const storageRef = firebase.storage().ref();
+            //                         const fileExtension = file.name.split('.').pop();
+            //                         const filename = `${user.uid}.${fileExtension}`
+            //                         const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
+
+            //                         userProfileImageRef.put(file).then((snapshot) => {
+            //                             console.log('Uploaded a profile picture');
+
+            //                             snapshot.ref.getDownloadURL().then((downloadURL) => {
+            //                                 // update profile details
+            //                                 const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+            //                                 currentUserRef.get().then((doc) => {
+            //                                     if (doc.exists) {
+            //                                         currentUserRef.update({
+            //                                             name: fullNameInput.value,
+            //                                             bio: bioInput.value,
+            //                                             profileIMG: downloadURL
+            //                                         }).then(() => {
+            //                                             window.location.href = '/chat.html';
+            //                                         }).catch((error) => {
+            //                                             alert('Error updating profile. Please try again later.');
+            //                                         })
+            //                                     }
+            //                                 });
+            //                             })
+            //                         })
+            //                     } else {
+            //                         alert('Please upload a square image.')
+            //                     }
+            //                 }
+
+            //                 img.onerror = function () {
+            //                     alert('There was an error reading the image.')
+            //                 }
+
+            //                 img.src = e.target.result;
+            //             };
+
+            //             reader.onerror = function () {
+            //                 console.log('There was an error reading the file.');
+            //             }
+
+            //             reader.readAsDataURL(file);
+            //         } else {
+            //             alert('Please upload a profile picture.')
+            //         }
+            //     }
+            // })
         });
 
-    document
-        .getElementById("profile-picture-picker")
-        .addEventListener("change", (event) => {
-            const file = event.target.files[0];
-            const reader = new FileReader();
+    document.getElementById("profile-picture-picker").addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
 
-            reader.addEventListener("load", (event) => {
-                document.querySelector(".profile-picture-picker-image").src =
-                    event.target.result;
+        reader.addEventListener("load", (event) => {
+            document.querySelector(".profile-picture-picker-image").src =
+                event.target.result;
+        });
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+function useDefaultImage() {
+    const storageRef = firebase.storage().ref();
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const defaultURL = '/assets/img/default_user.jpeg';
+    fetch(defaultURL)
+        .then(response => response.blob())
+        .then(blob => {
+            const userProfileImageRef = storageRef.child(`users_profilePic/${auth.currentUser.uid}.jpeg`);
+            return userProfileImageRef.put(blob);
+        })
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(downloadURL => {
+            return db.collection('Users').doc(auth.currentUser.uid).update({
+                profileIMG: downloadURL
             });
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
+        })
+        .then(() => {
+            console.log('Updated profile with default image');
+        })
+        .catch(error => {
+            console.error("Error setting default picture:", error);
+            alert('Error setting default picture. Please try again later.');
         });
+}
+
+function submitProfile() {
+    const profilePictureImageInput = document.getElementById("profile-picture-picker");
+    const bioInput = document.getElementById("bio");
+    const fullNameInput = document.getElementById("edit-profile-full-name");
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // If the user chose to use the default image, trigger that upload
+    if (useDefaultImageFlag) {
+        useDefaultImage(auth, db);
+    } else {
+        // Otherwise, attempt to upload the selected image
+        const file = profilePictureImageInput.files[0];
+        if (file) {
+            // Read the selected image and upon loading, check if it's square
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    if (img.width === img.height) {
+                        // If the image is square, upload it
+                        uploadProfilePicture(file, auth, db);
+                    } else {
+                        alert('Please upload a square image.');
+                    }
+                };
+                img.onerror = function () {
+                    alert('There was an error reading the image.');
+                };
+                img.src = e.target.result;
+            };
+            reader.onerror = function () {
+                alert('There was an error reading the file.');
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Please upload a profile picture.');
+        }
+    }
+}
+
+function updateUserProfile(downloadURL, auth, db) {
+    const fullNameInput = document.getElementById("edit-profile-full-name");
+    const bioInput = document.getElementById("bio");
+    
+    if (auth.currentUser) {
+        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+
+        currentUserRef.update({
+            name: fullNameInput.value,
+            bio: bioInput.value,
+            profileIMG: downloadURL
+        }).then(() => {
+            console.log('Profile updated with new image');
+            window.location.href = '/profile.html';
+        }).catch((error) => {
+            alert('Error updating profile. Please try again later.');
+            console.error("Error updating profile:", error);
+        });
+    } else {
+        console.error("User is not authenticated");
+        alert('User is not authenticated. Please log in and try again.');
+    }
+}
+
+
+function uploadProfilePicture(file, auth, db) {
+    const storageRef = firebase.storage().ref();
+    const fileExtension = file.name.split('.').pop();
+    const filename = `${auth.currentUser.uid}.${fileExtension}`;
+    const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
+
+    userProfileImageRef.put(file).then(snapshot => {
+        return snapshot.ref.getDownloadURL();
+    }).then(downloadURL => {
+        return updateUserProfile(downloadURL, auth, db);
+    }).catch(error => {
+        alert('Error uploading profile picture. Please try again later.');
+        console.error("Error uploading profile picture:", error);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -109,6 +292,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const useridInput = document.getElementById('edit-profile-userid');
     const userEmail = document.getElementById('edit-profile-email');
     const submitButton = document.getElementById('submitButton');
+    const useDefaultButton = document.getElementById('use-default-image');
+
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent form from submitting
+        useDefaultImageFlag = false; // Ensure the flag is reset if the user clicks confirm
+        submitProfile();
+    });
+
+    useDefaultButton.addEventListener('click', () => {
+        useDefaultImageFlag = true; // Set the flag for default image
+        submitProfile(); // Immediately submit with the default image
+    });
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
@@ -124,81 +319,55 @@ document.addEventListener("DOMContentLoaded", () => {
                     userEmail.value = data.email;
                 }
             });
+
+            // useDefaultButton.addEventListener('click', () => {
+            //     const defaultURL = '/assets/img/default_user.jpeg';
+
+            //     // upload default picture
+            //     const storageRef = firebase.storage().ref();
+            //     const filename = `${user.uid}.jpeg`
+            //     const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
+
+            //     fetch(defaultURL)
+            //         .then(response => response.blob())
+            //         .then(blob => {
+            //             const userProfileImageRef = storageRef.child(`users_profilePic/${user.uid}.jpeg`);
+            //             return userProfileImageRef.put(blob);
+            //         })
+            //         .then(snapshot => {
+            //             console.log('Uploaded default picture')
+
+            //             return snapshot.ref.getDownloadURL();
+            //         })
+            //         .then(downloadURL => {
+            //             const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+            //             currentUserRef.get().then((doc) => {
+            //                 if (doc.exists) {
+            //                     return currentUserRef.update({
+            //                         name: fullNameInput.value,
+            //                         bio: bioInput.value,
+            //                         profileIMG: downloadURL
+            //                     })
+            //                         .catch((error) => {
+            //                             alert('Error updating profile. Please try again later.');
+            //                         })
+            //                 }
+            //             });
+            //         })
+            //         .then(() => {
+            //             console.log('Updated profile with default image')
+            //             // window.location.href = '/chat.html';
+            //         })
+            //         .catch(error => {
+            //             console.log(error);
+            //             alert('Error setting default picture. Please try again later.');
+            //         })
+            // })
         } else {
             alert('Cannot get current user details. Please sign in first or refresh the page.');
             window.location.href = '/signin.html';
         }
-    })
+    });
 
-    submitButton.onclick = submitProfile;
 
-    function submitProfile() {
-        event.preventDefault();
-        validateForm();
-
-        if (!firebase.storage) {
-            console.log('Firebase storage is not available.');
-            return;
-        }
-
-        // upload profile pic to storage
-        const file = profilePictureImageInput.files[0];
-
-        auth.onAuthStateChanged(function (user) {
-            if (user) {
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const img = new Image();
-                        img.onload = function() {
-                            if (img.width === img.height) {
-                                const storageRef = firebase.storage().ref();
-                                const fileExtension = file.name.split('.').pop();
-                                const filename = `${user.uid}.${fileExtension}`
-                                const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
-
-                                userProfileImageRef.put(file).then((snapshot) => {
-                                    console.log('Uploaded a profile picture');
-
-                                    snapshot.ref.getDownloadURL().then((downloadURL) => {
-                                        // update profile details
-                                        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
-                                        currentUserRef.get().then((doc) => {
-                                            if (doc.exists) {
-                                                currentUserRef.update({
-                                                    name: fullNameInput.value,
-                                                    bio: bioInput.value,
-                                                    profileIMG: downloadURL
-                                                }).then(() => {
-                                                    window.location.href = '/chat.html';
-                                                }).catch((error) => {
-                                                    alert('Error updating profile. Please try again later.');
-                                                })
-                                            }
-                                        });
-                                    })
-                                })
-                            } else {
-                                alert('Please upload a square image.')
-                            }
-                        }
-
-                        img.onerror = function() {
-                            alert('There was an error reading the image.')
-                        }
-
-                        img.src = e.target.result;
-                    };
-
-                    reader.onerror = function() {
-                        console.log('There was an error reading the file.');
-                    }
-
-                    reader.readAsDataURL(file);
-                } else {
-                    alert('Please upload a profile picture.')
-                }
-            }
-        })
-    }    
 });
