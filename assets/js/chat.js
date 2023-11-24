@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const auth = firebase.auth();
 
-    // Assuming you have an input field with the ID 'user-search-email'
     const emailSearchInput = document.getElementById('user-search-email');
     emailSearchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 const userButton = document.createElement('button');
                                 userButton.className = 'user-button flex items-center';
-                                userButton.id = `user-${userID}`;
+                                userButton.id = `user-${userDetails.senderId}`;
                                 setupUserButtonListener(userButton);                                
 
                                 const userImage = document.createElement('img');
@@ -171,17 +170,11 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '/signin.html';
         }
     });
-    let currentChatUserID = null;
 
-    // Function to update the chat with the new user
     function updateChat(user) {
-        // Update the currentChatUserID
         otherUserID = user.id;
-
-        // Remove existing chat messages
         document.getElementById('message-history').innerHTML = '';
 
-        // Now, start listening for messages with the new chat
         startListeningForMessages(otherUserID);
     }
 
@@ -189,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const updateChatHistory = (change) => {
         const message = change.doc.data();
-        // Adding a check for the timestamp, as the server timestamp might be set asynchronously
         if (message.timestamp) {
             messageArray.push({
                 timestamp: message.timestamp.toMillis(), // Convert to milliseconds for proper comparison
@@ -226,9 +218,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return messageElement;
     }
 
-    // Function to search for a user by email
     function searchUserByEmail(email) {
         const usersCollection = firebase.firestore().collection('Users');
+        const target_user_name = document.getElementById('target-user-name');
 
         usersCollection.where('email', '==', email).get()
             .then(snapshot => {
@@ -239,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     emailSearchInput.value = '';
+                    target_user_name.innerHTML = `Your messages with ${user.name}`
 
                     // add user to userHistory
                     if (auth.currentUser) {
@@ -323,6 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // select chat
     function handleSwitchChat(buttonID) {
         const userID = buttonID.replace('user-', '');
+        const target_user_name = document.getElementById('target-user-name');
 
         if (userID != "ConstellationBot") {
             firebase.firestore().collection('Users').where('senderId', '==', userID).get()
@@ -335,6 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateChat(user);
                     console.log('User found:', user)
                     emailSearchInput.value = '';
+                    target_user_name.innerHTML = `Your messages with ${user.name}`
 
                     // add user to userHistory
                     if (auth.currentUser) {
@@ -415,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
                             const userButton = document.createElement('button');
                             userButton.className = 'user-button flex items-center';
-                            userButton.id = `user-${userID}`;
+                            userButton.id = `user-${userDetails.senderId}`;
                             setupUserButtonListener(userButton);
     
                             const userImage = document.createElement('img');
