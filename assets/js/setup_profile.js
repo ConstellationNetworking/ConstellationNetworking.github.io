@@ -3,9 +3,7 @@ import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 let useDefaultImageFlag = false;
 
 function validateForm() {
-    const form =
-        document.getElementById("setup-profile-form") ||
-        document.getElementById("edit-profile-form");
+    const form = document.getElementById("setup-profile-form") || document.getElementById("edit-profile-form");
 
     new window.JustValidate(`#${form.id}`, {
         errorsContainer: "#errors-container_custom-container",
@@ -125,6 +123,8 @@ function submitProfile() {
     const auth = firebase.auth();
     const db = firebase.firestore();
 
+    document.getElementById('submitButton').innerText = ''
+
     if (useDefaultImageFlag) {
         useDefaultImage(auth, db);
     } else {
@@ -207,14 +207,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const useDefaultButton = document.getElementById('use-default-image');
 
     submitButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent form from submitting
-        useDefaultImageFlag = false; // Ensure the flag is reset if the user clicks confirm
+        event.preventDefault();
+        useDefaultImageFlag = false;
         submitProfile();
     });
 
     useDefaultButton.addEventListener('click', () => {
-        useDefaultImageFlag = true; // Set the flag for default image
-        submitProfile(); // Immediately submit with the default image
+        useDefaultImageFlag = true;
+        submitProfile();
     });
 
     auth.onAuthStateChanged(function (user) {
