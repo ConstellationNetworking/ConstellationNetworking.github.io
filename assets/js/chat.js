@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
     let otherUserID = null; // This will be set after searching for a user
+    const userHistoryListDiv = document.getElementById('userHistoryList');
 
     const auth = firebase.auth();
 
@@ -85,7 +86,71 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
             
+            // get history users
+            const userDocRef = db.collection('Users').doc(user.uid);
+            userDocRef.get().then((doc) => {
+                if (doc.exists) {
+                    const userData = doc.data();
+                    const userHistory = userData.userHistory;
 
+                    userHistoryListDiv.innerHTML = '';
+
+                    for (const [userID, name] of Object.entries(userHistory)) {
+                        db.collection('Users').doc(userID).get().then(userDoc => {
+                            if (userDoc.exists) {
+                                const userDetails = userDoc.data();
+                                const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
+
+                                const listItem = document.createElement('li');
+                                const userDiv = document.createElement('div');
+                                userDiv.className = 'user-history-item';
+
+                                const userButton = document.createElement('button');
+                                userButton.className = 'user-button flex items-center';
+                                userButton.id = `user-${userID}`;
+
+                                const userImage = document.createElement('img');
+                                userImage.src = profileImgURL;
+                                userImage.alt = 'Profile picture of ' + name;
+                                userImage.className = 'rounded-full mr-2';
+                                userImage.width = 50;
+                                userImage.height = 50;
+
+                                const userDetailsDiv = document.createElement('div');
+                                userDetailsDiv.id = 'found-user-details';
+
+                                const userNameP = document.createElement('p');
+                                userNameP.className = 'font-bold';
+                                userNameP.id = 'target-user';
+                                // userNameP.textContent = name + ' (User ID: ' + userID + ')';
+                                userNameP.textContent = name;
+
+                                const userActiveP = document.createElement('p');
+                                userActiveP.className = 'text-green-500';
+                                userActiveP.textContent = 'Active';
+
+                                // Append elements together
+                                userDetailsDiv.appendChild(userNameP);
+                                userDetailsDiv.appendChild(userActiveP);
+
+                                userButton.appendChild(userImage);
+                                userButton.appendChild(userDetailsDiv);
+
+                                userDiv.appendChild(userButton);
+                                listItem.appendChild(userDiv);
+
+                                userHistoryListDiv.appendChild(listItem);
+                            } else {
+                                console.log('User doens\'t exist!')
+                            }
+                        })
+                    }
+                } else {
+                    console.log('No such user found!');
+                }
+            }).catch((error) => {
+                console.log('Error getting user:', error);
+            });
         } else {
             console.log('User is not signed in');
             alert('Please sign in first. You will be directed to a sign in page.');
@@ -96,13 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to update the chat with the new user
     function updateChat(user) {
-        const targetUser = document.getElementById('target-user');
-        const otherUserIdElem = document.getElementById('other-user-id');
-
-        // Set the name and ID in the chat header
-        targetUser.textContent = user.name; // Assuming 'name' is the field in the user document
-        otherUserIdElem.textContent = user.id;
-
         // Update the currentChatUserID
         otherUserID = user.id;
 
@@ -168,6 +226,27 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateChat(user);
                     console.log('User found:', user)
                     alert('Start texting with ' + user.name + '!')
+
+                    // add user to userHistory
+                    if (auth.currentUser) {
+                        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+
+                        currentUserRef.get().then((doc) => {
+                            if (doc.exists) {
+                                const userHistory = doc.data().userHistory || {};
+                                userHistory[user.id] = user.name;
+
+                                currentUserRef.update({
+                                    userHistory: userHistory
+                                }).then(() => {
+                                    console.log('updated userHistory')
+                                    updateUserHistoryList(user.id, user.name, user.profileIMG || 'https://placehold.co/50x50?text=Profile')
+                                }).catch(error => {
+                                    console.error('Error updating userHistory: ', error);
+                                })
+                            }
+                        })
+                    }
                 } else {
                     // No user found
                     console.log('No user found with that email.');
@@ -229,3 +308,77 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 });
+
+function updateUserHistoryList(userID, userName, profileImgURL) {
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    const userHistoryListDiv = document.getElementById('userHistoryList');
+    const userDocRef = db.collection('Users').doc(auth.currentUser.uid);
+    userDocRef.get().then((doc) => {
+        if (doc.exists) {
+            const userData = doc.data();
+            const userHistory = userData.userHistory;
+
+            userHistoryListDiv.innerHTML = '';
+
+            console.log(userHistory)
+
+            for (const [userid, name] of Object.entries(userHistory)) {
+                db.collection('Users').doc(userid).get().then(userDoc => {
+                    if (userDoc.exists) {
+                        const userDetails = userDoc.data();
+                        const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
+
+                        const listItem = document.createElement('li');
+                        const userDiv = document.createElement('div');
+                        userDiv.className = 'user-history-item';
+
+                        const userButton = document.createElement('button');
+                        userButton.className = 'user-button flex items-center';
+                        userButton.id = `user-${userID}`;
+
+                        const userImage = document.createElement('img');
+                        userImage.src = profileImgURL;
+                        userImage.alt = 'Profile picture of ' + name;
+                        userImage.className = 'rounded-full mr-2';
+                        userImage.width = 50;
+                        userImage.height = 50;
+
+                        const userDetailsDiv = document.createElement('div');
+                        userDetailsDiv.id = 'found-user-details';
+
+                        const userNameP = document.createElement('p');
+                        userNameP.className = 'font-bold';
+                        userNameP.id = 'target-user';
+                        // userNameP.textContent = name + ' (User ID: ' + userID + ')';
+                        userNameP.textContent = name;
+
+                        const userActiveP = document.createElement('p');
+                        userActiveP.className = 'text-green-500';
+                        userActiveP.textContent = 'Active';
+
+                        // Append elements together
+                        userDetailsDiv.appendChild(userNameP);
+                        userDetailsDiv.appendChild(userActiveP);
+
+                        userButton.appendChild(userImage);
+                        userButton.appendChild(userDetailsDiv);
+
+                        userDiv.appendChild(userButton);
+                        listItem.appendChild(userDiv);
+
+                        userHistoryListDiv.appendChild(listItem);
+
+                        console.log('updated userHistory success')
+                    } else {
+                        console.log('User doens\'t exist!')
+                    }
+                })
+            }
+        } else {
+            console.log('No such user found!');
+        }
+    }).catch((error) => {
+        console.log('Error getting user:', error);
+    });
+}
