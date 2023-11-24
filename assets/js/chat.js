@@ -93,7 +93,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     const userData = doc.data();
                     const userHistory = userData.userHistory;
 
-                    userHistoryListDiv.innerHTML = '';
+                    userHistoryListDiv.innerHTML = `
+                    <li>
+                        <div class="user-history-item">
+                            <button class="user-button flex items-center" id="user-ConstellationBot">
+                                <img src="/assets/img/constellation_bot.png" width="50" height="50" alt="Profile picture of Constellation Bot" class="rounded-full mr-2">
+                                <div id="found-user-details">
+                                    <p class="font-bold" id="target-user">Constellation Bot</p>
+                                    <p class="text-green-500">Active</p>
+                                </div>
+                            </button>
+                        </div>
+                    </li>
+                    `;
 
                     for (const [userID, name] of Object.entries(userHistory)) {
                         db.collection('Users').doc(userID).get().then(userDoc => {
@@ -108,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 const userButton = document.createElement('button');
                                 userButton.className = 'user-button flex items-center';
                                 userButton.id = `user-${userID}`;
+                                setupUserButtonListener(userButton);                                
 
                                 const userImage = document.createElement('img');
                                 userImage.src = profileImgURL;
@@ -140,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 listItem.appendChild(userDiv);
 
                                 userHistoryListDiv.appendChild(listItem);
+                                setupUserButtonListener(document.getElementById('user-ConstellationBot'));
                             } else {
                                 console.log('User doens\'t exist!')
                             }
@@ -225,7 +239,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     console.log('User found:', user)
-                    alert('Start texting with ' + user.name + '!')
 
                     // add user to userHistory
                     if (auth.currentUser) {
@@ -239,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 currentUserRef.update({
                                     userHistory: userHistory
                                 }).then(() => {
-                                    console.log('updated userHistory')
                                     updateUserHistoryList(user.id, user.name, user.profileIMG || 'https://placehold.co/50x50?text=Profile')
                                 }).catch(error => {
                                     console.error('Error updating userHistory: ', error);
@@ -307,78 +319,147 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Handle sign-out error if needed
             });
     }
+
+    // select chat
+    function handleSwitchChat(buttonID) {
+        const userID = buttonID.replace('user-', '');
+
+        if (userID != "ConstellationBot") {
+            firebase.firestore().collection('Users').where('senderId', '==', userID).get()
+            .then(snapshot => {
+                if (!snapshot.empty) {
+                    // User found
+                    const userDoc = snapshot.docs[0];
+                    const user = userDoc.data();
+                    user.id = userDoc.id; // Include the doc ID in the user data
+                    updateChat(user);
+                    console.log('User found:', user)
+
+                    // add user to userHistory
+                    if (auth.currentUser) {
+                        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+
+                        currentUserRef.get().then((doc) => {
+                            if (doc.exists) {
+                                const userHistory = doc.data().userHistory || {};
+                                userHistory[user.id] = user.name;
+
+                                currentUserRef.update({
+                                    userHistory: userHistory
+                                }).then(() => {
+                                    updateUserHistoryList(user.id, user.name, user.profileIMG || 'https://placehold.co/50x50?text=Profile')
+                                }).catch(error => {
+                                    console.error('Error updating userHistory: ', error);
+                                })
+                            }
+                        })
+                    }
+                } else {
+                    // No user found
+                    console.log('No user found with that email.');
+                    alert('No user found with that email.');
+                }
+            })
+            .catch(error => {
+                console.error("Error searching for user: ", error);
+                alert(`Error searching for user: ${error}`);
+            });
+        } else {
+            // add action for Constellation Bot AI
+        }
+    }
+
+    function setupUserButtonListener(button) {
+        button.addEventListener('click', () => {
+            handleSwitchChat(button.id);
+        });
+    
+    }
+
+    function updateUserHistoryList(userID, userName, profileImgURL) {
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+        const userHistoryListDiv = document.getElementById('userHistoryList');
+        const userDocRef = db.collection('Users').doc(auth.currentUser.uid);
+        userDocRef.get().then((doc) => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const userHistory = userData.userHistory;
+    
+                userHistoryListDiv.innerHTML = `
+                <li>
+                    <div class="user-history-item">
+                        <button class="user-button flex items-center" id="user-ConstellationBot">
+                            <img src="/assets/img/constellation_bot.png" width="50" height="50" alt="Profile picture of Constellation Bot" class="rounded-full mr-2">
+                            <div id="found-user-details">
+                                <p class="font-bold" id="target-user">Constellation Bot</p>
+                                <p class="text-green-500">Active</p>
+                            </div>
+                        </button>
+                    </div>
+                </li>
+                `;
+    
+                console.log(userHistory)
+    
+                for (const [userid, name] of Object.entries(userHistory)) {
+                    db.collection('Users').doc(userid).get().then(userDoc => {
+                        if (userDoc.exists) {
+                            const userDetails = userDoc.data();
+                            const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
+    
+                            const listItem = document.createElement('li');
+                            const userDiv = document.createElement('div');
+                            userDiv.className = 'user-history-item';
+    
+                            const userButton = document.createElement('button');
+                            userButton.className = 'user-button flex items-center';
+                            userButton.id = `user-${userID}`;
+                            setupUserButtonListener(userButton);
+    
+                            const userImage = document.createElement('img');
+                            userImage.src = profileImgURL;
+                            userImage.alt = 'Profile picture of ' + name;
+                            userImage.className = 'rounded-full mr-2';
+                            userImage.width = 50;
+                            userImage.height = 50;
+    
+                            const userDetailsDiv = document.createElement('div');
+                            userDetailsDiv.id = 'found-user-details';
+    
+                            const userNameP = document.createElement('p');
+                            userNameP.className = 'font-bold';
+                            userNameP.id = 'target-user';
+                            // userNameP.textContent = name + ' (User ID: ' + userID + ')';
+                            userNameP.textContent = name;
+    
+                            const userActiveP = document.createElement('p');
+                            userActiveP.className = 'text-green-500';
+                            userActiveP.textContent = 'Active';
+    
+                            // Append elements together
+                            userDetailsDiv.appendChild(userNameP);
+                            userDetailsDiv.appendChild(userActiveP);
+    
+                            userButton.appendChild(userImage);
+                            userButton.appendChild(userDetailsDiv);
+    
+                            userDiv.appendChild(userButton);
+                            listItem.appendChild(userDiv);
+    
+                            userHistoryListDiv.appendChild(listItem);
+                            setupUserButtonListener(document.getElementById('user-ConstellationBot'));
+                        } else {
+                            console.log('User doens\'t exist!')
+                        }
+                    })
+                }
+            } else {
+                console.log('No such user found!');
+            }
+        }).catch((error) => {
+            console.log('Error getting user:', error);
+        });
+    }
 });
 
-function updateUserHistoryList(userID, userName, profileImgURL) {
-    const db = firebase.firestore();
-    const auth = firebase.auth();
-    const userHistoryListDiv = document.getElementById('userHistoryList');
-    const userDocRef = db.collection('Users').doc(auth.currentUser.uid);
-    userDocRef.get().then((doc) => {
-        if (doc.exists) {
-            const userData = doc.data();
-            const userHistory = userData.userHistory;
-
-            userHistoryListDiv.innerHTML = '';
-
-            console.log(userHistory)
-
-            for (const [userid, name] of Object.entries(userHistory)) {
-                db.collection('Users').doc(userid).get().then(userDoc => {
-                    if (userDoc.exists) {
-                        const userDetails = userDoc.data();
-                        const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
-
-                        const listItem = document.createElement('li');
-                        const userDiv = document.createElement('div');
-                        userDiv.className = 'user-history-item';
-
-                        const userButton = document.createElement('button');
-                        userButton.className = 'user-button flex items-center';
-                        userButton.id = `user-${userID}`;
-
-                        const userImage = document.createElement('img');
-                        userImage.src = profileImgURL;
-                        userImage.alt = 'Profile picture of ' + name;
-                        userImage.className = 'rounded-full mr-2';
-                        userImage.width = 50;
-                        userImage.height = 50;
-
-                        const userDetailsDiv = document.createElement('div');
-                        userDetailsDiv.id = 'found-user-details';
-
-                        const userNameP = document.createElement('p');
-                        userNameP.className = 'font-bold';
-                        userNameP.id = 'target-user';
-                        // userNameP.textContent = name + ' (User ID: ' + userID + ')';
-                        userNameP.textContent = name;
-
-                        const userActiveP = document.createElement('p');
-                        userActiveP.className = 'text-green-500';
-                        userActiveP.textContent = 'Active';
-
-                        // Append elements together
-                        userDetailsDiv.appendChild(userNameP);
-                        userDetailsDiv.appendChild(userActiveP);
-
-                        userButton.appendChild(userImage);
-                        userButton.appendChild(userDetailsDiv);
-
-                        userDiv.appendChild(userButton);
-                        listItem.appendChild(userDiv);
-
-                        userHistoryListDiv.appendChild(listItem);
-
-                        console.log('updated userHistory success')
-                    } else {
-                        console.log('User doens\'t exist!')
-                    }
-                })
-            }
-        } else {
-            console.log('No such user found!');
-        }
-    }).catch((error) => {
-        console.log('Error getting user:', error);
-    });
-}
