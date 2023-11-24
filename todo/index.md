@@ -12,4 +12,5 @@ Return to home page [here](https://constellationnetworking.github.io/).
 - [ ] `#index.html` - change layout
 - [ ] add accounts page
 - [x] `#chat.html` - <span style="color:red;">fix chat logic not working</span>
-- [ ] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
+- [x] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
+- [ ] add upload profile picture when creating account feature
