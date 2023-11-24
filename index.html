@@ -1,9 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Constellation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <link rel="stylesheet" href="/assets/css/index.css">
 
     <!-- Bootstrap CSS -->
@@ -15,78 +17,37 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="assets/js/firebase_init.js"></script>
 </head>
-<body>
-
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Constellation</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="https://constellationnetworking.github.io/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/chat.html">Chat</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/todo">Project Roadmap</a>
-                    </li>
-                </ul>
+<body class="bg-stars text-white">
+    <nav class="bg-black bg-opacity-50 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="flex items-center">
+                <i class="fas fa-globe-americas fa-2x"></i>
+                <span class="ml-3 text-xl font-semibold">Constellation</span>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="hover:text-gray-300">Missions</a>
+                <a href="#" class="hover:text-gray-300">Connections</a>
+                <a href="#" class="hover:text-gray-300">Messaging</a>
+                <a href="#" class="hover:text-gray-300">Rewards</a>
+                <div class="relative dropdown">
+                    <button class="hover:text-gray-300">More</button>
+                    <div class="dropdown-menu absolute hidden bg-black bg-opacity-75 text-white py-2 mt-1">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-800">Project Roadmap</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-user-circle fa-lg"></i>
+                    <a href="#" class="hover:text-gray-300">Log In</a>
+                </div>
             </div>
         </div>
     </nav>
-
-    <!-- Main content area -->
-    <div class="container mt-4">
-        <!-- User profile and level -->
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="card">
-                    <img src="assets/img/icon.png" class="card-img-top" alt="Avatar">
-                    <div class="card-body">
-                        <h5 class="card-title">Username</h5>
-                        <p class="card-text">Level: 3 | Tier: II</p>
-                        <p class="card-text">Active missions:</p>
-                        <!-- List of missions -->
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Mission 1</li>
-                            <li class="list-group-item">Mission 2</li>
-                            <li class="list-group-item">Mission 3</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Missions and rewards -->
-            <div class="col-12 col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        Missions & Rewards
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Mission description and reward</li>
-                        <li class="list-group-item">Another mission description and reward</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer mt-5 py-3 bg-light">
-            <div class="container">
-                <span class="text-muted">Constellation is a networking platform designed to connect professionals across various industries. Explore, connect, and grow your network with us.</span>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <header class="py-36 pl-12">
+        <h1 class="text-6xl font-bold mb-4">Welcome to Constellation</h1>
+        <p class="text-xl mb-8 leading-relaxed max-w-lg">
+            Constellation is a networking platform for youth that presents them opportunities to and teaches them to network with peers in a gamified format.
+        </p>
+        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-block">Join Now</a>
+    </header>
 </body>
 </html>
