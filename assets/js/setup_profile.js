@@ -3,23 +3,9 @@ import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 let useDefaultImageFlag = false;
 
 function validateForm() {
-    let auth = firebase.auth();
-    let db = firebase.firestore();
-
-    const profilePictureImageInput = document.getElementById("profile-picture-picker");
-    const bioInput = document.getElementById("bio");
-    const fullNameInput = document.getElementById("edit-profile-full-name");
-    const useridInput = document.getElementById('edit-profile-userid');
-    const userEmail = document.getElementById('edit-profile-email');
-    const submitButton = document.getElementById('submitButton');
-
     const form =
         document.getElementById("setup-profile-form") ||
         document.getElementById("edit-profile-form");
-
-    const profilePictureImage = document.getElementById(
-        "profile-picture-picker-image"
-    );
 
     new window.JustValidate(`#${form.id}`, {
         errorsContainer: "#errors-container_custom-container",
@@ -136,25 +122,19 @@ function useDefaultImage() {
 
 function submitProfile() {
     const profilePictureImageInput = document.getElementById("profile-picture-picker");
-    const bioInput = document.getElementById("bio");
-    const fullNameInput = document.getElementById("edit-profile-full-name");
     const auth = firebase.auth();
     const db = firebase.firestore();
 
-    // If the user chose to use the default image, trigger that upload
     if (useDefaultImageFlag) {
         useDefaultImage(auth, db);
     } else {
-        // Otherwise, attempt to upload the selected image
         const file = profilePictureImageInput.files[0];
         if (file) {
-            // Read the selected image and upon loading, check if it's square
             const reader = new FileReader();
             reader.onload = function (e) {
                 const img = new Image();
                 img.onload = function () {
                     if (img.width === img.height) {
-                        // If the image is square, upload it
                         uploadProfilePicture(file, auth, db);
                     } else {
                         alert('Please upload a square image.');
@@ -188,7 +168,7 @@ function updateUserProfile(downloadURL, auth, db) {
             profileIMG: downloadURL
         }).then(() => {
             console.log('Profile updated with new image');
-            window.location.href = '/profile.html';
+            window.location.href = '/index.html';
         }).catch((error) => {
             alert('Error updating profile. Please try again later.');
             console.error("Error updating profile:", error);
@@ -220,8 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let auth = firebase.auth();
     let db = firebase.firestore();
 
-    const profilePictureImageInput = document.getElementById("profile-picture-picker");
-    const bioInput = document.getElementById("bio");
     const fullNameInput = document.getElementById("edit-profile-full-name");
     const useridInput = document.getElementById('edit-profile-userid');
     const userEmail = document.getElementById('edit-profile-email');
@@ -258,6 +236,4 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = '/signin.html';
         }
     });
-
-
 });
