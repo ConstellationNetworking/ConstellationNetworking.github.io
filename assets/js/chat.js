@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         db.collection('Users').doc(userID).get().then(userDoc => {
                             if (userDoc.exists) {
                                 const userDetails = userDoc.data();
-                                const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
+                                const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
 
                                 const listItem = document.createElement('li');
                                 const userDiv = document.createElement('div');
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 currentUserRef.update({
                                     userHistory: userHistory
                                 }).then(() => {
-                                    updateUserHistoryList(user.id, user.name, user.profileIMG || 'https://placehold.co/50x50?text=Profile')
+                                    updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
                                 }).catch(error => {
                                     console.error('Error updating userHistory: ', error);
                                 })
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 currentUserRef.update({
                                     userHistory: userHistory
                                 }).then(() => {
-                                    updateUserHistoryList(user.id, user.name, user.profileIMG || 'https://placehold.co/50x50?text=Profile')
+                                    updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
                                 }).catch(error => {
                                     console.error('Error updating userHistory: ', error);
                                 })
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     db.collection('Users').doc(userid).get().then(userDoc => {
                         if (userDoc.exists) {
                             const userDetails = userDoc.data();
-                            const profileImgURL = userDetails.profileIMG || 'https://placehold.co/50x50?text=Profile';
+                            const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
     
                             const listItem = document.createElement('li');
                             const userDiv = document.createElement('div');

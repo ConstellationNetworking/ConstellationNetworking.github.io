@@ -94,7 +94,8 @@ function signup() {
                                 .then(() => {
                                     alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
 
-                                    if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
+                                    // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
+                                    window.location = '/setup_profile.html'
                                 })
                         })
                         .catch((error) => {
