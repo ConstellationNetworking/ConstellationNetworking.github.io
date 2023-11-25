@@ -16,3 +16,4 @@ Return to home page [here](https://constellationnetworking.github.io/).
 - [x] add upload profile picture when creating account feature
 - [x] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
 - [ ] `#chat.html` - add AI smart reply from firebase ML
+- [ ] `#setup_profile.js` - fix use default profile picture and confirmation button bug

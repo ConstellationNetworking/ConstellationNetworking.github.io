@@ -13,9 +13,6 @@ function validateForm() {
             "#profile-picture-picker",
             [
                 {
-                    rule: "required",
-                },
-                {
                     rule: "minFilesCount",
                     value: form.id === "edit-profile-form" ? 0 : 1,
                     errorMessage: "Profile picture is required.",
@@ -111,6 +108,7 @@ function useDefaultImage() {
         })
         .then(() => {
             console.log('Updated profile with default image');
+            document.getElementById('submitButton').innerText = 'Confirm'
         })
         .catch(error => {
             console.error("Error setting default picture:", error);
@@ -123,11 +121,11 @@ function submitProfile() {
     const auth = firebase.auth();
     const db = firebase.firestore();
 
-    document.getElementById('submitButton').innerText = ''
-
     if (useDefaultImageFlag) {
         useDefaultImage(auth, db);
     } else {
+        document.getElementById('submitButton').innerText = 'Loading...'
+
         const file = profilePictureImageInput.files[0];
         if (file) {
             const reader = new FileReader();
@@ -149,7 +147,7 @@ function submitProfile() {
                 alert('There was an error reading the file.');
             };
             reader.readAsDataURL(file);
-        } else {
+        } else if (!useDefaultImageFlag) {
             alert('Please upload a profile picture.');
         }
     }
