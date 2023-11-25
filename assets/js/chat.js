@@ -1,5 +1,3 @@
-let unsubscribeCurrentChatListener = null;
-
 document.addEventListener('DOMContentLoaded', function () {
     const db = firebase.firestore();
     const messageHistory = document.getElementById('message-history');
@@ -249,26 +247,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const messagesCollection = db.collection('Messages');
         messageHistory.innerHTML = '';
 
-        if (unsubscribeCurrentChatListener) {
-            unsubscribeCurrentChatListener();
-        }
-
-        unsubscribeCurrentChatListener = db.collection('Messages')
-            .where('senderId', '==', auth.currentUser.uid)
-            .where('receiverId', '==', otherUserID)
-            .orderBy('timestamp', 'asc')
-            .onSnapshot(snapshot => {
-                snapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                        const message = change.doc.data();
-                        const messageElement = buildMessageElement(message);
-                        messageHistory.appendChild(messageElement);
-                    }
-                    // Add any other necessary change handling, such as 'modified' or 'removed'
-                });
-                messageHistory.scrollTop = messageHistory.scrollHeight; // Scroll to the bottom of the chat
-            });
-
         // Listen for sent messages
         messagesCollection
             .where('senderId', '==', auth.currentUser.uid)
@@ -315,11 +293,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const userID = buttonID.replace('user-', '');
         const target_user_name = document.getElementById('target-user-name');
         const messageHistory = document.getElementById('message-history');
-
-        // Unsubscribe from any existing chat listeners to prevent memory leaks and duplication
-        if (unsubscribeCurrentChatListener) {
-            unsubscribeCurrentChatListener();
-        }
 
         messageHistory.innerHTML = '';
 
@@ -369,20 +342,10 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // add action for Constellation Bot AI
         }
-
-        unsubscribeCurrentChatListener = db.collection('Messages')
-            .where('senderId', '==', userID) // and other conditions
-            .onSnapshot(snapshot => {
-                // Processing the snapshot
-                // ...
-            });
-
-        unsubscribeFromMessages = setupMessageListener(userID);
     }
 
 
     function setupMessageListener(otherUserID) {
-        // Return the unsubscribe function from onSnapshot to be able to detach the listener later
         return db.collection('Messages')
             .where('receiverId', '==', auth.currentUser.uid)
             .where('senderId', '==', otherUserID)
