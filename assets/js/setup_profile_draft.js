@@ -3,6 +3,76 @@ import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 let useDefaultImageFlag = false;
 
 function validateForm() {
+    const form = document.getElementById("setup-profile-form") || document.getElementById("edit-profile-form");
+
+    new window.JustValidate(`#${form.id}`, {
+        errorsContainer: "#errors-container_custom-container",
+        validateBeforeSubmitting: true,
+    })
+        .addField(
+            "#profile-picture-picker",
+            [
+                {
+                    rule: "minFilesCount",
+                    value: form.id === "edit-profile-form" ? 0 : 1,
+                    errorMessage: "Profile picture is required.",
+                },
+                {
+                    rule: "maxFilesCount",
+                    value: 1,
+                },
+                {
+                    rule: "files",
+                    value: {
+                        files: {
+                            extensions: ["jpeg", "jpg", "png", "bmp"],
+                            maxSize: 5000000,
+                            minSize: 10000,
+                            types: ["image/jpeg", "image/jpg", "image/png", "image/bmp"],
+                        },
+                    },
+                    errorMessage:
+                        "Invalid image: Max file size 5MB (JPEG, JPG, PNG, BMP).",
+                },
+            ],
+            {
+                errorsContainer: "#errors-container_custom-profile-picture",
+            }
+        )
+        .addField(
+            "#bio",
+            [
+                {
+                    rule: "required",
+                },
+                {
+                    rule: "maxLength",
+                    value: 300,
+                },
+            ],
+            {
+                errorsContainer: "#errors-container_custom-bio",
+            }
+        )
+        .addField(
+            "#edit-profile-full-name",
+            [
+                {
+                    rule: "required",
+                },
+            ],
+            {
+                errorsContainer: "#errors-container_custom-full-name",
+            }
+        )
+        .onSuccess((event) => {
+            if (useDefaultImageFlag) {
+                useDefaultImage();
+            } else {
+                uploadProfilePicture();
+            }
+        });
+
     document.getElementById("profile-picture-picker").addEventListener("change", (event) => {
         const file = event.target.files[0];
         const reader = new FileReader();
