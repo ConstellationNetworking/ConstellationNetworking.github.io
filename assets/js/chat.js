@@ -1,3 +1,5 @@
+let unsubscribeCurrentChatListener = null;
+
 document.addEventListener('DOMContentLoaded', function () {
     const db = firebase.firestore();
     const messageHistory = document.getElementById('message-history');
@@ -22,6 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('User signed in:', user);
 
             const messagesCollection = db.collection('Messages');
+
+            // send message
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
 
             // Listen for sent messages
             messagesCollection
@@ -49,42 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 });
 
-            const sendMessage = () => {
-                const messageText = messageInput.value.trim();
-                if (messageText) {
-                    messagesCollection.add({
-                        senderId: user.uid,
-                        receiverId: otherUserID,
-                        messageText: messageText,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    })
-                        .then((docRef) => {
-                            messageInput.value = '';
-                            console.log(`Message "${messageText}" sent successfully`);
-                            // Retrieve the message to get the timestamp
-                            docRef.get().then((doc) => {
-                                if (doc.exists) {
-                                    updateChatHistory({ doc: doc, type: "added" });
-                                }
-                            });
-                        })
-                        .catch(error => {
-                            console.error("Error sending message: ", error);
-                            alert(`Error sending message: ${error}`)
-                        });
-                }
-            };
-
-
-            sendButton.addEventListener('click', sendMessage);
-
-            messageInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault(); // Prevents the default behavior of the Enter key
-                    sendMessage();
-                }
-            });
-            
             // get history users
             const userDocRef = db.collection('Users').doc(user.uid);
             userDocRef.get().then((doc) => {
@@ -92,71 +67,62 @@ document.addEventListener('DOMContentLoaded', function () {
                     const userData = doc.data();
                     const userHistory = userData.userHistory;
 
-                    userHistoryListDiv.innerHTML = `
-                    <li>
-                        <div class="user-history-item">
-                            <button class="user-button flex items-center" id="user-ConstellationBot">
-                                <img src="/assets/img/constellation_bot.png" width="50" height="50" alt="Profile picture of Constellation Bot" class="rounded-full mr-2">
-                                <div id="found-user-details">
-                                    <p class="font-bold" id="target-user">Constellation Bot</p>
-                                    <p class="text-green-500">Active</p>
-                                </div>
-                            </button>
-                        </div>
-                    </li>
-                    `;
-
                     for (const [userID, name] of Object.entries(userHistory)) {
-                        db.collection('Users').doc(userID).get().then(userDoc => {
-                            if (userDoc.exists) {
-                                const userDetails = userDoc.data();
-                                const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
+                        const existingUserListElement = document.querySelector(`#user-${userID}`);
 
-                                const listItem = document.createElement('li');
-                                const userDiv = document.createElement('div');
-                                userDiv.className = 'user-history-item';
+                        if (!existingUserListElement) {
+                            db.collection('Users').doc(userID).get().then(userDoc => {
+                                if (userDoc.exists) {
+                                    const userDetails = userDoc.data();
+                                    const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
 
-                                const userButton = document.createElement('button');
-                                userButton.className = 'user-button flex items-center';
-                                userButton.id = `user-${userDetails.senderId}`;
-                                setupUserButtonListener(userButton);                                
+                                    const listItem = document.createElement('li');
+                                    const userDiv = document.createElement('div');
+                                    userDiv.className = 'user-history-item';
 
-                                const userImage = document.createElement('img');
-                                userImage.src = profileImgURL;
-                                userImage.alt = 'Profile picture of ' + name;
-                                userImage.className = 'rounded-full mr-2';
-                                userImage.width = 50;
-                                userImage.height = 50;
+                                    const userButton = document.createElement('button');
+                                    userButton.className = 'user-button flex items-center';
+                                    userButton.id = `user-${userDetails.senderId}`;
+                                    setupUserButtonListener(userButton);
 
-                                const userDetailsDiv = document.createElement('div');
-                                userDetailsDiv.id = 'found-user-details';
+                                    const userImage = document.createElement('img');
+                                    userImage.src = profileImgURL;
+                                    userImage.alt = 'Profile picture of ' + name;
+                                    userImage.className = 'rounded-full mr-2';
+                                    userImage.width = 50;
+                                    userImage.height = 50;
 
-                                const userNameP = document.createElement('p');
-                                userNameP.className = 'font-bold';
-                                userNameP.id = 'target-user';
-                                // userNameP.textContent = name + ' (User ID: ' + userID + ')';
-                                userNameP.textContent = name;
+                                    const userDetailsDiv = document.createElement('div');
+                                    userDetailsDiv.id = 'found-user-details';
 
-                                const userActiveP = document.createElement('p');
-                                userActiveP.className = 'text-green-500';
-                                userActiveP.textContent = 'Active';
+                                    const userNameP = document.createElement('p');
+                                    userNameP.className = 'font-bold';
+                                    userNameP.id = 'target-user';
+                                    // userNameP.textContent = name + ' (User ID: ' + userID + ')';
+                                    userNameP.textContent = name;
 
-                                // Append elements together
-                                userDetailsDiv.appendChild(userNameP);
-                                userDetailsDiv.appendChild(userActiveP);
+                                    const userActiveP = document.createElement('p');
+                                    userActiveP.className = 'text-green-500';
+                                    userActiveP.textContent = 'Active';
 
-                                userButton.appendChild(userImage);
-                                userButton.appendChild(userDetailsDiv);
+                                    // Append elements together
+                                    userDetailsDiv.appendChild(userNameP);
+                                    userDetailsDiv.appendChild(userActiveP);
 
-                                userDiv.appendChild(userButton);
-                                listItem.appendChild(userDiv);
+                                    userButton.appendChild(userImage);
+                                    userButton.appendChild(userDetailsDiv);
 
-                                userHistoryListDiv.appendChild(listItem);
-                                setupUserButtonListener(document.getElementById('user-ConstellationBot'));
-                            } else {
-                                console.log('User doens\'t exist!')
-                            }
-                        })
+                                    userDiv.appendChild(userButton);
+                                    listItem.appendChild(userDiv);
+
+                                    userHistoryListDiv.appendChild(listItem);
+                                    setupUserButtonListener(document.getElementById('user-ConstellationBot'));
+                                } else {
+                                    console.log('User doens\'t exist!')
+                                }
+                            })
+                        }
+
                     }
                 } else {
                     console.log('No such user found!');
@@ -170,6 +136,24 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '/signin.html';
         }
     });
+
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText && otherUserID) {
+            const messagesCollection = db.collection('Messages');
+            messagesCollection.add({
+                senderId: auth.currentUser.uid,
+                receiverId: otherUserID,
+                messageText: messageText,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                messageInput.value = '';
+                console.log(`Message sent successfully`);
+            }).catch(error => {
+                console.error("Error sending message: ", error);
+            });
+        }
+    }
 
     function updateChat(user) {
         otherUserID = user.id;
@@ -189,18 +173,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 element: buildMessageElement(message)
             });
 
-            // Sort messages by timestamp in ascending order
             messageArray.sort((a, b) => a.timestamp - b.timestamp);
-
-            // Clear existing messages
             messageHistory.innerHTML = '';
-
-            // Append sorted messages
             messageArray.forEach(item => {
                 messageHistory.appendChild(item.element);
             });
 
-            // Scroll to the bottom
             messageHistory.scrollTop = messageHistory.scrollHeight;
         }
     };
@@ -220,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function searchUserByEmail(email) {
         const usersCollection = firebase.firestore().collection('Users');
-        const target_user_name = document.getElementById('target-user-name');
 
         usersCollection.where('email', '==', email).get()
             .then(snapshot => {
@@ -231,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     user.id = userDoc.id; // Include the doc ID in the user data
                     updateChat(user);
                     emailSearchInput.value = '';
-                    target_user_name.innerHTML = `Your messages with ${user.name}`
 
                     // add user to userHistory
                     if (auth.currentUser) {
@@ -271,6 +247,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function startListeningForMessages(otherUserID) {
         const messagesCollection = db.collection('Messages');
+        messageHistory.innerHTML = '';
+
+        if (unsubscribeCurrentChatListener) {
+            unsubscribeCurrentChatListener();
+        }
+
+        unsubscribeCurrentChatListener = db.collection('Messages')
+            .where('senderId', '==', auth.currentUser.uid)
+            .where('receiverId', '==', otherUserID)
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        const message = change.doc.data();
+                        const messageElement = buildMessageElement(message);
+                        messageHistory.appendChild(messageElement);
+                    }
+                    // Add any other necessary change handling, such as 'modified' or 'removed'
+                });
+                messageHistory.scrollTop = messageHistory.scrollHeight; // Scroll to the bottom of the chat
+            });
 
         // Listen for sent messages
         messagesCollection
@@ -317,138 +314,161 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSwitchChat(buttonID) {
         const userID = buttonID.replace('user-', '');
         const target_user_name = document.getElementById('target-user-name');
+        const messageHistory = document.getElementById('message-history');
+
+        // Unsubscribe from any existing chat listeners to prevent memory leaks and duplication
+        if (unsubscribeCurrentChatListener) {
+            unsubscribeCurrentChatListener();
+        }
+
+        messageHistory.innerHTML = '';
 
         if (userID != "ConstellationBot") {
             firebase.firestore().collection('Users').where('senderId', '==', userID).get()
-            .then(snapshot => {
-                if (!snapshot.empty) {
-                    // User found
-                    const userDoc = snapshot.docs[0];
-                    const user = userDoc.data();
-                    user.id = userDoc.id; // Include the doc ID in the user data
-                    updateChat(user);
-                    console.log('User found:', user)
-                    emailSearchInput.value = '';
-                    target_user_name.innerHTML = `Your messages with ${user.name}`
+                .then(snapshot => {
+                    if (!snapshot.empty) {
+                        // User found
+                        const userDoc = snapshot.docs[0];
+                        const user = userDoc.data();
+                        user.id = userDoc.id; // Include the doc ID in the user data
+                        updateChat(user);
+                        console.log('User found:', user)
+                        emailSearchInput.value = '';
+                        target_user_name.innerHTML = `Your messages with ${user.name}`
+                        messageHistory.innerHTML = '';
 
-                    // add user to userHistory
-                    if (auth.currentUser) {
-                        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+                        // add user to userHistory
+                        if (auth.currentUser) {
+                            const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
 
-                        currentUserRef.get().then((doc) => {
-                            if (doc.exists) {
-                                const userHistory = doc.data().userHistory || {};
-                                userHistory[user.id] = user.name;
+                            currentUserRef.get().then((doc) => {
+                                if (doc.exists) {
+                                    const userHistory = doc.data().userHistory || {};
+                                    userHistory[user.id] = user.name;
 
-                                currentUserRef.update({
-                                    userHistory: userHistory
-                                }).then(() => {
-                                    updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
-                                }).catch(error => {
-                                    console.error('Error updating userHistory: ', error);
-                                })
-                            }
-                        })
+                                    currentUserRef.update({
+                                        userHistory: userHistory
+                                    }).then(() => {
+                                        updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
+                                    }).catch(error => {
+                                        console.error('Error updating userHistory: ', error);
+                                    })
+                                }
+                            })
+                        }
+                    } else {
+                        // No user found
+                        console.log('No user found with that email.');
+                        alert('No user found with that email.');
                     }
-                } else {
-                    // No user found
-                    console.log('No user found with that email.');
-                    alert('No user found with that email.');
-                }
-            })
-            .catch(error => {
-                console.error("Error searching for user: ", error);
-                alert(`Error searching for user: ${error}`);
-            });
+                })
+                .catch(error => {
+                    console.error("Error searching for user: ", error);
+                    alert(`Error searching for user: ${error}`);
+                });
         } else {
             // add action for Constellation Bot AI
         }
+
+        unsubscribeCurrentChatListener = db.collection('Messages')
+            .where('senderId', '==', userID) // and other conditions
+            .onSnapshot(snapshot => {
+                // Processing the snapshot
+                // ...
+            });
+
+        unsubscribeFromMessages = setupMessageListener(userID);
+    }
+
+
+    function setupMessageListener(otherUserID) {
+        // Return the unsubscribe function from onSnapshot to be able to detach the listener later
+        return db.collection('Messages')
+            .where('receiverId', '==', auth.currentUser.uid)
+            .where('senderId', '==', otherUserID)
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        const message = change.doc.data();
+                        const messageElement = buildMessageElement(message);
+                        messageHistory.appendChild(messageElement);
+                    }
+                });
+                // Scroll to the latest message
+                messageHistory.scrollTop = messageHistory.scrollHeight;
+            });
     }
 
     function setupUserButtonListener(button) {
         button.addEventListener('click', () => {
             handleSwitchChat(button.id);
         });
-    
+
     }
 
     function updateUserHistoryList(userID, userName, profileImgURL) {
         const db = firebase.firestore();
         const auth = firebase.auth();
         const userHistoryListDiv = document.getElementById('userHistoryList');
-        const userDocRef = db.collection('Users').doc(auth.currentUser.uid);
-        userDocRef.get().then((doc) => {
+
+        db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
             if (doc.exists) {
                 const userData = doc.data();
                 const userHistory = userData.userHistory;
-    
-                userHistoryListDiv.innerHTML = `
-                <li>
-                    <div class="user-history-item">
-                        <button class="user-button flex items-center" id="user-ConstellationBot">
-                            <img src="/assets/img/constellation_bot.png" width="50" height="50" alt="Profile picture of Constellation Bot" class="rounded-full mr-2">
-                            <div id="found-user-details">
-                                <p class="font-bold" id="target-user">Constellation Bot</p>
-                                <p class="text-green-500">Active</p>
-                            </div>
-                        </button>
-                    </div>
-                </li>
-                `;
-    
-                console.log(userHistory)
-    
-                for (const [userid, name] of Object.entries(userHistory)) {
-                    db.collection('Users').doc(userid).get().then(userDoc => {
-                        if (userDoc.exists) {
-                            const userDetails = userDoc.data();
-                            const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
-    
-                            const listItem = document.createElement('li');
-                            const userDiv = document.createElement('div');
-                            userDiv.className = 'user-history-item';
-    
-                            const userButton = document.createElement('button');
-                            userButton.className = 'user-button flex items-center';
-                            userButton.id = `user-${userDetails.senderId}`;
-                            setupUserButtonListener(userButton);
-    
-                            const userImage = document.createElement('img');
-                            userImage.src = profileImgURL;
-                            userImage.alt = 'Profile picture of ' + name;
-                            userImage.className = 'rounded-full mr-2';
-                            userImage.width = 50;
-                            userImage.height = 50;
-    
-                            const userDetailsDiv = document.createElement('div');
-                            userDetailsDiv.id = 'found-user-details';
-    
-                            const userNameP = document.createElement('p');
-                            userNameP.className = 'font-bold';
-                            userNameP.id = 'target-user';
-                            // userNameP.textContent = name + ' (User ID: ' + userID + ')';
-                            userNameP.textContent = name;
-    
-                            const userActiveP = document.createElement('p');
-                            userActiveP.className = 'text-green-500';
-                            userActiveP.textContent = 'Active';
-    
-                            // Append elements together
-                            userDetailsDiv.appendChild(userNameP);
-                            userDetailsDiv.appendChild(userActiveP);
-    
-                            userButton.appendChild(userImage);
-                            userButton.appendChild(userDetailsDiv);
-    
-                            userDiv.appendChild(userButton);
-                            listItem.appendChild(userDiv);
-    
-                            userHistoryListDiv.appendChild(listItem);
-                            setupUserButtonListener(document.getElementById('user-ConstellationBot'));
-                        } else {
-                            console.log('User doens\'t exist!')
-                        }
-                    })
+
+
+                for (const [userID, name] of Object.entries(userHistory)) {
+                    const existingUserListElement = document.getElementById(`user-${userID}`);
+
+                    if (!existingUserListElement) {
+                        db.collection('Users').doc(userID).get().then(userDoc => {
+                            if (userDoc.exists) {
+                                const userDetails = userDoc.data();
+                                const profileImg = userDetails.profileIMG || '/assets/img/default_user.jpeg';
+
+                                const listItem = document.createElement('li');
+                                listItem.className = 'user-history-item';
+
+                                const userButton = document.createElement('button');
+                                userButton.className = 'user-button flex items-center';
+                                userButton.id = `user-${userID}`;
+
+                                const userImage = document.createElement('img');
+                                userImage.src = profileImg;
+                                userImage.alt = 'Profile picture of ' + name;
+                                userImage.className = 'rounded-full mr-2';
+                                userImage.width = 50;
+                                userImage.height = 50;
+
+                                const userDetailsDiv = document.createElement('div');
+                                userDetailsDiv.id = 'found-user-details';
+
+                                const userNameP = document.createElement('p');
+                                userNameP.className = 'font-bold';
+                                userNameP.textContent = name;
+
+                                const userActiveP = document.createElement('p');
+                                userActiveP.className = 'text-green-500';
+                                userActiveP.textContent = 'Active';
+
+                                userDetailsDiv.appendChild(userNameP);
+                                userDetailsDiv.appendChild(userActiveP);
+
+                                userButton.appendChild(userImage);
+                                userButton.appendChild(userDetailsDiv);
+
+                                listItem.appendChild(userButton);
+
+                                userHistoryListDiv.appendChild(listItem);
+
+                                // Setup button listener after adding to the DOM
+                                setupUserButtonListener(userButton);
+                            } else {
+                                console.log('User doesn\'t exist!');
+                            }
+                        });
+                    }
                 }
             } else {
                 console.log('No such user found!');
@@ -458,4 +478,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
