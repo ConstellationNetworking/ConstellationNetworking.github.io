@@ -6,20 +6,37 @@ body {
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
+    max-width: 40%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    vertical-align: top;
+}
+
+.sent, .received {
+    clear: both; 
 }
 
 .sent {
     margin-left: auto;
+    margin-right: 10px;
     background-color: #3B82F6;
     color: white;
+    text-align: left;
 }
+
 .received {
+    margin-right: auto;
+    margin-left: 10px;
     background-color: #E5E7EB;
     color: black;
+    text-align: left;
 }
+
 .full-height {
-    height: calc(100vh - 6rem); /* Adjusted for padding, header, and bottom space */
-    margin-bottom: 2rem; /* Increased bottom padding */
+    height: calc(100vh - 6rem);
+    margin-bottom: 2rem;
 }
 .user-button {
     width: 100%;

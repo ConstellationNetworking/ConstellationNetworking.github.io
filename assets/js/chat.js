@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const auth = firebase.auth();
     const db = firebase.firestore();
     const messageHistory = document.getElementById('message-history');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
     let otherUserID = null; // This will be set after searching for a user
     const userHistoryListDiv = document.getElementById('userHistoryList');
-
-    const auth = firebase.auth();
+    let currentMessagesListener = null;
 
     const emailSearchInput = document.getElementById('user-search-email');
     emailSearchInput.addEventListener('keydown', (e) => {
@@ -16,6 +16,56 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    function ubsubscribeFromMessages() {
+        if (currentMessagesListener) {
+            currentMessagesListener();
+            currentMessagesListener = null;
+        }
+    }
+
+    function subscribeToMessages(otherUserID) {
+        ubsubscribeFromMessages();
+
+        currentMessagesListener = db.collection('Messages')
+            .where('receiverId', '==', auth.currentUser.uid)
+            .where('senderId', '==', otherUserID)
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        updateChatHistory(change.doc.data());
+                    }
+                });
+            }, error => {
+                console.error("Error getting messages: ", error);
+            });
+
+    }
+
+    function cleanChatHistory() {
+        const messageHistory = document.getElementById('message-history');
+        messageHistory.innerHTML = '';
+    }
+
+    function switchUserChat(otherUserID) {
+        ubsubscribeFromMessages();
+        cleanChatHistory();
+        subscribeToMessages(otherUserID);
+    }
+
+    function updateChatHistory(message) {
+        const messageHistory = document.getElementById('message-history');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        if (message.senderId === auth.currentUser.uid) {
+            messageElement.classList.add('sent');
+        } else {
+            messageElement.classList.add('received');
+        }
+        messageElement.innerHTML = message.messageText;
+        messageHistory.appendChild(messageElement);
+        messageHistory.scrollTop = messageHistory.scrollHeight;
+    }
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
@@ -31,32 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     sendMessage();
                 }
             });
-
-            // Listen for sent messages
-            messagesCollection
-                .where('senderId', '==', user.uid)
-                .where('receiverId', '==', otherUserID)
-                .orderBy('timestamp', 'asc')
-                .onSnapshot(snapshot => {
-                    snapshot.docChanges().forEach(change => {
-                        if (change.type === "added") {
-                            updateChatHistory(change);
-                        }
-                    });
-                });
-
-            // Listen for received messages
-            messagesCollection
-                .where('senderId', '==', otherUserID)
-                .where('receiverId', '==', user.uid)
-                .orderBy('timestamp', 'asc')
-                .onSnapshot(snapshot => {
-                    snapshot.docChanges().forEach(change => {
-                        if (change.type === "added") {
-                            updateChatHistory(change);
-                        }
-                    });
-                });
 
             // get history users
             const userDocRef = db.collection('Users').doc(user.uid);
@@ -162,38 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let messageArray = [];
 
-    const updateChatHistory = (change) => {
-        const message = change.doc.data();
-        if (message.timestamp) {
-            messageArray.push({
-                timestamp: message.timestamp.toMillis(), // Convert to milliseconds for proper comparison
-                message: message,
-                element: buildMessageElement(message)
-            });
-
-            messageArray.sort((a, b) => a.timestamp - b.timestamp);
-            messageHistory.innerHTML = '';
-            messageArray.forEach(item => {
-                messageHistory.appendChild(item.element);
-            });
-
-            messageHistory.scrollTop = messageHistory.scrollHeight;
-        }
-    };
-
-
-    function buildMessageElement(message) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        if (message.senderId === auth.currentUser.uid) {
-            messageElement.classList.add('sent');
-        } else {
-            messageElement.classList.add('received');
-        }
-        messageElement.textContent = message.messageText;
-        return messageElement;
-    }
-
     function searchUserByEmail(email) {
         const usersCollection = firebase.firestore().collection('Users');
 
@@ -255,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
-                        updateChatHistory(change);
+                        updateChatHistory(change.doc.data());
                     }
                 });
             });
@@ -268,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
-                        updateChatHistory(change);
+                        updateChatHistory(change.doc.data());
                     }
                 });
             });
@@ -366,6 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupUserButtonListener(button) {
         button.addEventListener('click', () => {
             handleSwitchChat(button.id);
+            switchUserChat(button.id.replace('user-', ''));
         });
 
     }
