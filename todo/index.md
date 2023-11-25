@@ -13,6 +13,6 @@ Return to home page [here](https://constellationnetworking.github.io/).
 - [ ] add accounts page
 - [x] `#chat.html` - <span style="color:red;">fix chat logic not working</span>
 - [x] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
-- [ ] add upload profile picture when creating account feature
-- [ ] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
+- [x] add upload profile picture when creating account feature
+- [x] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
 - [ ] `#chat.html` - add AI smart reply from firebase ML

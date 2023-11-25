@@ -12,6 +12,8 @@ body {
     word-wrap: break-word;
     word-break: break-word;
     vertical-align: top;
+    width: auto;
+    display: table;
 }
 
 .sent, .received {
