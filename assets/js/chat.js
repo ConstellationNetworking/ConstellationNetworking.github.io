@@ -202,18 +202,34 @@ document.addEventListener('DOMContentLoaded', function () {
                     // add user to userHistory
                     if (auth.currentUser) {
                         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
-
-                        currentUserRef.get().then((doc) => {
-                            if (doc.exists) {
-                                const userHistory = doc.data().userHistory || {};
-                                userHistory[user.id] = user.name;
+                        currentUserRef.get().then((currentUserDoc) => {
+                            if (currentUserDoc.exists) {
+                                const currentUserHistory = currentUserDoc.data().userHistory || {};
+                                currentUserHistory[user.id] = user.name;
 
                                 currentUserRef.update({
-                                    userHistory: userHistory
+                                    userHistory: currentUserHistory
                                 }).then(() => {
                                     updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
                                 }).catch(error => {
                                     console.error('Error updating userHistory: ', error);
+                                })
+
+                                // set other user's history
+                                const otherUserRef = db.collection('Users').doc(otherUserID);
+                                otherUserRef.get().then((otherUserDoc) => {
+                                    if (otherUserDoc.exists) {
+                                        const otherUserHistory = otherUserDoc.data().userHistory || {};
+                                        otherUserHistory[auth.currentUser.uid] = currentUserDoc.data().name;
+
+                                        otherUserRef.update({
+                                            userHistory: otherUserHistory
+                                        }).then(() => {
+                                            // updateUserHistoryList(auth.currentUser.uid, currentUserDoc.data().name, currentUserDoc.data().profileIMG || '/assets/img/default_user.jpeg')
+                                        }).catch(error => {
+                                            console.error('Error updating userHistory: ', error);
+                                        })
+                                    }
                                 })
                             }
                         })
@@ -337,23 +353,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function setupMessageListener(otherUserID) {
-        return db.collection('Messages')
-            .where('receiverId', '==', auth.currentUser.uid)
-            .where('senderId', '==', otherUserID)
-            .orderBy('timestamp', 'asc')
-            .onSnapshot(snapshot => {
-                snapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                        const message = change.doc.data();
-                        const messageElement = buildMessageElement(message);
-                        messageHistory.appendChild(messageElement);
-                    }
-                });
-                // Scroll to the latest message
-                messageHistory.scrollTop = messageHistory.scrollHeight;
-            });
-    }
+    // function setupMessageListener(otherUserID) {
+    //     return db.collection('Messages')
+    //         .where('receiverId', '==', auth.currentUser.uid)
+    //         .where('senderId', '==', otherUserID)
+    //         .orderBy('timestamp', 'asc')
+    //         .onSnapshot(snapshot => {
+    //             snapshot.docChanges().forEach(change => {
+    //                 if (change.type === "added") {
+    //                     const message = change.doc.data();
+    //                     const messageElement = buildMessageElement(message);
+    //                     messageHistory.appendChild(messageElement);
+    //                 }
+    //             });
+    //             // Scroll to the latest message
+    //             messageHistory.scrollTop = messageHistory.scrollHeight;
+    //         });
+    // }
 
     function setupUserButtonListener(button) {
         button.addEventListener('click', () => {
