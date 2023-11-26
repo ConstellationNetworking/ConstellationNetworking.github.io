@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const data = doc.data();
 
                         const profilePictureImage = document.getElementById('current-user-profile-picture');
-                        profilePictureImage.src = data.profileIMG  == "" ? "https://placehold.co/100x100" : userDoc.profileIMG;
+                        profilePictureImage.src = data.profileIMG  == "" ? "https://placehold.co/100x100" : data.profileIMG;
 
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;
