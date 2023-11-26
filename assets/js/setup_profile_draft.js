@@ -124,10 +124,10 @@ function submitProfile() {
     if (useDefaultImageFlag) {
         useDefaultImage(auth, db);
     } else {
-        document.getElementById('submitButton').innerText = 'Loading...'
-
         const file = profilePictureImageInput.files[0];
         if (file) {
+            document.getElementById('submitButton').innerText = 'Loading...'
+            
             const reader = new FileReader();
             reader.onload = function (e) {
                 const img = new Image();

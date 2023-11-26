@@ -1,6 +1,7 @@
 import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 
 let useDefaultImageFlag = false;
+let usedDefaultImage = false;
 
 function validateForm() {
     document.getElementById("profile-picture-picker").addEventListener("change", (event) => {
@@ -38,7 +39,7 @@ function useDefaultImage() {
         })
         .then(() => {
             console.log('Updated profile with default image');
-            document.getElementById('submitButton').innerText = 'Confirm'
+            document.querySelector(".profile-picture-picker-image").src = defaultURL;
         })
         .catch(error => {
             console.error("Error setting default picture:", error);
@@ -54,10 +55,11 @@ function submitProfile() {
     if (useDefaultImageFlag) {
         useDefaultImage(auth, db);
     } else {
-        document.getElementById('submitButton').innerText = 'Loading...'
-
         const file = profilePictureImageInput.files[0];
+        console.log(usedDefaultImage)
         if (file) {
+            document.getElementById('submitButton').innerText = 'loading...'
+
             const reader = new FileReader();
             reader.onload = function (e) {
                 const img = new Image();
@@ -77,7 +79,15 @@ function submitProfile() {
                 alert('There was an error reading the file.');
             };
             reader.readAsDataURL(file);
-        } else if (!useDefaultImageFlag) {
+        } else if (usedDefaultImage) {
+            const defaultURL = '/assets/img/default_user.jpeg';
+            fetch(defaultURL)
+                .then(response => response.blob())
+                .then(blob => {
+                    const defaultFile = new File([blob], `default_user.jpeg`, { type: 'image/jpeg' });
+                    uploadProfilePicture(defaultFile, auth, db);
+                })
+        } else {
             alert('Please upload a profile picture.');
         }
     }
@@ -90,13 +100,19 @@ function updateUserProfile(downloadURL, auth, db) {
     if (auth.currentUser) {
         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
 
+        document.getElementById('submitButton').innerText = 'saving...'
+
         currentUserRef.update({
             name: fullNameInput.value,
             bio: bioInput.value,
             profileIMG: downloadURL
         }).then(() => {
             console.log('Profile updated with new image');
-            window.location.href = '/index.html';
+
+            setTimeout(() => {
+                document.getElementById('submitButton').innerText = 'done!';
+                window.location.href = '/index.html';
+            }, 1000);
         }).catch((error) => {
             alert('Error updating profile. Please try again later.');
             console.error("Error updating profile:", error);
@@ -113,6 +129,8 @@ function uploadProfilePicture(file, auth, db) {
     const fileExtension = file.name.split('.').pop();
     const filename = `${auth.currentUser.uid}.${fileExtension}`;
     const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
+
+    document.getElementById('submitButton').innerText = 'uploading...'
 
     userProfileImageRef.put(file).then(snapshot => {
         return snapshot.ref.getDownloadURL();
@@ -142,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     useDefaultButton.addEventListener('click', () => {
         useDefaultImageFlag = true;
+        usedDefaultImage = true;
         submitProfile();
     });
 
