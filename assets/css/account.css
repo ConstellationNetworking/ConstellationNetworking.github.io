@@ -50,6 +50,19 @@ body {
 }
 
 .user-box:active {
-    background-color: #e2e8f0; /* Lighter shade for feedback */
-    transform: scale(0.98); /* Slight scale down effect */
+    background-color: #e2e8f0;
+    /* Lighter shade for feedback */
+    transform: scale(0.98);
+    /* Slight scale down effect */
+}
+
+.messages-header {
+    margin-bottom: 15px;
+    font-weight: bold;
+    /* Adjust the space as needed */
+}
+
+.user-box:first-child {
+    margin-top: 20px;
+    /* Adds space to the top of the first user box */
 }
