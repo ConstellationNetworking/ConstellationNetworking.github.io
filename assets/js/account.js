@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const data = doc.data();
 
                         const profilePictureImage = document.getElementById('current-user-profile-picture');
-                        profilePictureImage.src = data.profileIMG  == "" ? "https://placehold.co/100x100" : data.profileIMG;
+                        profilePictureImage.src = data.profileIMG  == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
 
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                         const userInfo = `
                             <div class="flex items-center" id="user-${userID}">
-                                <img src="${userDoc.profileIMG  == "" ? "https://placehold.co/100x100" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
+                                <img src="${userDoc.profileIMG  == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
                                 <div>
                                     <div class="font-bold">${userDoc.name}</div>
                                     <div id="chat-user-level" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
