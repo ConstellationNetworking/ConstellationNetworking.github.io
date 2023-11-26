@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <img src="${userDoc.profileIMG  == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
                                 <div>
                                     <div class="font-bold">${userDoc.name}</div>
-                                    <div id="chat-user-level" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
-                                    <div style="font-weight: lighter;">Pts. ${userDoc.points}</div>
+                                    <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
+                                    <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
                                 </div>
                             </div>
                             <div class="relative">
@@ -135,20 +135,27 @@ function updateProgress(userid, progress) {
 
     // update to firebase
     const updateProgressRef = db.collection("Users").doc(userid);
-    updateProgressRef.update({
-        level: percentage / 10
+    updateProgressRef.get().then((doc) => {
+        if (doc.exists) {
+            updateProgressRef.update({
+                level: percentage / 10,
+                points: doc.data().points += 1000
+            })
+                .then(() => {
+                    // console.log("Document successfully updated!");
+                })
+                .catch(error => {
+                    updateProgress(userid, currentProgress - progress);
+                    console.log(error);
+                })
+        
+            // update text
+            const levelText = document.getElementById('chat-user-level-' + userid);
+            levelText.textContent = `Lvl. ${percentage / 10}`;
+            const pointsText = document.getElementById('chat-user-points-' + userid);
+            pointsText.textContent = `Pts. ${doc.data().points += 1000}`;
+        }
     })
-        .then(() => {
-            // console.log("Document successfully updated!");
-        })
-        .catch(error => {
-            updateProgress(userid, currentProgress - progress);
-            console.log(error);
-        })
-
-    // update text
-    const levelText = document.getElementById('chat-user-level');
-    levelText.textContent = `Lvl. ${percentage / 10}`;
 
     return currentProgress;
 }
