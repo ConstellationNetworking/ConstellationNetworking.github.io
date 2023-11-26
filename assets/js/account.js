@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                         const userInfo = `
                             <div class="flex items-center" id="user-${userID}">
-                                <img src="${userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
+                                <img src="${userDoc.profileIMG  == "" ? "https://placehold.co/100x100" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
                                 <div>
                                     <div class="font-bold">${userDoc.name}</div>
                                     <div id="chat-user-level" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
