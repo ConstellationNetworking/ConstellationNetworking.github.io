@@ -1,5 +1,3 @@
-import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
-
 let useDefaultImageFlag = false;
 let usedDefaultImage = false;
 
@@ -122,7 +120,6 @@ function updateUserProfile(downloadURL, auth, db) {
         alert('User is not authenticated. Please log in and try again.');
     }
 }
-
 
 function uploadProfilePicture(file, auth, db) {
     const storageRef = firebase.storage().ref();
