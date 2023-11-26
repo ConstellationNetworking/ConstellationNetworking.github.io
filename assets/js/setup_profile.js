@@ -173,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     fullNameInput.value = data.name;
                     useridInput.value = data.senderId;
                     userEmail.value = data.email;
+                    document.querySelector(".profile-picture-picker-image").src = data.profileIMG;
                 }
             });
         } else {
