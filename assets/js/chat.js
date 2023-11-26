@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // Define the signout function here if needed
+    // signout
     function signout() {
         auth.signOut()
             .then(() => {

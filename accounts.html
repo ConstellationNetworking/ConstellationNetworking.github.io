@@ -2,31 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Account</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
-        .dropdown-menu {
-            display: none;
-        }
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/account.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
 </head>
 <body class="bg-gray-100">
     <div class="max-w-6xl mx-auto p-5">
         <div class="flex justify-between items-center mb-4">
             <div class="flex space-x-4">
-                <div class="font-bold text-xl">Constellation</div>
+                <a href="/index.html"><h1 class="font-bold text-xl">Constellation</h1></a>
                 <div class="flex space-x-2">
                     <a href="#" class="hover:underline">Missions</a>
                     <a href="#" class="hover:underline">Connections</a>
-                    <a href="#" class="hover:underline">Messaging</a>
+                    <a href="/chat.html" class="hover:underline">Messaging</a>
                     <a href="#" class="hover:underline">Rewards</a>
                 </div>
             </div>
@@ -37,8 +32,8 @@
                         <i class="fas fa-user"></i>
                     </button>
                     <div class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                        <a href="/setup_profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                        <a href="#" onclick="signout()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                     </div>
                 </div>
             </div>
@@ -57,63 +52,61 @@
                             <button class="border-2 border-gray-300 rounded-full px-3 py-1">3/5</button>
                         </div>
                     </div>
-                    <div class="border-2 border-dashed rounded-lg p-4 flex justify-between items-center">
+                    <button onclick="addWidget()" class="add-widget-btn border-2 border-dashed rounded-lg p-4 flex justify-between items-center w-full text-left">
                         <div class="font-bold">Add Widgets</div>
-                        <button class="border-2 border-gray-300 rounded-full px-3 py-1">
+                        <span class="border-2 border-gray-300 rounded-full px-3 py-1">
                             <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
+                        </span>
+                    </button>             
                 </div>
             </div>
             <div class="col-span-1">
-                <div class="bg-white p-4 rounded-lg shadow-md mb-4">
-                    <div class="font-bold mb-4">Notifications</div>
-                    <div class="border-2 border-dashed rounded-lg p-4 mb-4">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <div class="font-bold">Messaging</div>
-                                <div class="text-sm">Ryan</div>
-                                <div class="text-sm">Hello, ...</div>
+                <div class="col-span-1">
+
+                    <!-- Profile section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center justify-center">
+                            <div class="border-2 border-dashed rounded-full p-4">
+                                <img src="https://placehold.co/100x100" alt="Placeholder image for user avatar" class="rounded-full">
                             </div>
-                            <button class="border-2 border-gray-300 rounded-full px-3 py-1">0</button>
+                        </div>
+                        <div class="text-center mt-4">
+                            <div class="font-bold">John Doe</div>
+                            <div class="mt-2 p-2 bg-gray-200 rounded-md">
+                                <div class="font-bold">Lvl. 3</div>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-200 rounded-md">
+                                <div>Rep Pts. 50</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <div class="flex items-center justify-center">
-                        <div class="border-2 border-dashed rounded-full p-4">
-                            <img src="https://placehold.co/100x100" alt="Placeholder image for user avatar" class="rounded-full">
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <div class="font-bold">John Doe</div>
-                        <div class="mt-2 p-2 bg-gray-200 rounded-md">
-                            <div class="font-bold">Lvl. 3</div>
-                        </div>
-                        <div class="mt-2 p-2 bg-gray-200 rounded-md">
-                            <div>Rep Pts. 50</div>
+
+                    <!-- Messaging section -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mt-4">
+                        <div class="font-bold mb-4">Messages</div>
+                        <!-- Dynamic user history list will be added here -->
+
+                        <div onclick="clickedChat(this)" class="user-box border-2 border-dashed rounded-lg p-4 flex justify-between items-center mb-4 cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/50x50" alt="User's avatar" class="rounded-full mr-4">
+                                <div>
+                                    <div class="font-bold">Jane Smith</div>
+                                    <div>Lvl. 4</div>
+                                    <div>Rep Pts. 120</div>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <svg class="progress-ring" width="40" height="40">
+                                    <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-jerry"/>
+                                </svg>
+                                <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" id="progress-text-jerry" style="font-size: 0.65rem;">0%</span>
+                            </div>                                
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.querySelector('.dropdown');
-            var dropdownMenu = document.querySelector('.dropdown-menu');
-
-            dropdown.addEventListener('click', function(event) {
-                var isMenuOpen = dropdownMenu.style.display === 'block';
-                dropdownMenu.style.display = isMenuOpen ? 'none' : 'block';
-                event.stopPropagation();
-            });
-
-            document.addEventListener('click', function() {
-                dropdownMenu.style.display = 'none';
-            });
-        });
-    </script>
+    <script src="/assets/js/account.js"></script>
 </body>
 </html>
