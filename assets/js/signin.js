@@ -85,7 +85,7 @@ function signup() {
                         email: emailForm,
                         password: passwordForm,
                         senderId: user.uid,
-                        profileIMG: '', // url to firebase storage profile pic link
+                        profileIMG: '',
                         userHistory: {},
                         level: 0,
                         points: 0
