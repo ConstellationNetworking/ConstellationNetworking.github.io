@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageHistory = document.getElementById('message-history');
     const sendButton = document.getElementById('send-button');
     const messageInput = document.getElementById('message-input');
-    let otherUserID = null; // This will be set after searching for a user
+    let otherUserID = null;
     const userHistoryListDiv = document.getElementById('userHistoryList');
     let currentMessagesListener = null;
 
     const emailSearchInput = document.getElementById('user-search-email');
     emailSearchInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); // Prevents the default behavior of the Enter key
+            e.preventDefault();
             searchUserByEmail(emailSearchInput.value);
         }
     });
@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                     const userNameP = document.createElement('p');
                                     userNameP.className = 'font-bold';
                                     userNameP.id = 'target-user';
-                                    // userNameP.textContent = name + ' (User ID: ' + userID + ')';
                                     userNameP.textContent = name;
 
                                     const userActiveP = document.createElement('p');
@@ -192,14 +191,12 @@ document.addEventListener('DOMContentLoaded', function () {
         usersCollection.where('email', '==', email).get()
             .then(snapshot => {
                 if (!snapshot.empty) {
-                    // User found
                     const userDoc = snapshot.docs[0];
                     const user = userDoc.data();
-                    user.id = userDoc.id; // Include the doc ID in the user data
+                    user.id = userDoc.id;
                     updateChat(user);
                     emailSearchInput.value = '';
 
-                    // add user to userHistory
                     if (auth.currentUser) {
                         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
                         currentUserRef.get().then((currentUserDoc) => {
@@ -225,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         otherUserRef.update({
                                             userHistory: otherUserHistory
                                         }).then(() => {
-                                            // updateUserHistoryList(auth.currentUser.uid, currentUserDoc.data().name, currentUserDoc.data().profileIMG || '/assets/img/default_user.jpeg')
+                                            updateUserHistoryList(auth.currentUser.uid, currentUserDoc.data().name, currentUserDoc.data().profileIMG || '/assets/img/default_user.jpeg') // MARK:- This line was commented out without reason.
                                         }).catch(error => {
                                             console.error('Error updating userHistory: ', error);
                                         })
@@ -235,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                     }
                 } else {
-                    // No user found
                     console.log('No user found with that email.');
                     alert('No user found with that email.');
                 }
@@ -255,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const messagesCollection = db.collection('Messages');
         messageHistory.innerHTML = '';
 
-        // Listen for sent messages
+        // sent messages
         messagesCollection
             .where('senderId', '==', auth.currentUser.uid)
             .where('receiverId', '==', otherUserID)
@@ -268,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-        // Listen for received messages
+        // received messages
         messagesCollection
             .where('senderId', '==', otherUserID)
             .where('receiverId', '==', auth.currentUser.uid)
@@ -288,11 +284,11 @@ document.addEventListener('DOMContentLoaded', function () {
         auth.signOut()
             .then(() => {
                 console.log('User signed out successfully');
-                // Redirect or perform additional actions after sign-out
+                window.location.href = '/signin.html';
             })
             .catch((error) => {
-                console.log('Sign-out error:', error);
-                // Handle sign-out error if needed
+                console.error('Sign-out error:', error);
+                alert(`An error occured while signing out. Please try again or see console for logs.`)
             });
     }
 
@@ -308,10 +304,9 @@ document.addEventListener('DOMContentLoaded', function () {
             firebase.firestore().collection('Users').where('senderId', '==', userID).get()
                 .then(snapshot => {
                     if (!snapshot.empty) {
-                        // User found
                         const userDoc = snapshot.docs[0];
                         const user = userDoc.data();
-                        user.id = userDoc.id; // Include the doc ID in the user data
+                        user.id = userDoc.id;
                         updateChat(user);
                         console.log('User found:', user)
                         emailSearchInput.value = '';
@@ -338,7 +333,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             })
                         }
                     } else {
-                        // No user found
                         console.log('No user found with that email.');
                         alert('No user found with that email.');
                     }
@@ -351,25 +345,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // add action for Constellation Bot AI
         }
     }
-
-
-    // function setupMessageListener(otherUserID) {
-    //     return db.collection('Messages')
-    //         .where('receiverId', '==', auth.currentUser.uid)
-    //         .where('senderId', '==', otherUserID)
-    //         .orderBy('timestamp', 'asc')
-    //         .onSnapshot(snapshot => {
-    //             snapshot.docChanges().forEach(change => {
-    //                 if (change.type === "added") {
-    //                     const message = change.doc.data();
-    //                     const messageElement = buildMessageElement(message);
-    //                     messageHistory.appendChild(messageElement);
-    //                 }
-    //             });
-    //             // Scroll to the latest message
-    //             messageHistory.scrollTop = messageHistory.scrollHeight;
-    //         });
-    // }
 
     function setupUserButtonListener(button) {
         button.addEventListener('click', () => {
@@ -434,7 +409,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 userHistoryListDiv.appendChild(listItem);
 
-                                // Setup button listener after adding to the DOM
                                 setupUserButtonListener(userButton);
                             } else {
                                 console.log('User doesn\'t exist!');
