@@ -1,4 +1,4 @@
-import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
+// import { getBaseUrl } from "/assets/js/helpers/utility_functions.js";
 
 let useDefaultImageFlag = false;
 
