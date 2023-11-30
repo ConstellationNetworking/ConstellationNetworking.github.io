@@ -1,19 +1,20 @@
 ---
 ---
 
-# Constellation
-Return to home page [here](https://constellationnetworking.github.io/).
-
 # Project Roadmap
 
 - [x] `#index.html` - add navbar redirect to login and chat
 - [x] `#index.html` - add project roadmap
 - [x] `#chat.html` - add option to search user by email and start conversation
 - [x] `#index.html` - change layout
-- [ ] add accounts page
+- [x] add accounts page
 - [x] `#chat.html` - <span style="color:red;">fix chat logic not working</span>
 - [x] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
 - [x] add upload profile picture when creating account feature
 - [x] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
-- [ ] `#chat.html` - add AI smart reply from firebase ML
-- [ ] `#setup_profile.js` - fix use default profile picture and confirmation button bug
+- [ ] `#chat.html` - add AI smart reply from firebase ML - OPTIONAL
+- [x] `#setup_profile.js` - fix use default profile picture and confirmation button bug `@Jerry`
+- [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image `@Jerry`
+- [ ] add avatar customization page `@Jerry`
+- [ ] add website logo `@Eileen`
+- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html `@Jerry`
