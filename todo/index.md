@@ -12,9 +12,9 @@
 - [x] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
 - [x] add upload profile picture when creating account feature
 - [x] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
-- [x] `#setup_profile.js` - fix use default profile picture and confirmation button bug `@Jerry`
-- [ ] `#chat.html` - add AI smart reply from firebase ML - OPTIONAL
-- [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image `@Jerry`
-- [ ] add avatar customization page `@Jerry`
-- [ ] add website logo `@Eileen`
-- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html `@Jerry`
+- [x] `#setup_profile.js` - fix use default profile picture and confirmation button bug <mark>@Jerry</mark>
+- [ ] `#chat.html` - <span style="color: orange">add AI smart reply from firebase ML - OPTIONAL</span>
+- [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image <mark>@Jerry</mark>
+- [ ] add avatar customization page <mark>@Jerry</mark
+- [ ] add website logo <mark>@Eileen</mark>
+- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <mark>@Jerry</mark>
