@@ -17,4 +17,4 @@
 - [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image <mark>@Jerry</mark>
 - [ ] add avatar customization page <mark>@Jerry</mark>
 - [ ] add website logo <mark>@Eileen</mark>
-- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-colour: #FFA81F; padding: 2px 4px; background-radius: 4px">@Jerry</span>
+- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-color: #FFA81F; padding: 2px 4px; border-radius: 4px">@Jerry</span>
