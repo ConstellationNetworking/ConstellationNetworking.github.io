@@ -12,9 +12,9 @@
 - [x] `#chat.html` - add logic to button so that when a conversation is selected the chatbox will focus to that conversation
 - [x] add upload profile picture when creating account feature
 - [x] `#chat.html` - <p style="colour: red;">Critical:</p> Fix chat message not syncing to user, chat history messed up
-- [x] `#setup_profile.js` - fix use default profile picture and confirmation button bug <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black; font-weight: bold;">@Jerry</span>
+- [x] `#setup_profile.js` - fix use default profile picture and confirmation button bug <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black;">@Jerry</span>
 - [ ] `#chat.html` - <span style="color: orange">add AI smart reply from firebase ML - OPTIONAL</span>
-- [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black; font-weight: bold;">@Jerry</span>
-- [ ] add avatar customization page <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black; font-weight: bold;">@Jerry</span>
-- [ ] add website logo <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black; font-weight: bold;">@Eileen</span>
-- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black; font-weight: bold;">@Jerry</span>
+- [ ] `#setup_profile.html` - create crop profile image function and remove restriction on square image <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black;">@Jerry</span>
+- [ ] add avatar customization page <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black;">@Jerry</span>
+- [ ] add website logo <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black;">@Eileen</span>
+- [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-color: #E8EAED; padding: 2px 4px; border-radius: 10px; color: black;">@Jerry</span>
