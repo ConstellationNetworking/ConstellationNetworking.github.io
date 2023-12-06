@@ -1,37 +1,17 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #15202b;
-    color: #ffffff;
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-.wrapper {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
+.button {
+    background-color: #4D2FF6;
 }
 
-.left-sidebar,
-.right-sidebar {
-    width: 25%;
-    background-color: #192734;
-    padding: 20px;
+.button:hover {
+    background-color: #6248F6;
+    transition: background-color 0.3s ease-in;
 }
 
-.main-content {
-    width: 50%;
-    border-left: 1px solid #38444d;
-    border-right: 1px solid #38444d;
-    padding: 20px;
+.button:not(:hover) {
+    background-color: #4D2FF6;
+    transition: background-color 0.3s ease-out;   
 }
-
-.profile-section img {
-    width: 100px;
-    border-radius: 50%;
-}
-
-/* Add additional styles for profile details, posts, and right sidebar content */
-
-/* You will need to fine-tune the styles, including fonts, colors, and layouts, based on the design */
