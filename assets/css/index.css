@@ -1,6 +1,3 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-}
 .bg-stars {
     background-image: url('/assets/img/bg.jpg');
     background-size: cover;
@@ -8,4 +5,36 @@ body {
 }
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+body {
+    font-family: 'Infer', sans-serif;
+}
+
+.fullscreen {
+    min-height: 100vh;
+}
+
+.hidden-section {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.shown-section {
+    visibility: visible;
+    position: relative;
+}
+
+
+.transition-section {
+    transition: background-color 0.5s ease;
+}
+
+.white-background {
+    background-color: white;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
