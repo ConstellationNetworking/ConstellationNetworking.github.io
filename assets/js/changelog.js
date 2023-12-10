@@ -1,4 +1,5 @@
 function timeSince(date) {
+    
     const releaseDate = new Date(date);
     const currentDate = new Date();
     const seconds = Math.floor((currentDate - releaseDate) / 1000);
