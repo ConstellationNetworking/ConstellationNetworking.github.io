@@ -1,6 +1,10 @@
+function parseDateAsUTC(dateString) {
+    var parts = dateString.split('-');
+    return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+}
+
 function timeSince(date) {
-    
-    const releaseDate = new Date(date);
+    const releaseDate = parseDateAsUTC(date);
     const currentDate = new Date();
     const seconds = Math.floor((currentDate - releaseDate) / 1000);
 
