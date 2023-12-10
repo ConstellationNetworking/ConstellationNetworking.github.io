@@ -37,7 +37,8 @@ function timeSince(date) {
 
 function formatDate(dateString) {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    const date = parseDateAsUTC(dateString);
+    return date.toLocaleDateString('en-US', options);
 }
 
 function replaceTextWithSpan(element) {
