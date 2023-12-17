@@ -1,8 +1,8 @@
 let userHistory = [];
+const db = firebase.firestore();
+const auth = firebase.auth();
 
 document.addEventListener('DOMContentLoaded', function () {
-    const auth = firebase.auth();
-    const db = firebase.firestore();
     var dropdown = document.querySelector('.dropdown');
     var dropdownMenu = document.querySelector('.dropdown-menu');
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const data = doc.data();
 
                         const profilePictureImage = document.getElementById('current-user-profile-picture');
-                        profilePictureImage.src = data.profileIMG  == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
+                        profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
 
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                         const userInfo = `
                             <div class="flex items-center" id="user-${userID}">
-                                <img src="${userDoc.profileIMG  == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
+                                <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
                                 <div>
                                     <div class="font-bold">${userDoc.name}</div>
                                     <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
@@ -104,13 +104,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             })
+        } else {
+            window.location.href = '/signin.html';
         }
+
+        loadTasks();
     })
 });
 
 function updateProgress(userid, progress) {
-    const db = firebase.firestore();
-
     progress = Math.min(Math.max(progress, 0), 1);
 
     const circle = document.getElementById(`progress-circle-${userid}`);
@@ -148,7 +150,7 @@ function updateProgress(userid, progress) {
                     updateProgress(userid, currentProgress - progress);
                     console.log(error);
                 })
-        
+
             // update text
             const levelText = document.getElementById('chat-user-level-' + userid);
             levelText.textContent = `Lvl. ${percentage / 10}`;
@@ -168,8 +170,7 @@ function getProgress(userid) {
 }
 
 function addWidget() {
-    console.log('Add widget button clicked!');
-    updateProgress('jerry', getProgress('jerry') - 0.1);
+
 }
 
 function clickedChat(element) {
@@ -179,9 +180,6 @@ function clickedChat(element) {
 
 // sign out
 function signout() {
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
     auth.signOut()
         .then(() => {
             console.log('User signed out successfully');
@@ -191,4 +189,95 @@ function signout() {
             console.log('Sign-out error:', error);
             alert('An error occurred. Please try again.')
         });
+}
+
+function addTask() {
+    var inputValue = document.getElementById('newTask').value;
+    
+    if (inputValue.trim() != '') {
+        db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').add({
+            task: inputValue,
+            completed: false,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+            .then(() => {
+                console.log('Task added successfully');
+                document.getElementById('newTask').value = '';
+                loadTasks();
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    } else {
+        alert('Please enter a task.');
+    }
+}
+
+function loadTasks() {
+    db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').onSnapshot((querySnapshot) => {
+        var tasks = '';
+        var totalTasks = 0;
+        var completedTasks = 0;
+
+        querySnapshot.forEach((doc) => {
+            totalTasks++; // Increment total tasks count
+            if (doc.data().completed) {
+                completedTasks++; // Increment completed tasks count
+            }
+
+            tasks += `<li>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 5px;">
+                    <div>
+                        <input type="checkbox" ${doc.data().completed ? 'checked' : ''} 
+                               onchange="updateTaskStatus('${doc.id}', this.checked)" class="form-check-input">
+                        ${doc.data().task}
+                    </div>
+                    <button onclick="deleteTask('${doc.id}', '${doc.data().task}')" style="width: 25px; height: 25px; background-color: red; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                  </svg>
+                    </button>
+                </div>
+            </li>`;
+        });
+
+        document.getElementById('taskList').innerHTML = tasks;
+
+        // Update the task-completed button text
+        document.getElementById('task-completed').textContent = `${completedTasks}/${totalTasks}`;
+    });
+}
+
+
+function updateTaskStatus(taskId, isCompleted) {
+    db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').doc(taskId).update({
+        completed: isCompleted
+    })
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
+        .catch((error) => {
+            console.error("Error updating document: ", error);
+        });
+}
+
+function deleteTask(taskId, task) {
+    if (confirm(`Are you sure you want to delete "${task}"?`)) {
+        db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').doc(taskId).delete()
+            .then(() => {
+                console.log("Document successfully deleted!");
+                loadTasks(); // Refresh the task list
+            })
+            .catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+    }
+}
+
+// task counter toast
+if (document.getElementById('task-completed')) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'));
+    document.getElementById('task-completed').addEventListener('click', () => {
+        toastBootstrap.show();
+    })
 }

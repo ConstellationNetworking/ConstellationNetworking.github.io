@@ -4,28 +4,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropme@latest/dist/cropme.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cropme@latest/dist/cropme.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="/assets/js/firebase_init.js"></script>
 </head>
 
 <body>
-    <div id="container"></div>
-
-    <button onclick="crop()">crop</button>
-    <!-- or use image tag -->
-    <img src="/assets/img/bg.jpg" id="myImage" />
-    <script>
-        // var element = document.getElementById('myImage');
-        // new Cropme(element);
-
-        var image = $('#myImage').cropme();
-        
-        function crop() {
-            image.cropme('crop', {
-            type: 'base64'
-        }).then(function(output) {
-            console.log(output)
-        });
-        }
-    </script>
+    <div>
+        <input type="text" id="newTask">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="taskList" style="list-style-type: none; padding: 0;"></ul>
+    </div>    
 </body>
-
+<script src="/assets/js/draft.js"></script>
 </html>

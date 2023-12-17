@@ -36,10 +36,11 @@ function timeSince(date) {
 }
 
 function formatDate(dateString) {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
     const date = parseDateAsUTC(dateString);
     return date.toLocaleDateString('en-US', options);
 }
+
 
 function replaceTextWithSpan(element) {
     element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function(match, p1) {

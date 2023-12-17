@@ -86,7 +86,7 @@ function submitProfile() {
                     uploadProfilePicture(defaultFile, auth, db);
                 })
         } else {
-            alert('Please upload a profile picture.');
+            alert('Please upload a profile picture, or use default.');
         }
     }
 }

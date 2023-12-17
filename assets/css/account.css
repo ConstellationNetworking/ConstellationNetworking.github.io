@@ -66,3 +66,9 @@ body {
     margin-top: 20px;
     /* Adds space to the top of the first user box */
 }
+
+#toastPlacement {
+    bottom: 1rem; /* Adjust the padding from the bottom */
+    left: 1rem; /* Adjust the padding from the left */
+    z-index: 9999; /* Ensure the toast is above other elements */
+}

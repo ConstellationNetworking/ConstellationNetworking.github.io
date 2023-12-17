@@ -50,7 +50,7 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(emailForm, passwordForm)
         .then((userCredential) => {
             console.log('login successful:', userCredential.user);
-            // redirect to accounts or perform other actions
+            // redirect to accounts page or perform other actions
             if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
         })
         .catch((error) => {
@@ -94,6 +94,16 @@ function signup() {
                             user.sendEmailVerification()
                                 .then(() => {
                                     alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
+
+                                    firebase.firestore().collection('Users').doc(user.uid).collection('Tasks').add({
+                                        task: "Create a new task by typing it above.",
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                                    })
+                                        .then(() => { })
+                                        .catch((error) => {
+                                            console.error(error);
+                                        })
 
                                     // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
                                     window.location = '/setup_profile.html'
