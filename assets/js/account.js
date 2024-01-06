@@ -193,7 +193,7 @@ function signout() {
 
 function addTask() {
     var inputValue = document.getElementById('newTask').value;
-    
+
     if (inputValue.trim() != '') {
         db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').add({
             task: inputValue,
@@ -274,10 +274,25 @@ function deleteTask(taskId, task) {
     }
 }
 
-// task counter toast
-if (document.getElementById('task-completed')) {
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'));
-    document.getElementById('task-completed').addEventListener('click', () => {
-        toastBootstrap.show();
-    })
+// task <Enter> bind
+document.getElementById('newTask').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent form submission
+        addTask();
+    }
+});
+
+function clearAllTasks() {
+    if (confirm('Delete all tasks?')) {
+        db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    doc.ref.delete();
+                });
+                console.log("All tasks deleted.");
+            })
+            .catch((error) => {
+                console.error("Error deleting tasks: ", error);
+            });
+    }
 }
