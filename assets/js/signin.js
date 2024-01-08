@@ -33,11 +33,12 @@ function forgotPassword() {
                     alert('Password reset email sent.');
                 })
                 .catch((error) => {
-                    console.log('Password reset error: ', error);
                     alert('Failed to send reset email. Please try again.')
+                    console.error(error);
                 })
         } else {
             alert('Please enter a valid email address.');
+            console.error('Email address not valid.')
         }
     }
 }
@@ -49,17 +50,20 @@ function login() {
 
     firebase.auth().signInWithEmailAndPassword(emailForm, passwordForm)
         .then((userCredential) => {
-            console.log('login successful:', userCredential.user);
+            console.log('Login successful:', userCredential.user);
+            
             // redirect to accounts page or perform other actions
             if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
         })
         .catch((error) => {
             if (error.code === 'auth/user-not-found') {
                 alert('No user found associated with this email. Please check your email address or create a new account.');
+                console.error('No user found with this email.');
             } else if (error.code === 'auth/wrong-password') {
-                alert('Incorrect password. Please try again.')
+                alert('Incorrect password. Please try again.');
             } else {
-                alert(error)
+                alert(error);
+                console.error(error);
             }
         })
 }
@@ -72,7 +76,7 @@ function signup() {
     firebase.auth().createUserWithEmailAndPassword(emailForm, passwordForm)
         .then((userCredencial) => {
             const user = userCredencial.user;
-            console.log('signup successful:', user);
+            console.log('Signup successful:', user);
             user.updateProfile({
                 displayName: nameForm
             })
@@ -94,6 +98,7 @@ function signup() {
                             user.sendEmailVerification()
                                 .then(() => {
                                     alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
+                                    console.log(`Verification email sent to ${emailForm}`)
 
                                     firebase.firestore().collection('Users').doc(user.uid).collection('Tasks').add({
                                         task: "Create a new task by typing it above.",
@@ -120,10 +125,13 @@ function signup() {
         .catch((error) => {
             if (error.code === 'auth/email-already-in-use') {
                 alert('An account already exists with this email address. Please login or use a different email address.');
+                console.error('Account already exists with this email address.')
             } else if (error.code === 'auth/invalid-email') {
                 alert('Please enter a valid email address.');
+                console.error('Email address not valid.')
             } else {
                 alert(error);
+                console.error(error);
             }
         })
 }

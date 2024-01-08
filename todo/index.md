@@ -18,3 +18,4 @@
 - [ ] add website logo <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Eileen</span>
 - [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Jerry</span>
 - [ ] `#create_avatar.html` - use bootstrap carousel for selecting the avatar options <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Jerry</span>
+- [x] `index.html` - randomize background picture <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Jerry</span>

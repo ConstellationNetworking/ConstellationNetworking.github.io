@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                         updateProgress(userID, userProgressLevel / 10);
                                     } else {
                                         // no user found
-                                        console.log('No user found with that userID.')
+                                        console.error('No user found.')
                                     }
                                 })
                                 .catch(error => {
-                                    console.log('Error getting user:', error);
+                                    console.error('Error getting user:', error);
                                 });
                         }
                     }
@@ -143,19 +143,14 @@ function updateProgress(userid, progress) {
                 level: percentage / 10,
                 points: doc.data().points += 1000
             })
-                .then(() => {
-                    // console.log("Document successfully updated!");
-                })
                 .catch(error => {
                     updateProgress(userid, currentProgress - progress);
                     console.log(error);
                 })
 
             // update text
-            const levelText = document.getElementById('chat-user-level-' + userid);
-            levelText.textContent = `Lvl. ${percentage / 10}`;
-            const pointsText = document.getElementById('chat-user-points-' + userid);
-            pointsText.textContent = `Pts. ${doc.data().points += 1000}`;
+            document.getElementById('chat-user-level-' + userid).textContent = `Lvl. ${percentage / 10}`;
+            document.getElementById('chat-user-points-' + userid).textContent = `Pts. ${doc.data().points += 1000}`;
         }
     })
 
@@ -209,7 +204,7 @@ function addTask() {
                 console.error(error);
             })
     } else {
-        alert('Please enter a task.');
+        alert('Task cannot be blank.');
     }
 }
 
@@ -247,7 +242,6 @@ function loadTasks() {
         document.getElementById('task-completed').textContent = `${completedTasks}/${totalTasks}`;
     });
 }
-
 
 function updateTaskStatus(taskId, isCompleted) {
     db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').doc(taskId).update({

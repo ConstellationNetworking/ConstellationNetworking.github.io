@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (user) {
             console.log('User signed in:', user);
 
-            const messagesCollection = db.collection('Messages');
-
             // send message
             sendButton.addEventListener('click', sendMessage);
             messageInput.addEventListener('keydown', (e) => {
@@ -126,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     userActiveP.className = 'text-green-500';
                                     userActiveP.textContent = 'Active';
 
-                                    // Append elements together
+                                    // Add elements together
                                     userDetailsDiv.appendChild(userNameP);
                                     userDetailsDiv.appendChild(userActiveP);
 
@@ -139,20 +137,19 @@ document.addEventListener('DOMContentLoaded', function () {
                                     userHistoryListDiv.appendChild(listItem);
                                     setupUserButtonListener(document.getElementById('user-ConstellationBot'));
                                 } else {
-                                    console.log('User doens\'t exist!')
+                                    console.error('User doens\'t exist.')
                                 }
                             })
                         }
-
                     }
                 } else {
-                    console.log('No such user found!');
+                    console.error('User not found.');
                 }
             }).catch((error) => {
-                console.log('Error getting user:', error);
+                console.error('Error getting user:', error);
             });
         } else {
-            console.log('User is not signed in');
+            console.error('User is not signed in.');
             alert('Please sign in first. You will be directed to a sign in page.');
             window.location.href = '/signin.html';
         }
@@ -183,8 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
         startListeningForMessages(otherUserID);
     }
 
-    let messageArray = [];
-
     function searchUserByEmail(email) {
         const usersCollection = firebase.firestore().collection('Users');
 
@@ -212,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     console.error('Error updating userHistory: ', error);
                                 })
 
-                                // set other user's history
+                                // set other user's userHistory
                                 const otherUserRef = db.collection('Users').doc(otherUserID);
                                 otherUserRef.get().then((otherUserDoc) => {
                                     if (otherUserDoc.exists) {
@@ -232,13 +227,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                     }
                 } else {
-                    console.log('No user found with that email.');
-                    alert('No user found with that email.');
+                    alert('User not found.');
+                    console.error('User not found.');
                 }
             })
             .catch(error => {
-                console.error("Error searching for user: ", error);
                 alert(`Error searching for user: ${error}`);
+                console.error("Error searching for user: ", error);
             });
     }
 
@@ -278,7 +273,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-
     // signout
     function signout() {
         auth.signOut()
@@ -297,7 +291,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const userID = buttonID.replace('user-', '');
         const target_user_name = document.getElementById('target-user-name');
         const messageHistory = document.getElementById('message-history');
-
         messageHistory.innerHTML = '';
 
         if (userID != "ConstellationBot") {
@@ -333,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             })
                         }
                     } else {
-                        console.log('No user found with that email.');
-                        alert('No user found with that email.');
+                        console.error('User not found.');
+                        alert('User not found.');
                     }
                 })
                 .catch(error => {
@@ -351,7 +344,6 @@ document.addEventListener('DOMContentLoaded', function () {
             handleSwitchChat(button.id);
             switchUserChat(button.id.replace('user-', ''));
         });
-
     }
 
     function updateUserHistoryList(userID, userName, profileImgURL) {
@@ -411,16 +403,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 setupUserButtonListener(userButton);
                             } else {
-                                console.log('User doesn\'t exist!');
+                                console.error('User doesn\'t exist.');
                             }
                         });
                     }
                 }
             } else {
-                console.log('No such user found!');
+                console.error('User not found.');
             }
         }).catch((error) => {
-            console.log('Error getting user:', error);
+            console.error('Error getting user:', error);
         });
     }
 });
