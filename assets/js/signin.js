@@ -45,6 +45,8 @@ function forgotPassword() {
 
 
 function login() {
+    document.getElementById('login-btn').innerText = 'Loading...';
+
     const emailForm = document.getElementById('login-email').value;
     const passwordForm = document.getElementById('login-password').value;
 
@@ -69,6 +71,8 @@ function login() {
 }
 
 function signup() {
+    document.getElementById('signup-btn').innerText = 'Loading...';
+
     const nameForm = document.getElementById('signup-name').value;
     const emailForm = document.getElementById('signup-email').value;
     const passwordForm = document.getElementById('signup-password').value;
@@ -100,6 +104,7 @@ function signup() {
                                     alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
                                     console.log(`Verification email sent to ${emailForm}`)
 
+                                    // tasks init
                                     firebase.firestore().collection('Users').doc(user.uid).collection('Tasks').add({
                                         task: "Create a new task by typing it above.",
                                         completed: false,
@@ -110,8 +115,50 @@ function signup() {
                                             console.error(error);
                                         })
 
-                                    // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
-                                    window.location = '/setup_profile.html'
+                                    // missions init
+                                    let missionID = generateUniqueId();
+                                    let missionRef = firebase.firestore().collection('Users').doc(user.uid).collection('Missions').doc(missionID);
+                                    cardClasses = ['blue', 'green', 'yellow']
+
+                                    missionRef.set({
+                                        title: 'Welcome to your first mission!',
+                                        description: 'This is a sample mission. You can edit it or delete it.',
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                        members: [user.uid],
+                                        tasks: ['Visit your account page to see your tasks.', 'Visit your missions page to see your missions.'],
+                                        progress: 0,
+                                        type: 'Get started',
+                                        missionID: missionID,
+                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+                                    })
+                                    .then(() => { })
+                                    .catch((error) => {
+                                        console.error(error);
+                                    })
+
+                                    let missionID2 = generateUniqueId();
+                                    let missionRef2 = firebase.firestore().collection('Users').doc(user.uid).collection('Missions').doc(missionID2);
+
+                                    missionRef2.set({
+                                        title: 'Creating a todo',
+                                        description: 'Head over to your account and create a todo.',
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                        members: [user.uid],
+                                        tasks: ['Visit your account page to see your tasks.'],
+                                        progress: 0,
+                                        type: 'Get started',
+                                        missionID: missionID2,
+                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+                                    })
+                                    .then(() => {
+                                        // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
+                                        window.location = '/setup_profile.html'
+                                    })
+                                    .catch((error) => {
+                                        console.error(error);
+                                    })
                                 })
                         })
                         .catch((error) => {
@@ -151,3 +198,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 })
+
+function generateUniqueId() {
+    let id = Date.now().toString(36);
+    for(let i = 0; i < 5; i++) {
+        id += Math.random().toString(36).substr(2, 9);
+    }
+    return id;
+}

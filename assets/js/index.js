@@ -1,5 +1,5 @@
 function switchBg() {
-    var images = ['bg.jpg', 'bg1.jpg', 'bg2.jpg', 'bg3.jpg'];
+    var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg'];
     var body = document.getElementById('body');
     var randomImage = images[Math.floor(Math.random() * images.length)];
     body.style.backgroundImage = 'url(/assets/img/index/' + randomImage + ')';

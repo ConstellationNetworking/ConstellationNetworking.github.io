@@ -7,6 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <link rel="stylesheet" href="/assets/css/missions.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen bg-white p-8">
@@ -14,32 +22,18 @@
         <div class="flex">
             <div class="w-64 p-6 mr-6 bg-green-50 rounded-lg">
                 <div class="flex flex-col items-center mb-6">
-                    <img src="https://placehold.co/100x100" alt="Profile picture of a man" class="rounded-full border-4 border-green-300 mb-3">
-                    <h2 class="text-lg font-semibold">Misha Ivanov</h2>
-                    <p class="text-sm text-gray-600">ivanovmisha@gmail.com</p>
+                    <img src="https://placehold.co/100x100" id="currentUser-profile-picture" alt="Profile picture of a man" class="rounded-full border-4 border-green-300 mb-3" width="100" height="100">
+                    <h2 class="text-lg font-semibold" id="currentUser-name"></h2>
+                    <p class="text-sm text-gray-600" id="currentUser-email"></p>
                 </div>
                 <div class="flex flex-col space-y-3">
-                    <button class="flex items-center text-sm font-medium text-gray-700 space-x-2">
-                        <i class="fas fa-pen"></i>
-                        <span>Schedule</span>
+                    <button class="flex items-center text-sm font-medium text-gray-700 space-x-2 bg-green-200 text-green-700 px-3 py-2 rounded" onclick="window.location='/index.html'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg>
+                        <span>Home</span>
                     </button>
                     <button class="flex items-center text-sm font-medium text-gray-700 space-x-2 bg-green-200 text-green-700 px-3 py-2 rounded">
                         <i class="fas fa-book"></i>
-                        <span>My Courses</span>
-                    </button>
-                    <button class="flex items-center text-sm font-medium text-gray-700 space-x-2">
-                        <i class="fas fa-trophy"></i>
-                        <span>My Achievements</span>
-                    </button>
-                    <button class="flex items-center text-sm font-medium text-gray-700 space-x-2">
-                        <i class="fas fa-folder-open"></i>
-                        <span>Projects</span>
-                    </button>
-                </div>
-                <div class="flex items-center justify-center mt-6">
-                    <button class="flex items-center text-blue-600 text-sm space-x-2">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>Contact Teacher</span>
+                        <span>My Missions</span>
                     </button>
                 </div>
             </div>
@@ -51,50 +45,15 @@
                     <div class="flex space-x-4 text-sm font-medium">
                         <button class="text-green-600">All</button>
                         <button class="text-gray-600">Current</button>
-                        <button class="text-gray-600">Planned</button>
+                        <button class="text-gray-600">Incomplete</button>
                         <button class="text-gray-600">Completed</button>
+                        <button onclick="resetMission()" class="text-gray-600">Reset</button>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-6">
-                    <!-- Course Card 1 -->
-                    <div class="bg-blue-100 p-4 rounded-lg">
-                        <img src="https://placehold.co/300x150" alt="Minecraft game screenshot with Python code overlay" class="rounded-lg mb-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="text-sm font-medium text-blue-800">Programming • 9 - 13 years</div>
-                            <i class="fas fa-ellipsis-v text-gray-600"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-1">Minecraft Universe Programming Python</h3>
-                        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
-                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 25%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Course Card 2 -->
-                    <div class="bg-green-100 p-4 rounded-lg">
-                        <img src="https://placehold.co/300x150" alt="Photoshop and Figma logos on a colorful background" class="rounded-lg mb-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="text-sm font-medium text-green-800">Web Design • 13+ years</div>
-                            <i class="fas fa-ellipsis-v text-gray-600"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-1">Web Design Photoshop and Figma</h3>
-                        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
-                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 35%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Course Card 3 -->
-                    <div class="bg-yellow-100 p-4 rounded-lg">
-                        <img src="https://placehold.co/300x150" alt="Python code snippets on a yellow background" class="rounded-lg mb-3">
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="text-sm font-medium text-yellow-800">Programming • 10 - 14 years</div>
-                            <i class="fas fa-ellipsis-v text-gray-600"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-1">Python Programming Basics</h3>
-                        <button class="text-blue-600 text-sm mt-2">Start Course</button>
-                    </div>
-                </div>
+                <div class="grid grid-cols-3 gap-6" id="missions-container"></div>
             </div>
         </div>
     </div>
 </body>
+<script src="/assets/js/missions.js"></script>
 </html>
