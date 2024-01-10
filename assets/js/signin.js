@@ -1,6 +1,7 @@
 var url = new URL(window.location.href);
 var searchParams = new URLSearchParams(url.search);
 var redirectURL = searchParams.get('redirect');
+let db = firebase.firestore();
 
 function showLogin() {
     document.getElementById('signup-name').value = '';
