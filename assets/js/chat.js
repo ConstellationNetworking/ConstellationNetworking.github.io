@@ -26,20 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
     function subscribeToMessages(otherUserID) {
         unbsubscribeFromMessages();
 
-        currentMessagesListener = db.collection('Messages')
-            .where('receiverId', '==', auth.currentUser.uid)
-            .where('senderId', '==', otherUserID)
-            .orderBy('timestamp', 'asc')
-            .onSnapshot(snapshot => {
-                snapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                        updateChatHistory(change.doc.data());
-                    }
-                });
-            }, error => {
-                console.error("Error getting messages: ", error);
-            });
+        // old
+        // currentMessagesListener = db.collection('Messages')
+        //     .where('receiverId', '==', auth.currentUser.uid)
+        //     .where('senderId', '==', otherUserID)
+        //     .orderBy('timestamp', 'asc')
+        //     .onSnapshot(snapshot => {
+        //         snapshot.docChanges().forEach(change => {
+        //             if (change.type === "added") {
+        //                 updateChatHistory(change.doc.data());
+        //             }
+        //         });
+        //     }, error => {
+        //         console.error("Error getting messages: ", error);
+        //     });
 
+        // new test try
+        const messageCollection = db.collection('Messages');
+        
+        messageCollection
+        .where('chatId', '==', getChatId(auth.currentUser.uid, otherUserID))
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                if (change.type === "added") {
+                    updateChatHistory(change.doc.data());
+                }
+            })
+        })
     }
 
     function cleanChatHistory() {
@@ -163,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 senderId: auth.currentUser.uid,
                 receiverId: otherUserID,
                 messageText: messageText,
+                chatId: getChatId(auth.currentUser.uid, otherUserID),
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
                 messageInput.value = '';
@@ -246,18 +261,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const messagesCollection = db.collection('Messages');
         messageHistory.innerHTML = '';
 
-        // sent messages
-        messagesCollection
-            .where('senderId', '==', auth.currentUser.uid)
-            .where('receiverId', '==', otherUserID)
-            .orderBy('timestamp', 'asc')
-            .onSnapshot(snapshot => {
-                snapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                        updateChatHistory(change.doc.data());
-                    }
-                });
-            });
+        // // sent messages
+        // messagesCollection
+        //     .where('senderId', '==', auth.currentUser.uid)
+        //     .where('receiverId', '==', otherUserID)
+        //     .orderBy('timestamp', 'asc')
+        //     .onSnapshot(snapshot => {
+        //         snapshot.docChanges().forEach(change => {
+        //             if (change.type === "added") {
+        //                 updateChatHistory(change.doc.data());
+        //             }
+        //         });
+        //     });
 
         // MARK:- Seems to solve message duplication issue.
         // // received messages
@@ -417,3 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+function getChatId(userId1, userId2) {
+    return [userId1, userId2].sort().join('-');
+}
