@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function ubsubscribeFromMessages() {
+    function unbsubscribeFromMessages() {
         if (currentMessagesListener) {
             currentMessagesListener();
             currentMessagesListener = null;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function subscribeToMessages(otherUserID) {
-        ubsubscribeFromMessages();
+        unbsubscribeFromMessages();
 
         currentMessagesListener = db.collection('Messages')
             .where('receiverId', '==', auth.currentUser.uid)
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function switchUserChat(otherUserID) {
-        ubsubscribeFromMessages();
+        unbsubscribeFromMessages();
         cleanChatHistory();
         subscribeToMessages(otherUserID);
     }
@@ -259,18 +259,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-        // received messages
-        messagesCollection
-            .where('senderId', '==', otherUserID)
-            .where('receiverId', '==', auth.currentUser.uid)
-            .orderBy('timestamp', 'asc')
-            .onSnapshot(snapshot => {
-                snapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                        updateChatHistory(change.doc.data());
-                    }
-                });
-            });
+        // MARK:- Seems to solve message duplication issue.
+        // // received messages
+        // messagesCollection
+        //     .where('senderId', '==', otherUserID)
+        //     .where('receiverId', '==', auth.currentUser.uid)
+        //     .orderBy('timestamp', 'asc')
+        //     .onSnapshot(snapshot => {
+        //         snapshot.docChanges().forEach(change => {
+        //             if (change.type === "added") {
+        //                 updateChatHistory(change.doc.data());
+        //             }
+        //         });
+        //     });
     }
 
     // signout

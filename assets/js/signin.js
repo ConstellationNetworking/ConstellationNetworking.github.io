@@ -116,6 +116,16 @@ function signup() {
                                             console.error(error);
                                         })
 
+                                    db.collection('Users').doc(user.uid).collection('Tasks').add({
+                                        task: "Checkout your new missions at the missions page!",
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                                    })
+                                        .then(() => { })
+                                        .catch((error) => {
+                                            console.error(error);
+                                        })
+
                                     // missions init
                                     let missionID = generateUniqueId();
                                     let missionRef = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID);
@@ -204,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function generateUniqueId() {
     let id = Date.now().toString(36);
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         id += Math.random().toString(36).substr(2, 9);
     }
     return id;

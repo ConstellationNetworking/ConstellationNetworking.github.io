@@ -72,26 +72,26 @@ document.addEventListener('DOMContentLoaded', function () {
                                         const userProgressLevel = userDoc.level // 100;
 
                                         const userInfo = `
-                            <div class="flex items-center" id="user-${userID}">
-                                <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="75" height="75" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
-                                <div>
-                                    <div class="font-bold">${userDoc.name}</div>
-                                    <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
-                                    <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
-                                </div>
-                            </div>
+                                        <div class="flex items-center" id="user-${userID}" style="height: 50px;">
+                                        <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="50" height="50" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
+                                        <div style="font-size: 0.8em;">
+                                            <div class="font-bold">${userDoc.name}</div>
+                                            <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
+                                            <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
+                                        </div>
+                                    </div>
                             <div class="relative">
                                 <svg class="progress-ring" width="40" height="40">
                                     <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
                                 </svg>
-                                <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.65rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
+                                <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
                             </div>
                         `;
 
                                         userBox.innerHTML = userInfo;
                                         userHistoryList.appendChild(userBox);
 
-                                        updateProgress(userID, userProgressLevel / 10);
+                                        // updateProgress(userID, userProgressLevel / 10); // MARK:- Automatically adds lvl and pts to other users in current user's userHistory, can be removed/polished later.
                                     } else {
                                         // no user found
                                         console.error('No user found.')
