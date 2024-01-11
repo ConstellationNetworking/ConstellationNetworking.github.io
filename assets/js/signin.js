@@ -36,10 +36,12 @@ function forgotPassword() {
                 .catch((error) => {
                     alert('Failed to send reset email. Please try again.')
                     console.error(error);
+                    document.getElementById('login-btn').innerText = 'Submit';
                 })
         } else {
             alert('Please enter a valid email address.');
             console.error('Email address not valid.')
+            document.getElementById('login-btn').innerText = 'Submit';
         }
     }
 }
@@ -59,14 +61,18 @@ function login() {
             if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
         })
         .catch((error) => {
+            console.log(error.code)
             if (error.code === 'auth/user-not-found') {
                 alert('No user found associated with this email. Please check your email address or create a new account.');
                 console.error('No user found with this email.');
-            } else if (error.code === 'auth/wrong-password') {
-                alert('Incorrect password. Please try again.');
+                document.getElementById('login-btn').innerText = 'Login';
+            } else if (error.code === 'auth/wrong-password' || error.message.includes('INVALID_LOGIN_CREDENTIALS')) {
+                alert('Incorrect credencials. Please try again.');
+                document.getElementById('login-btn').innerText = 'Login';
             } else {
                 alert(error);
                 console.error(error);
+                document.getElementById('login-btn').innerText = 'Login';
             }
         })
 }
@@ -186,12 +192,15 @@ function signup() {
             if (error.code === 'auth/email-already-in-use') {
                 alert('An account already exists with this email address. Please login or use a different email address.');
                 console.error('Account already exists with this email address.')
+                document.getElementById('login-btn').innerText = 'Sign up';
             } else if (error.code === 'auth/invalid-email') {
                 alert('Please enter a valid email address.');
                 console.error('Email address not valid.')
+                document.getElementById('login-btn').innerText = 'Sign up';
             } else {
                 alert(error);
                 console.error(error);
+                document.getElementById('login-btn').innerText = 'Sign up';
             }
         })
 }

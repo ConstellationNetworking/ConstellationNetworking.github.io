@@ -26,7 +26,7 @@
         </div>
         <div class="flex space-x-6">
             <a href="/chat.html"
-                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Messaging</a>
+                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Chat</a>
             <a href="/changelog.html"
                 class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Changelog</a>
             <a href="/account.html"
@@ -52,14 +52,19 @@
     <!-- Footer -->
     <div class="footer absolute bottom-0 left-0 right-0 p-8">
         <div class="flex justify-between items-center">
-            <!-- Social Links -->
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                    <i class="fab fa-twitter"></i>
-                </a>
+            <!-- Social Links and Citation -->
+            <div class="flex flex-col">
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+
+                <!-- Citation Text -->
+                <p class="photo-citation" id="photo-citation">Photo by John Doe on Unsplash</p>
             </div>
 
             <div class="flex items-center">
@@ -73,7 +78,7 @@
                     </div>
                     <div class="text-center">
                         <h2 class="text-xs uppercase tracking-widest mb-1">My missions</h2>
-                        <button onclick="window.location='/missions.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">Learn more</button>
+                        <button onclick="window.location='/missions.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">View</button>
                     </div>
                 </div>
             </div>

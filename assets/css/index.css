@@ -11,3 +11,9 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+.photo-citation {
+    color: grey;
+    font-size: 0.4em; /* Adjust this value to make the text smaller or larger */
+    padding-top: 5px;
+}
