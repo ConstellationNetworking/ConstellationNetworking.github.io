@@ -1,3 +1,6 @@
+let db = firebase.firestore();
+let auth = firebase.auth();
+
 function switchBg() {
     var images = {
         'bg1.jpg': 'Joshua Earle',
@@ -35,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const join_link = document.getElementById('join-link');
 
         if (user) {
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+            
             accountManagementLink.onclick = function () { firebase.auth().signOut() }
             accountManagementText.innerText = 'Log Out';
 
@@ -48,5 +57,4 @@ document.addEventListener('DOMContentLoaded', function () {
             join_link.onclick = function () { window.location = '/signin.html' };
         }
     });
-
 });

@@ -1,3 +1,6 @@
+let db = firebase.firestore();
+let auth = firebase.auth();
+
 document.addEventListener('DOMContentLoaded', function () {
     const auth = firebase.auth();
     const db = firebase.firestore();
@@ -83,7 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
-            console.log('User signed in:', user);
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
 
             // send message
             sendButton.addEventListener('click', sendMessage);

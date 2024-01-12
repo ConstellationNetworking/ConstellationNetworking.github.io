@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // console.log('User signed in:', user);
 
             const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
 
             userRef.get().then((doc) => {
                 if (doc.exists) {

@@ -103,7 +103,8 @@ function signup() {
                         profileIMG: '',
                         userHistory: {},
                         level: 0,
-                        points: 0
+                        points: 0,
+                        lastActive: firebase.firestore.FieldValue.serverTimestamp(),
                     })
                         .then(() => {
                             user.sendEmailVerification()

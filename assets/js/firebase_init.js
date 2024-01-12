@@ -7,3 +7,7 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+firebase.firestore().collection('Statistics').doc('website-views').set({
+    views: firebase.firestore.FieldValue.increment(1)
+}, { merge: true })

@@ -1,3 +1,5 @@
+let db = firebase.firestore();
+let auth = firebase.auth();
 let useDefaultImageFlag = false;
 let usedDefaultImage = false;
 
@@ -164,6 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
     auth.onAuthStateChanged(function (user) {
         if (user) {
             validateForm();
+
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
 
             const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
             currentUserRef.get().then((doc) => {

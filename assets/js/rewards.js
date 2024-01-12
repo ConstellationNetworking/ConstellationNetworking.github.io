@@ -4,6 +4,12 @@ let auth = firebase.auth();
 document.addEventListener("DOMContentLoaded", function () {
     auth.onAuthStateChanged(function (user) {
         if (user) {
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+            
             db.collection('Users').doc(auth.currentUser.uid).get()
                 .then((doc) => {
                     if (doc.exists) {
