@@ -11,7 +11,7 @@ Constellation reimagines student networking by blending education and technology
 
 <details open><summary>Table of Contents 📚</summary>
 
-1. [Introduction](https://github.com/ConstellationNetworking/ConstellationNetworking.github.io/blob/#introduction-)
+1. [Introduction](https://github.com/ConstellationNetworking/ConstellationNetworking.github.io#introduction-)
 2. [Problem Statement](https://github.com/ConstellationNetworking/ConstellationNetworking.github.io#problem-statement-)
 3. [Validation](https://github.com/ConstellationNetworking/ConstellationNetworking.github.io#validation-)
 4. [Solution](https://github.com/ConstellationNetworking/ConstellationNetworking.github.io#solution-)
