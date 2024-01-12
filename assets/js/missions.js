@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             userRef.set({
                 lastActive: lastActive
             }, { merge: true });
-            
+
             db.collection('Users').doc(auth.currentUser.uid).get()
                 .then((doc) => {
                     if (doc.exists) {
@@ -29,6 +29,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     displayMissions(mission);
                 })
             })
+
+            // update the user's mission for finishing the task
+            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const tasks = doc.data().tasks || {};
+                    tasks['Visit your missions page to see your missions.'] = true;
+
+                    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
+                        .then(() => {
+                            fetchMissions().then(renderMission);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                });
+            })
+            .catch((error) => {
+                console.error('Error getting mission:', error);
+            });
+        } else {
+            window.location.href = '/signin.html';
         }
     });
 });
@@ -77,12 +99,13 @@ function openMission(mission) {
             <li>
                 <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 5px;">
                     <div>
-                        <input type="checkbox" class="form-check-input" ${isCompleted ? 'checked' : ''} onclick="toggleTaskCompletion('${missionData.missionID}', '${task}', this.checked)">
+                        <input type="checkbox" class="form-check-input" ${isCompleted ? 'checked' : ''}>
                         ${task}
                     </div>
                 </div>
             </li>
         `).join('');
+        // onclick="toggleTaskCompletion('${missionData.missionID}', '${task}', this.checked)" for the input
 
         missionCard.style.display = 'flex';
         missionCard.style.flexDirection = 'column';
@@ -90,7 +113,8 @@ function openMission(mission) {
 
         mission = JSON.parse(missionCard.dataset.mission)
 
-        missionCard.innerHTML = `
+        if (mission.completed) {
+            missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
@@ -107,7 +131,7 @@ function openMission(mission) {
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-            <button type="button" onclick="toggleMissionCompletion('${mission.missionID}')" class="btn btn-outline-primary">${mission.completed ? 'Mark as incomplete' : 'Mark as complete'}</button>
+            <button type="button" onclick="toggleMissionCompletion('${mission.missionID}')" class="btn btn-outline-primary">Mark as incomplete</button>
             <button style="margin-left: 5;" type="button" class="btn btn-outline-danger" onclick="deleteMission('${mission.missionID}')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
@@ -115,6 +139,32 @@ function openMission(mission) {
             </button>
         </div>
         `
+        } else {
+            missionCard.innerHTML = `
+        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full progress-bar" style="width: ${mission.progress}%"></div>
+        </div>
+        <p style="padding-top: 20px;">${mission.description}</p>
+
+        <div>
+            <h4 style="padding-top: 20px; font-weight: bold;">Tasks:</h4>
+            <ul id="taskList" style="list-style-type: none; padding: 10px">${tasksList}</ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <button style="margin-left: 5;" type="button" class="btn btn-outline-danger" onclick="deleteMission('${mission.missionID}')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                </svg>
+            </button>
+        </div>
+        `
+        }
 
         // Add tasksList to missionCard
         const taskListContainer = missionCard.querySelector('#taskList');
@@ -269,7 +319,7 @@ function resetMission() {
         completed: false,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         members: [auth.currentUser.uid],
-        tasks: { 'Visit your account page to see your tasks.': false, 'Visit your missions page to see your missions.': false },
+        tasks: { 'Visit your missions page to see your missions.': false, 'Edit your avatar.': false },
         progress: 0,
         type: 'Get started',
         missionID: missionID,
@@ -290,7 +340,7 @@ function resetMission() {
             completed: false,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             members: [auth.currentUser.uid],
-            tasks: { 'Visit your account page to see your tasks.': false },
+            tasks: { 'Create a new todo.': false },
             progress: 0,
             type: 'Get started',
             missionID: missionID2,

@@ -26,3 +26,12 @@ body {
     padding-left: 2rem;
     margin-bottom: 2rem;
 }
+
+.member-btn:hover {
+    transform: scale(1.1);
+}
+
+.member-btn {
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+}

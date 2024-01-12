@@ -105,6 +105,7 @@ function signup() {
                         level: 0,
                         points: 0,
                         lastActive: firebase.firestore.FieldValue.serverTimestamp(),
+                        isAdmin: false
                     })
                         .then(() => {
                             user.sendEmailVerification()
@@ -165,7 +166,7 @@ function signup() {
                                             completed: false,
                                             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                                             members: [user.uid],
-                                            tasks: { 'Visit your account page to see your tasks.': false },
+                                            tasks: { 'Create a new todo.': false },
                                             progress: 0,
                                             type: 'Get started',
                                             missionID: missionID2,

@@ -10,20 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .where('lastActive', '>=', lastMonth)
             .get()
             .then(querySnapshot => {
-                document.getElementById('monthly-active-users').innerText = querySnapshot.size.toLocaleString();
+                animateValue('monthly-active-users', 0, querySnapshot.size, 700)
             });
 
-        db.collection('Messages')
-            .get()
-            .then(querySnapshot => {
-                document.getElementById('messages-sent').innerText = querySnapshot.size.toLocaleString();
-            });
 
         db.collection('Statistics').doc('website-views').get()
             .then(doc => {
                 if (doc.exists) {
                     const data = doc.data();
-                    document.getElementById('website-views').innerText = data.views.toLocaleString();
+                    animateValue('website-views', 0, data.views, 700)
                 } else {
                     console.error('No document exists.')
                 }
@@ -31,8 +26,30 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => {
                 console.error(error);
             })
-    }, 1000); // 1000 milliseconds = 1 second
+
+        db.collection('Messages')
+            .get()
+            .then(querySnapshot => {
+                animateValue('messages-sent', 0, querySnapshot.size, 700)
+            });
+    }, 500);
 });
+
+function animateValue(id, start, end, duration) {
+    let range = start - end
+    let current = start;
+    let increment = end > start ? 1 : -1;
+    let stepTime = Math.abs(Math.floor(duration / range));
+    let obj = document.getElementById(id);
+
+    let timer = setInterval(function () {
+        current += increment;
+        obj.innerText = current.toLocaleString();
+        if (current === end) {
+            clearInterval(timer);
+        }
+    }, stepTime)
+}
 
 function addToNewsletter() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

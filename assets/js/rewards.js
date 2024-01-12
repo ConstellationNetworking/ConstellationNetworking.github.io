@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById('currentUser-profile-picture').alt = `Profile picture of ${data.name}`;
                     }
                 })
+        } else {
+            window.location.href = '/signin.html';
         }
     });
 });

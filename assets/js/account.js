@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         // updateProgress(userID, userProgressLevel / 10); // MARK:- Automatically adds lvl and pts to other users in current user's userHistory, can be removed/polished later.
                                     } else {
                                         // no user found
-                                        console.error('No user found.')
+                                        console.error('No user found in userHistory')
                                     }
                                 })
                                 .catch(error => {
@@ -203,6 +203,24 @@ function addTask() {
                 console.log('Task added successfully');
                 document.getElementById('newTask').value = '';
                 loadTasks();
+
+                // update the user's mission for finishing the task
+                db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Creating a todo").get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            const tasks = doc.data().tasks || {};
+                            tasks['Create a new todo.'] = true;
+
+                            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
+                                .then(() => { })
+                                .catch((error) => {
+                                    console.error(error);
+                                });
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('Error getting mission:', error);
+                    });
             })
             .catch((error) => {
                 console.error(error);
