@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
             accountManagementLink.onclick = function () { window.location = '/signin.html?redirect=/index.html' }
             accountManagementText.innerText = 'Log in';
 
-            join_link.innerHTML = 'Join Now';
-            join_link.onclick = function () { window.location = '/signin.html' };
+            join_link.innerHTML = 'View our missions';
+            join_link.onclick = function () { window.location = '/about.html' };
         }
     });
 });
