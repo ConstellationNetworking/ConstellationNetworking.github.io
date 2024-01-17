@@ -45,9 +45,9 @@ function formatDate(dateString) {
 function replaceTextWithSpan(element) {
     element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function(match, p1) {
         if (p1.includes('.html'))  {
-            return `<a style="background-color: #E8EAED; padding: 5px 5px; border-radius: 12px; color: black; font-family: Inter;" href="/${p1}">` + p1 + '</a>';
+            return `<a href="/${p1}">` + p1 + '</a>';
         } else {
-            return `<a style="background-color: #E8EAED; padding: 5px 5px; border-radius: 12px; color: black; font-family: Inter;">` + p1 + '</a>';
+            return `<a>` + p1 + '</a>';
         }
     });
 }

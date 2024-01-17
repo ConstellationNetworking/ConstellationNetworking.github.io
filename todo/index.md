@@ -20,3 +20,4 @@
 - [ ] add website logo <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Eileen</span>
 - [ ] when users sign up: signup.html -> setup_profile.html -> create_avatar.html -> index.html <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Jerry</span>
 - [ ] `#missions.html` - Add specific details: points rewarded, trophies, skills
+- [ ] encrypt chat message and password with MD5 <span style="background-color: #E8EAED; padding: 4px 4px; border-radius: 20px; color: black; font-family: Calibri;">@Jerry</span>

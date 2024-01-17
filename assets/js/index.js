@@ -1,15 +1,22 @@
 let db = firebase.firestore();
 let auth = firebase.auth();
 
-function switchBg() {
+function switchBg(bg) {
     var images = {
         'bg1.jpg': 'Joshua Earle',
         'bg2.jpg': 'Martin Jernberg',
         'bg3.jpg': 'Juskteez Vu'
     };
-    var keys = Object.keys(images);
-    var randomImage = keys[Math.floor(Math.random() * keys.length)];
-    var photographer = images[randomImage];
+
+    if (bg) {
+        var randomImage = bg;
+        var photographer = images[bg];
+    } else {
+        var keys = Object.keys(images);
+        var randomImage = keys[Math.floor(Math.random() * keys.length)];
+        var photographer = images[randomImage];
+    }
+    
 
     var body = document.getElementById('body');
     body.style.backgroundImage = 'url(/assets/img/index/' + randomImage + ')';
@@ -30,7 +37,7 @@ function switchBg() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    switchBg();
+    switchBg('bg3.jpg')
 
     firebase.auth().onAuthStateChanged(function (user) {
         const accountManagementLink = document.getElementById('accountMgnLink');
