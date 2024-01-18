@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .where('lastActive', '>=', lastMonth)
             .get()
             .then(querySnapshot => {
-                animateValue('monthly-active-users', 0, querySnapshot.size, 700)
+                animateValue('monthly-active-users', 0, querySnapshot.size, 500)
             });
 
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(doc => {
                 if (doc.exists) {
                     const data = doc.data();
-                    animateValue('website-views', 0, data.views, 700)
+                    animateValue('website-views', 0, data.views, 500)
                 } else {
                     console.error('No document exists.')
                 }
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         db.collection('Messages')
             .get()
             .then(querySnapshot => {
-                animateValue('messages-sent', 0, querySnapshot.size, 700)
+                animateValue('messages-sent', 0, querySnapshot.size, 500)
             });
     }, 500);
 
