@@ -21,18 +21,16 @@
     <!-- Navigation -->
     <nav class="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-8">
         <div class="text-xs uppercase tracking-widest">
-            <a href="/index.html" class="text-gray-400 hover:text-white transition-colors duration-300">Constellation.</a>
+            <a href="/index.html" class="text-gray-400 hover:text-white transition-colors duration-300 navbar-title">Constellation.</a>
         </div>
         <div class="flex space-x-6">
-            <a href="/chat.html"
-                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Chat</a>
             <a href="/new_changelog.html"
-                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Changelog</a>
+                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300 navbar-links">Changelog</a>
             <a href="/account.html"
-                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Account</a>
+                class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300 navbar-links">Account</a>
             <button id="accountMgnLink" onclick="window.location = '/signin.html'">
                 <p id="accountMgnText"
-                    class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300">Sign in
+                    class="text-xs uppercase tracking-widest hover:text-gray-300 transition-colors duration-300 navbar-links">Sign in
                 </p>
             </button>
         </div>
@@ -42,7 +40,7 @@
     <div class="flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 py-32">
         <div class="lg:w-1/2">
             <div class="text-xs font-bold mb-2">01</div>
-            <h1 class="text-6xl font-bold mb-6">Welcome to Constellation.</h1>
+            <h1 class="text-6xl font-bold mb-6" id="title">Welcome to Constellation.</h1>
             <p class="mb-6">Constellation is an Edtech networking platform for youth that presents them opportunities to and teaches them to network with peers in a gamified format.</p>
             <button id="join-link" onclick="window.location='/about.html'" class="bg-white text-black px-6 py-2 uppercase text-xs tracking-widest font-bold hover:bg-gray-200 transition-colors duration-300">View our missions</button>
         </div>
@@ -57,9 +55,9 @@
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <!-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
                         <i class="fab fa-twitter"></i>
-                    </a>
+                    </a> -->
                 </div>
 
                 <!-- Citation Text -->
@@ -70,18 +68,18 @@
                 <div class="text-xs font-bold mr-8">02</div>
                 <div class="flex space-x-8">
                     <div class="text-center">
-                        <h2 class="text-xs uppercase tracking-widest mb-1">About us</h2>
-                        <button onclick="window.location='/about.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">Learn more</button>
+                        <h2 class="text-xs uppercase tracking-widest mb-1" style="font-size: 12px;">About us</h2>
+                        <button onclick="window.location='/about.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300" style="font-size: 10px; white-space: nowrap;">Learn more</button>
                     </div>
-                    <div class="text-center">
-                        <h2 class="text-xs uppercase tracking-widest mb-1">My missions</h2>
-                        <button onclick="window.location='/missions.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300">View</button>
+                    <div class="text-center" id="my-missions">
+                        <h2 class="text-xs uppercase tracking-widest mb-1" style="font-size: 12px;">My missions</h2>
+                        <button onclick="window.location='/missions.html'" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold hover:bg-white hover:text-black transition-colors duration-300" style="font-size: 10px; white-space: nowrap;">View</button>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center">
-                <button onclick="switchBg()" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold flex items-center hover:bg-white hover:text-black transition-colors duration-300">
+            <div class="flex items-center" id="switch-btn">
+                <button onclick="switchBg()" class="bg-transparent border border-white px-4 py-1 uppercase text-xs tracking-widest font-bold flex items-center hover:bg-white hover:text-black transition-colors duration-300" style="font-size: 10px;">
                     <i class="fas fa-forward mr-2"></i>
                     Switch
                 </button>

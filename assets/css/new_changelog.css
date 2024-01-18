@@ -1781,3 +1781,9 @@ video {
 .\[\&\+\*\]\:mt-8+* {
     margin-top: 2rem
 }
+
+@media (max-width: 768px) {
+    #title {
+        white-space: normal;
+    }
+}
