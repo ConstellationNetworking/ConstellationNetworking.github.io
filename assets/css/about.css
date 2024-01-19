@@ -1,0 +1,37 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.7rem; /* Adjusted for proper alignment */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #3B82F6;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0.375rem; /* Adjusted for proper alignment */
+    top: 0.5rem; /* Adjusted for proper alignment */
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #3B82F6;
+    border-radius: 9999px;
+    z-index: 10;
+}
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.member-btn:hover {
+    transform: scale(1.1);
+}
+
+.member-btn {
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+}

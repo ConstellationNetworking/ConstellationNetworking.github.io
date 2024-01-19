@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"http://constellation.iamjerryhu.info/assets/img/icon.png\" alt=\"Constellation Logo\" width=\"150\" height=\"150\"> </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+    "build-css": "tailwindcss -i ./src/styles.css -o ./assets/dist/tailwind.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

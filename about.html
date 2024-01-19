@@ -1,0 +1,207 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
+    <link rel="stylesheet" href="/assets/css/about.css">
+    </link>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-black text-white">
+        <div class="container mx-auto px-4 py-6">
+            <!-- Navigation and Page Title -->
+            <nav class="flex justify-between items-center">
+                <a href="/index.html" class="text-xl font-semi-bold">Constellation</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="/index.html" class="text-gray-300 hover:text-white">Home</a>
+                    <a href="/account.html" class="text-gray-300 hover:text-white">Account</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Support</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Us Section -->
+        <section class="bg-white text-gray-800">
+            <div class="container mx-auto px-4 py-12">
+                <h1 class="text-4xl font-bold mb-4">About Us</h1>
+                <p class="text-lg mb-12">Constellation is an Edtech networking platform for youth that presents them
+                    opportunities to and teaches them to network with peers in a gamified format.</p>
+
+                <!-- At a glance -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <h2 class="text-6xl font-bold text-blue-600" id="monthly-active-users">0</h2>
+                        <p class="text-lg font-semibold">Monthly Active Users</p>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-6xl font-bold text-blue-600" id="website-views">0</h2>
+                        <p class="text-lg font-semibold">Website Views</p>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-6xl font-bold text-blue-600" id="messages-sent">0</h2>
+                        <p class="text-lg font-semibold">Messages sent</p>
+                    </div>
+                </div>
+
+                <!-- Mission Statement -->
+                <div class="bg-gray-900 text-white p-8 rounded-lg mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Changing the experience for students.</h2>
+                    <p class="text-lg mb-4">At Constellation, we're revolutionizing the way students learn networking
+                        skills, providing a gamified, low-stress platform for them to connect and grow professionally.
+                        Our mission is to transform networking into a fundamental and enjoyable part of every student's
+                        educational journey.</p>
+                    <p class="text-lg">Constellation reimagines student networking by blending education and technology
+                        into a captivating platform that fosters professional growth and connections.</p>
+                </div>
+
+                <!-- Leadership Team -->
+                <div class="mb-12 select-none">
+                    <h2 style="margin-top: 5px;" class="text-3xl font-bold mb-6">Our Team</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-6" id="members-container" style="align-items: flex-start; padding-top: 10px;">
+                        <button class="member-btn" onclick="window.location='/members/winnie_zhang.html'">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto mb-2 relative">
+                                    <img src="https://placehold.co/120x120" alt="Winnie Zhang, CEO"
+                                        class="rounded-full absolute top-0 left-0 right-0 bottom-0 m-auto">
+                                </div>
+                                <p class="text-sm bg-yellow-600 text-white py-1 px-2 inline-block rounded-full mb-2">Executive Officer</p>
+                                <h3 class="text-lg font-semibold">Winnie Zhang</h3>
+                                <a onclick="window.location=`mailto:${this.innerHTML}`" class="text-sm text-blue-600">wingsofzhang@gmail.com</a>
+                                <p style="padding-top: 10px;" class="text-sm text-black-600">Winnie Zhang is a devoted student driven by a passion for intellectual pursuits and physical endeavors. Embracing an unwavering commitment to continuous improvement, she seeks to create a platform that bridges the realms of gaming and social media to motivate the next generation in establishing their network of peers and mentors and broaden their horizons.</p>
+                            </div>
+                        </button>
+                        <button class="member-btn" onclick="window.location='/members/jerry_hu.html'">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto mb-2 relative">
+                                    <img src="/assets/img/about/jerry_hu.jpg" alt="Jerry Hu, CTO" class="rounded-full absolute top-0 left-0 right-0 bottom-0 m-auto">
+                                </div>
+                                <p class="text-sm bg-blue-600 text-white py-1 px-2 inline-block rounded-full mb-2">Chief Technology Officer</p>
+                                <h3 class="text-lg font-semibold">Jerry Hu</h3>
+                                <a onclick="window.location=`mailto:${this.innerHTML}`" class="text-sm text-blue-600">work.jerrywu@gmail.com</a>
+                                <p style="padding-top: 10px;" class="text-sm text-black-600">Jerry is an ambitious and innovative student based in Surrey, Canada. With an exceptional talent in coding, he taught himself multiple programming languages including Python, Javascript, HTML/CSS, Swift, Java, and is continually expanding his expertise into C++. Beyond coding, Jerry is distinguished in violin, securing the 2nd place in the Canadian Music Competition Nationals Finals, and an avid sports enthusiast, with a history of excellence in badminton and golf.</p>
+                            </div>
+                        </button>
+                        <button class="member-btn" onclick="window.location='/members/eileen_tang.html'">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto mb-2 relative">
+                                    <img src="/assets/img/about/eileen_tang.jpg" alt="Eileen Tang, Illustrations and UI"
+                                        class="rounded-full absolute top-0 left-0 right-0 bottom-0 m-auto">
+                                </div>
+                                <p class="text-sm bg-purple-600 text-white py-1 px-2 inline-block rounded-full mb-2">Illustrations and UI</p>
+                                <h3 class="text-lg font-semibold">Eileen Tang</h3>
+                                <a onclick="window.location=`mailto:${this.innerHTML}`" class="text-sm text-blue-600">eileentangbc@gmail.com</a>
+                                <p style="padding-top: 10px;" class="text-sm text-black-600">My name is Eileen Tang and I am in grade 9. I go to J.N. Burnett Secondary and I joined Constellation in 2023. I primarily take part in arts and design in the team. My hobbies and interests include painting, skiing, and listening to music.</p>
+                            </div>
+                        </button>
+                        <button class="member-btn" onclick="window.location='/members/vincent_xiao.html'">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto mb-2 relative">
+                                    <img src="/assets/img/about/vincent_xiao.jpg" alt="Vincent Xiao, Assisting Technology"
+                                        class="rounded-full absolute top-0 left-0 right-0 bottom-0 m-auto">
+                                </div>
+                                <p class="text-sm bg-green-600 text-white py-1 px-2 inline-block rounded-full mb-2">Assisting Technology</p>
+                                <h3 class="text-lg font-semibold">Vincent Xiao</h3>
+                                <a onclick="window.location=`mailto:${this.innerHTML}`" class="text-sm text-blue-600">vincentxiao0101@gmail.com</a>
+                                <p style="padding-top: 10px;" class="text-sm text-black-600">My name is Vincent. I currently study in the IB program at Port Moody Secondary School and will graduate in 2025. I lose anything related to robotics and STEM. In my free time, I like to do robotics and play golf.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="text-center mt-6" style="padding-top: 15px;">
+                        <a href="" class="text-blue-600 hover:underline">View open volunteer positions</a>
+                    </div>
+                </div>
+
+                <!-- Our History -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold mb-6">Our History</h2>
+                    <div class="relative timeline">
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <p class="text-sm text-gray-600 mb-1">January 11, 2023</p>
+                            <h3 class="text-lg font-semibold">Constellation v.2.0 Ships</h3>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <p class="text-sm text-gray-600 mb-1">November 23, 2023</p>
+                            <h3 class="text-lg font-semibold">Recruited 2 new members</h3>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <p class="text-sm text-gray-600 mb-1">November 8, 2023</p>
+                            <h3 class="text-lg font-semibold">v.1.0 Ships</h3>
+                        </div>
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <p class="text-sm text-gray-600 mb-1">October 16, 2023</p>
+                            <h3 class="text-lg font-semibold">Team formed</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black text-gray-400">
+            <div class="container mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Navigation -->
+                    <div>
+                        <h3 class="text-white text-lg font-semibold mb-3">Navigate</h3>
+                        <ul class="space-y-2">
+                            <li><a href="/index.html" class="hover:text-white">Home</a></li>
+                            <li><a href="/about.html" class="hover:text-white">About us</a></li>
+                            <li><a href="/missions.html" class="hover:text-white">Missions</a></li>
+                            <li><a href="/chat.html" class="hover:text-white">Chat</a></li>
+                            <li><a href="/account.html" class="hover:text-white">Account</a></li>
+                            <li><a href="/new_changelog.html" class="hover:text-white">Changelog</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-white text-lg font-semibold mb-3">Contact</h3>
+                        <ul class="space-y-2">
+                            <li>Made with <3 from <br>Vancouver, CA</li>
+                            <li><a onclick="window.location=`mailto:${this.innerHTML}`" class="hover:text-white">work.jerrywu@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <!-- Subscribe -->
+                    <div>
+                        <h3 class="text-white text-lg font-semibold mb-3">Subscribe</h3>
+                        <p class="mb-4">The latest Constellation news, tips, and resources, sent straight to your inbox
+                            every month.</p>
+                        <div class="flex space-x-3">
+                            <input type="email" class="w-full px-3 py-2 rounded" placeholder="Email Address"
+                                id="newsletter-email">
+                            <button onclick="addToNewsletter();"
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-gray-500 mt-8 text-sm">
+                    ©2023 Constellation Networking.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+</body>
+<script src="/assets/js/about.js"></script>
+
+</html>
