@@ -75,8 +75,9 @@
             <div class="w-2/3 ml-4 p-4 border-2 border-black bg-white full-height">
                 <div class="flex flex-col h-full">
                     <!-- Placeholder for Your Messages -->
-                    <div class="text-center py-10">
-                        <i class="fas fa-bolt fa-2x mb-3"></i>
+                    <div class="flex flex-col items-center justify-center py-10">
+                        <i class="fas fa-bolt fa-2x mb-3" id="flash-bolt"></i>
+                        <img class="rounded-full text-center" style="margin: 15px; display: none;" id="target-user-profile-pic" width="65" height="65" alt="Profile picture of Constellation Bot">
                         <p id="target-user-name">Your Messages</p>
                     </div>
                     <div id="message-history" class="flex-1 overflow-y-auto">
