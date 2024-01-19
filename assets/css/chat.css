@@ -70,3 +70,15 @@ body {
 .search-with-button button {
     padding: 0.5rem 1rem;
 }
+
+.profile-img-sent {
+    text-align: left;
+    width: auto;
+    display: table;
+}
+
+.profile-img-received {
+    text-align: left;
+    width: auto;
+    display: table;
+}

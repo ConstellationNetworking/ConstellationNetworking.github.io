@@ -29,17 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
     function subscribeToMessages(otherUserID) {
         unbsubscribeFromMessages();
         const messageCollection = db.collection('Messages');
-        
+
         messageCollection
-        .where('chatId', '==', getChatId(auth.currentUser.uid, otherUserID))
-        .orderBy('timestamp', 'asc')
-        .onSnapshot(snapshot => {
-            snapshot.docChanges().forEach(change => {
-                if (change.type === "added") {
-                    updateChatHistory(change.doc.data());
-                }
+            .where('chatId', '==', getChatId(auth.currentUser.uid, otherUserID))
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        updateChatHistory(change.doc.data());
+                    }
+                })
             })
-        })
     }
 
     function cleanChatHistory() {
@@ -54,18 +54,170 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateChatHistory(message) {
-        const messageHistory = document.getElementById('message-history');
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        if (message.senderId === auth.currentUser.uid) {
-            messageElement.classList.add('sent');
-        } else {
-            messageElement.classList.add('received');
-        }
-        messageElement.innerHTML = message.messageText;
-        messageHistory.appendChild(messageElement);
-        messageHistory.scrollTop = messageHistory.scrollHeight;
+        db.collection('Users').where('senderId', '==', message.senderId).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                if (doc.exists) {
+                    const senderUser = doc.data();
+                    const messageHistory = document.getElementById('message-history');
+
+                    if (message.senderId === auth.currentUser.uid) {
+                        db.collection('Users').where('senderId', '==', auth.currentUser.uid).get().then((querySnapshot2) => {
+                            querySnapshot2.forEach((doc2) => {
+                                if (doc2.exists) {
+                                    const receiverUser = doc2.data();
+                                    const div1 = document.createElement('div');
+                                    div1.style.display = 'flex';
+
+                                    const img = document.createElement('img');
+                                    img.classList.add('w-8', 'h-8', 'rounded-full', 'profile-img-sent');
+                                    img.alt = 'Profile picture of ' + receiverUser.name;
+                                    img.src = receiverUser.profileIMG || '/assets/img/default_user.jpeg';
+                                    
+                                    const messageElement = document.createElement('div');
+                                    messageElement.classList.add('message');
+                                    messageElement.classList.add('sent');
+                                    messageElement.innerHTML = message.messageText;
+                                    
+                                    div1.appendChild(messageElement);
+                                    div1.appendChild(img);
+                                    messageHistory.appendChild(div1);
+                                    messageHistory.scrollTop = messageHistory.scrollHeight;
+                                }
+                            })
+                        })
+                    } else {
+                        const div1 = document.createElement('div');
+                        div1.style.display = 'flex';
+                        div1.style.justifyContent = 'flex-end';
+
+                        const img = document.createElement('img');
+                        img.classList.add('w-8', 'h-8', 'rounded-full', 'profile-img-received');
+                        img.alt = 'Profile picture of ' + senderUser.name;
+                        img.src = senderUser.profileIMG || '/assets/img/default_user.jpeg';
+
+                        const messageElement = document.createElement('div');
+                        messageElement.classList.add('message');
+                        messageElement.classList.add('received');
+                        messageElement.innerHTML = message.messageText;
+
+                        div1.appendChild(img);
+                        div1.appendChild(messageElement);
+                        messageHistory.appendChild(div1);
+                        messageHistory.scrollTop = messageHistory.scrollHeight;
+                    }
+                }
+            })
+        })
     }
+
+
+
+                //     // new test try
+                //     db.collection('Users').where('senderId', '==', message.senderId).get().then((querySnapshot) => {
+                //         querySnapshot.forEach((doc) => {
+                //             if (doc.exists) {
+                //                 const senderUser = doc.data();
+                //                 const messageHistory = document.getElementById('message-history');
+
+                //                 if (message.senderId === auth.currentUser.uid) {
+                //                     db.collection('Users').where('senderId', '==', auth.currentUser.uid).get().then((querySnapshot2) => {
+                //                         querySnapshot2.forEach((doc2) => {
+                //                             if (doc2.exists) {
+                //                                 const receiverUser = doc2.data();
+
+                //                                 const div1 = document.createElement('div');
+                //                                 div1.classList.add('flex', 'items-start', 'gap-2.5', 'justify-end')
+
+                //                                 const div2 = document.createElement('div');
+                //                                 div2.classList.add('flex', 'flex-col', 'w-full', 'max-w-[320px]', 'leading-1.5', 'p-4', 'border-gray-200', 'bg-blue-100', 'rounded-tl-xl', 'rounded-bl-xl', 'rounded-br-xl', 'dark:bg-blue-700');
+
+                //                                 const div3 = document.createElement('div');
+                //                                 div3.classList.add('flex', 'items-center', 'space-x-2', 'rtl:space-x-reverse', 'justify-end');
+
+                //                                 const span1 = document.createElement('span');
+                //                                 span1.classList.add('text-sm', 'font-normal', 'text-gray-500', 'dark:text-gray-400');
+                //                                 span1.innerText = 'Just now';
+
+                //                                 const span2 = document.createElement('span');
+                //                                 span2.classList.add('text-sm', 'font-semibold', 'text-gray-900', 'dark:text-white');
+                //                                 span2.innerText = receiverUser.name;
+
+                //                                 const p1 = document.createElement('p');
+                //                                 p1.classList.add('text-sm', 'font-normal', 'py-0.5', 'text-gray-900', 'dark:text-white');
+                //                                 p1.innerText = message.messageText;
+
+                //                                 const span3 = document.createElement('span');
+                //                                 span3.classList.add('text-sm', 'font-normal', 'text-gray-500', 'dark:text-gray-400');
+                //                                 span3.innerText = 'Delivered';
+
+                //                                 const img = document.createElement('img');
+                //                                 img.classList.add('w-8', 'h-8', 'rounded-full');
+                //                                 img.alt = 'Profile picture of ' + receiverUser.name;
+                //                                 img.src = receiverUser.profileIMG || '/assets/img/default_user.jpeg';
+
+                //                                 div3.appendChild(span1);
+                //                                 div3.appendChild(span2);
+                //                                 div2.appendChild(div3);
+                //                                 div2.appendChild(p1);
+                //                                 div2.appendChild(span3);
+                //                                 div1.appendChild(div2);
+                //                                 div1.appendChild(img);
+
+                //                                 messageHistory.appendChild(div1);
+                //                                 messageHistory.scrollTop = messageHistory.scrollHeight;
+                //                             }
+                //                         })
+                //                     })
+                //                 } else {
+                //                     const div1 = document.createElement('div');
+                //                     div1.classList.add('flex', 'items-start', 'gap-2.5')
+
+                //                     const img = document.createElement('img');
+                //                     img.classList.add('w-8', 'h-8', 'rounded-full');
+                //                     img.alt = 'Profile picture of ' + senderUser.name;
+                //                     img.src = senderUser.profileIMG || '/assets/img/default_user.jpeg';
+
+                //                     const div2 = document.createElement('div');
+                //                     div2.classList.add('flex', 'flex-col', 'w-full', 'max-w-[320px]', 'leading-1.5', 'p-4', 'border-gray-200', 'bg-gray-100', 'rounded-e-xl', 'rounded-es-xl', 'dark:bg-gray-700');
+
+                //                     const div3 = document.createElement('div');
+                //                     div3.classList.add('flex', 'items-center', 'space-x-2', 'rtl:space-x-reverse');
+
+                //                     const span1 = document.createElement('span');
+                //                     span1.classList.add('text-sm', 'font-semibold', 'text-gray-900', 'dark:text-white');
+                //                     span1.innerText = senderUser.name;
+
+                //                     const span2 = document.createElement('span');
+                //                     span2.classList.add('text-sm', 'text-gray-500', 'dark:text-gray-400');
+                //                     span2.innerText = 'Just now';
+
+                //                     const p1 = document.createElement('p');
+                //                     p1.classList.add('text-sm', 'font-normal', 'py-0.5', 'text-gray-900', 'dark:text-white');
+                //                     p1.innerText = message.messageText;
+
+                //                     const span3 = document.createElement('span');
+                //                     span3.classList.add('text-sm', 'font-normal', 'text-gray-500', 'dark:text-gray-400');
+                //                     span3.innerText = 'Delivered';
+
+                //                     div3.appendChild(span1);
+                //                     div3.appendChild(span2);
+                //                     div2.appendChild(div3);
+                //                     div2.appendChild(p1);
+                //                     div2.appendChild(span3);
+                //                     div1.appendChild(img);
+                //                     div1.appendChild(div2);
+
+                //                     messageHistory.appendChild(div1);
+                //                     messageHistory.scrollTop = messageHistory.scrollHeight;
+                //                 }
+                //             }
+                //         })
+                //     })
+                //         .catch((error) => {
+                //             console.error('Error getting sender user:', error);
+                //         })
+                // }
+
 
     auth.onAuthStateChanged(function (user) {
         if (user) {
