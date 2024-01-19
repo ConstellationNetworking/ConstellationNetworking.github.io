@@ -49,4 +49,8 @@ body {
     #my-missions {
         display: none;
     }
+
+    #navbar-chat {
+        display: none;
+    }
 }

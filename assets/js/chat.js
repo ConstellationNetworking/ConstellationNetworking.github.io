@@ -28,23 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function subscribeToMessages(otherUserID) {
         unbsubscribeFromMessages();
-
-        // old
-        // currentMessagesListener = db.collection('Messages')
-        //     .where('receiverId', '==', auth.currentUser.uid)
-        //     .where('senderId', '==', otherUserID)
-        //     .orderBy('timestamp', 'asc')
-        //     .onSnapshot(snapshot => {
-        //         snapshot.docChanges().forEach(change => {
-        //             if (change.type === "added") {
-        //                 updateChatHistory(change.doc.data());
-        //             }
-        //         });
-        //     }, error => {
-        //         console.error("Error getting messages: ", error);
-        //     });
-
-        // new test try
         const messageCollection = db.collection('Messages');
         
         messageCollection
