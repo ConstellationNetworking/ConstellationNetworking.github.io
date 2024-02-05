@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         } else {
             console.error('User is not signed in.');
-            alert('Please sign in first. You will be directed to a sign in page.');
+            // alert('Please sign in first. You will be directed to a sign in page.');
             window.location.href = '/signin.html';
         }
     });
