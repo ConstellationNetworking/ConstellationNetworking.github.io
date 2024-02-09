@@ -3216,7 +3216,7 @@ select {
 
 .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
+  border-color: rgb(247 250 252 / var(--tw-divide-opacity));
 }
 
 .place-self-auto {
@@ -3720,7 +3720,7 @@ select {
 
 .bg-gray-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(247 250 252 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -3843,8 +3843,8 @@ select {
 }
 
 .from-blue-100 {
-  --tw-gradient-from: #dbeafe var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(219 234 254 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-from: #ebf8ff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(235 248 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -3867,7 +3867,7 @@ select {
 }
 
 .to-pink-100 {
-  --tw-gradient-to: #fce7f3 var(--tw-gradient-to-position);
+  --tw-gradient-to: #fff5f7 var(--tw-gradient-to-position);
 }
 
 .decoration-slice {
@@ -6477,7 +6477,7 @@ select {
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background-color: rgb(247 250 252 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-200:hover {
