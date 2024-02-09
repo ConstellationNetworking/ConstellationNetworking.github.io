@@ -60,6 +60,7 @@ function displayMissions(mission) {
 
     const missionCard = document.createElement('div');
     missionCard.className = `mission-card bg-${mission.cardColour}-100 p-4 rounded-lg`;
+    console.log(mission.cardColour)
     missionCard.onclick = () => { openMission(mission) };
     missionCard.style.textAlign = 'left';
     missionCard.id = mission.missionID;
