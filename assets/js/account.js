@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (doc.exists) {
                         const data = doc.data();
 
-                        const profilePictureImage = document.getElementById('current-user-profile-picture');
-                        profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
+                        // const profilePictureImage = document.getElementById('current-user-profile-picture');
+                        // profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
 
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;
@@ -38,6 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         const currentUserPoints = document.getElementById('current-user-points');
                         currentUserPoints.textContent = `Pts. ${data.points}`;
+
+                        // avatar
+                        head = doc.data().avatar.head;
+                        hair = doc.data().avatar.hair;
+                        document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
+                        document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
+
+                        document.getElementById('hair').classList.add(hair)
                     }
                 })
         })
