@@ -1,3 +1,23 @@
+let chosenAvatar = {};
+let db = firebase.firestore()
+let auth = firebase.auth()
+
+function setHead(id) {
+    chosenAvatar.head = id;
+    smoothScrollAboveElement('hairstyle', 50);
+
+    ['d1', 'd2', 'd3'].filter(head => head !== id).forEach(head => document.getElementById(head).innerHTML = 'Choose');
+    document.getElementById(id).innerHTML = `Remove`
+}
+
+function setHair(id) {
+    chosenAvatar.hair = id;
+    smoothScrollAboveElement('saveActions', 50);
+
+    ['h1', 'h2'].filter(hair => hair !== id).forEach(hair => document.getElementById(hair).innerHTML = 'Choose');
+    document.getElementById(id).innerHTML = `Remove`
+}
+
 function smoothScrollAboveElement(elementId, offset) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -9,3 +29,25 @@ function smoothScrollAboveElement(elementId, offset) {
         });
     }
 }
+
+function saveAvatar() {
+    if (chosenAvatar.head && chosenAvatar.hair) {
+        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+        currentUserRef.update({
+            avatar: chosenAvatar
+        }).then(() => {
+            console.log('Avatar updated');
+            window.location.href = '/index.html';
+        }).catch((error) => {
+            console.error(error);
+        })
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    auth.onAuthStateChanged(user => {
+        if (!user) {
+            window.location = '/signin.html';
+        }
+    })
+});

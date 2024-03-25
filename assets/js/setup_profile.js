@@ -111,7 +111,7 @@ function updateUserProfile(downloadURL, auth, db) {
 
             setTimeout(() => {
                 document.getElementById('submitButton').innerText = 'done!';
-                window.location.href = '/index.html';
+                window.location.href = '/create_avatar.html';
             }, 1000);
         }).catch((error) => {
             alert('Error updating profile. Please try again later.');
