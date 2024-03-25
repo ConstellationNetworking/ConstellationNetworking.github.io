@@ -1,0 +1,14 @@
+.h1 {
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    top: -55px;
+}
+
+.h2 {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 8px;
+    resize: both;
+}
