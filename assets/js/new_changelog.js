@@ -59,6 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         dateElement.textContent = timeSince(date) + " — " + formatDate(date);
     });
 
-    const elements = document.querySelectorAll('li');
+    const elements = document.querySelectorAll('div');
     elements.forEach(replaceTextWithSpan);
 });
