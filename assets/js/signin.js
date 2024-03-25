@@ -105,7 +105,8 @@ function signup() {
                         level: 0,
                         points: 0,
                         lastActive: firebase.firestore.FieldValue.serverTimestamp(),
-                        isAdmin: false
+                        isAdmin: false,
+                        bg: 'bg3.jpg'
                     })
                         .then(() => {
                             user.sendEmailVerification()

@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/assets/dist/tailwind.css">
+    <link rel="stylesheet" href="/assets/css/create_avatar.css">
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -32,7 +33,8 @@
                             </a>
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
-                                    <a style="cursor: pointer;" id="d1" onclick="setHead(this.id)" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                    <a style="cursor: pointer;" id="d1" onclick="setHead(this.id)"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +46,8 @@
                             </a>
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
-                                    <a style="cursor: pointer;" id="d2" onclick="setHead(this.id)" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                    <a style="cursor: pointer;" id="d2" onclick="setHead(this.id)"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +59,8 @@
                             </a>
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
-                                    <a style="cursor: pointer;" id="d3" onclick="setHead(this.id)" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                    <a style="cursor: pointer;" id="d3" onclick="setHead(this.id)"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +83,8 @@
                             </a>
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
-                                    <a style="cursor: pointer;" onclick="setHair(this.id)" id="h1" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                    <a style="cursor: pointer;" onclick="setHair(this.id)" id="h1"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -91,11 +96,47 @@
                             </a>
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
-                                    <a style="cursor: pointer;" onclick="setHair(this.id)" id="h2" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                    <a style="cursor: pointer;" onclick="setHair(this.id)" id="h2"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- background customization -->
+            <div class="border-b border-gray-900/10 pb-12" id="background">
+                <h2 class="text-base font-semibold leading-7 text-gray-900">3. Personalize your constellation</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-600">Choose a theme from the options below.</p>
+
+                <div class="container mx-auto" style="margin-top: 30px;">
+                    <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+                        <div class="grid gap-4">
+                            <div>
+                                <img id="bg.jpg" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/bg.jpg" alt="">
+                            </div>
+                            
+                            <div>
+                                <img id="t1.png" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/t1.png" alt="">
+                            </div>
+                            <div>
+                                <img id="bg2.jpg" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/bg2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="grid gap-4">
+                            <div>
+                                <img id="bg3.jpg" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/bg3.jpg" alt="">
+                            </div>
+                            <div>
+                                <img id="bg1.jpg" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/bg1.jpg" alt="">
+                            </div>
+                            <div>
+                                <img id="t2.png" onclick="setBg(this.id, this.src)" class="h-auto max-w-full rounded-lg" src="/assets/img/index/t2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
