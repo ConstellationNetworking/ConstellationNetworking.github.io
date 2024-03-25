@@ -154,3 +154,9 @@ body {
 .single_advisor_profile:focus .single_advisor_details_info p {
     color: #ffffff;
 }
+
+.t-selected {
+    position: relative;
+    filter: blur(3px);
+    z-index: 1;
+}

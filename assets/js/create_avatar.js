@@ -1,4 +1,5 @@
 let chosenAvatar = {};
+let chosenBg = null;
 let db = firebase.firestore()
 let auth = firebase.auth()
 
@@ -12,10 +13,18 @@ function setHead(id) {
 
 function setHair(id) {
     chosenAvatar.hair = id;
-    smoothScrollAboveElement('saveActions', 50);
+    smoothScrollAboveElement('background', 50);
 
     ['h1', 'h2'].filter(hair => hair !== id).forEach(hair => document.getElementById(hair).innerHTML = 'Choose');
     document.getElementById(id).innerHTML = `Remove`
+}
+
+function setBg(id) {
+    const imgElements = document.querySelectorAll('#background .grid img');
+    imgElements.forEach(img => img.classList.add('t-selected'))
+    document.getElementById(id).classList.remove('t-selected')
+    smoothScrollAboveElement('saveActions', 50)
+    chosenBg = id;
 }
 
 function smoothScrollAboveElement(elementId, offset) {
@@ -34,7 +43,8 @@ function saveAvatar() {
     if (chosenAvatar.head && chosenAvatar.hair) {
         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
         currentUserRef.update({
-            avatar: chosenAvatar
+            avatar: chosenAvatar,
+            bg: chosenBg
         }).then(() => {
             console.log('Avatar updated');
             window.location.href = '/index.html';

@@ -5,7 +5,9 @@ function switchBg(bg) {
     var images = {
         'bg1.jpg': 'Joshua Earle',
         'bg2.jpg': 'Martin Jernberg',
-        'bg3.jpg': 'Juskteez Vu'
+        'bg3.jpg': 'Juskteez Vu',
+        't1.png': 'Jason Leung',
+        't2.png': 'Pawel Czerwinski'
     };
 
     if (bg) {
@@ -15,9 +17,21 @@ function switchBg(bg) {
         var keys = Object.keys(images);
         var randomImage = keys[Math.floor(Math.random() * keys.length)];
         var photographer = images[randomImage];
+
+        auth.onAuthStateChanged(function (user) {
+            if (user) {
+                const userRef = db.collection('Users').doc(user.uid)
+                userRef.update({
+                    bg: randomImage
+                }).then(() => {
+                    console.log('Updated bg image.');
+                }).catch((error) => {
+                    console.error(error);
+                })
+            }
+        })
     }
     
-
     var body = document.getElementById('body');
     body.style.backgroundImage = 'url(/assets/img/index/' + randomImage + ')';
 
@@ -37,8 +51,6 @@ function switchBg(bg) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    switchBg('bg3.jpg')
-
     firebase.auth().onAuthStateChanged(function (user) {
         const accountManagementLink = document.getElementById('accountMgnLink');
         const accountManagementText = document.getElementById('accountMgnText');
@@ -50,7 +62,18 @@ document.addEventListener('DOMContentLoaded', function () {
             userRef.set({
                 lastActive: lastActive
             }, { merge: true });
-            
+
+            userRef.get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    switchBg(data.bg)
+                } else {
+                    console.log("No such user.");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+
             accountManagementLink.onclick = function () { firebase.auth().signOut() }
             accountManagementText.innerText = 'Log Out';
 
