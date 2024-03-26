@@ -1,6 +1,18 @@
 let db = firebase.firestore();
 let auth = firebase.auth();
 
+function smoothScrollAboveElement(elementId, offset) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     auth.onAuthStateChanged(function (user) {
         if (user) {
