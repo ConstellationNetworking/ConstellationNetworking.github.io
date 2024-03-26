@@ -13,8 +13,8 @@ firebase.firestore().collection('Statistics').doc('website-views').set({
 }, { merge: true })
 
 window.onload = function () {
-    console.log("%cDON'T MESS AROUND HERE.", 'color:red; font-size: 28px;')
-    console.log("If you know what you are doing, come volunteer with us!\nhttps://constellation.iamjerryhu.info/about")
+    console.log("%cYOU SHOULDN'T MESS AROUND HERE.", 'color:red; font-size: 28px;')
+    console.log("If you know what you are doing, come volunteer with us!\nhttps://constellation.iamjerryhu.info/volunteer_positions.html")
 }
 
 window.resetApp = function resetApp() {

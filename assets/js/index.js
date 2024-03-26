@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             join_link.innerHTML = 'Chat Now';
             join_link.onclick = function () { window.location = '/chat.html' };
         } else {
+            switchBg('bg3.jpg')
             accountManagementLink.onclick = function () { window.location = '/signin.html?redirect=/index.html' }
             accountManagementText.innerText = 'Log in';
 
