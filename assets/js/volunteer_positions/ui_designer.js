@@ -12,8 +12,9 @@ function apply() {
     let postal_code = document.getElementById('postal-code').value;
     let linkedin_username = document.getElementById('linkedin-username').value;
     let about_field = document.getElementById('about-textarea').value;
+    let skills_field = document.getElementById('skills-textarea').value;
 
-    if (!firstname || !lastname || !email || !country || !street_address || !city || !region || !postal_code || !linkedin_username || !about_field) {
+    if (!firstname || !lastname || !email || !country || !street_address || !city || !region || !postal_code || !linkedin_username || !about_field || !skills_field) {
         alert('Please fill in all fields.');
         return;
     }
@@ -32,7 +33,8 @@ function apply() {
         region: region,
         postal_code: postal_code,
         linkedin_username: linkedin_username,
-        about: about_field
+        about: about_field,
+        skills: skills_field
     }).then(() => {
         alert('Application submitted successfully!');
         window.location = '/volunteer_positions.html';

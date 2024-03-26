@@ -18,6 +18,15 @@
 
 <body>
   <div class="bg-white">
+    <header class="absolute inset-x-0 top-0 z-50">
+      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+              <a href="/index.html" class="text-sm font-semibold leading-6 text-gray-900">Home <span
+                      aria-hidden="true">&rarr;</span></a>
+          </div>
+      </nav>
+  </header>
+
     <div class="relative isolate px-6 pt-14 lg:px-8">
       <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true">
@@ -30,7 +39,7 @@
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
           <div
             class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Constellation's homepage has a brand-new design. <a href="/index.html"
+            Constellation's homepage has a brand-new design. <a href="/new_changelog.html"
               class="font-semibold text-indigo-600">
               <span class="absolute inset-0" aria-hidden="true"></span>Read more <span
                 aria-hidden="true">&rarr;</span></a>
@@ -68,30 +77,30 @@
 
   <div id="positions-table" class="select-none" style="padding-bottom: 50px;">
     <div class="max-w-screen-xl mx-auto px-4 md:px-6">
-        <div class="items-start justify-between md:flex">
-            <div class="max-w-lg">
-                <h3 class="text-gray-800 text-xl font-bold sm:text-2xl">Open Positions</h3>
-                <p class="text-gray-600 mt-2">View and apply to Constellation's open positions here.</p>
-            </div>
+      <div class="items-start justify-between md:flex">
+        <div class="max-w-lg">
+          <h3 class="text-gray-800 text-xl font-bold sm:text-2xl">Open Positions</h3>
+          <p class="text-gray-600 mt-2">View and apply to Constellation's open positions here.</p>
         </div>
-        <div class="mt-12 relative h-max overflow-auto">
-            <table id="positions-table" class="w-full table-auto text-sm text-left">
-                <thead class="text-gray-600 font-medium border-b">
-                    <tr>
-                        <th class="py-3 pr-6">Title</th>
-                        <th class="py-3 pr-6">About</th>
-                        <th class="py-3 pr-6">Weekly Commitment Hours</th>
-                        <th class="py-3 pr-6">Location</th>
-                        <th class="py-3 pr-6">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="positions-table-body" class="text-gray-600 divide-y">
-                    <!-- The table rows will be inserted here by JavaScript -->
-                </tbody>
-            </table>
-        </div>
+      </div>
+      <div class="mt-12 relative h-max overflow-auto">
+        <table id="positions-table" class="w-full table-auto text-sm text-left">
+          <thead class="text-gray-600 font-medium border-b">
+            <tr>
+              <th class="py-3 pr-6">Title</th>
+              <th class="py-3 pr-6">About</th>
+              <th class="py-3 pr-6">Weekly Commitment Hours</th>
+              <th class="py-3 pr-6">Location</th>
+              <th class="py-3 pr-6">Action</th>
+            </tr>
+          </thead>
+          <tbody id="positions-table-body" class="text-gray-600 divide-y">
+            <!-- The table rows will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="/assets/js/volunteer_positions.js"></script>

@@ -7292,6 +7292,10 @@ select {
     max-width: 36rem;
   }
 
+  .lg\:flex-1 {
+    flex: 1 1 0%;
+  }
+
   .lg\:flex-auto {
     flex: 1 1 auto;
   }
