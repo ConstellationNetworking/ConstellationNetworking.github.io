@@ -47,7 +47,25 @@ function saveAvatar() {
             bg: chosenBg
         }).then(() => {
             console.log('Avatar updated');
-            window.location.href = '/index.html';
+
+            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            const tasks = doc.data().tasks || {};
+                            tasks['Edit your avatar.'] = true;
+
+                            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
+                                .then(() => { })
+                                .catch((error) => {
+                                    console.error(error);
+                                });
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('Error getting mission:', error);
+                    });
+
+            // window.location.href = '/index.html';
         }).catch((error) => {
             console.error(error);
         })
