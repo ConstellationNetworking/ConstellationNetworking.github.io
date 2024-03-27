@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (user) {
             const userRef = db.collection('Users').doc(user.uid);
-            const lastActive = new Date(); // Current timestamp
+            const lastActive = firebase.firestore.FieldValue.serverTimestamp()
             userRef.set({
                 lastActive: lastActive
             }, { merge: true });

@@ -65,7 +65,7 @@ function saveAvatar() {
                         console.error('Error getting mission:', error);
                     });
 
-            // window.location.href = '/index.html';
+            window.location.href = '/index.html';
         }).catch((error) => {
             console.error(error);
         })
