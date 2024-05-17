@@ -68,15 +68,18 @@ function submitProfile() {
                         uploadProfilePicture(file, auth, db);
                     } else {
                         alert('Please upload a square image.');
+                        document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
                     }
                 };
                 img.onerror = function () {
                     alert('There was an error reading the image.');
+                    document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
                 };
                 img.src = e.target.result;
             };
             reader.onerror = function () {
                 alert('There was an error reading the file.');
+                document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
             };
             reader.readAsDataURL(file);
         } else if (usedDefaultImage) {
@@ -89,6 +92,7 @@ function submitProfile() {
                 })
         } else {
             alert('Please upload a profile picture, or use default.');
+            document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
         }
     }
 }
@@ -182,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     useridInput.value = data.senderId;
                     userEmail.value = data.email;
                     console.log(data.profileIMG)
-                    // document.querySelector(".profile-picture-picker-image").src = data.profileIMG;
+                    document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
                 }
             });
         } else {

@@ -107,7 +107,8 @@ function signup() {
                         lastActive: firebase.firestore.FieldValue.serverTimestamp(),
                         isAdmin: false,
                         bg: 'bg3.jpg',
-                        accountCreatedOn: firebase.firestore.FieldValue.serverTimestamp()
+                        accountCreatedOn: firebase.firestore.FieldValue.serverTimestamp(),
+                        astral_tokens: 0
                     })
                         .then(() => {
                             user.sendEmailVerification()
@@ -145,6 +146,7 @@ function signup() {
                                         title: 'Welcome to your first mission!',
                                         description: 'Creating your own unique presence through your person is the first step to building your network.',
                                         completed: false,
+                                        tokensredeemed: false,
                                         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                                         members: [user.uid],
                                         tasks: { 'Edit your avatar.': false, 'Visit your missions page to see your missions.': false },
@@ -166,6 +168,7 @@ function signup() {
                                             title: 'Creating a todo',
                                             description: 'Head over to your account and create a todo.',
                                             completed: false,
+                                            tokensredeemed: false,
                                             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                                             members: [user.uid],
                                             tasks: { 'Create a new todo.': false },

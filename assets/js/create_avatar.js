@@ -55,7 +55,9 @@ function saveAvatar() {
                             tasks['Edit your avatar.'] = true;
 
                             db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
-                                .then(() => { })
+                                .then(() => {
+                                    window.location.href = '/index.html';
+                                })
                                 .catch((error) => {
                                     console.error(error);
                                 });
@@ -64,8 +66,6 @@ function saveAvatar() {
                     .catch((error) => {
                         console.error('Error getting mission:', error);
                     });
-
-            window.location.href = '/index.html';
         }).catch((error) => {
             console.error(error);
         })
