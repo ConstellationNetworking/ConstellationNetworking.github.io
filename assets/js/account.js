@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (doc.exists) {
                         const data = doc.data();
 
-                        // const profilePictureImage = document.getElementById('current-user-profile-picture');
-                        // profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
+                        const profilePictureImage = document.getElementById('current-user-profile-picture');
+                        profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
 
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;

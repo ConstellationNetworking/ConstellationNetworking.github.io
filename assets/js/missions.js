@@ -1,3 +1,4 @@
+// import { missionRedeemTokens } from './helpers/token_validator.js';
 let db = firebase.firestore();
 let auth = firebase.auth();
 
@@ -37,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     const tasks = doc.data().tasks || {};
                     tasks['Visit your missions page to see your missions.'] = true;
 
-                    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
+                    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
+                        tasks: tasks,
+                    })
                         .then(() => {
                             fetchMissions().then(renderMission);
                         })
@@ -49,6 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch((error) => {
                 console.error('Error getting mission:', error);
             });
+
+            // redeem mission tokens
+            setTimeout(() => {
+                missionRedeemTokens(auth.currentUser.uid);
+            }, 3000);
         } else {
             window.location.href = '/signin.html';
         }
@@ -60,7 +68,6 @@ function displayMissions(mission) {
 
     const missionCard = document.createElement('div');
     missionCard.className = `mission-card bg-${mission.cardColour}-100 p-4 rounded-lg`;
-    console.log(mission.cardColour)
     missionCard.onclick = () => { openMission(mission) };
     missionCard.style.textAlign = 'left';
     missionCard.id = mission.missionID;
@@ -192,7 +199,6 @@ function openMission(mission) {
 }
 
 function toggleTaskCompletion(missionID, task, newCompletionStatus) {
-    console.log('test')
     db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).get()
         .then(doc => {
             const mission = doc.data();
@@ -318,6 +324,7 @@ function resetMission() {
         title: 'Welcome to your first mission!',
         description: 'This is a sample mission. You can edit it or delete it.',
         completed: false,
+        tokensredeemed: false,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         members: [auth.currentUser.uid],
         tasks: { 'Visit your missions page to see your missions.': false, 'Edit your avatar.': false },
@@ -339,6 +346,7 @@ function resetMission() {
             title: 'Creating a todo',
             description: 'Head over to your account and create a todo.',
             completed: false,
+            tokensredeemed: false,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             members: [auth.currentUser.uid],
             tasks: { 'Create a new todo.': false },

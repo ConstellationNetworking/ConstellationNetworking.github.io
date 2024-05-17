@@ -13,32 +13,69 @@ function smoothScrollAboveElement(elementId, offset) {
     }
 }
 
-function redeem(name, points) {
+function sell(name, astral_tokens) {
+    if (confirm(`Are you sure you want to sell ${name}?`)) {
+        db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').where('item', '==', name).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').doc(doc.id).delete()
+                .then(() => {
+                    db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
+                        if (doc.exists) {
+                            const data = doc.data();
+    
+                            db.collection('Users').doc(auth.currentUser.uid).update({
+                                astral_tokens: data.astral_tokens += parseInt(astral_tokens)
+                            })
+                            .then(() => {
+                                location.reload();
+                            })
+                            .catch((error) => {
+                                console.error('Error deleting redeemed item', error);
+                                alert('Unable to sell item. Please try again later.');
+                            })
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting redeemed item', error);
+                        alert('Unable to sell item. Please try again later.');
+                    })
+                })
+                .catch((error) => {
+                    console.error('Error deleting redeemed item', error);
+                    alert('Unable to sell item. Please try again later.');
+                })
+            })
+        })
+    }
+}
+
+function redeem(name, astral_tokens) {
     db.collection('Users').doc(auth.currentUser.uid).get()
         .then((doc) => {
             if (doc.exists) {
                 const data = doc.data();
 
-                if (data.points >= parseInt(points)) {
+                if (data.astral_tokens >= parseInt(astral_tokens)) {
                     // redeem
                     db.collection('Users').doc(auth.currentUser.uid).update({
-                        points: data.points - parseInt(points)
+                        astral_tokens: data.astral_tokens - parseInt(astral_tokens)
                     })
-                    document.getElementById('available-points').innerHTML = data.points - parseInt(points);
+                    document.getElementById('available-astral_tokens').innerHTML = data.astral_tokens - parseInt(astral_tokens);
 
                     db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').add({
                         item: name,
-                        points: parseInt(points),
+                        astral_tokens: parseInt(astral_tokens),
                         redeemedAt: new Date()
                     })
                         .then(() => {
                             alert(`Successfully Redeemed ${name}!`)
+                            location.reload();
                         })
                         .catch((err) => {
                             console.error(err);
                         })
                 } else {
-                    alert('You don\'t have enough points to redeem!')
+                    alert('You don\'t have enough astral tokens to redeem!')
                 }
             }
         })
@@ -62,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById('currentUser-email').innerHTML = data.email;
                         document.getElementById('currentUser-profile-picture').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
                         document.getElementById('currentUser-profile-picture').alt = `Profile picture of ${data.name}`;
-                        document.getElementById('available-points').innerHTML = data.points;
+                        document.getElementById('available-astral_tokens').innerHTML = data.astral_tokens;
                     }
                 })
 
@@ -90,14 +127,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const p = document.createElement('p');
                         p.className = 'text-gray-600';
-                        p.textContent = `Points: ${data.points}`;
+                        p.textContent = `astral_tokens: ${data.astral_tokens}`;
                         divInner.appendChild(p);
 
-                        const button = document.createElement('button');
-                        button.className = 'inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800';
+                        const button = document.createElement('Sell');
+                        button.className = 'inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10';
+                        button.style.textDecoration = 'none';
+                        button.style.cursor = 'pointer';
                         button.dataset.name = data.item;
-                        button.dataset.redeem = data.points;
-                        button.textContent = 'Redeem';
+                        button.dataset.redeem = data.astral_tokens;
+                        button.onclick = function() {
+                            sell(data.item, data.astral_tokens);
+                        };
+                        button.textContent = 'Sell';
                         divInner.appendChild(button);
 
                         document.getElementById('myrewards-items').appendChild(div);
