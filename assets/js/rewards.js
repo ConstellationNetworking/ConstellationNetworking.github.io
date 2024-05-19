@@ -13,7 +13,7 @@ function smoothScrollAboveElement(elementId, offset) {
     }
 }
 
-function sell(name, astral_tokens) {
+function sell(name, novacoins) {
     if (confirm(`Are you sure you want to sell ${name}?`)) {
         db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').where('item', '==', name).get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -24,7 +24,7 @@ function sell(name, astral_tokens) {
                             const data = doc.data();
     
                             db.collection('Users').doc(auth.currentUser.uid).update({
-                                astral_tokens: data.astral_tokens += parseInt(astral_tokens)
+                                novacoins: data.novacoins += parseInt(novacoins)
                             })
                             .then(() => {
                                 location.reload();
@@ -49,22 +49,22 @@ function sell(name, astral_tokens) {
     }
 }
 
-function redeem(name, astral_tokens) {
+function redeem(name, novacoins) {
     db.collection('Users').doc(auth.currentUser.uid).get()
         .then((doc) => {
             if (doc.exists) {
                 const data = doc.data();
 
-                if (data.astral_tokens >= parseInt(astral_tokens)) {
+                if (data.novacoins >= parseInt(novacoins)) {
                     // redeem
                     db.collection('Users').doc(auth.currentUser.uid).update({
-                        astral_tokens: data.astral_tokens - parseInt(astral_tokens)
+                        novacoins: data.novacoins - parseInt(novacoins)
                     })
-                    document.getElementById('available-astral_tokens').innerHTML = data.astral_tokens - parseInt(astral_tokens);
+                    document.getElementById('available-novacoins').innerHTML = data.novacoins - parseInt(novacoins);
 
                     db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').add({
                         item: name,
-                        astral_tokens: parseInt(astral_tokens),
+                        novacoins: parseInt(novacoins),
                         redeemedAt: new Date()
                     })
                         .then(() => {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById('currentUser-email').innerHTML = data.email;
                         document.getElementById('currentUser-profile-picture').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
                         document.getElementById('currentUser-profile-picture').alt = `Profile picture of ${data.name}`;
-                        document.getElementById('available-astral_tokens').innerHTML = data.astral_tokens;
+                        document.getElementById('available-novacoins').innerHTML = data.novacoins;
                     }
                 })
 
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const p = document.createElement('p');
                         p.className = 'text-gray-600';
-                        p.textContent = `astral_tokens: ${data.astral_tokens}`;
+                        p.textContent = `novacoins: ${data.novacoins}`;
                         divInner.appendChild(p);
 
                         const button = document.createElement('Sell');
@@ -135,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         button.style.textDecoration = 'none';
                         button.style.cursor = 'pointer';
                         button.dataset.name = data.item;
-                        button.dataset.redeem = data.astral_tokens;
+                        button.dataset.redeem = data.novacoins;
                         button.onclick = function() {
-                            sell(data.item, data.astral_tokens);
+                            sell(data.item, data.novacoins);
                         };
                         button.textContent = 'Sell';
                         divInner.appendChild(button);

@@ -108,7 +108,7 @@ function signup() {
                         isAdmin: false,
                         bg: 'bg3.jpg',
                         accountCreatedOn: firebase.firestore.FieldValue.serverTimestamp(),
-                        astral_tokens: 0
+                        novacoins: 0
                     })
                         .then(() => {
                             user.sendEmailVerification()
