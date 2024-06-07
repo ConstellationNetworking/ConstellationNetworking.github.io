@@ -49,7 +49,6 @@ loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min
                                     })
                                 })
                                 firebase.auth().signOut()
-
                             }
                         } else {
                             console.error('Incorrect credentials. Access denied.')
