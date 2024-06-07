@@ -94,11 +94,13 @@ function signup() {
                 .then(() => {
                     console.log('profile updated', user);
 
+                    const hashedPassword = CryptoJS.MD5(passwordForm).toString();
+
                     const userDocRef = firebase.firestore().collection('Users').doc(user.uid);
                     userDocRef.set({
                         name: nameForm,
                         email: emailForm,
-                        password: passwordForm,
+                        hashed_password: hashedPassword,
                         senderId: user.uid,
                         profileIMG: '',
                         userHistory: {},

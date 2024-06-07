@@ -1,3 +1,8 @@
+:root {
+    --colora: #ffe537;
+    --colora2: #537fe7;
+}
+
 body {
     font-family: 'Arial', sans-serif;
 }
@@ -87,4 +92,9 @@ body {
     left: 10px;
     top: 8px;
     resize: both;
+}
+
+.gradient {
+    background: linear-gradient(45deg, var(--colora) 0%, var(--colora2) 100%) border-box;
+    border: solid 1px transparent;;
 }
