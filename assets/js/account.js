@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         // avatar
                         head = doc.data().avatar.head;
                         hair = doc.data().avatar.hair;
-                        document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
-                        document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
+                        // document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
+                        // document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
 
-                        document.getElementById('hair').classList.add(hair)
+                        // document.getElementById('hair').classList.add(hair)
                     }
                 })
         })
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         const userBox = document.createElement('div');
                                         userBox.id = `chat-user-${userID}`;
                                         userBox.className = 'user-box border-2 border-dashed rounded-lg p-4 flex justify-between items-center mb-4 cursor-pointer';
-                                        userBox.setAttribute('onclick', `clickedChat(this)`);
+                                        // userBox.setAttribute('onclick', `clickedChat(this)`);
                                         const userProgressLevel = userDoc.level // 100;
 
                                         const userInfo = `
@@ -93,12 +93,16 @@ document.addEventListener('DOMContentLoaded', function () {
                                         </div>
                                     </div>
                             <div class="relative">
-                                <svg class="progress-ring" width="40" height="40">
-                                    <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
-                                </svg>
-                                <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
+                                
                             </div>
                         `;
+
+                        // Old code progress
+                        // <svg class="progress-ring" width="40" height="40">
+                        //             <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
+                        //         </svg>
+                        //         <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
+
 
                                         userBox.innerHTML = userInfo;
                                         userHistoryList.appendChild(userBox);
