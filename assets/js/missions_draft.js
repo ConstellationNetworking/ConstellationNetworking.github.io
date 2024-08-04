@@ -33,25 +33,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // update the user's mission for finishing the task
             db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
-                .then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        const tasks = doc.data().tasks || {};
-                        tasks['Visit your missions page to see your missions.'] = true;
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const tasks = doc.data().tasks || {};
+                    tasks['Visit your missions page to see your missions.'] = true;
 
-                        db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
-                            tasks: tasks,
+                    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
+                        tasks: tasks,
+                    })
+                        .then(() => {
+                            fetchMissions().then(renderMission);
                         })
-                            .then(() => {
-                                fetchMissions().then(renderMission);
-                            })
-                            .catch((error) => {
-                                console.error(error);
-                            });
-                    });
-                })
-                .catch((error) => {
-                    console.error('Error getting mission:', error);
+                        .catch((error) => {
+                            console.error(error);
+                        });
                 });
+            })
+            .catch((error) => {
+                console.error('Error getting mission:', error);
+            });
 
             // redeem mission tokens
             setTimeout(() => {
@@ -67,7 +67,7 @@ function displayMissions(mission) {
     const missionsContainer = document.getElementById('missions-container');
 
     const missionCard = document.createElement('div');
-    missionCard.className = `mission-card bg-gray-800 p-4 rounded-lg`;
+    missionCard.className = `mission-card bg-${mission.cardColour}-100 p-4 rounded-lg`;
     missionCard.onclick = () => { openMission(mission) };
     missionCard.style.textAlign = 'left';
     missionCard.id = mission.missionID;
@@ -76,7 +76,7 @@ function displayMissions(mission) {
     missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
-            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+            <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
         <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
         <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
@@ -125,7 +125,7 @@ function openMission(mission) {
             missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
-            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+            <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
         <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
         <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
@@ -139,19 +139,19 @@ function openMission(mission) {
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-            <button type="button" onclick="toggleMissionCompletion('${mission.missionID}')" class="border-2 border-blue-600 px-2 py-1.5 rounded-md text-blue-500 hover:text-white hover:bg-blue-600 duration-200">Mark as incomplete</button>
-            <button type="button" class="ml-2 border-2 border-red-500 px-3 py-1.5 rounded-md hover:text-white hover:bg-red-500 duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                    </svg>
-                </button>
+            <button type="button" onclick="toggleMissionCompletion('${mission.missionID}')" class="btn btn-outline-primary">Mark as incomplete</button>
+            <button style="margin-left: 5;" type="button" class="btn btn-outline-danger" onclick="deleteMission('${mission.missionID}')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                </svg>
+            </button>
         </div>
         `
         } else {
             missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
-            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+            <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
         <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
         <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
@@ -165,11 +165,11 @@ function openMission(mission) {
         </div>
 
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-        <button type="button" class="ml-2 border-2 border-red-500 px-3 py-2 rounded-md hover:text-white hover:bg-red-500 duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                    </svg>
-                </button>
+            <button style="margin-left: 5;" type="button" class="btn btn-outline-danger" onclick="deleteMission('${mission.missionID}')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="black" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                </svg>
+            </button>
         </div>
         `
         }
@@ -283,7 +283,7 @@ function renderMission(missions) {
 
     missions.forEach(mission => {
         const missionCard = document.createElement('div');
-        missionCard.className = `mission-card bg-gray-800 p-4 rounded-lg`;
+        missionCard.className = `mission-card bg-${mission.cardColour}-100 p-4 rounded-lg`;
         missionCard.onclick = () => { openMission(mission) };
         missionCard.style.textAlign = 'left';
         missionCard.id = mission.missionID;
@@ -291,7 +291,7 @@ function renderMission(missions) {
         missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
-            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+            <div class="text-sm font-medium text-blue-800">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
         <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
         <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">

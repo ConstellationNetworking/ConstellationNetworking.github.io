@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missions Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/missions_hub.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-gray-800 h-screen p-4">
+            <div class="flex items-center mb-8">
+                <img src="/assets/img/icon.png" class="mr-2 rounded-md" width="40" height="40">
+                <span class="text-xl font-bold">Constellation</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="mb-5"><a href="/index.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-home mr-2"></i> Home</a></li>
+                    <li class="mb-5"><a href="/missions.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-cube mr-2"></i> Missions</a></li>
+                    <li class="mb-5"><a href="#" class="flex items-center text-white"><i class="fas fa-store mr-2"></i> Missions Hub</a></li>
+                    <li class="mb-5"><a href="/rewards.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-tshirt mr-2"></i> Rewards</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center">
+                    <div class="flex items-center bg-gray-700 p-2 rounded-md">
+                        <input type="text" placeholder="Search" class="bg-transparent text-white focus:outline-none">
+                        <i class="fas fa-search text-gray-400 ml-2"></i>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <span id="user-novacoins" class="text-yellow-400 font-bold"></span>
+                    <button class="text-gray-400 hover:text-gray-600 duration-300 ml-4 fas fa-bell"></button>
+                    <button class="text-gray-400 hover:text-gray-600 duration-300 mx-4 fas fa-plus"></button>
+                    <div>
+                        <img src="/assets/img/default_user.jpeg" id="user-profile-img" alt="User Avatar" class="rounded-full" width="40" height="40">
+                    </div>
+                </div>
+            </div>
+            <!-- Welcome Section -->
+            <div class="bg-gray-700 p-6 rounded-md mb-6">
+                <h1 class="text-3xl font-bold mb-2">Welcome to Constellation Missions Hub</h1>
+                <p class="text-gray-400 mb-4">Explore all user created missions here in the Constellation Missions Hub.</p>
+                <button onclick="smoothScrollAboveElement('section:all-missions', 100);" class="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700 duration-300">Explore</button>
+            </div>
+            
+            <!-- All Missions Section -->
+            <div id="section:all-missions">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">All Missions</h2>
+                    <a href="#" class="text-blue-500 hover:text-blue-600 duration-300">View all</a>
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 1" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 1</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 2" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 2</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 3" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 3</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 4" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 4</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 5" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 5</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 6" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 6</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 7" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 7</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded-md">
+                        <img src="https://placehold.co/150x150" alt="Mission 8" class="mb-2 rounded-md">
+                        <h3 class="text-lg font-bold">Mission 8</h3>
+                        <p class="text-sm text-gray-300">Mission description here.</p>
+
+                        <button class="bg-blue-600 text-md px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/assets/js/missions_hub.js"></script>
+</html>
