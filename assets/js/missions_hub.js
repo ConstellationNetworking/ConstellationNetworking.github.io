@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     auth.onAuthStateChanged(function(user) {
         if (user) {
             const userRef = db.collection("Users").doc(auth.currentUser.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
             
             userRef.get().then((doc) => {
                 if (doc.exists) {
