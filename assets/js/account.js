@@ -18,9 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // update current user's panel
     function updateCurrentUser() {
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-
         auth.onAuthStateChanged(function (user) {
             db.collection('Users').doc(auth.currentUser.uid).get()
                 .then(doc => {

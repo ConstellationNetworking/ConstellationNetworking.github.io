@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('user-novacoins').innerText = `$${data.novacoins}`
                 }
             })
+        } else {
+            window.location.href = '/signin.html';
         }
     })
 });

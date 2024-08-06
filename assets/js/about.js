@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(doc => {
                 if (doc.exists) {
                     const data = doc.data();
-                    animateValue('website-views', 0, data.views, 500)
+                    animateValue('website-views', 0, data.views, 50)
                 } else {
                     console.error('No document exists.')
                 }
@@ -59,6 +59,7 @@ function animateValue(id, start, end, duration) {
         current += increment;
         obj.innerText = current.toLocaleString();
         if (current === end) {
+            obj.innerText = obj.innerHTML + '+';
             clearInterval(timer);
         }
     }, stepTime)
