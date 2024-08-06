@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         // avatar
                         head = doc.data().avatar.head;
                         hair = doc.data().avatar.hair;
-                        // document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
-                        // document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
+                        document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
+                        document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
 
                         // document.getElementById('hair').classList.add(hair)
                     }
