@@ -1,6 +1,6 @@
 let userHistory = [];
-const db = firebase.firestore();
-const auth = firebase.auth();
+// const db = firebase.firestore();
+// const auth = firebase.auth();
 
 document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown');
@@ -39,10 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         // avatar
                         head = doc.data().avatar.head;
                         hair = doc.data().avatar.hair;
-                        document.getElementById('head').src = `/assets/img/create_avatar/${head}.png`;
-                        document.getElementById('hair').src = `/assets/img/create_avatar/${hair}.png`;
+                        const headElement = document.getElementById('head');
+                        const hairElement = document.getElementById('hair');
+                        headElement.src = `/assets/img/create_avatar/${head}.png`;
+                        hairElement.src = `/assets/img/create_avatar/${hair}.png`;
 
-                        // document.getElementById('hair').classList.add(hair)
+                        // Trim avatar into a circle
+                        headElement.style.borderRadius = '50%';
+                        hairElement.style.borderRadius = '50%';
+
+                        // auto rotate avatar
+                        if (Math.random() < 0.45) {
+                            setTimeout(() => {
+                                document.querySelector('.flip-container').classList.toggle('flip');
+
+                                setTimeout(() => {
+                                    document.querySelector('.flip-container').classList.toggle('flip');
+                                }, 1500);
+                            }, 1000);
+                        }
                     }
                 })
         })
@@ -76,29 +91,32 @@ document.addEventListener('DOMContentLoaded', function () {
                                         const userDoc = snapshot.docs[0].data();
                                         const userBox = document.createElement('div');
                                         userBox.id = `chat-user-${userID}`;
-                                        userBox.className = 'user-box border-2 border-dashed rounded-lg p-4 flex justify-between items-center mb-4 cursor-pointer';
+                                        userBox.className = 'user-box border-2 border-dashed rounded-lg p-4 flex justify-between items-center mb-2 cursor-pointer';
                                         // userBox.setAttribute('onclick', `clickedChat(this)`);
                                         const userProgressLevel = userDoc.level // 100;
+                                        userBox.onclick = function () {
+                                            window.location = `/chat.html?userID=${userID}`;
+                                        }
 
                                         const userInfo = `
                                         <div class="flex items-center" id="user-${userID}" style="height: 50px;">
-                                        <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="50" height="50" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
-                                        <div style="font-size: 0.8em;">
-                                            <div class="font-bold">${userDoc.name}</div>
-                                            <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
-                                            <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
+                                            <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="50" height="50" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
+                                            <div style="font-size: 0.8em;">
+                                                <div class="font-bold">${userDoc.name}</div>
+                                                <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
+                                                <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                            <div class="relative">
-                                
-                            </div>
+                                        <div class="relative">
+                                            
+                                        </div>
                         `;
 
-                        // Old code progress
-                        // <svg class="progress-ring" width="40" height="40">
-                        //             <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
-                        //         </svg>
-                        //         <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
+                                        // Old code progress
+                                        // <svg class="progress-ring" width="40" height="40">
+                                        //             <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
+                                        //         </svg>
+                                        //         <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
 
 
                                         userBox.innerHTML = userInfo;
@@ -287,16 +305,14 @@ function updateTaskStatus(taskId, isCompleted) {
 }
 
 function deleteTask(taskId, task) {
-    if (confirm(`Are you sure you want to delete "${task}"?`)) {
-        db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').doc(taskId).delete()
-            .then(() => {
-                console.log("Document successfully deleted!");
-                loadTasks(); // Refresh the task list
-            })
-            .catch((error) => {
-                console.error("Error removing document: ", error);
-            });
-    }
+    db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').doc(taskId).delete()
+        .then(() => {
+            console.log("Document successfully deleted!");
+            loadTasks(); // Refresh the task list
+        })
+        .catch((error) => {
+            console.error("Error removing document: ", error);
+        });
 }
 
 // task <Enter> bind

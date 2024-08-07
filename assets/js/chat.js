@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function getQueryParam(param) {
+        const urlParam = new URLSearchParams(window.location.search);
+        return urlParam.get(param);
+    }
+
     function subscribeToMessages(otherUserID) {
         unbsubscribeFromMessages();
         const messageCollection = db.collection('Messages');
@@ -241,6 +246,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }).catch((error) => {
                 console.error('Error getting user:', error);
             });
+
+            const userID = getQueryParam('userID');
+            if (userID) {
+                handleSwitchChat(userID);
+                switchUserChat(userID)
+            }
         } else {
             console.error('User is not signed in.');
             // alert('Please sign in first. You will be directed to a sign in page.');
