@@ -1,12 +1,23 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Screen Studio Changelog</title>
+    <title>Constellation Changelog</title>
     <link rel="stylesheet" href="/assets/dist/tailwind.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/changelog.css">
     <link rel="stylesheet" href="/assets/css/new_changelog.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FTXQ5HF0C5');
+    </script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -14,6 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="assets/js/firebase_init.js"></script>
 </head>
+
 <body class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 py-12">
         <header class="flex justify-between items-center py-4 border-b border-gray-800">
@@ -335,4 +347,5 @@
     </div>
 </body>
 <script src="/assets/js/changelog.js"></script>
+
 </html>

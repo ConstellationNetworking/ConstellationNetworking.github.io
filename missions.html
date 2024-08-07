@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/missions.css">
     <script src="/assets/dist/tailwind.js"></script>
-    
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FTXQ5HF0C5');
+    </script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="assets/js/firebase_init.js"></script>
 </head>
+
 <body class="bg-gray-900 text-white">
     <div class="flex flex-1 min-h-full">
         <!-- Sidebar -->
@@ -26,10 +38,15 @@
             </div>
             <nav>
                 <ul>
-                    <li class="mb-5"><a href="/index.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-home mr-2"></i> Home</a></li>
-                    <li class="mb-5"><a href="#" class="flex items-center text-white"><i class="fas fa-cube mr-2"></i> My Missions</a></li>
-                    <li class="mb-5"><a href="/missions_hub.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-store mr-2"></i> Missions Hub</a></li>
-                    <li class="mb-5"><a href="/rewards.html" class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-tshirt mr-2"></i> Rewards</a></li>
+                    <li class="mb-5"><a href="/index.html" class="flex items-center text-gray-400 hover:text-white"><i
+                                class="fas fa-home mr-2"></i> Home</a></li>
+                    <li class="mb-5"><a href="#" class="flex items-center text-white"><i class="fas fa-cube mr-2"></i>
+                            My Missions</a></li>
+                    <li class="mb-5"><a href="/missions_hub.html"
+                            class="flex items-center text-gray-400 hover:text-white"><i class="fas fa-store mr-2"></i>
+                            Missions Hub</a></li>
+                    <li class="mb-5"><a href="/rewards.html" class="flex items-center text-gray-400 hover:text-white"><i
+                                class="fas fa-tshirt mr-2"></i> Rewards</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,11 +66,12 @@
                     <button class="text-gray-400 hover:text-gray-600 duration-300 ml-4 fas fa-bell"></button>
                     <button class="text-gray-400 hover:text-gray-600 duration-300 mx-4 fas fa-plus"></button>
                     <div>
-                        <img src="/assets/img/default_user.jpeg" id="user-profile-img" alt="User Avatar" class="rounded-full" width="40" height="40">
+                        <img src="/assets/img/default_user.jpeg" id="user-profile-img" alt="User Avatar"
+                            class="rounded-full" width="40" height="40">
                     </div>
                 </div>
             </div>
-            
+
             <!-- My Missions Section -->
             <div id="section:all-missions">
                 <div class="flex justify-between items-center mb-4">
@@ -69,4 +87,5 @@
 </body>
 <script src="/assets/js/helpers/token_validator.js"></script>
 <script src="/assets/js/missions.js"></script>
+
 </html>

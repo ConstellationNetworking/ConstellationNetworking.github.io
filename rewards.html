@@ -9,6 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/rewards.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FTXQ5HF0C5');
+    </script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -94,25 +104,34 @@
                     </div>
                     <div class="grid grid-cols-4 gap-4">
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/classic_fedora.png" alt="Classic Fedora" class="mb-2 rounded-md">
+                            <img src="/assets/img/rewards/classic_fedora.png" alt="Classic Fedora"
+                                class="mb-2 rounded-md">
                             <h3 class="text-lg font-bold">Classic Fedora</h3>
                             <p class="text-sm text-gray-300">Novacoins: $10</p>
 
-                            <button data-name="Classic Fedora" data-redeem="10" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Classic Fedora" data-redeem="10"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/aviator_glasses.png" alt="Aviator Glasses" class="mb-2 rounded-md">
+                            <img src="/assets/img/rewards/aviator_glasses.png" alt="Aviator Glasses"
+                                class="mb-2 rounded-md">
                             <h3 class="text-lg font-bold">Aviator Glasses</h3>
                             <p class="text-sm text-gray-300">Novacoins: $11</p>
 
-                            <button data-name="Aviator Glasses" data-redeem="11" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Aviator Glasses" data-redeem="11"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/professional_outfit.png" alt="Professional Outfit" class="mb-2 rounded-md">
+                            <img src="/assets/img/rewards/professional_outfit.png" alt="Professional Outfit"
+                                class="mb-2 rounded-md">
                             <h3 class="text-lg font-bold">Professional Outfit</h3>
                             <p class="text-sm text-gray-300">Novacoins: $12</p>
 
-                            <button data-name="Professional Outfit" data-redeem="12" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Professional Outfit" data-redeem="12"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                     </div>
                 </div>
@@ -124,18 +143,24 @@
                     </div>
                     <div class="grid grid-cols-4 gap-4">
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/boy's_hair.png" alt="Boy's Hair" class="mb-2 rounded-md bg-white">
+                            <img src="/assets/img/rewards/boy's_hair.png" alt="Boy's Hair"
+                                class="mb-2 rounded-md bg-white">
                             <h3 class="text-lg font-bold">Boy's Hair</h3>
                             <p class="text-sm text-gray-300">Novacoins: $12</p>
 
-                            <button data-name="Boy's Hair" data-redeem="12" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Boy's Hair" data-redeem="12"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/girl's_hair.png" alt="Girl's Hair" class="mb-2 rounded-md bg-white">
+                            <img src="/assets/img/rewards/girl's_hair.png" alt="Girl's Hair"
+                                class="mb-2 rounded-md bg-white">
                             <h3 class="text-lg font-bold">Girl's Hair</h3>
                             <p class="text-sm text-gray-300">Nocavoins: $14</p>
 
-                            <button data-name="Girl's Hair" data-redeem="14" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Girl's Hair" data-redeem="14"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                     </div>
                 </div>
@@ -147,11 +172,14 @@
                     </div>
                     <div class="grid grid-cols-4 gap-4">
                         <div class="bg-gray-800 p-4 rounded-md">
-                            <img src="/assets/img/rewards/boy's_hair.png" alt="Boy's Hair" class="mb-2 rounded-md bg-white">
+                            <img src="/assets/img/rewards/boy's_hair.png" alt="Boy's Hair"
+                                class="mb-2 rounded-md bg-white">
                             <h3 class="text-lg font-bold">Boy's Hair</h3>
                             <p class="text-sm text-gray-300">Novacoins: $16</p>
 
-                            <button data-name="Boy's Hair" data-redeem="16" onclick="redeem(this.dataset.name, this.dataset.redeem)" class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
+                            <button data-name="Boy's Hair" data-redeem="16"
+                                onclick="redeem(this.dataset.name, this.dataset.redeem)"
+                                class="bg-blue-600 text-sm px-3 py-1 mt-3 rounded-md hover:bg-blue-700 duration-300">Add</button>
                         </div>
                     </div>
                 </div>
