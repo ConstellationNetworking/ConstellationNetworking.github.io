@@ -56,7 +56,12 @@ function saveAvatar() {
 
                             db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
                                 .then(() => {
-                                    window.location.href = '/index.html';
+                                    if (window.self !== window.top) {
+                                        alert('Avatar saved!');
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    } else {
+                                        window.location.href = '/index.html';
+                                    }
                                 })
                                 .catch((error) => {
                                     console.error(error);
