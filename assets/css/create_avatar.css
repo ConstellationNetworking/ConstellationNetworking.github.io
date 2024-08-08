@@ -1,6 +1,7 @@
 body {
     margin-top: 20px;
-    background: #eee;
+    /* background: #eee; */
+    background: white;
 }
 
 .single_advisor_profile {
