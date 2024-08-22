@@ -25,7 +25,7 @@ function displayUserCard(data, containerID) {
     button.className = 'bg-blue-600 text-sm absolute bottom-4 right-3 mt-2 mr-2 px-4 py-2 rounded-md hover:bg-blue-700 duration-300';
     button.textContent = 'Chat';
     button.onclick = function () {
-        window.location.href = `/chat.html?userID=${connection}`;
+        window.location.href = `/chat.html?userID=${data.senderId}`;
     }
 
     const img = document.createElement('img');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('user-profile-img').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
 
                     // load "recommended connections"
-                    db.collection("Users").get().then((querySnapshot) => {
+                    db.collection("Users").limit(10).get().then((querySnapshot) => {
                         querySnapshot.forEach((doc) => {
                             if (doc.exists) {
                                 const data = doc.data();
@@ -102,6 +102,23 @@ document.addEventListener('DOMContentLoaded', function () {
             searchResultsSection.style.display = 'none';
         }
     }, 500));
+
+
+    // load all users when "view all" button clicked
+    document.getElementById('btn:view-all').addEventListener('click', function() {
+        const recommendedConnectionsContainer = document.getElementById('recommendedconnections');
+        recommendedConnectionsContainer.innerHTML = '';
+
+        db.collection('Users').get().then((querySnapshot) => 
+            querySnapshot.forEach((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+
+                    displayUserCard(data, 'recommendedconnections');
+                }
+            })
+        )
+    })
 });
 
 // MARK: - Search Function
