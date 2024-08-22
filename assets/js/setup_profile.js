@@ -100,6 +100,9 @@ function submitProfile() {
 function updateUserProfile(downloadURL, auth, db) {
     const fullNameInput = document.getElementById("edit-profile-full-name");
     const bioInput = document.getElementById("bio");
+    if (!bioInput.value.trim()) {
+        bioInput.value = "They're still thinking of a bio...";
+    }
 
     if (auth.currentUser) {
         const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);

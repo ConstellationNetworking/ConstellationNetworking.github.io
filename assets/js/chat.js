@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     userHistoryListDiv.appendChild(listItem);
                                     setupUserButtonListener(document.getElementById('user-ConstellationBot'));
                                 } else {
-                                    console.error('User doens\'t exist.')
+                                    console.error('User doens\'t exist.', userID);
                                 }
                             })
                         }
