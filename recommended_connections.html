@@ -58,7 +58,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center">
                     <div class="flex items-center bg-gray-700 p-2 rounded-md">
-                        <input type="text" placeholder="Search" class="bg-transparent text-white focus:outline-none">
+                        <input type="text" placeholder="Search" class="bg-transparent text-white focus:outline-none" id="searchbox">
                         <i class="fas fa-search text-gray-400 ml-2"></i>
                     </div>
                 </div>
@@ -72,12 +72,21 @@
                 </div>
             </div>
 
+            <div id="section:search-results" class="mb-6" style="display: none;">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Search Results</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4" id="search-results">
+                    <!-- search results here -->
+                </div>
+            </div>
+
             <div id="section:all-missions">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-2xl font-bold">Recommended Connections</h2>
-                    <a href="#" class="text-blue-500 hover:text-blue-600 duration-300">View all</a>
+                    <a href="#" id="btn:view-all" class="text-blue-500 hover:text-blue-600 duration-300">View all</a>
                 </div>
-                <div class="grid grid-cols-1 gap-4" id="myconnections">
+                <div class="grid grid-cols-1 gap-4" id="recommendedconnections">
 
                     <!-- Example card -->
                     <!-- <div class="bg-gray-800 px-4 py-2 rounded-md flex items-center relative">
