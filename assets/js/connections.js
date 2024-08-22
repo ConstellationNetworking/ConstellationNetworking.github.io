@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // const searchInput = document.querySelector('input[type="text"][placeholder="Search"]');
     const searchInput = document.getElementById('searchbox');
     searchInput.addEventListener('input', debounce(function () {
         const query = searchInput.value.trim();
