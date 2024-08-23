@@ -1,11 +1,10 @@
-let db = firebase.firestore();
-let auth = firebase.auth();
+// let db = firebase.firestore();
+// let auth = firebase.auth();
 
 document.addEventListener('DOMContentLoaded', function() {
     auth.onAuthStateChanged(function (user) {
         if (user) {
             userRef = db.collection("Users").doc(user.uid);
-            console.log('userref loaded')
 
             userRef.get().then((doc) => {
                 if (doc.exists) {
