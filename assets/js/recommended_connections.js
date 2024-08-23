@@ -23,9 +23,18 @@ function displayUserCard(data, containerID) {
 
     const button = document.createElement('button');
     button.className = 'bg-blue-600 text-sm absolute bottom-4 right-3 mt-2 mr-2 px-4 py-2 rounded-md hover:bg-blue-700 duration-300';
-    button.textContent = 'Chat';
+    button.textContent = 'Connect';
     button.onclick = function () {
-        window.location.href = `/chat.html?userID=${data.senderId}`;
+        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+        currentUserRef.update({
+            connections: firebase.firestore.FieldValue.arrayUnion(data.senderId)
+        }).then(() => {
+            console.log('User added to connections');
+
+            alert('Connected with ' + data.name + '!');
+        }).catch(error => {
+            console.error('Unable to add user to connections array', error);
+        })
     }
 
     const img = document.createElement('img');

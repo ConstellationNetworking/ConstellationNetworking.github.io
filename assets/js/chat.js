@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 messageInput.value = '';
                 console.log(`Message sent successfully`);
 
-                // MARK:- Update connections array
+                // MARK:- Update connections
                 const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
                 currentUserRef.update({
                     connections: firebase.firestore.FieldValue.arrayUnion(otherUserID)
