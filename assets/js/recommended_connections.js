@@ -78,8 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         querySnapshot.forEach((doc) => {
                             if (doc.exists) {
                                 const data = doc.data();
-
-                                displayUserCard(data, 'recommendedconnections');
+                                if (data.senderId !== auth.currentUser.uid) {
+                                    displayUserCard(data, 'recommendedconnections');
+                                }
                             }
                         });
                     });
