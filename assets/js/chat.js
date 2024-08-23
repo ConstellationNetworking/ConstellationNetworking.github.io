@@ -272,6 +272,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }).then(() => {
                 messageInput.value = '';
                 console.log(`Message sent successfully`);
+
+                // MARK:- Update connections array
+                const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+                currentUserRef.update({
+                    connections: firebase.firestore.FieldValue.arrayUnion(otherUserID)
+                }).then(() => {
+                    console.log(`User ${otherUserID} added to connections.`);
+                }).catch(error => {
+                    console.error(`Error updating connections: ${error}`);
+                })
             }).catch(error => {
                 console.error("Error sending message: ", error);
             });
