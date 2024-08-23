@@ -1,6 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Avatar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -14,19 +18,19 @@
     <script src="assets/js/firebase_init.js"></script>
 </head>
 
-<body>
-    <div class="container" style="padding-left: 10%; padding-right: 10%; padding-top: 5%;">
-        <h1 class="text-4xl font-semibold leading-7 text-gray-900">Edit your avatar</h1>
+<body class="bg-[#1E1E1E] text-white">
+    <div class="container mx-auto px-10 py-10">
+        <h1 class="text-4xl font-semibold leading-7 text-white">Edit your avatar</h1>
 
-        <div class="space-y-12" style="padding-top: 5%;">
+        <div class="space-y-12 pt-10">
             <!-- Skin tone customization -->
-            <div class="border-b border-gray-900/10 pb-12" id="skin-tone">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">1. Personalize your skin tone</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">Choose a base skin tone to get started.</p>
+            <div class="border-b border-gray-700 pb-12" id="skin-tone">
+                <h2 class="text-base font-semibold leading-7 text-white">1. Personalize your skin tone</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-400">Choose a base skin tone to get started.</p>
 
-                <div class="container mx-auto" style="margin-top: 30px;">
+                <div class="container mx-auto mt-8">
                     <div class="grid grid-cols-3 gap-4">
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                             <a href="#">
                                 <img class="p-8 rounded-t-lg" src="/assets/img/create_avatar/d1.png"
                                     alt="product image" />
@@ -34,12 +38,12 @@
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
                                     <a style="cursor: pointer;" id="d1" onclick="setHead(this.id)"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                             <a href="#">
                                 <img class="p-8 rounded-t-lg" src="/assets/img/create_avatar/d2.png"
                                     alt="product image" />
@@ -47,12 +51,12 @@
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
                                     <a style="cursor: pointer;" id="d2" onclick="setHead(this.id)"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                             <a href="#">
                                 <img class="p-8 rounded-t-lg" src="/assets/img/create_avatar/d3.png"
                                     alt="product image" />
@@ -60,7 +64,7 @@
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
                                     <a style="cursor: pointer;" id="d3" onclick="setHead(this.id)"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -69,14 +73,14 @@
 
             </div>
 
-            <!-- hair customization -->
-            <div class="border-b border-gray-900/10 pb-12" id="hairstyle">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">2. Choose a hair style</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">Choose a hair style from the options below.</p>
+            <!-- Hair customization -->
+            <div class="border-b border-gray-700 pb-12" id="hairstyle">
+                <h2 class="text-base font-semibold leading-7 text-white">2. Choose a hair style</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-400">Choose a hair style from the options below.</p>
 
-                <div class="container mx-auto" style="margin-top: 30px;">
+                <div class="container mx-auto mt-8">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                             <a href="#">
                                 <img class="p-8 rounded-t-lg" src="/assets/img/create_avatar/h1.png"
                                     alt="product image" />
@@ -84,12 +88,12 @@
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
                                     <a style="cursor: pointer;" onclick="setHair(this.id)" id="h1"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
                             <a href="#">
                                 <img class="p-8 rounded-t-lg" src="/assets/img/create_avatar/h2.png"
                                     alt="product image" />
@@ -97,7 +101,7 @@
                             <div class="px-5 pb-5">
                                 <div class="flex items-center justify-between">
                                     <a style="cursor: pointer;" onclick="setHair(this.id)" id="h2"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
+                                        class="text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose</a>
                                 </div>
                             </div>
                         </div>
@@ -105,12 +109,12 @@
                 </div>
             </div>
 
-            <!-- background customization -->
-            <div class="border-b border-gray-900/10 pb-12" id="background">
-                <h2 class="text-base font-semibold leading-7 text-gray-900">3. Personalize your constellation</h2>
-                <p class="mt-1 text-sm leading-6 text-gray-600">Choose a theme from the options below.</p>
+            <!-- Background customization -->
+            <div class="border-b border-gray-700 pb-12" id="background">
+                <h2 class="text-base font-semibold leading-7 text-white">3. Personalize your constellation</h2>
+                <p class="mt-1 text-sm leading-6 text-gray-400">Choose a theme from the options below.</p>
 
-                <div class="container mx-auto" style="margin-top: 30px;">
+                <div class="container mx-auto mt-8">
                     <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                         <div class="grid gap-4">
                             <div>
@@ -141,7 +145,6 @@
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6" id="saveActions" style="padding-bottom: 5%;">
-            <!-- <button id="cancelBtn" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button> -->
             <button id="submitBtn" onclick="saveAvatar()"
                 class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
         </div>

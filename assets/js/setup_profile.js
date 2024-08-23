@@ -57,43 +57,53 @@ function submitProfile() {
     } else {
         const file = profilePictureImageInput.files[0];
         console.log(usedDefaultImage)
-        if (file) {
-            document.getElementById('submitButton').innerText = 'loading...'
 
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const img = new Image();
-                img.onload = function () {
-                    if (img.width === img.height) {
-                        uploadProfilePicture(file, auth, db);
-                    } else {
-                        alert('Please upload a square image.');
+        const currentuserRef = db.collection('Users').doc(auth.currentUser.uid);
+        currentuserRef.get().then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+
+                if (file) {
+                    document.getElementById('submitButton').innerText = 'loading...'
+        
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = new Image();
+                        img.onload = function () {
+                            if (img.width === img.height) {
+                                uploadProfilePicture(file, auth, db);
+                            } else {
+                                alert('Please upload a square image.');
+                                document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                            }
+                        };
+                        img.onerror = function () {
+                            alert('There was an error reading the image.');
+                            document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.onerror = function () {
+                        alert('There was an error reading the file.');
                         document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
-                    }
-                };
-                img.onerror = function () {
-                    alert('There was an error reading the image.');
+                    };
+                    reader.readAsDataURL(file);
+                } else if (data.profileIMG) {
+                    updateUserProfile(data.profileIMG, auth, db);
+                } else if (usedDefaultImage) {
+                    const defaultURL = '/assets/img/default_user.jpeg';
+                    fetch(defaultURL)
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const defaultFile = new File([blob], `default_user.jpeg`, { type: 'image/jpeg' });
+                            uploadProfilePicture(defaultFile, auth, db);
+                        })
+                } else {
+                    alert('Please upload a profile picture, or use default.');
                     document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
-                };
-                img.src = e.target.result;
-            };
-            reader.onerror = function () {
-                alert('There was an error reading the file.');
-                document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
-            };
-            reader.readAsDataURL(file);
-        } else if (usedDefaultImage) {
-            const defaultURL = '/assets/img/default_user.jpeg';
-            fetch(defaultURL)
-                .then(response => response.blob())
-                .then(blob => {
-                    const defaultFile = new File([blob], `default_user.jpeg`, { type: 'image/jpeg' });
-                    uploadProfilePicture(defaultFile, auth, db);
-                })
-        } else {
-            alert('Please upload a profile picture, or use default.');
-            document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
-        }
+                }
+            }
+        })
     }
 }
 
@@ -118,7 +128,7 @@ function updateUserProfile(downloadURL, auth, db) {
 
             setTimeout(() => {
                 document.getElementById('submitButton').innerText = 'done!';
-                window.location.href = '/create_avatar.html';
+                window.location.href = '/account.html?action=setupProfile';
             }, 1000);
         }).catch((error) => {
             alert('Error updating profile. Please try again later.');
@@ -155,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullNameInput = document.getElementById("edit-profile-full-name");
     const useridInput = document.getElementById('edit-profile-userid');
     const userEmail = document.getElementById('edit-profile-email');
+    const userBio = document.getElementById('bio');
     const submitButton = document.getElementById('submitButton');
     const useDefaultButton = document.getElementById('use-default-image');
 
@@ -188,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     fullNameInput.value = data.name;
                     useridInput.value = data.senderId;
                     userEmail.value = data.email;
+                    bio.value = data.bio;
                     console.log(data.profileIMG)
                     document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
                 }

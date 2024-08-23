@@ -1,6 +1,16 @@
 let userHistory = [];
-// const db = firebase.firestore();
-// const auth = firebase.auth();
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+function getUrlParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+const action = getUrlParam('action');
+if (action == "setupProfile") {
+    alert('Finish setting up your avatar now!');
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown');
@@ -27,14 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
                         const profilePictureImage = document.getElementById('current-user-profile-picture');
                         profilePictureImage.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
 
+                        const profilepic = document.getElementById('profile-pic');
+                        profilepic.src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
+
                         const currentUserName = document.getElementById('current-user-name');
                         currentUserName.textContent = data.name;
 
+                        const currentUserEmail = document.getElementById('current-user-email');
+                        currentUserEmail.textContent = data.email;
+
                         const currentUserLevel = document.getElementById('current-user-level');
-                        currentUserLevel.textContent = `Lvl. ${data.level}`;
+                        currentUserLevel.textContent = `Level ${data.level}`;
 
                         const currentUserPoints = document.getElementById('current-user-points');
-                        currentUserPoints.textContent = `Pts. ${data.points}`;
+                        currentUserPoints.textContent = `${data.points} Points`;
 
                         // avatar
                         head = doc.data().avatar.head;
@@ -49,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         hairElement.style.borderRadius = '50%';
 
                         // auto rotate avatar
-                        if (Math.random() < 0.45) {
+                        if (Math.random() < 0.99) {
                             setTimeout(() => {
                                 document.querySelector('.flip-container').classList.toggle('flip');
 
@@ -81,48 +97,36 @@ document.addEventListener('DOMContentLoaded', function () {
                     userHistory = data.userHistory;
 
                     // add each user to the messages pane
-                    for (const [userID, name] of Object.entries(data.userHistory)) {
-                        const existinguserListElement = document.getElementById(`chat-user-${userID}`);
+                    for (const [action, name] of Object.entries(data.userHistory)) {
+                        const existinguserListElement = document.getElementById(`chat-user-${action}`);
 
                         if (!existinguserListElement) {
-                            db.collection('Users').where('senderId', '==', userID).get()
+                            db.collection('Users').where('senderId', '==', action).get()
                                 .then(snapshot => {
                                     if (!snapshot.empty) {
                                         const userDoc = snapshot.docs[0].data();
                                         const userBox = document.createElement('div');
-                                        userBox.id = `chat-user-${userID}`;
-                                        userBox.className = 'user-box border-2 border-dashed rounded-lg p-4 flex justify-between items-center mb-2 cursor-pointer';
-                                        // userBox.setAttribute('onclick', `clickedChat(this)`);
-                                        const userProgressLevel = userDoc.level // 100;
+                                        userBox.id = `chat-user-${action}`;
                                         userBox.onclick = function () {
-                                            window.location = `/chat.html?userID=${userID}`;
+                                            window.location = `/chat.html?action=${action}`;
                                         }
 
-                                        const userInfo = `
-                                        <div class="flex items-center" id="user-${userID}" style="height: 50px;">
-                                            <img src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" width="50" height="50" alt="${userDoc.name}'s avatar" class="rounded-full mr-4">
-                                            <div style="font-size: 0.8em;">
-                                                <div class="font-bold">${userDoc.name}</div>
-                                                <div id="chat-user-level-${userID}" style="font-weight: lighter;">Lvl. ${userDoc.level}</div>
-                                                <div id="chat-user-points-${userID}" style="font-weight: lighter;">Pts. ${userDoc.points}</div>
+                                        const userInfo = `                                        
+                                        <div class="flex items-center space-x-4">
+                                            <img class="w-12 h-12 rounded-full" src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG} alt="${userDoc.name}'s profile image."
+                                            <div>
+                                                <div>
+                                                    <p class="text-sm">${userDoc.name}</p>
+                                                    <p class="text-[#9CA3AF] text-xs">${userDoc.email}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="relative">
-                                            
-                                        </div>
-                        `;
-
-                                        // Old code progress
-                                        // <svg class="progress-ring" width="40" height="40">
-                                        //             <circle class="progress-ring__circle" stroke="green" stroke-width="4" fill="transparent" r="16" cx="20" cy="20" id="progress-circle-${userID}"/>
-                                        //         </svg>
-                                        //         <span class="absolute inset-0 flex justify-center items-center font-bold text-sm progress-ring__percentage" style="font-size: 0.5rem;" id="progress-text-${userID}">${userProgressLevel}%</span>
+                                        </div>`;
 
 
                                         userBox.innerHTML = userInfo;
                                         userHistoryList.appendChild(userBox);
 
-                                        // updateProgress(userID, userProgressLevel / 10); // MARK:- Automatically adds lvl and pts to other users in current user's userHistory, can be removed/polished later.
+                                        // updateProgress(action, userProgressLevel / 10); // MARK:- Automatically adds lvl and pts to other users in current user's userHistory, can be removed/polished later.
                                     } else {
                                         // no user found
                                         console.error('No user found in userHistory')
@@ -138,16 +142,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             window.location.href = '/signin.html';
         }
-
-        loadTasks();
     })
 });
 
-function updateProgress(userid, progress) {
+function updateProgress(action, progress) {
     progress = Math.min(Math.max(progress, 0), 1);
 
-    const circle = document.getElementById(`progress-circle-${userid}`);
-    const percentageText = document.getElementById(`progress-text-${userid}`);
+    const circle = document.getElementById(`progress-circle-${action}`);
+    const percentageText = document.getElementById(`progress-text-${action}`);
 
     const currentProgress = parseInt(percentageText.textContent.replace('%', ''), 10) / 100;
 
@@ -167,7 +169,7 @@ function updateProgress(userid, progress) {
     percentageText.textContent = `${percentage}%`;
 
     // update to firebase
-    const updateProgressRef = db.collection("Users").doc(userid);
+    const updateProgressRef = db.collection("Users").doc(action);
     updateProgressRef.get().then((doc) => {
         if (doc.exists) {
             updateProgressRef.update({
@@ -175,21 +177,21 @@ function updateProgress(userid, progress) {
                 points: doc.data().points += 1000
             })
                 .catch(error => {
-                    updateProgress(userid, currentProgress - progress);
+                    updateProgress(action, currentProgress - progress);
                     console.log(error);
                 })
 
             // update text
-            document.getElementById('chat-user-level-' + userid).textContent = `Lvl. ${percentage / 10}`;
-            document.getElementById('chat-user-points-' + userid).textContent = `Pts. ${doc.data().points += 1000}`;
+            document.getElementById('chat-user-level-' + action).textContent = `Lvl. ${percentage / 10}`;
+            document.getElementById('chat-user-points-' + action).textContent = `Pts. ${doc.data().points += 1000}`;
         }
     })
 
     return currentProgress;
 }
 
-function getProgress(userid) {
-    const percentageText = document.getElementById(`progress-text-${userid}`);
+function getProgress(action) {
+    const percentageText = document.getElementById(`progress-text-${action}`);
     const currentProgress = parseInt(percentageText.textContent.replace('%', ''), 10) / 100;
 
     return currentProgress
@@ -200,8 +202,8 @@ function addWidget() {
 }
 
 function clickedChat(element) {
-    let userid = element.id.replace('chat-user-', '');
-    updateProgress(userid, getProgress(userid) + 0.1);
+    let action = element.id.replace('chat-user-', '');
+    updateProgress(action, getProgress(action) + 0.1);
 }
 
 // sign out
@@ -215,125 +217,4 @@ function signout() {
             console.log('Sign-out error:', error);
             alert('An error occurred. Please try again.')
         });
-}
-
-function addTask() {
-    var inputValue = document.getElementById('newTask').value;
-
-    if (inputValue.trim() != '') {
-        db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').add({
-            task: inputValue,
-            completed: false,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        })
-            .then(() => {
-                console.log('Task added successfully');
-                document.getElementById('newTask').value = '';
-                loadTasks();
-
-                // update the user's mission for finishing the task
-                db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Creating a todo").get()
-                    .then((querySnapshot) => {
-                        querySnapshot.forEach((doc) => {
-                            const tasks = doc.data().tasks || {};
-                            tasks['Create a new todo.'] = true;
-
-                            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
-                                .then(() => { })
-                                .catch((error) => {
-                                    console.error(error);
-                                });
-                        });
-                    })
-                    .catch((error) => {
-                        console.error('Error getting mission:', error);
-                    });
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-    } else {
-        alert('Task cannot be blank.');
-    }
-}
-
-function loadTasks() {
-    db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').onSnapshot((querySnapshot) => {
-        var tasks = '';
-        var totalTasks = 0;
-        var completedTasks = 0;
-
-        querySnapshot.forEach((doc) => {
-            totalTasks++; // Increment total tasks count
-            if (doc.data().completed) {
-                completedTasks++; // Increment completed tasks count
-            }
-
-            tasks += `<li>
-                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 5px;">
-                    <div>
-                        <input type="checkbox" ${doc.data().completed ? 'checked' : ''} 
-                               onchange="updateTaskStatus('${doc.id}', this.checked)" class="form-check-input">
-                        ${doc.data().task}
-                    </div>
-                    <button onclick="deleteTask('${doc.id}', '${doc.data().task}')" style="width: 25px; height: 25px; background-color: red; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                                  </svg>
-                    </button>
-                </div>
-            </li>`;
-        });
-
-        document.getElementById('taskList').innerHTML = tasks;
-
-        // Update the task-completed button text
-        document.getElementById('task-completed').textContent = `${completedTasks}/${totalTasks}`;
-    });
-}
-
-function updateTaskStatus(taskId, isCompleted) {
-    db.collection('Users').doc(auth.currentUser.uid).collection('Tasks').doc(taskId).update({
-        completed: isCompleted
-    })
-        .then(() => {
-            console.log("Document successfully updated!");
-        })
-        .catch((error) => {
-            console.error("Error updating document: ", error);
-        });
-}
-
-function deleteTask(taskId, task) {
-    db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').doc(taskId).delete()
-        .then(() => {
-            console.log("Document successfully deleted!");
-            loadTasks(); // Refresh the task list
-        })
-        .catch((error) => {
-            console.error("Error removing document: ", error);
-        });
-}
-
-// task <Enter> bind
-document.getElementById('newTask').addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent form submission
-        addTask();
-    }
-});
-
-function clearAllTasks() {
-    if (confirm('Delete all tasks?')) {
-        db.collection("Users").doc(auth.currentUser.uid).collection('Tasks').get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    doc.ref.delete();
-                });
-                console.log("All tasks deleted.");
-            })
-            .catch((error) => {
-                console.error("Error deleting tasks: ", error);
-            });
-    }
 }
