@@ -16,10 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (doc.exists) {
                         const data = doc.data();
 
-                        document.getElementById('currentUser-name').innerHTML = data.name;
-                        document.getElementById('currentUser-email').innerHTML = data.email;
-                        document.getElementById('currentUser-profile-picture').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
-                        document.getElementById('currentUser-profile-picture').alt = `Profile picture of ${data.name}`;
+                        document.getElementById('user-profile-img').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
+                        document.getElementById('user-profile-img').alt = `Profile picture of ${data.name}`;
                     }
                 })
 
