@@ -65,7 +65,7 @@ function displayMissions(mission) {
     const missionsContainer = document.getElementById('missions-container');
 
     const missionCard = document.createElement('div');
-    missionCard.className = `mission-card bg-gray-800 p-4 rounded-lg`;
+    missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
     missionCard.onclick = () => { openMission(mission) };
     missionCard.style.textAlign = 'left';
     missionCard.id = mission.missionID;
@@ -281,7 +281,7 @@ function renderMission(missions) {
 
     missions.forEach(mission => {
         const missionCard = document.createElement('div');
-        missionCard.className = `mission-card bg-gray-800 p-4 rounded-lg`;
+        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
         missionCard.onclick = () => { openMission(mission) };
         missionCard.style.textAlign = 'left';
         missionCard.id = mission.missionID;
