@@ -15,7 +15,7 @@ function smoothScrollAboveElement(elementId, offset) {
 
 function displayUserCard(data, containerID) {
     const card = document.createElement('div');
-    card.className = 'bg-gray-800 px-4 py-2 rounded-lg flex items-center relative select-none cursor-pointer hover:bg-gray-600 duration-200';
+    card.className = 'bg-[#2B2B2B] px-4 py-2 rounded-lg flex items-center relative select-none cursor-pointer hover:bg-gray-600 duration-200';
 
     const level = document.createElement('p');
     level.className = 'absolute top-2 right-3 mt-2 mr-2 text-sm text-gray-400';

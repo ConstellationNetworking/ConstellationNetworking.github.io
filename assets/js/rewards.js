@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // divInner.appendChild(button);
 
                         const div = document.createElement('div');
-                        div.className = 'bg-gray-800 p-4 rounded-md';
+                        div.className = 'bg-[#2B2B2B] p-4 rounded-md';
 
                         const img = document.createElement('img');
                         img.src = `/assets/img/rewards/${data.item.toLowerCase().replace(/ /g, '_')}.png`;
