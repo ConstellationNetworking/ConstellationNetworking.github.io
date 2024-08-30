@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // redeem mission tokens
             setTimeout(() => {
                 missionRedeemTokens(auth.currentUser.uid);
-            }, 3000);
+            }, 1000);
         } else {
             window.location.href = '/signin.html';
         }
@@ -63,15 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayMissions(mission) {
     const missionsContainer = document.getElementById('missions-container');
+    const completedContainer = document.getElementById('completed-missions-container');
 
-    const missionCard = document.createElement('div');
-    missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
-    missionCard.onclick = () => { openMission(mission) };
-    missionCard.style.textAlign = 'left';
-    missionCard.id = mission.missionID;
-    missionCard.dataset.mission = JSON.stringify(mission);
+    if (!mission.completed) {
+        const missionCard = document.createElement('div');
+        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+        missionCard.onclick = () => { openMission(mission) };
+        missionCard.style.textAlign = 'left';
+        missionCard.id = mission.missionID;
+        missionCard.dataset.mission = JSON.stringify(mission);
 
-    missionCard.innerHTML = `
+        missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
@@ -82,8 +84,30 @@ function displayMissions(mission) {
         </div>
     `;
 
-    missionsContainer.appendChild(missionCard);
-    openMission(mission); // MARK:- Automatically opens all mission
+        missionsContainer.appendChild(missionCard);
+        openMission(mission); // MARK:- Automatically opens all mission
+    } else {
+        const missionCard = document.createElement('div');
+        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+        missionCard.onclick = () => { openMission(mission) };
+        missionCard.style.textAlign = 'left';
+        missionCard.id = mission.missionID;
+        missionCard.dataset.mission = JSON.stringify(mission);
+
+        missionCard.innerHTML = `
+        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+        completedContainer.appendChild(missionCard);
+        openMission(mission); // MARK:- Automatically opens all mission
+    }
 }
 
 function openMission(mission) {
@@ -280,13 +304,14 @@ function renderMission(missions) {
     missionsContainer.innerHTML = '';
 
     missions.forEach(mission => {
-        const missionCard = document.createElement('div');
-        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
-        missionCard.onclick = () => { openMission(mission) };
-        missionCard.style.textAlign = 'left';
-        missionCard.id = mission.missionID;
-        missionCard.dataset.mission = JSON.stringify(mission);
-        missionCard.innerHTML = `
+        if (!mission.completed) {
+            const missionCard = document.createElement('div');
+            missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+            missionCard.onclick = () => { openMission(mission) };
+            missionCard.style.textAlign = 'left';
+            missionCard.id = mission.missionID;
+            missionCard.dataset.mission = JSON.stringify(mission);
+            missionCard.innerHTML = `
         <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
@@ -297,8 +322,32 @@ function renderMission(missions) {
         </div>
     `;
 
-        missionsContainer.appendChild(missionCard);
-        openMission(mission); // MARK:- Automatically opens all mission
+            missionsContainer.appendChild(missionCard);
+            openMission(mission); // MARK:- Automatically opens all mission
+        } else {
+            const completedContainer = document.getElementById('completed-missions-container');
+            completedContainer.innerHTML = '';
+
+            const missionCard = document.createElement('div');
+            missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+            missionCard.onclick = () => { openMission(mission) };
+            missionCard.style.textAlign = 'left';
+            missionCard.id = mission.missionID;
+            missionCard.dataset.mission = JSON.stringify(mission);
+            missionCard.innerHTML = `
+        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+            completedContainer.appendChild(missionCard);
+            openMission(mission); // MARK:- Automatically opens all mission
+        }
     })
 }
 function deleteMission(missionID) {

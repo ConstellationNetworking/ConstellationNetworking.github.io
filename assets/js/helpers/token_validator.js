@@ -11,10 +11,10 @@ function missionRedeemTokens(user) {
 
                             if (doc.data().tokensredeemed === false) {
                                 userRef.update({
-                                    novacoins: data.novacoins += 10
+                                    novacoins: data.novacoins += doc.data().novacoins
                                 })
                                     .then(() => {
-                                        alert('Congratulations! You just earned 10 astral tokens for completing a mission.');
+                                        alert(`Congratulations! You just earned ${doc.data().novacoins} novacoins for completing a mission.`);
                                         doc.ref.update({
                                             tokensredeemed: true
                                         });

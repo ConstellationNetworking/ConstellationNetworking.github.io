@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     fullNameInput.value = data.name;
                     useridInput.value = data.senderId;
                     userEmail.value = data.email;
-                    bio.value = data.bio;
+                    if (bio.value) { bio.value = data.bio; }
                     console.log(data.profileIMG)
                     document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
                 }
