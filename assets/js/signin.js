@@ -155,38 +155,84 @@ function signup() {
                                         progress: 0,
                                         type: 'Get started',
                                         missionID: missionID,
-                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
+                                        novacoins: 10
                                     })
-                                        .then(() => { })
+                                        .then(() => {
+                                            // next mission
+                                            let missionID2 = generateUniqueId();
+                                            let missionRef2 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID2);
+
+                                            missionRef2.set({
+                                                title: 'Introduction to Cold Introductions',
+                                                description: "A cold introduction is the initial contact you make with someone you don't know personally. It's often used in professional settings to connect for career opportunities, business development, or personal growth. The goal is to introduce yourself, show genuine interest, and establish a foundation for further communication. <br><br>Template: <br><br>Hey [Name],<br> Hope you're doing well! I came across your profile/mention of your work in [context/platform] and noticed your interest in [specific interest]. It's something I'm really passionate about too! I'm [Your name], and I [briefly describe what you do or a related interest]. I'd love to connect and chat about [shared interest/topic]. <br><br>Looking forward to hearing from you!",
+                                                completed: false,
+                                                tokensredeemed: false,
+                                                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                                members: [user.uid],
+                                                tasks: { 'Using this template, send a cold introduction with a connection. Make sure to read up on their bio to fill in the tempalte.': false },
+                                                progress: 0,
+                                                type: 'Building my Constellation',
+                                                missionID: missionID2,
+                                                cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
+                                                novacoins: 120
+                                            })
+                                                .then(() => {
+                                                    // next mission
+                                                    let missionID3 = generateUniqueId();
+                                                    let missionRef3 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID3);
+
+                                                    missionRef3.set({
+                                                        title: 'Introduction to Warm Introductions',
+                                                        description: "A warm introduction is when a mutual contact facilitates the initial connection between you and someone you want to meet. This type of introduction leverages the existing relationship of the mutual contact to establish trust and credibility right from the start. Warm introductions are often more effective than cold introductions because the mutual contact's endorsement adds a level of familiarity and reliability, making the new connection more likely to respond positively and engage in meaningful conversation. <br><br>Template: <br><br>Hi [name],<br> I hope this message finds your well. I am [You name], and I'm a [relationship with mutual contact] with [Mutual's name], whom I noticed is a mutual connection. I thought it would be great for us to connect as we have some common interests in [specific area/industry]. If you're open to it, I'd love to chat more or setup a quick call or meeting to get to know each other better and explore how we might be able to support each other's goals. Look forward to your response!",
+                                                        completed: false,
+                                                        tokensredeemed: false,
+                                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                                        members: [user.uid],
+                                                        tasks: { 'Connect with a user that\'s a mutual contact with someone you already know. Send them a warm introduction with that connection.': false },
+                                                        progress: 0,
+                                                        type: 'Building my Constellation',
+                                                        missionID: missionID3,
+                                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
+                                                        novacoins: 120
+                                                    })
+                                                    .then(() => {
+                                                        window.location = '/setup_profile.html';
+                                                    })
+                                                    .catch((error) => {
+                                                        console.error(error);
+                                                    })
+                                                })
+                                                .catch((error) => {
+                                                    console.error(error);
+                                                })
+                                        })
                                         .catch((error) => {
                                             console.error(error);
                                         })
 
-                                    let missionID2 = generateUniqueId();
-                                    let missionRef2 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID2);
-
-                                    setTimeout(() => {
-                                        missionRef2.set({
-                                            title: 'Creating a todo',
-                                            description: 'Head over to your account and create a todo.',
-                                            completed: false,
-                                            tokensredeemed: false,
-                                            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                            members: [user.uid],
-                                            tasks: { 'Create a new todo.': false },
-                                            progress: 0,
-                                            type: 'Get started',
-                                            missionID: missionID2,
-                                            cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
-                                        })
-                                            .then(() => {
-                                                // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
-                                                window.location = '/setup_profile.html'
-                                            })
-                                            .catch((error) => {
-                                                console.error(error);
-                                            })
-                                    }, 1500);
+                                    // setTimeout(() => {
+                                    //     missionRef2.set({
+                                    //         title: 'Creating a todo',
+                                    //         description: 'Head over to your account and create a todo.',
+                                    //         completed: false,
+                                    //         tokensredeemed: false,
+                                    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                    //         members: [user.uid],
+                                    //         tasks: { 'Create a new todo.': false },
+                                    //         progress: 0,
+                                    //         type: 'Get started',
+                                    //         missionID: missionID2,
+                                    //         cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+                                    //     })
+                                    //         .then(() => {
+                                    //             // if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
+                                    //             window.location = '/setup_profile.html'
+                                    //         })
+                                    //         .catch((error) => {
+                                    //             console.error(error);
+                                    //         })
+                                    // }, 1500);
                                 })
                         })
                         .catch((error) => {
