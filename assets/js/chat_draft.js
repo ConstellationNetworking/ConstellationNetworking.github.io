@@ -197,36 +197,35 @@ document.addEventListener('DOMContentLoaded', function () {
                                     const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
 
                                     const listItem = document.createElement('li');
+                                    listItem.style.listStyleType = 'none';
                                     const userDiv = document.createElement('div');
                                     userDiv.className = 'user-history-item';
 
-                                    const userButton = document.createElement('button');
-                                    userButton.className = 'user-button flex items-center';
-                                    userButton.id = `user-${userDetails.senderId}`;
+                                    const userButton = document.createElement('div');
+                                    userButton.classname = 'flex items-center space-x-4 rounded-full hover:bg-[#313131]'
+                                    userButton.id = `user-${userID}`;
                                     setupUserButtonListener(userButton);
 
                                     const userImage = document.createElement('img');
                                     userImage.src = profileImgURL;
-                                    userImage.alt = 'Profile picture of ' + name;
-                                    userImage.className = 'rounded-full mr-2';
+                                    userImage.className = 'w-12 h-12 rounded-full';
                                     userImage.width = 50;
                                     userImage.height = 50;
 
                                     const userDetailsDiv = document.createElement('div');
                                     userDetailsDiv.id = 'found-user-details';
 
-                                    const userNameP = document.createElement('p');
-                                    userNameP.className = 'font-bold';
-                                    userNameP.id = 'target-user';
-                                    userNameP.textContent = name;
+                                    const userName = document.createElement('p');
+                                    userName.className = 'text-sm';
+                                    userName.id = 'target-user';
+                                    userName.textContent = name;
 
-                                    const userActiveP = document.createElement('p');
-                                    userActiveP.className = 'text-green-500';
-                                    userActiveP.textContent = 'Active';
+                                    const userStatus = document.createElement('p');
+                                    userStatus.className = 'text-[#9CA3AF] text-xs';
+                                    userStatus.textContent = 'Active';
 
-                                    // Add elements together
-                                    userDetailsDiv.appendChild(userNameP);
-                                    userDetailsDiv.appendChild(userActiveP);
+                                    userDetailsDiv.appendChild(userName);
+                                    userDetailsDiv.appendChild(userStatus);
 
                                     userButton.appendChild(userImage);
                                     userButton.appendChild(userDetailsDiv);
@@ -236,6 +235,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                     userHistoryListDiv.appendChild(listItem);
                                     setupUserButtonListener(document.getElementById('user-ConstellationBot'));
+
+                                    // const listItem = document.createElement('li');
+                                    // const userDiv = document.createElement('div');
+                                    // userDiv.className = 'user-history-item';
+
+                                    // const userButton = document.createElement('button');
+                                    // userButton.className = 'user-button flex items-center';
+                                    // userButton.id = `user-${userDetails.senderId}`;
+                                    // setupUserButtonListener(userButton);
+
+                                    // const userImage = document.createElement('img');
+                                    // userImage.src = profileImgURL;
+                                    // userImage.alt = 'Profile picture of ' + name;
+                                    // userImage.className = 'rounded-full mr-2';
+                                    // userImage.width = 50;
+                                    // userImage.height = 50;
+
+                                    // const userDetailsDiv = document.createElement('div');
+                                    // userDetailsDiv.id = 'found-user-details';
+
+                                    // const userNameP = document.createElement('p');
+                                    // userNameP.className = 'font-bold';
+                                    // userNameP.id = 'target-user';
+                                    // userNameP.textContent = name;
+
+                                    // const userActiveP = document.createElement('p');
+                                    // userActiveP.className = 'text-green-500';
+                                    // userActiveP.textContent = 'Active';
+
+                                    // // Add elements together
+                                    // userDetailsDiv.appendChild(userNameP);
+                                    // userDetailsDiv.appendChild(userActiveP);
+
+                                    // userButton.appendChild(userImage);
+                                    // userButton.appendChild(userDetailsDiv);
+
+                                    // userDiv.appendChild(userButton);
+                                    // listItem.appendChild(userDiv);
+
+                                    // userHistoryListDiv.appendChild(listItem);
+                                    // setupUserButtonListener(document.getElementById('user-ConstellationBot'));
                                 } else {
                                     console.error('User doens\'t exist.', userID);
                                 }
@@ -353,12 +393,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Error searching for user: ", error);
             });
     }
-
-    document.getElementById('search-user-button').addEventListener('click', () => {
-        const email = document.getElementById('user-search-email').value;
-        searchUserByEmail(email);
-    });
-
     function startListeningForMessages(otherUserID) {
         const messagesCollection = db.collection('Messages');
         messageHistory.innerHTML = '';
@@ -398,7 +432,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         target_user_name.innerHTML = user.name
                         target_user_profile_pic.src = user.profileIMG || '/assets/img/default_user.jpeg';
                         target_user_profile_pic.style.display = 'block';
-                        document.getElementById('flash-bolt').style.display = 'none';
                         messageHistory.innerHTML = '';
 
                         // add user to userHistory
