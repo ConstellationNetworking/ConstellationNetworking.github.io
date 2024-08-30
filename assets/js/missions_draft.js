@@ -338,30 +338,30 @@ function resetMission() {
             console.error(error);
         })
 
-    let missionID2 = generateUniqueId();
-    let missionRef2 = firebase.firestore().collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID2);
+    // let missionID2 = generateUniqueId();
+    // let missionRef2 = firebase.firestore().collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID2);
 
-    setTimeout(() => {
-        missionRef2.set({
-            title: 'Creating a todo',
-            description: 'Head over to your account and create a todo.',
-            completed: false,
-            tokensredeemed: false,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            members: [auth.currentUser.uid],
-            tasks: { 'Create a new todo.': false },
-            progress: 0,
-            type: 'Get started',
-            missionID: missionID2,
-            cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
-        })
-            .then(() => {
-                fetchMissions().then(renderMission);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, 1500);
+    // setTimeout(() => {
+    //     missionRef2.set({
+    //         title: 'Creating a todo',
+    //         description: 'Head over to your account and create a todo.',
+    //         completed: false,
+    //         tokensredeemed: false,
+    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    //         members: [auth.currentUser.uid],
+    //         tasks: { 'Create a new todo.': false },
+    //         progress: 0,
+    //         type: 'Get started',
+    //         missionID: missionID2,
+    //         cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+    //     })
+    //         .then(() => {
+    //             fetchMissions().then(renderMission);
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //         });
+    // }, 1500);
 }
 
 function generateUniqueId() {
