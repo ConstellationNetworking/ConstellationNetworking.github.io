@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         currentUserLevel.textContent = `Level ${data.level}`;
 
                         const currentUserPoints = document.getElementById('current-user-points');
-                        currentUserPoints.textContent = `${data.points} Points`;
+                        currentUserPoints.textContent = `$${data.novacoins} Novacoins`;
 
                         // avatar
                         head = doc.data().avatar.head;

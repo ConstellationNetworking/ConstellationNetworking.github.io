@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     useDefaultButton.addEventListener('click', () => {
         useDefaultImageFlag = true;
         usedDefaultImage = true;
+        alert('Using default image!');
         submitProfile();
     });
 
@@ -201,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     userEmail.value = data.email;
                     if (bio.value) { bio.value = data.bio; }
                     console.log(data.profileIMG)
-                    document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "/assets/img/default_user.jpeg" : data.profileIMG;
+                    document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "https://placeholder.co/100x100" : data.profileIMG;
                 }
             });
         } else {
