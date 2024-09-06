@@ -104,6 +104,16 @@ body {
     width: 500px; /* Adjust as needed for smaller size */
     height: 500px; /* Adjust as needed for smaller size */
 }
+
+#glasses {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2; /* Head below hair */
+}
+
 #hair {
     position: absolute;
     top: 0; /* Adjust this value to offset the hair vertically */

@@ -13,10 +13,17 @@ function setHead(id) {
 
 function setHair(id) {
     chosenAvatar.hair = id;
-    smoothScrollAboveElement('background', 50);
+    smoothScrollAboveElement('glasses', 50);
 
     ['h1', 'h2'].filter(hair => hair !== id).forEach(hair => document.getElementById(hair).innerHTML = 'Choose');
     document.getElementById(id).innerHTML = `Remove`
+}
+
+function setGlasses(id) {
+    chosenAvatar.glasses = id;
+    smoothScrollAboveElement('background', 50);
+
+    ['g1'].filter(glasses => glasses !== id).forEach(glasses => document.getElementById(glasses).innerHTML = 'Choose');
 }
 
 function setBg(id) {
