@@ -1,0 +1,100 @@
+[
+    {
+        "title": "Welcome to your first mission!",
+        "description": "Creating your own unique presence through your person is the first step to building your network.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Edit your avatar.": false,
+            "Visit your missions page to see your missions.": false
+        },
+        "progress": 0,
+        "type": "Get started",
+        "novacoins": 10
+    },
+    {
+        "title": "Introduction to Cold Introductions",
+        "description": "A cold introduction is the initial contact you make with someone you don't know personally. It's often used in professional settings to connect for career opportunities, business development, or personal growth. The goal is to introduce yourself, show genuine interest, and establish a foundation for further communication.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Using this template, send a cold introduction with a connection. Make sure to read up on their bio to fill in the template.": false
+        },
+        "progress": 0,
+        "type": "Building my Constellation",
+        "novacoins": 120
+    },
+    {
+        "title": "Introduction to Warm Introductions",
+        "description": "A warm introduction is when a mutual contact facilitates the initial connection between you and someone you want to meet. This type of introduction leverages the existing relationship of the mutual contact to establish trust and credibility right from the start.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Connect with a user that's a mutual contact with someone you already know. Send them a warm introduction with that connection.": false
+        },
+        "progress": 0,
+        "type": "Building my Constellation",
+        "novacoins": 120
+    },
+    {
+        "title": "Gaining Gravity",
+        "description": "Learn how to navigate the platform and amass points.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Gather 500 reputation points (maintain connections, complete missions, sell rewards).": false
+        },
+        "progress": 0,
+        "type": "Gaining Connections",
+        "novacoins": 110
+    },
+    {
+        "title": "Interstellar Investing",
+        "description": "Learn how to navigate the rewards page and customize your avatar.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Redeem your first accessory and/or customization feature in the Rewards page.": false,
+            "Equip your claimed reward!": false
+        },
+        "progress": 0,
+        "type": "Investing",
+        "novacoins": 90
+    },
+    {
+        "title": "Time-Space Trader",
+        "description": "Learn how to sell your rewards and liquidize reputation points.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Sell at least one reward and receive the returned reputation points.": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 70
+    },
+    {
+        "title": "Intersecting Orbits",
+        "description": "",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Send 10 messages to a constellation in one day.": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 110
+    },
+    {
+        "title": "Comparing Spectra",
+        "description": "View a constellation's bio and use one detail from it to craft a personalized message that sparks a meaningful conversation.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Use the template in a message with a constellation (preferably a new one).": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 100
+    }
+]

@@ -140,192 +140,38 @@ function signup() {
                                         })
 
                                     // missions init
-                                    let missionID = generateUniqueId();
-                                    let missionRef = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID);
                                     let cardClasses = ['blue', 'green', 'yellow']
+                                    fetch('/assets/json/missions.json')
+                                    .then(response => response.json())
+                                    .then(missions => {
+                                        let missionsProcessed = 0;
 
-                                    missionRef.set({
-                                        title: 'Welcome to your first mission!',
-                                        description: 'Creating your own unique presence through your person is the first step to building your network.',
-                                        completed: false,
-                                        tokensredeemed: false,
-                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                        members: [user.uid],
-                                        tasks: { 'Edit your avatar.': false, 'Visit your missions page to see your missions.': false },
-                                        progress: 0,
-                                        type: 'Get started',
-                                        missionID: missionID,
-                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                        novacoins: 10
-                                    })
-                                        .then(() => {
-                                            // next mission
-                                            let missionID2 = generateUniqueId();
-                                            let missionRef2 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID2);
+                                        missions.forEach((missionsData, index) => {
+                                            let missionID = generateUniqueId();
+                                            let missionRef = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID);
 
-                                            missionRef2.set({
-                                                title: 'Introduction to Cold Introductions',
-                                                description: "A cold introduction is the initial contact you make with someone you don't know personally. It's often used in professional settings to connect for career opportunities, business development, or personal growth. The goal is to introduce yourself, show genuine interest, and establish a foundation for further communication. <br><br>Template: <br><br>Hey [Name],<br> Hope you're doing well! I came across your profile/mention of your work in [context/platform] and noticed your interest in [specific interest]. It's something I'm really passionate about too! I'm [Your name], and I [briefly describe what you do or a related interest]. I'd love to connect and chat about [shared interest/topic]. <br><br>Looking forward to hearing from you!",
-                                                completed: false,
-                                                tokensredeemed: false,
+                                            missionRef.set({
+                                                ...missionsData,
+                                                missionID: missionID,
                                                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                members: [user.uid],
-                                                tasks: { 'Using this template, send a cold introduction with a connection. Make sure to read up on their bio to fill in the tempalte.': false },
-                                                progress: 0,
-                                                type: 'Building my Constellation',
-                                                missionID: missionID2,
                                                 cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                novacoins: 120
+                                                members: [user.uid]
                                             })
-                                                .then(() => {
-                                                    // next mission
-                                                    let missionID3 = generateUniqueId();
-                                                    let missionRef3 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID3);
+                                            .then(() => {
+                                                missionsProcessed++;
 
-                                                    missionRef3.set({
-                                                        title: 'Introduction to Warm Introductions',
-                                                        description: "A warm introduction is when a mutual contact facilitates the initial connection between you and someone you want to meet. This type of introduction leverages the existing relationship of the mutual contact to establish trust and credibility right from the start. Warm introductions are often more effective than cold introductions because the mutual contact's endorsement adds a level of familiarity and reliability, making the new connection more likely to respond positively and engage in meaningful conversation. <br><br>Template: <br><br>Hi [name],<br> I hope this message finds your well. I am [You name], and I'm a [relationship with mutual contact] with [Mutual's name], whom I noticed is a mutual connection. I thought it would be great for us to connect as we have some common interests in [specific area/industry]. If you're open to it, I'd love to chat more or setup a quick call or meeting to get to know each other better and explore how we might be able to support each other's goals. Look forward to your response!",
-                                                        completed: false,
-                                                        tokensredeemed: false,
-                                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                        members: [user.uid],
-                                                        tasks: { 'Connect with a user that\'s a mutual contact with someone you already know. Send them a warm introduction with that connection.': false },
-                                                        progress: 0,
-                                                        type: 'Building my Constellation',
-                                                        missionID: missionID3,
-                                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                        novacoins: 120
-                                                    })
-                                                        .then(() => {
-                                                            // next mission
-                                                            let missionID4 = generateUniqueId();
-                                                            let missionRef4 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID4);
-
-                                                            missionRef4.set({
-                                                                title: 'Gaining Gravity',
-                                                                description: 'Learn how to navigate the platform and amass points.',
-                                                                completed: false,
-                                                                tokensredeemed: false,
-                                                                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                                memebrs: [user.uid],
-                                                                tasks: { "Gather 500 reputation points (maintain connections, complete missions, sell rewards).": false },
-                                                                progress: 0,
-                                                                type: "Gaining Connections",
-                                                                missionID: missionID4,
-                                                                cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                                novacoins: 110
-                                                            })
-                                                                .then(() => {
-                                                                    // next mission
-                                                                    let missionID5 = generateUniqueId();
-                                                                    let missionRef5 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID5);
-
-                                                                    missionRef5.set({
-                                                                        title: 'Interstellar Investing',
-                                                                        description: 'Learn how to navigate the rewards page and customize your avatar.',
-                                                                        completed: false,
-                                                                        tokensredeemed: false,
-                                                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                                        members: [user.uid],
-                                                                        tasks: { 'Redeem your first accessory and/or customization feature in the Rewards page.': false, 'Equip your claimed reward!': false },
-                                                                        progress: 0,
-                                                                        type: 'Investing',
-                                                                        missionID: missionID5,
-                                                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                                        novacoins: 90
-                                                                    })
-                                                                        .then(() => {
-                                                                            // next mission
-                                                                            let missionID6 = generateUniqueId();
-                                                                            let missionRef6 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID6);
-
-                                                                            missionRef6.set({
-                                                                                title: 'Time-Space Trader',
-                                                                                description: 'Learn how to sell your rewards and liquidize reputation points.',
-                                                                                completed: false,
-                                                                                tokensredeemed: false,
-                                                                                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                                                members: [user.uid],
-                                                                                tasks: { 'Sell at least one reward and receive the returned reputation points.': false },
-                                                                                progress: 0,
-                                                                                type: 'Trading',
-                                                                                missionID: missionID6,
-                                                                                cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                                                novacoins: 70
-                                                                            })
-                                                                                .then(() => {
-                                                                                    // next mission
-                                                                                    let missionID7 = generateUniqueId();
-                                                                                    let missionRef7 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID7);
-
-                                                                                    missionRef7.set({
-                                                                                        title: 'Intersecting Orbits',
-                                                                                        description: '',
-                                                                                        completed: false,
-                                                                                        tokensredeemed: false,
-                                                                                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                                                        members: [user.uid],
-                                                                                        tasks: { 'Send 10 messages to a constellation in one day.': false },
-                                                                                        progress: 0,
-                                                                                        type: 'Trading',
-                                                                                        missionID: missionID7,
-                                                                                        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                                                        novacoins: 110
-                                                                                    })
-                                                                                        .then(() => {
-                                                                                            // next mission
-                                                                                            let missionID8 = generateUniqueId();
-                                                                                            let missionRef8 = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID8);
-
-                                                                                            missionRef8.set({
-                                                                                                title: 'Comparing Spectra',
-                                                                                                description: "View a constellation's bio and use one detail from it to craft a personalized message that sparks a meaningful conversation. <br><br>Template:<br><br>\"I noticed that your bio...\"",
-                                                                                                completed: false,
-                                                                                                tokensredeemed: false,
-                                                                                                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                                                                                members: [user.uid],
-                                                                                                tasks: { 'Use the template in a message with a constellation (preferably a new one).': false },
-                                                                                                progress: 0,
-                                                                                                type: 'Trading',
-                                                                                                missionID: missionID8,
-                                                                                                cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
-                                                                                                novacoins: 100
-                                                                                            })
-                                                                                                .then(() => {
-                                                                                                    // next mission
-                                                                                                    // MARK:- add mission "Finding your Spectral Classification" from google doc
-                                                                                                })
-                                                                                                .catch((error) => {
-                                                                                                    console.error(error);
-                                                                                                })
-                                                                                        })
-                                                                                        .catch((error) => {
-                                                                                            console.error(error);
-                                                                                        })
-                                                                                })
-                                                                                .catch((error) => {
-                                                                                    console.error(error);
-                                                                                })
-                                                                        })
-                                                                        .catch((error) => {
-                                                                            console.error(error);
-                                                                        })
-                                                                })
-                                                                .catch((error) => {
-                                                                    console.error(error);
-                                                                })
-                                                        })
-                                                        .catch((error) => {
-                                                            console.error(error);
-                                                        })
-                                                })
-                                                .catch((error) => {
-                                                    console.error(error);
-                                                })
-                                        })
-                                        .catch((error) => {
-                                            console.error(error);
-                                        })
+                                                if (missionsProcessed == missions.length) {
+                                                    window.location = '/setup_profile.html';
+                                                }
+                                            })
+                                            .catch((error) => {
+                                                console.error(`Error creating mission index ${index + 1}: `, error);
+                                            });
+                                        });
+                                    })
+                                    .catch(error => {
+                                        console.error('Failed to fetch missions: ', error);
+                                    });
 
                                     // setTimeout(() => {
                                     //     missionRef2.set({
