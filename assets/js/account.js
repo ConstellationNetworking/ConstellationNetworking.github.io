@@ -55,10 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         // avatar
                         head = doc.data().avatar.head;
                         hair = doc.data().avatar.hair;
+                        glasses = doc.data().avatar.glasses;
                         const headElement = document.getElementById('head');
                         const hairElement = document.getElementById('hair');
+                        const glassesElement = document.getElementById('glasses');
                         headElement.src = `/assets/img/create_avatar/${head}.png`;
                         hairElement.src = `/assets/img/create_avatar/${hair}.png`;
+                        glassesElement.src = `/assets/img/create_avatar/${glasses}.png`;
 
                         // Trim avatar into a circle
                         headElement.style.borderRadius = '50%';
