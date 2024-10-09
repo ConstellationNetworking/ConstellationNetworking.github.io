@@ -110,7 +110,8 @@ function signup() {
                         isAdmin: false,
                         bg: 'bg3.jpg',
                         accountCreatedOn: firebase.firestore.FieldValue.serverTimestamp(),
-                        novacoins: 0
+                        novacoins: 0,
+                        completedAccountFeedbackForm: false
                     })
                         .then(() => {
                             user.sendEmailVerification()
