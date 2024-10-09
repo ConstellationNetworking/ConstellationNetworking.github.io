@@ -77,6 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }, 1500);
                             }, 1000);
                         }
+
+                        if (Math.random() < 0.45 && data.completedAccountFeedbackForm === false) {
+                            document.getElementById('main-iframe').src = '/feedback.html';
+                            alert('Fill out a quick survey and get 10 novacoins!')
+                        }
                     }
                 })
         })
