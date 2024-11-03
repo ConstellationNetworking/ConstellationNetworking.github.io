@@ -8,68 +8,73 @@
 
 
 <url>
-  <loc>https://constellation.iamjerryhu.info/</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/index.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/chat</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/chat.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/account</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/new_changelog.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/new_changelog</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/account.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://constellation.iamjerryhu.info/missions.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/missions</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/rewards.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/connections</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/about.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/rewards</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/changelog.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/setup_profile</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/setup_profile.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/create_avatar</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/missions_hub.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/about</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/changelog</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/missions_hub</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/volunteer_positions.html</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/recommended_connections</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://constellation.iamjerryhu.info/todo/</loc>
-  <lastmod>2024-08-07T19:10:52+00:00</lastmod>
+  <loc>https://constellationhub.org/volunteer_positions</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 

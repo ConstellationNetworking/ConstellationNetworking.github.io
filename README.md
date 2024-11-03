@@ -1,6 +1,6 @@
 # Constellation: Changing The Networking Experience For Students 🌌
 <p align="center">
-  <img src="http://constellation.iamjerryhu.info/assets/img/icon.png" alt="Constellation Logo" width="150" height="150">
+  <img src="http://constellationhub.org/assets/img/icon.png" alt="Constellation Logo" width="150" height="150">
 </p>
 
 **At Constellation**, we're revolutionizing the way students learn networking skills, providing a gamified, low-stress platform for them to connect and grow professionally. Our mission is to transform networking into a fundamental and enjoyable part of every student's educational journey.
