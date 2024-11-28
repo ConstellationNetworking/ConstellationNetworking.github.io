@@ -52,7 +52,7 @@ Constellation is more than just an edtech platform; it's a community where stude
 - **Graduation**: Transitioning users from a 'youth' to a 'mentor' role upon reaching a certain age, and facilitating profile transfer to adult networking platforms. 🎓➡️🧑‍💼
 
 ## Getting Started 🚀
-Constellation Networking is an online app live on [https://constellation.iamjerryhu.info](https://constellation.iamjerryhu.info).
+Constellation Networking is an online app live on [https://constellationhub.org/](https://constellationhub.org/)
 
 ## License 📄
 Constellation is released under the [MIT License](LICENSE).
