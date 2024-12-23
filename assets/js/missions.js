@@ -74,7 +74,6 @@ function displayMissions(mission) {
         missionCard.dataset.mission = JSON.stringify(mission);
 
         missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
@@ -95,7 +94,6 @@ function displayMissions(mission) {
         missionCard.dataset.mission = JSON.stringify(mission);
 
         missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
@@ -145,7 +143,6 @@ function openMission(mission) {
 
         if (mission.completed) {
             missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
@@ -171,7 +168,6 @@ function openMission(mission) {
         `
         } else {
             missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
@@ -312,7 +308,6 @@ function renderMission(missions) {
             missionCard.id = mission.missionID;
             missionCard.dataset.mission = JSON.stringify(mission);
             missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
@@ -335,7 +330,6 @@ function renderMission(missions) {
             missionCard.id = mission.missionID;
             missionCard.dataset.mission = JSON.stringify(mission);
             missionCard.innerHTML = `
-        <img src="https://placehold.co/300x150" alt="${mission.title}" class="rounded-lg mb-3">
         <div class="flex justify-between items-center mb-2">
             <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
         </div>
