@@ -53,7 +53,8 @@ function submitFeedback() {
             encounteredBugs: encounteredBugs,
             bugs: bugs,
             frequency: frequency,
-            visualDesignRating: visualDesignRating
+            visualDesignRating: visualDesignRating,
+            reportedUser: auth.currentUser.email
         };
 
         console.log("Submitting feedback: ", feedbackData);
@@ -66,12 +67,13 @@ function submitFeedback() {
                         data = doc.data()
 
                         userRef.update({
-                            novacoins: data.novacoins += 100
+                            novacoins: data.novacoins += 100,
+                            completedAccountFeedbackForm: true
                         })
                         .then(() => {
                             alert("Feedback successfully submitted! You have redeemed 100 novacoins.");
-                            document.getElementById('form').reset();
-                            bugsEncounteredSection.style.display = 'none';
+
+                            window.location = '/create_avatar.html'
                         })
                         .catch((error) => {
                             console.error("Error submitting feedback: ", error);
