@@ -72,9 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             hairElement.src = `/assets/img/create_avatar/${hair}.png`;
                         }
 
-                        // TODO: MARK:- Sometimes will add a image not found error
-                        // Solution 1: if user did not choose a glasses design, set glasses to database as "null" and create a transparent image named "null.png" (easier implementation)
-                        // Solution 2: if user did not choose a glasses design, add a if statement to check if glasses in database if null. If null: skip glasses image line; else add glasses image line
                         if (glasses == null) {
                             glassesElement.style.display = 'none';
                         } else {
