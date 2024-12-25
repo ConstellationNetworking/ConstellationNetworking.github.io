@@ -1,6 +1,15 @@
 let db = firebase.firestore();
 let auth = firebase.auth();
 
+// TODO: transition from account.html recent contacts to chat.html not working; 
+function prepareChat() {
+    const userID = getQueryParam('action');
+    if (userID) {
+        handleSwitchChat(userID);
+        switchUserChat(userID);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const auth = firebase.auth();
     const db = firebase.firestore();
