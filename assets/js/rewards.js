@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const p = document.createElement('p');
                         p.className = 'text-sm text-gray-300';
-                        p.textContent = `Novacoins: ${data.novacoins}`;
+                        p.textContent = `Novacoins: $${data.novacoins}`;
                         div.appendChild(p);
 
                         const button = document.createElement('button');
