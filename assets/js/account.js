@@ -59,8 +59,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         const headElement = document.getElementById('head');
                         const hairElement = document.getElementById('hair');
                         const glassesElement = document.getElementById('glasses');
-                        headElement.src = `/assets/img/create_avatar/${head}.png`;
-                        hairElement.src = `/assets/img/create_avatar/${hair}.png`;
+                        if (head == null) {
+                            headElement.style.display = 'none';
+                        } else {
+                            headElement.style.display = 'block';
+                            headElement.src = `/assets/img/create_avatar/${head}.png`;
+                        }
+                        if (hair == null) {
+                            hairElement.style.display = 'none';
+                        } else {
+                            hairElement.style.display = 'block';
+                            hairElement.src = `/assets/img/create_avatar/${hair}.png`;
+                        }
 
                         if (glasses == null) {
                             glassesElement.style.display = 'none';
