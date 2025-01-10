@@ -1,9 +1,5 @@
-try {
-    let db = firebase.firestore();
-    let auth = firebase.auth();
-} catch {
-    console.error('[ERROR] Unable to load firebase db & auth.')
-}
+let db = firebase.firestore();
+let auth = firebase.auth();
 
 function switchBg(bg) {
     var images = {
