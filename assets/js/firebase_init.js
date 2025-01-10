@@ -27,7 +27,7 @@ function loadScript(url, callback) {
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js', function () {
     window.onload = function () {
         console.log("%cYOU SHOULDN'T MESS AROUND HERE.", 'color:red; font-size: 28px;')
-        console.log("If you know what you are doing, come volunteer with us!\nhttps://constellation.iamjerryhu.info/volunteer_positions.html")
+        console.log("If you know what you are doing, come volunteer with us!\nhttps://constellationhub.org/volunteer_positions.html")
     }
 
     window.resetApp = function resetApp() {
