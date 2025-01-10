@@ -2,6 +2,9 @@ let db = firebase.firestore();
 let auth = firebase.auth();
 
 document.addEventListener('DOMContentLoaded', function () {
+    let db = firebase.firestore();
+    let auth = firebase.auth();
+
     try {
         firebase.auth().onAuthStateChanged(function (user) {
             const accountManagementLink = document.getElementById('accountMgnLink');
