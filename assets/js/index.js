@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const join_link = document.getElementById('join-link');
     
             if (user) {
+                let db = firebase.firestore();
                 const userRef = db.collection('Users').doc(user.uid);
                 const lastActive = firebase.firestore.FieldValue.serverTimestamp()
                 userRef.set({
