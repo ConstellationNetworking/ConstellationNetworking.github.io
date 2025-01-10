@@ -1,3 +1,6 @@
+let db = firebase.firestore();
+let auth = firebase.auth();
+
 document.addEventListener('DOMContentLoaded', function () {
     try {
         firebase.auth().onAuthStateChanged(function (user) {
