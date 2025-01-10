@@ -1,19 +1,18 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyA66iAwhXocKb_CkWcaYldiThXQNfg_CWg",
-    authDomain: "constellation-41c9f.firebaseapp.com",
-    projectId: "constellation-41c9f",
-    storageBucket: "constellation-41c9f.appspot.com"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET"
 };
 
 // Initialize Firebase
 try {
     firebase.initializeApp(firebaseConfig);
-
     firebase.firestore().collection('Statistics').doc('website-views').set({
         views: firebase.firestore.FieldValue.increment(1)
-    }, { merge: true })
+    }, { merge: true });
 } catch {
-    console.error('[ERROR] Unable to initialize firebase.')
+    console.error('[ERROR] Unable to initialize firebase.');
 }
 
 function loadScript(url, callback) {
