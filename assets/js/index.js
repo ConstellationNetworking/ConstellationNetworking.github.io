@@ -1,3 +1,86 @@
+let db = firebase.firestore();
+
+function smoothScrollAboveElement(elementId, offset) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function submitForm() {
+    email = document.getElementById('email').value;
+
+    if (!email) {
+        document.getElementById('email').placeholder = 'Please enter a valid email address';
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('email').value = '';
+        document.getElementById('email').placeholder = 'Please enter a valid email address';
+        return;
+    }
+
+    db.collection('ComingSoonSubscribers').add({
+        email: email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        browserInfo: navigator.userAgent
+    })
+    .then((docRef) => {
+        document.getElementById('email').value = '';
+        document.getElementById('email').placeholder = 'Thank you for subscribing!';
+        document.getElementById('submitBtn').innerHTML = 'Done!';
+    })
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const db = firebase.firestore();
+    const tableBody = document.getElementById('positions-table-body');
+
+    db.collection('Open_Volunteer').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.className = 'pr-6 py-4 whitespace-nowrap'
+            titleCell.textContent = data.title;
+            row.appendChild(titleCell);
+
+            const aboutCell = document.createElement('td');
+            aboutCell.textContent = data.about;
+            row.appendChild(aboutCell);
+
+            const hoursCell = document.createElement('td');
+            hoursCell.textContent = data.hours;
+            row.appendChild(hoursCell);
+
+            const locationCell = document.createElement('td');
+            locationCell.textContent = data.location;
+            row.appendChild(locationCell);
+
+            const actionCell = document.createElement('td');
+            const actionLink = document.createElement('a');
+            actionLink.href = data.url;
+            const actionSpan = document.createElement('span');
+            actionSpan.textContent = data.action;
+            actionSpan.className = `px-3 py-2 rounded-full font-semibold text-xs ${data.action === 'Active' ? 'text-green-600 bg-green-50' : 'text-blue-600 bg-blue-50'}`;
+            actionLink.appendChild(actionSpan);
+            actionCell.appendChild(actionLink);
+            row.appendChild(actionCell);
+
+            tableBody.appendChild(row);
+        });
+    });
+});
+
 try {
     let db = firebase.firestore();
     let auth = firebase.auth();
@@ -53,47 +136,3 @@ function switchBg(bg) {
         aTag.style.color = 'gray';
     });
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    try {
-        firebase.auth().onAuthStateChanged(function (user) {
-            const accountManagementLink = document.getElementById('accountMgnLink');
-            const accountManagementText = document.getElementById('accountMgnText');
-            const join_link = document.getElementById('join-link');
-    
-            if (user) {
-                const userRef = db.collection('Users').doc(user.uid);
-                const lastActive = firebase.firestore.FieldValue.serverTimestamp()
-                userRef.set({
-                    lastActive: lastActive
-                }, { merge: true });
-    
-                userRef.get().then((doc) => {
-                    if (doc.exists) {
-                        const data = doc.data();
-                        switchBg(data.bg)
-                    } else {
-                        console.log("No such user.");
-                    }
-                }).catch((error) => {
-                    console.log("Error getting document:", error);
-                });
-    
-                accountManagementLink.onclick = function () { firebase.auth().signOut() }
-                accountManagementText.innerText = 'Log Out';
-    
-                join_link.innerHTML = 'Chat Now';
-                join_link.onclick = function () { window.location = '/chat.html' };
-            } else {
-                switchBg('bg3.jpg')
-                accountManagementLink.onclick = function () { window.location = '/signin.html?redirect=/index.html' }
-                accountManagementText.innerText = 'Log in';
-    
-                join_link.innerHTML = 'View our missions';
-                join_link.onclick = function () { window.location = '/about.html' };
-            }
-        });
-    } catch {
-        switchBg('bg3.jpg')
-    }
-});
