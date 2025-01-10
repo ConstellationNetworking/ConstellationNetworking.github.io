@@ -1,12 +1,9 @@
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyA66iAwhXocKb_CkWcaYldiThXQNfg_CWg",
     authDomain: "constellation-41c9f.firebaseapp.com",
     projectId: "constellation-41c9f",
-    storageBucket: "constellation-41c9f.appspot.com",
-    messagingSenderId: "920245300989",
-    appId: "1:920245300989:web:1e585977a89a5b821b9894",
-    measurementId: "G-FTXQ5HF0C5"
-  };
+    storageBucket: "constellation-41c9f.appspot.com"
+};
 
 // Initialize Firebase
 try {
