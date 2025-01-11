@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 lastActive: lastActive
             }, { merge: true });
 
-            // send message
+            // send message listener
             sendButton.addEventListener('click', sendMessage);
             messageInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // get history users
+            // populate history users
             const userDocRef = db.collection('Users').doc(user.uid);
             userDocRef.get().then((doc) => {
                 if (doc.exists) {
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } else {
             console.error('User is not signed in.');
-            // alert('Please sign in first. You will be directed to a sign in page.');
+            alert('Please sign in first. You will be directed to a sign in page.');
             window.location.href = '/signin.html';
         }
     });
@@ -302,6 +302,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateChat(user) {
         otherUserID = user.id;
         document.getElementById('message-history').innerHTML = '';
+
+        // MARK:- Added without tests; could produce bugs; remove if necessary
+        handleSwitchChat(otherUserID);
+        switchUserChat(otherUserID);
 
         startListeningForMessages(otherUserID);
     }
@@ -439,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert(`Error searching for user: ${error}`);
                 });
         } else {
-            // MARK:- add action for Constellation Bot AI
+            // TODO:- add action for Constellation Bot AI
         }
     }
 
