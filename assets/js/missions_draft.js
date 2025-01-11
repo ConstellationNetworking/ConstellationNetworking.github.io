@@ -33,25 +33,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // update the user's mission for finishing the task
             db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    const tasks = doc.data().tasks || {};
-                    tasks['Visit your missions page to see your missions.'] = true;
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const tasks = doc.data().tasks || {};
+                        tasks['Visit your missions page to see your missions.'] = true;
 
-                    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
-                        tasks: tasks,
-                    })
-                        .then(() => {
-                            fetchMissions().then(renderMission);
+                        db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
+                            tasks: tasks,
                         })
-                        .catch((error) => {
-                            console.error(error);
-                        });
+                            .then(() => {
+                                fetchMissions().then(renderMission);
+                            })
+                            .catch((error) => {
+                                console.error(error);
+                            });
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error getting mission:', error);
                 });
-            })
-            .catch((error) => {
-                console.error('Error getting mission:', error);
-            });
 
             // redeem mission tokens
             setTimeout(() => {

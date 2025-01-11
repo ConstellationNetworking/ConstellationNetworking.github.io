@@ -56,35 +56,35 @@ function saveAvatar() {
             console.log('Avatar updated');
 
             db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
-                    .then((querySnapshot) => {
-                        querySnapshot.forEach((doc) => {
-                            const tasks = doc.data().tasks || {};
-                            tasks['Edit your avatar.'] = true;
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const tasks = doc.data().tasks || {};
+                        tasks['Edit your avatar.'] = true;
 
-                            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
-                                .then(() => {
-                                    if (window.self !== window.top) {
-                                        alert('Avatar saved!');
-                                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                                    } else {
-                                        window.location.href = '/index.html';
-                                    }
-                                })
-                                .catch((error) => {
-                                    console.error(error);
-                                });
-                        });
-                    })
-                    .catch((error) => {
-                        console.error('Error getting mission:', error);
+                        db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({ tasks: tasks })
+                            .then(() => {
+                                if (window.self !== window.top) {
+                                    alert('Avatar saved!');
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    window.location.href = '/index.html';
+                                }
+                            })
+                            .catch((error) => {
+                                console.error(error);
+                            });
                     });
+                })
+                .catch((error) => {
+                    console.error('Error getting mission:', error);
+                });
         }).catch((error) => {
             console.error(error);
         })
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     auth.onAuthStateChanged(user => {
         if (!user) {
             window.location = '/signin.html';

@@ -31,7 +31,7 @@ function switchBg(bg) {
             }
         })
     }
-    
+
     var body = document.getElementById('body');
     body.style.backgroundImage = 'url(/assets/img/index/' + randomImage + ')';
 

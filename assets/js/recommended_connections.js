@@ -115,11 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // load all users when "view all" button clicked
-    document.getElementById('btn:view-all').addEventListener('click', function() {
+    document.getElementById('btn:view-all').addEventListener('click', function () {
         const recommendedConnectionsContainer = document.getElementById('recommendedconnections');
         recommendedConnectionsContainer.innerHTML = '';
 
-        db.collection('Users').get().then((querySnapshot) => 
+        db.collection('Users').get().then((querySnapshot) =>
             querySnapshot.forEach((doc) => {
                 if (doc.exists) {
                     const data = doc.data();

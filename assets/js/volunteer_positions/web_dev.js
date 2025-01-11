@@ -47,26 +47,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
     auth.onAuthStateChanged(user => {
         if (user) {
             db.collection('Open_Volunteer').doc('web_developer').get()
-            .then((doc) => {
-                if (doc.exists) {
-                    let data = doc.data();
-                    
-                    let position_title = document.getElementById('position-title');
-                    let weekly_hours = document.getElementById('weekly-hours');
-                    let location = document.getElementById('location');
-                    let about = document.getElementById('about');
+                .then((doc) => {
+                    if (doc.exists) {
+                        let data = doc.data();
 
-                    position_title.innerHTML = data.title;
-                    location.innerHTML = data.location;
-                    weekly_hours.innerHTML = data.hours;
-                    about.innerHTML = data.about;
+                        let position_title = document.getElementById('position-title');
+                        let weekly_hours = document.getElementById('weekly-hours');
+                        let location = document.getElementById('location');
+                        let about = document.getElementById('about');
 
-                } else {
-                    window.location = '/volunteer_positions.html';
-                }
-            }).catch((error) => {
-                console.error("Error getting document:", error);
-            });
+                        position_title.innerHTML = data.title;
+                        location.innerHTML = data.location;
+                        weekly_hours.innerHTML = data.hours;
+                        about.innerHTML = data.about;
+
+                    } else {
+                        window.location = '/volunteer_positions.html';
+                    }
+                }).catch((error) => {
+                    console.error("Error getting document:", error);
+                });
         } else {
             window.location = '/signin.html';
         }
