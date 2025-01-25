@@ -65,7 +65,7 @@ function submitProfile() {
 
                 if (file) {
                     document.getElementById('submitButton').innerText = 'loading...'
-        
+
                     const reader = new FileReader();
                     reader.onload = function (e) {
                         const img = new Image();

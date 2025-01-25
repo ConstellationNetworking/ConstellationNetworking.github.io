@@ -19,40 +19,40 @@ function sell(name, novacoins) {
             if (!querySnapshot.empty) {
                 const doc = querySnapshot.docs[0];
                 db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').doc(doc.id).delete()
-                .then(() => {
-                    db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
-                        if (doc.exists) {
-                            const data = doc.data();
+                    .then(() => {
+                        db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
+                            if (doc.exists) {
+                                const data = doc.data();
 
-                            db.collection('Users').doc(auth.currentUser.uid).update({
-                                novacoins: data.novacoins + parseInt(novacoins)
-                            })
-                            .then(() => {
-                                location.reload();
-                            })
+                                db.collection('Users').doc(auth.currentUser.uid).update({
+                                    novacoins: data.novacoins + parseInt(novacoins)
+                                })
+                                    .then(() => {
+                                        location.reload();
+                                    })
+                                    .catch((error) => {
+                                        console.error('Error updating novacoins', error);
+                                        alert('Unable to sell item. Please try again later.');
+                                    });
+                            }
+                        })
                             .catch((error) => {
-                                console.error('Error updating novacoins', error);
+                                console.error('Error retrieving user document', error);
                                 alert('Unable to sell item. Please try again later.');
                             });
-                        }
                     })
                     .catch((error) => {
-                        console.error('Error retrieving user document', error);
+                        console.error('Error deleting redeemed item', error);
                         alert('Unable to sell item. Please try again later.');
                     });
-                })
-                .catch((error) => {
-                    console.error('Error deleting redeemed item', error);
-                    alert('Unable to sell item. Please try again later.');
-                });
             } else {
                 alert('No such item to sell.');
             }
         })
-        .catch((error) => {
-            console.error('Error querying redeemed items', error);
-            alert('Unable to sell item. Please try again later.');
-        });
+            .catch((error) => {
+                console.error('Error querying redeemed items', error);
+                alert('Unable to sell item. Please try again later.');
+            });
     }
 }
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         button.textContent = 'Sell';
                         button.dataset.name = data.item;
                         button.dataset.redeem = data.novacoins;
-                        button.onclick = function() {
+                        button.onclick = function () {
                             sell(data.item, data.novacoins);
                         };
                         button.textContent = 'Sell';

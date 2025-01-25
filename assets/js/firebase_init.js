@@ -68,3 +68,8 @@ loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min
         }
     }
 })
+
+// add new missions for all users;
+function addNewMissions() {
+
+}

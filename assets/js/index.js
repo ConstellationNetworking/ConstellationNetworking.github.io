@@ -32,11 +32,11 @@ function submitForm() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         browserInfo: navigator.userAgent
     })
-    .then((docRef) => {
-        document.getElementById('email').value = '';
-        document.getElementById('email').placeholder = 'Thank you for subscribing!';
-        document.getElementById('submitBtn').innerHTML = 'Done!';
-    })
+        .then((docRef) => {
+            document.getElementById('email').value = '';
+            document.getElementById('email').placeholder = 'Thank you for subscribing!';
+            document.getElementById('submitBtn').innerHTML = 'Done!';
+        })
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

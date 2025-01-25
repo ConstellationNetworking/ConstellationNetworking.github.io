@@ -43,8 +43,8 @@ function formatDate(dateString) {
 
 
 function replaceTextWithSpan(element) {
-    element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function(match, p1) {
-        if (p1.includes('.html'))  {
+    element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function (match, p1) {
+        if (p1.includes('.html')) {
             return `<a style="text-decoration: underline; text-decoration-color: #0ea5e9; color: #0ea5e9; text-underline-offset: 2px; font-weight: 600;" href="/${p1}">` + p1 + '</a>';
         } else {
             return `<a style="text-decoration: underline; text-decoration-color: #0ea5e9; color: #0ea5e9; text-underline-offset: 2px; font-weight: 600;" href="${p1}">` + p1 + '</a>';

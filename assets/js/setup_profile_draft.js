@@ -23,7 +23,7 @@ function validateForm() {
                         enable: true,
                         slider: false,
                         position: 'right'
-                      }
+                    }
                 });
                 image.cropme('bind', {
                     url: e.target.result
@@ -39,7 +39,7 @@ function validateForm() {
                 enable: true,
                 slider: false,
                 position: 'right'
-              }
+            }
         });
         image.cropme('crop', {
             type: 'blob'

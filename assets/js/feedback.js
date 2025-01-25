@@ -70,15 +70,15 @@ function submitFeedback() {
                             novacoins: data.novacoins += 100,
                             completedAccountFeedbackForm: true
                         })
-                        .then(() => {
-                            alert("Feedback successfully submitted! You have redeemed 100 novacoins.");
+                            .then(() => {
+                                alert("Feedback successfully submitted! You have redeemed 100 novacoins.");
 
-                            window.location = '/create_avatar.html'
-                        })
-                        .catch((error) => {
-                            console.error("Error submitting feedback: ", error);
-                            alert("There was an error redeeming novcacoins.. Please try again.");
-                        })
+                                window.location = '/create_avatar.html'
+                            })
+                            .catch((error) => {
+                                console.error("Error submitting feedback: ", error);
+                                alert("There was an error redeeming novcacoins.. Please try again.");
+                            })
                     }
                 })
             })

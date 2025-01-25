@@ -6,26 +6,26 @@ function addTask() {
         task: inputValue,
         completed: false
     })
-    .then(() => {
-        console.log("Document successfully written!");
-        document.getElementById('newTask').value = ''; // clear input field
-        loadTasks(); // reload tasks
-    })
-    .catch((error) => {
-        console.error("Error writing document: ", error);
-    });
+        .then(() => {
+            console.log("Document successfully written!");
+            document.getElementById('newTask').value = ''; // clear input field
+            loadTasks(); // reload tasks
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
 }
 
 function updateTaskStatus(taskId, isCompleted) {
     db.collection("tasks").doc(taskId).update({
         completed: isCompleted
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-    })
-    .catch((error) => {
-        console.error("Error updating document: ", error);
-    });
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
+        .catch((error) => {
+            console.error("Error updating document: ", error);
+        });
 }
 
 function loadTasks() {
@@ -46,17 +46,17 @@ function loadTasks() {
 function deleteTask(taskId) {
     if (confirm("Are you sure you want to delete this task?")) {
         db.collection("tasks").doc(taskId).delete()
-        .then(() => {
-            console.log("Document successfully deleted!");
-            loadTasks(); // Refresh the task list
-        })
-        .catch((error) => {
-            console.error("Error removing document: ", error);
-        });
+            .then(() => {
+                console.log("Document successfully deleted!");
+                loadTasks(); // Refresh the task list
+            })
+            .catch((error) => {
+                console.error("Error removing document: ", error);
+            });
     }
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadTasks();
 });
