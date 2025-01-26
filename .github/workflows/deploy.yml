@@ -43,6 +43,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: deployment
           folder: .  # Deploy files from the root of the repository
           clean: true  # Ensures the gh-pages branch is cleaned before deploying
