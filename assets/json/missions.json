@@ -1,0 +1,237 @@
+[
+    {
+        "title": "Welcome to your first mission!",
+        "description": "Creating your own unique presence through your person is the first step to building your network.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Edit your avatar.": false,
+            "Visit your missions page to see your missions.": false
+        },
+        "progress": 0,
+        "type": "Get started",
+        "novacoins": 10
+    },
+    {
+        "title": "Introduction to Cold Introductions",
+        "description": "A cold introduction is the initial contact you make with someone you don't know personally. It's often used in professional settings to connect for career opportunities, business development, or personal growth. The goal is to introduce yourself, show genuine interest, and establish a foundation for further communication.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Using this template, send a cold introduction with a connection. Make sure to read up on their bio to fill in the template.": false
+        },
+        "progress": 0,
+        "type": "Building my Constellation",
+        "novacoins": 120
+    },
+    {
+        "title": "Introduction to Warm Introductions",
+        "description": "A warm introduction is when a mutual contact facilitates the initial connection between you and someone you want to meet. This type of introduction leverages the existing relationship of the mutual contact to establish trust and credibility right from the start.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Connect with a user that's a mutual contact with someone you already know. Send them a warm introduction with that connection.": false
+        },
+        "progress": 0,
+        "type": "Building my Constellation",
+        "novacoins": 120
+    },
+    {
+        "title": "Gaining Gravity",
+        "description": "Learn how to navigate the platform and amass points.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Gather 500 reputation points (maintain connections, complete missions, sell rewards).": false
+        },
+        "progress": 0,
+        "type": "Gaining Connections",
+        "novacoins": 110
+    },
+    {
+        "title": "Interstellar Investing",
+        "description": "Learn how to navigate the rewards page and customize your avatar.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Redeem your first accessory and/or customization feature in the Rewards page.": false,
+            "Equip your claimed reward!": false
+        },
+        "progress": 0,
+        "type": "Investing",
+        "novacoins": 90
+    },
+    {
+        "title": "Time-Space Trader",
+        "description": "Learn how to sell your rewards and liquidize reputation points.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Sell at least one reward and receive the returned reputation points.": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 70
+    },
+    {
+        "title": "Intersecting Orbits",
+        "description": "Send 10 messages to a constellation in one day.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Send 10 messages to a constellation in one day.": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 110
+    },
+    {
+        "title": "Comparing Spectra",
+        "description": "View a constellation's bio and use one detail from it to craft a personalized message that sparks a meaningful conversation.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Use the template in a message with a constellation (preferably a new one).": false
+        },
+        "progress": 0,
+        "type": "Trading",
+        "novacoins": 100
+    },
+    {
+        "title": "Finding your Spectral Classification",
+        "description": "Adding details about who you are allows your profile to appear more frequently during searches and serves as a great basis for others to start conversations with you.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Write a bio for your profile.": false
+        },
+        "progress": 0,
+        "type": "Building my Constellation",
+        "novacoins": 60
+    },
+    {
+        "title": "Photo Reframing",
+        "description": "Customize your experience on the platform.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Change your homepage background twice.": false
+        },
+        "progress": 0,
+        "type": "Customization",
+        "novacoins": 50
+    },
+    {
+        "title": "Congrats Connect",
+        "description": "Recognizing and celebrating others' successes not only strengthens your relationships but also keeps you on their radar for future opportunities.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Message a constellation to congratulate them on a recent achievement or milestone, like a new job or promotion.": false
+        },
+        "progress": 0,
+        "type": "Word or Template-Based",
+        "novacoins": 120
+    },
+    {
+        "title": "Persona Forge",
+        "description": "Create your unique presence.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Create profile": false,
+            "Edit Avatar": false,
+            "Save Changes": false
+        },
+        "progress": 0,
+        "type": "Page Function Based",
+        "novacoins": 100
+    },
+    {
+        "title": "Foundations of a Constellation",
+        "description": "Learn how to connect with other users.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Connect with a peer and form a new constellation (Connections page)": false,
+            "Send them a message to start a conversation": false
+        },
+        "progress": 0,
+        "type": "Page Function Based",
+        "novacoins": 100
+    },
+    {
+        "title": "Maintaining Links",
+        "description": "Forming a constellation is only the start! The key point to understand is how to maintain it through conversation.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Connect with a peer and form a new constellation (Connections page)": false,
+            "Message them for four days within a week.": false
+        },
+        "progress": 0,
+        "type": "Messaging Count - Chat",
+        "novacoins": 120
+    },
+    {
+        "title": "Making History",
+        "description": "Through messaging your constellation more, you can get to know them better, share experiences, and even start a project together. With this, the relationship is more likely to last.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Exchange 200 messages with a constellation": false
+        },
+        "progress": 0,
+        "type": "Messaging Count - Chat",
+        "novacoins": 150
+    },
+    {
+        "title": "Through Space-Time",
+        "description": "Through messaging your constellation more, you can get to know them better, share experiences, and even start a project together. With this, the relationship is more likely to last.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Exchange 500 messages with a constellation": false
+        },
+        "progress": 0,
+        "type": "Connections Count",
+        "novacoins": 180
+    },
+    {
+        "title": "Beginnings of a Galaxy",
+        "description": "Expand your network and open doors to fresh opportunities.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Form 10 constellations (Connections page)": false,
+            "Send them messages to start a conversation": false
+        },
+        "progress": 0,
+        "type": "Connections Count",
+        "novacoins": 100
+    },
+    {
+        "title": "Resource Recommendation",
+        "description": "Providing valuable resources to your connections demonstrates your expertise and willingness to help, which enhances your reputation as a knowledgeable and supportive networker.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Share a helpful resource or article via a link to a constellation (link has to be sent isolated)": false
+        },
+        "progress": 0,
+        "type": "Word or Template-Based",
+        "novacoins": 80
+    },
+    {
+        "title": "Galaxy Navigator",
+        "description": "Facilitating introductions strengthens your network by positioning you as a valuable connector and fostering goodwill among your peers, which can lead to reciprocal opportunities in the future.",
+        "completed": false,
+        "tokensredeemed": false,
+        "tasks": {
+            "Using the template, offer to introduce a connection to someone in your network who could help them out. Make sure to read up on their bio to fill in the template.": false
+        },
+        "progress": 0,
+        "type": "Word or Template-Based",
+        "novacoins": 140
+    }
+]

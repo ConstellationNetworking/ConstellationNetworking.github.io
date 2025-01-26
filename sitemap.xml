@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://constellationhub.org/</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/chat</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/account</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/new_changelog</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/missions</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/connections</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/rewards</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/setup_profile</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/create_avatar</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/about</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/changelog</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/missions_hub</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/recommended_connections</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://constellationhub.org/volunteer_positions</loc>
+  <lastmod>2024-11-03T23:16:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
