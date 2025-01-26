@@ -53,9 +53,11 @@ jobs:
       - name: Copy Non-Minifiable Files
         run: |
           for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
-            mkdir -p "$(dirname $file)"
-            cp "$file" "$(dirname $file)/"
-          done
+            if [ "$file" != "$(dirname $file)/$(basename $file)" ]; then
+                mkdir -p "$(dirname $file)"
+                cp "$file" "$(dirname $file)/"
+            fi
+            done
 
       # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
