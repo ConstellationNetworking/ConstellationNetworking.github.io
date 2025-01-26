@@ -52,10 +52,11 @@ jobs:
       # Step 7: Copy non-minifiable files (images, videos) directly
       - name: Copy Non-Minifiable Files
         run: |
-          for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
-            mkdir -p "$(dirname $file)"
-            cp "$file" "$(dirname $file)/"
-          done
+            for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
+            dest_dir="$(dirname "./minified/$file")"
+            mkdir -p "$dest_dir"
+            cp "$file" "$dest_dir/"
+            done
 
       # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
