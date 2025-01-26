@@ -54,8 +54,8 @@ jobs:
         run: |
           for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
             mkdir -p "$(dirname $file)"
-            rsync -a "$file" "$(dirname $file)/"
-            done
+            cp "$file" "$(dirname $file)/"
+          done
 
       # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
