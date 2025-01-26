@@ -1,1 +1,90 @@
-function a0_0xd4bd(_0x36c7c3,_0x487d68){const _0x98865c=a0_0x9886();return a0_0xd4bd=function(_0xd4bd97,_0x27b673){_0xd4bd97=_0xd4bd97-0x16c;let _0x5c47ca=_0x98865c[_0xd4bd97];return _0x5c47ca;},a0_0xd4bd(_0x36c7c3,_0x487d68);}const a0_0x286dcd=a0_0xd4bd;function a0_0x9886(){const _0x5282bd=['Submitting\x20feedback:\x20','collection','value','7151164sfBONm','onAuthStateChanged','textContent','error','334IhnmCn','5YNXeTB','nextElementSibling','bugs-issues-yes','trim','none','currentUser','3196144BoidhW','7RAALdD','exists','input[name=\x22design\x22]:checked','Users','There\x20was\x20an\x20error\x20submitting\x20your\x20feedback.\x20Please\x20try\x20again.','checked','input[name=\x22bugs-issues\x22]:checked','log','511010TDWttD','5328796qxeJmq','getElementById','bugs-encountered','20340ITLcvI','location','querySelector','Error\x20submitting\x20feedback:\x20','No\x20bugs\x20encountered.','bugs-issues-no','preventDefault','doc','input[name=\x22intuitive\x22]:checked','auth','Please\x20fill\x20out\x20all\x20required\x20fields\x20before\x20submitting\x20the\x20form.','2391bMzdXf','catch','Feedback\x20successfully\x20submitted!\x20You\x20have\x20redeemed\x20100\x20novacoins.','addEventListener','change','style','Please\x20describe\x20the\x20bugs\x20encountered\x20or\x20select\x20\x27No\x27\x20if\x20no\x20bugs\x20were\x20found.','section:bugs-encountered','get','form','4812540nRarEz','submit','data','uid','display','/create_avatar.html','1602eKeDUq','FeedbackData'];a0_0x9886=function(){return _0x5282bd;};return a0_0x9886();}(function(_0x5bf820,_0x5066cf){const _0x43c2cb=a0_0xd4bd,_0x1f1827=_0x5bf820();while(!![]){try{const _0x4a82bf=parseInt(_0x43c2cb(0x195))/0x1+parseInt(_0x43c2cb(0x185))/0x2*(parseInt(_0x43c2cb(0x16c))/0x3)+parseInt(_0x43c2cb(0x181))/0x4*(-parseInt(_0x43c2cb(0x186))/0x5)+parseInt(_0x43c2cb(0x176))/0x6*(parseInt(_0x43c2cb(0x18d))/0x7)+parseInt(_0x43c2cb(0x18c))/0x8+-parseInt(_0x43c2cb(0x17c))/0x9*(-parseInt(_0x43c2cb(0x199))/0xa)+parseInt(_0x43c2cb(0x196))/0xb;if(_0x4a82bf===_0x5066cf)break;else _0x1f1827['push'](_0x1f1827['shift']());}catch(_0x7e24e){_0x1f1827['push'](_0x1f1827['shift']());}}}(a0_0x9886,0xdccde));let auth=firebase[a0_0x286dcd(0x1a2)](),db=firebase['firestore']();document[a0_0x286dcd(0x16f)]('DOMContentLoaded',()=>{const _0x17c21a=a0_0x286dcd,_0x3f2f98=document[_0x17c21a(0x197)](_0x17c21a(0x188)),_0x5965ed=document[_0x17c21a(0x197)]('bugs-issues-no'),_0x2f0806=document[_0x17c21a(0x197)](_0x17c21a(0x173)),_0x588672=()=>{const _0x589f62=_0x17c21a;_0x3f2f98[_0x589f62(0x192)]?_0x2f0806[_0x589f62(0x171)][_0x589f62(0x17a)]='block':_0x2f0806[_0x589f62(0x171)][_0x589f62(0x17a)]=_0x589f62(0x18a);};_0x3f2f98['addEventListener'](_0x17c21a(0x170),_0x588672),_0x5965ed['addEventListener'](_0x17c21a(0x170),_0x588672),document['getElementById'](_0x17c21a(0x175))[_0x17c21a(0x16f)](_0x17c21a(0x177),async _0x850dea=>{const _0xc808e4=_0x17c21a;_0x850dea[_0xc808e4(0x19f)]();});});function submitFeedback(){const _0x2924b6=a0_0x286dcd,_0x1bb05e=document[_0x2924b6(0x197)](_0x2924b6(0x188)),_0x84cac1=document[_0x2924b6(0x197)](_0x2924b6(0x19e)),_0x133094=document[_0x2924b6(0x197)](_0x2924b6(0x173));auth[_0x2924b6(0x182)](function(_0x130477){const _0x5be9d3=_0x2924b6,_0x570c1c=document[_0x5be9d3(0x19b)](_0x5be9d3(0x1a1))?.['nextElementSibling'][_0x5be9d3(0x183)],_0x4fa852=document[_0x5be9d3(0x19b)]('input[name=\x22intuitive\x22]:checked')?.[_0x5be9d3(0x187)][_0x5be9d3(0x183)],_0x299452=document[_0x5be9d3(0x197)]('unnecessary')[_0x5be9d3(0x180)][_0x5be9d3(0x189)](),_0x198690=document[_0x5be9d3(0x19b)](_0x5be9d3(0x193))?.[_0x5be9d3(0x187)][_0x5be9d3(0x183)],_0x537272=_0x1bb05e[_0x5be9d3(0x192)]?document['getElementById'](_0x5be9d3(0x198))[_0x5be9d3(0x180)]['trim']():_0x5be9d3(0x19d),_0x8c7e8a=document[_0x5be9d3(0x19b)]('input[name=\x22frequency\x22]:checked')?.[_0x5be9d3(0x187)]['textContent'],_0x3b29ac=document[_0x5be9d3(0x19b)](_0x5be9d3(0x18f))?.[_0x5be9d3(0x187)][_0x5be9d3(0x183)];if(!_0x570c1c||!_0x4fa852||!_0x198690||!_0x8c7e8a||!_0x3b29ac||_0x299452===''){alert(_0x5be9d3(0x1a3));return;}if(_0x1bb05e[_0x5be9d3(0x192)]&&_0x537272===''){alert(_0x5be9d3(0x172));return;}const _0x5147ec={'intuitive':_0x570c1c,'mostUsefulPage':_0x4fa852,'unnecessaryFeatures':_0x299452,'encounteredBugs':_0x198690,'bugs':_0x537272,'frequency':_0x8c7e8a,'visualDesignRating':_0x3b29ac,'reportedUser':auth['currentUser']['email']};console[_0x5be9d3(0x194)](_0x5be9d3(0x17e),_0x5147ec),db[_0x5be9d3(0x17f)](_0x5be9d3(0x17d))['add'](_0x5147ec)['then'](()=>{const _0x249233=_0x5be9d3,_0x180b6d=db['collection'](_0x249233(0x190))[_0x249233(0x1a0)](auth[_0x249233(0x18b)][_0x249233(0x179)]);_0x180b6d[_0x249233(0x174)]()['then'](_0xd748a5=>{const _0x311bd7=_0x249233;_0xd748a5[_0x311bd7(0x18e)]&&(data=_0xd748a5[_0x311bd7(0x178)](),_0x180b6d['update']({'novacoins':data['novacoins']+=0x64,'completedAccountFeedbackForm':!![]})['then'](()=>{const _0x27511f=_0x311bd7;alert(_0x27511f(0x16e)),window[_0x27511f(0x19a)]=_0x27511f(0x17b);})['catch'](_0x57b08c=>{const _0xadf913=_0x311bd7;console['error'](_0xadf913(0x19c),_0x57b08c),alert('There\x20was\x20an\x20error\x20redeeming\x20novcacoins..\x20Please\x20try\x20again.');}));});})[_0x5be9d3(0x16d)](_0x2b1e39=>{const _0xbe9af4=_0x5be9d3;console[_0xbe9af4(0x184)](_0xbe9af4(0x19c),_0x2b1e39),alert(_0xbe9af4(0x191));});});}
+let auth = firebase.auth();
+let db = firebase.firestore();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const bugYesOption = document.getElementById('bugs-issues-yes');
+    const bugNoOption = document.getElementById('bugs-issues-no');
+    const bugsEncounteredSection = document.getElementById('section:bugs-encountered');
+
+    const toggleBugs = () => {
+        if (bugYesOption.checked) {
+            bugsEncounteredSection.style.display = 'block';
+        } else {
+            bugsEncounteredSection.style.display = 'none';
+        }
+    }
+
+    bugYesOption.addEventListener('change', toggleBugs);
+    bugNoOption.addEventListener('change', toggleBugs);
+
+    document.getElementById('form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+    })
+})
+
+function submitFeedback() {
+    const bugYesOption = document.getElementById('bugs-issues-yes');
+    const bugNoOption = document.getElementById('bugs-issues-no');
+    const bugsEncounteredSection = document.getElementById('section:bugs-encountered');
+
+    auth.onAuthStateChanged(function (user) {
+        const intuitive = document.querySelector('input[name="intuitive"]:checked')?.nextElementSibling.textContent;
+        const mostUsefulPage = document.querySelector('input[name="intuitive"]:checked')?.nextElementSibling.textContent;
+        const unnecessaryFeatures = document.getElementById('unnecessary').value.trim();
+        const encounteredBugs = document.querySelector('input[name="bugs-issues"]:checked')?.nextElementSibling.textContent;
+        const bugs = bugYesOption.checked ? document.getElementById('bugs-encountered').value.trim() : "No bugs encountered.";
+        const frequency = document.querySelector('input[name="frequency"]:checked')?.nextElementSibling.textContent;
+        const visualDesignRating = document.querySelector('input[name="design"]:checked')?.nextElementSibling.textContent;
+
+        if (!intuitive || !mostUsefulPage || !encounteredBugs || !frequency || !visualDesignRating || unnecessaryFeatures === "") {
+            alert("Please fill out all required fields before submitting the form.");
+            return;
+        }
+
+        if (bugYesOption.checked && bugs === "") {
+            alert("Please describe the bugs encountered or select 'No' if no bugs were found.");
+            return;
+        }
+
+        const feedbackData = {
+            intuitive: intuitive,
+            mostUsefulPage: mostUsefulPage,
+            unnecessaryFeatures: unnecessaryFeatures,
+            encounteredBugs: encounteredBugs,
+            bugs: bugs,
+            frequency: frequency,
+            visualDesignRating: visualDesignRating,
+            reportedUser: auth.currentUser.email
+        };
+
+        console.log("Submitting feedback: ", feedbackData);
+
+        db.collection('FeedbackData').add(feedbackData)
+            .then(() => {
+                const userRef = db.collection('Users').doc(auth.currentUser.uid)
+                userRef.get().then((doc) => {
+                    if (doc.exists) {
+                        data = doc.data()
+
+                        userRef.update({
+                            novacoins: data.novacoins += 100,
+                            completedAccountFeedbackForm: true
+                        })
+                            .then(() => {
+                                alert("Feedback successfully submitted! You have redeemed 100 novacoins.");
+
+                                window.location = '/create_avatar.html'
+                            })
+                            .catch((error) => {
+                                console.error("Error submitting feedback: ", error);
+                                alert("There was an error redeeming novcacoins.. Please try again.");
+                            })
+                    }
+                })
+            })
+            .catch((error) => {
+                console.error("Error submitting feedback: ", error);
+                alert("There was an error submitting your feedback. Please try again.");
+            });
+    });
+}

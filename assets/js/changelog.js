@@ -1,1 +1,64 @@
-(function(_0x43efc6,_0x1eb715){const _0x25800d=a0_0x4981,_0x327336=_0x43efc6();while(!![]){try{const _0x57a7d3=parseInt(_0x25800d(0xc3))/0x1+-parseInt(_0x25800d(0xd3))/0x2*(parseInt(_0x25800d(0xc9))/0x3)+parseInt(_0x25800d(0xcc))/0x4*(-parseInt(_0x25800d(0xd4))/0x5)+parseInt(_0x25800d(0xd7))/0x6+parseInt(_0x25800d(0xc0))/0x7+-parseInt(_0x25800d(0xd8))/0x8*(parseInt(_0x25800d(0xc7))/0x9)+parseInt(_0x25800d(0xd5))/0xa*(parseInt(_0x25800d(0xbc))/0xb);if(_0x57a7d3===_0x1eb715)break;else _0x327336['push'](_0x327336['shift']());}catch(_0x21d337){_0x327336['push'](_0x327336['shift']());}}}(a0_0x26ba,0x8b849));function a0_0x4981(_0x259324,_0x3fd652){const _0x26baee=a0_0x26ba();return a0_0x4981=function(_0x4981ec,_0x539f9c){_0x4981ec=_0x4981ec-0xbc;let _0x48689d=_0x26baee[_0x4981ec];return _0x48689d;},a0_0x4981(_0x259324,_0x3fd652);}function parseDateAsUTC(_0x3b06f0){const _0xacbaf7=a0_0x4981;var _0x1a1b5e=_0x3b06f0[_0xacbaf7(0xc2)]('-');return new Date(Date['UTC'](_0x1a1b5e[0x0],_0x1a1b5e[0x1]-0x1,_0x1a1b5e[0x2]));}function timeSince(_0xecf838){const _0x3158e9=a0_0x4981,_0xf9311=parseDateAsUTC(_0xecf838),_0x411018=new Date(),_0x9915b8=Math['floor']((_0x411018-_0xf9311)/0x3e8);let _0x1d05a4=_0x9915b8/0x1e13380;if(_0x1d05a4>0x1)return Math[_0x3158e9(0xbf)](_0x1d05a4)+'\x20years\x20ago';_0x1d05a4=_0x9915b8/0x278d00;if(_0x1d05a4>0x1)return Math['floor'](_0x1d05a4)+'\x20months\x20ago';_0x1d05a4=_0x9915b8/0x93a80;if(_0x1d05a4>0x1)return Math[_0x3158e9(0xbf)](_0x1d05a4)+_0x3158e9(0xbe);_0x1d05a4=_0x9915b8/0x15180;if(_0x1d05a4>0x1)return Math[_0x3158e9(0xbf)](_0x1d05a4)+_0x3158e9(0xd6);_0x1d05a4=_0x9915b8/0xe10;if(_0x1d05a4>0x1)return Math[_0x3158e9(0xbf)](_0x1d05a4)+_0x3158e9(0xbd);_0x1d05a4=_0x9915b8/0x3c;if(_0x1d05a4>0x1)return Math[_0x3158e9(0xbf)](_0x1d05a4)+_0x3158e9(0xcd);return Math[_0x3158e9(0xbf)](_0x9915b8)+'\x20seconds\x20ago';}function a0_0x26ba(){const _0x24089e=['\x20minutes\x20ago','long','replace','</a>','numeric','forEach','28xDokaR','163270EaKbva','2670FjyJwa','\x20days\x20ago','6564018CIhkwc','1603416CtgJsS','en-US','querySelectorAll','46662HmrXWb','\x20hours\x20ago','\x20weeks\x20ago','floor','4652788qZjRys','includes','split','414278owCtRx','.release-date','innerHTML','<a\x20style=\x22text-decoration:\x20underline;\x20text-decoration-color:\x20#0ea5e9;\x20color:\x20#0ea5e9;\x20text-underline-offset:\x202px;\x20font-weight:\x20600;\x22\x20href=\x22','36YwmmTF','textContent','218163celeaO','toLocaleDateString','.html','112KRvSim'];a0_0x26ba=function(){return _0x24089e;};return a0_0x26ba();}function formatDate(_0x50f156){const _0x3d0a80=a0_0x4981,_0x2ed6b7={'weekday':_0x3d0a80(0xce),'year':_0x3d0a80(0xd1),'month':_0x3d0a80(0xce),'day':_0x3d0a80(0xd1),'timeZone':'UTC'},_0x1fa373=parseDateAsUTC(_0x50f156);return _0x1fa373[_0x3d0a80(0xca)](_0x3d0a80(0xd9),_0x2ed6b7);}function replaceTextWithSpan(_0x46c1b2){const _0x146691=a0_0x4981;_0x46c1b2[_0x146691(0xc5)]=_0x46c1b2['innerHTML'][_0x146691(0xcf)](/`([^`]+)`/g,function(_0x5abb9d,_0x57d18d){const _0xafe4c6=_0x146691;return _0x57d18d[_0xafe4c6(0xc1)](_0xafe4c6(0xcb))?'<a\x20style=\x22text-decoration:\x20underline;\x20text-decoration-color:\x20#0ea5e9;\x20color:\x20#0ea5e9;\x20text-underline-offset:\x202px;\x20font-weight:\x20600;\x22\x20href=\x22/'+_0x57d18d+'\x22>'+_0x57d18d+_0xafe4c6(0xd0):_0xafe4c6(0xc6)+_0x57d18d+'\x22>'+_0x57d18d+_0xafe4c6(0xd0);});}document['addEventListener']('DOMContentLoaded',function(){const _0xa384a6=a0_0x4981,_0x5ace36=document[_0xa384a6(0xda)](_0xa384a6(0xc4));_0x5ace36[_0xa384a6(0xd2)](function(_0x923978){const _0x31b004=_0xa384a6,_0x5acd71=_0x923978['getAttribute']('data-date');_0x923978[_0x31b004(0xc8)]=timeSince(_0x5acd71)+'\x20—\x20'+formatDate(_0x5acd71);});const _0x597e76=document['querySelectorAll']('li');_0x597e76[_0xa384a6(0xd2)](replaceTextWithSpan);});
+function parseDateAsUTC(dateString) {
+    var parts = dateString.split('-');
+    return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+}
+
+function timeSince(date) {
+    const releaseDate = parseDateAsUTC(date);
+    const currentDate = new Date();
+    const seconds = Math.floor((currentDate - releaseDate) / 1000);
+
+    let interval = seconds / 31536000;
+    if (interval > 1) {
+        return Math.floor(interval) + " years ago";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return Math.floor(interval) + " months ago";
+    }
+    interval = seconds / 604800;
+    if (interval > 1) {
+        return Math.floor(interval) + " weeks ago";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+        return Math.floor(interval) + " days ago";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+        return Math.floor(interval) + " hours ago";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+        return Math.floor(interval) + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+}
+
+function formatDate(dateString) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
+    const date = parseDateAsUTC(dateString);
+    return date.toLocaleDateString('en-US', options);
+}
+
+
+function replaceTextWithSpan(element) {
+    element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function (match, p1) {
+        if (p1.includes('.html')) {
+            return `<a style="text-decoration: underline; text-decoration-color: #0ea5e9; color: #0ea5e9; text-underline-offset: 2px; font-weight: 600;" href="/${p1}">` + p1 + '</a>';
+        } else {
+            return `<a style="text-decoration: underline; text-decoration-color: #0ea5e9; color: #0ea5e9; text-underline-offset: 2px; font-weight: 600;" href="${p1}">` + p1 + '</a>';
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dates = document.querySelectorAll('.release-date');
+    dates.forEach(function (dateElement) {
+        const date = dateElement.getAttribute('data-date');
+        dateElement.textContent = timeSince(date) + " — " + formatDate(date);
+    });
+
+    const elements = document.querySelectorAll('li');
+    elements.forEach(replaceTextWithSpan);
+});

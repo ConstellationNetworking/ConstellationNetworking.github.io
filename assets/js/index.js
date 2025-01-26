@@ -1,1 +1,82 @@
-const a0_0x1e3d70=a0_0x47c1;(function(_0x2a596a,_0x16d74a){const _0x523eed=a0_0x47c1,_0xfbd504=_0x2a596a();while(!![]){try{const _0x5c1e9f=parseInt(_0x523eed(0xfd))/0x1*(parseInt(_0x523eed(0x101))/0x2)+parseInt(_0x523eed(0xfb))/0x3+parseInt(_0x523eed(0xf7))/0x4*(parseInt(_0x523eed(0xfa))/0x5)+parseInt(_0x523eed(0x115))/0x6+parseInt(_0x523eed(0x11d))/0x7+-parseInt(_0x523eed(0xf4))/0x8+parseInt(_0x523eed(0x112))/0x9*(-parseInt(_0x523eed(0xf5))/0xa);if(_0x5c1e9f===_0x16d74a)break;else _0xfbd504['push'](_0xfbd504['shift']());}catch(_0x3ed3ee){_0xfbd504['push'](_0xfbd504['shift']());}}}(a0_0xdd41,0x249cf));function a0_0x47c1(_0x162611,_0x261940){const _0xdd41bf=a0_0xdd41();return a0_0x47c1=function(_0x47c1dc,_0x438ae3){_0x47c1dc=_0x47c1dc-0xed;let _0x3f1194=_0xdd41bf[_0x47c1dc];return _0x3f1194;},a0_0x47c1(_0x162611,_0x261940);}let db=firebase[a0_0x1e3d70(0x109)]();function a0_0xdd41(){const _0x42749a=['href','330SIWLDg','847647OyuWyn','hours','19983dnObTg','scrollTo','Please\x20enter\x20a\x20valid\x20email\x20address','DOMContentLoaded','26vOPPds','getElementById','title','createElement','then','placeholder','about','Open_Volunteer','firestore','smooth','addEventListener','textContent','serverTimestamp','span','innerHTML','email','text-blue-600\x20bg-blue-50','63ixhStE','Thank\x20you\x20for\x20subscribing!','userAgent','668460mSQbkr','test','pageYOffset','FieldValue','px-3\x20py-2\x20rounded-full\x20font-semibold\x20text-xs\x20','pr-6\x20py-4\x20whitespace-nowrap','Done!','submitBtn','1664495ryTCPt','positions-table-body','forEach','Active','appendChild','className','getBoundingClientRect','collection','action','1975288xGEZkO','906050cguStU','add','8460XSolrs','value'];a0_0xdd41=function(){return _0x42749a;};return a0_0xdd41();}function smoothScrollAboveElement(_0x452794,_0x4d32fa){const _0xd423d5=a0_0x1e3d70,_0xd971cf=document[_0xd423d5(0x102)](_0x452794);if(_0xd971cf){const _0x5c9eab=_0xd971cf[_0xd423d5(0xf1)](),_0x386949=_0x5c9eab['top']+window[_0xd423d5(0x117)];window[_0xd423d5(0xfe)]({'top':_0x386949-_0x4d32fa,'behavior':_0xd423d5(0x10a)});}}function submitForm(){const _0x35f0fd=a0_0x1e3d70;email=document['getElementById']('email')[_0x35f0fd(0xf8)];if(!email){document[_0x35f0fd(0x102)]('email')[_0x35f0fd(0x106)]=_0x35f0fd(0xff);return;}const _0x1a3313=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!_0x1a3313[_0x35f0fd(0x116)](email)){document['getElementById']('email')[_0x35f0fd(0xf8)]='',document[_0x35f0fd(0x102)]('email')[_0x35f0fd(0x106)]=_0x35f0fd(0xff);return;}db[_0x35f0fd(0xf2)]('ComingSoonSubscribers')[_0x35f0fd(0xf6)]({'email':email,'timestamp':firebase['firestore'][_0x35f0fd(0x118)][_0x35f0fd(0x10d)](),'browserInfo':navigator[_0x35f0fd(0x114)]})[_0x35f0fd(0x105)](_0x95a24e=>{const _0xb35aff=_0x35f0fd;document['getElementById']('email')['value']='',document['getElementById'](_0xb35aff(0x110))[_0xb35aff(0x106)]=_0xb35aff(0x113),document[_0xb35aff(0x102)](_0xb35aff(0x11c))[_0xb35aff(0x10f)]=_0xb35aff(0x11b);});}document[a0_0x1e3d70(0x10b)](a0_0x1e3d70(0x100),_0x3611d4=>{const _0x214c1b=a0_0x1e3d70,_0x40a8cd=firebase[_0x214c1b(0x109)](),_0x231f30=document[_0x214c1b(0x102)](_0x214c1b(0x11e));_0x40a8cd[_0x214c1b(0xf2)](_0x214c1b(0x108))['get']()[_0x214c1b(0x105)](_0x523aae=>{const _0x29fb7a=_0x214c1b;_0x523aae[_0x29fb7a(0xed)](_0x30836d=>{const _0x3101e1=_0x29fb7a,_0x3bc8b2=_0x30836d['data'](),_0x11ef10=document[_0x3101e1(0x104)]('tr'),_0x218912=document[_0x3101e1(0x104)]('td');_0x218912['className']=_0x3101e1(0x11a),_0x218912[_0x3101e1(0x10c)]=_0x3bc8b2[_0x3101e1(0x103)],_0x11ef10[_0x3101e1(0xef)](_0x218912);const _0xaed553=document[_0x3101e1(0x104)]('td');_0xaed553['textContent']=_0x3bc8b2[_0x3101e1(0x107)],_0x11ef10[_0x3101e1(0xef)](_0xaed553);const _0x315dc9=document['createElement']('td');_0x315dc9[_0x3101e1(0x10c)]=_0x3bc8b2[_0x3101e1(0xfc)],_0x11ef10['appendChild'](_0x315dc9);const _0x3500ae=document[_0x3101e1(0x104)]('td');_0x3500ae['textContent']=_0x3bc8b2['location'],_0x11ef10['appendChild'](_0x3500ae);const _0x32a5d9=document[_0x3101e1(0x104)]('td'),_0x33583b=document[_0x3101e1(0x104)]('a');_0x33583b[_0x3101e1(0xf9)]=_0x3bc8b2['url'];const _0x32e5be=document[_0x3101e1(0x104)](_0x3101e1(0x10e));_0x32e5be[_0x3101e1(0x10c)]=_0x3bc8b2[_0x3101e1(0xf3)],_0x32e5be[_0x3101e1(0xf0)]=_0x3101e1(0x119)+(_0x3bc8b2[_0x3101e1(0xf3)]===_0x3101e1(0xee)?'text-green-600\x20bg-green-50':_0x3101e1(0x111)),_0x33583b[_0x3101e1(0xef)](_0x32e5be),_0x32a5d9['appendChild'](_0x33583b),_0x11ef10['appendChild'](_0x32a5d9),_0x231f30[_0x3101e1(0xef)](_0x11ef10);});});});
+let db = firebase.firestore();
+
+function smoothScrollAboveElement(elementId, offset) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function submitForm() {
+    email = document.getElementById('email').value;
+
+    if (!email) {
+        document.getElementById('email').placeholder = 'Please enter a valid email address';
+        return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('email').value = '';
+        document.getElementById('email').placeholder = 'Please enter a valid email address';
+        return;
+    }
+
+    db.collection('ComingSoonSubscribers').add({
+        email: email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        browserInfo: navigator.userAgent
+    })
+        .then((docRef) => {
+            document.getElementById('email').value = '';
+            document.getElementById('email').placeholder = 'Thank you for subscribing!';
+            document.getElementById('submitBtn').innerHTML = 'Done!';
+        })
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const db = firebase.firestore();
+    const tableBody = document.getElementById('positions-table-body');
+
+    db.collection('Open_Volunteer').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.className = 'pr-6 py-4 whitespace-nowrap'
+            titleCell.textContent = data.title;
+            row.appendChild(titleCell);
+
+            const aboutCell = document.createElement('td');
+            aboutCell.textContent = data.about;
+            row.appendChild(aboutCell);
+
+            const hoursCell = document.createElement('td');
+            hoursCell.textContent = data.hours;
+            row.appendChild(hoursCell);
+
+            const locationCell = document.createElement('td');
+            locationCell.textContent = data.location;
+            row.appendChild(locationCell);
+
+            const actionCell = document.createElement('td');
+            const actionLink = document.createElement('a');
+            actionLink.href = data.url;
+            const actionSpan = document.createElement('span');
+            actionSpan.textContent = data.action;
+            actionSpan.className = `px-3 py-2 rounded-full font-semibold text-xs ${data.action === 'Active' ? 'text-green-600 bg-green-50' : 'text-blue-600 bg-blue-50'}`;
+            actionLink.appendChild(actionSpan);
+            actionCell.appendChild(actionLink);
+            row.appendChild(actionCell);
+
+            tableBody.appendChild(row);
+        });
+    });
+});

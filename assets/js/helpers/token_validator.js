@@ -1,1 +1,35 @@
-(function(_0x8cc2c2,_0x188233){const _0x4a0cd5=a0_0x590e,_0x271d5b=_0x8cc2c2();while(!![]){try{const _0x47b2bc=-parseInt(_0x4a0cd5(0xad))/0x1*(parseInt(_0x4a0cd5(0xb1))/0x2)+parseInt(_0x4a0cd5(0xc1))/0x3+parseInt(_0x4a0cd5(0xc4))/0x4*(parseInt(_0x4a0cd5(0xc5))/0x5)+-parseInt(_0x4a0cd5(0xc7))/0x6*(parseInt(_0x4a0cd5(0xc0))/0x7)+-parseInt(_0x4a0cd5(0xc6))/0x8*(-parseInt(_0x4a0cd5(0xb0))/0x9)+-parseInt(_0x4a0cd5(0xb8))/0xa*(parseInt(_0x4a0cd5(0xb7))/0xb)+-parseInt(_0x4a0cd5(0xc2))/0xc*(-parseInt(_0x4a0cd5(0xb6))/0xd);if(_0x47b2bc===_0x188233)break;else _0x271d5b['push'](_0x271d5b['shift']());}catch(_0x246a69){_0x271d5b['push'](_0x271d5b['shift']());}}}(a0_0x1660,0xb7fab));function a0_0x590e(_0x470387,_0x448ace){const _0x1660fa=a0_0x1660();return a0_0x590e=function(_0x590e09,_0x1ee705){_0x590e09=_0x590e09-0xac;let _0x3f45f7=_0x1660fa[_0x590e09];return _0x3f45f7;},a0_0x590e(_0x470387,_0x448ace);}function missionRedeemTokens(_0x2e9479){const _0x40276d=a0_0x590e,_0x2cd767=db[_0x40276d(0xbe)]('Users')[_0x40276d(0xc9)](auth['currentUser'][_0x40276d(0xc8)]);_0x2cd767[_0x40276d(0xbe)]('Missions')[_0x40276d(0xb9)]()[_0x40276d(0xb2)](_0x445b0f=>{const _0x45e463=_0x40276d;_0x445b0f[_0x45e463(0xbf)](_0x20513b=>{const _0x3796e7=_0x45e463;_0x20513b[_0x3796e7(0xba)]()[_0x3796e7(0xac)]===!![]&&_0x2cd767[_0x3796e7(0xb9)]()['then'](_0x4cfeb2=>{const _0x13fd62=_0x3796e7;if(_0x4cfeb2[_0x13fd62(0xaf)]){const _0x5baeb3=_0x4cfeb2[_0x13fd62(0xba)]();_0x20513b[_0x13fd62(0xba)]()[_0x13fd62(0xc3)]===![]&&_0x2cd767['update']({'novacoins':_0x5baeb3[_0x13fd62(0xae)]+=_0x20513b[_0x13fd62(0xba)]()[_0x13fd62(0xae)]})['then'](()=>{const _0x1291c6=_0x13fd62;alert(_0x1291c6(0xb4)+_0x20513b[_0x1291c6(0xba)]()[_0x1291c6(0xae)]+_0x1291c6(0xbb)),_0x20513b[_0x1291c6(0xbc)][_0x1291c6(0xb5)]({'tokensredeemed':!![]});})[_0x13fd62(0xbd)](_0x4903a5=>{const _0x5741b3=_0x13fd62;console[_0x5741b3(0xb3)](_0x4903a5);});}})[_0x3796e7(0xbd)](_0x2330f2=>{const _0x1cc021=_0x3796e7;console[_0x1cc021(0xb3)](_0x2330f2);});});});}function a0_0x1660(){const _0x2f7832=['932661yGGquj','novacoins','exists','5359293PKLmRo','2LqKnaW','then','error','Congratulations!\x20You\x20just\x20earned\x20','update','152815lVZZqY','1077439jtWChA','10XhwzCU','get','data','\x20novacoins\x20for\x20completing\x20a\x20mission.','ref','catch','collection','forEach','1722WBKYEC','2674851OQwNEd','828kjGKvU','tokensredeemed','3884qLDBBj','2690yhdtOA','8tyFtar','25278jbdxxu','uid','doc','completed'];a0_0x1660=function(){return _0x2f7832;};return a0_0x1660();}
+function missionRedeemTokens(user) {
+    const userRef = db.collection('Users').doc(auth.currentUser.uid);
+
+    userRef.collection('Missions').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            if (doc.data().completed === true) {
+                userRef.get()
+                    .then((document) => {
+                        if (document.exists) {
+                            const data = document.data();
+
+                            if (doc.data().tokensredeemed === false) {
+                                userRef.update({
+                                    novacoins: data.novacoins += doc.data().novacoins
+                                })
+                                    .then(() => {
+                                        alert(`Congratulations! You just earned ${doc.data().novacoins} novacoins for completing a mission.`);
+                                        doc.ref.update({
+                                            tokensredeemed: true
+                                        });
+                                    })
+                                    .catch((error) => {
+                                        console.error(error);
+                                    })
+                            }
+
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+            }
+        });
+    });
+}

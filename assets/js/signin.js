@@ -1,1 +1,225 @@
-const a0_0x30c0fc=a0_0x2323;(function(_0x4f6cd7,_0x5430c2){const _0x425880=a0_0x2323,_0x1d7ca1=_0x4f6cd7();while(!![]){try{const _0x121eec=parseInt(_0x425880(0x225))/0x1+-parseInt(_0x425880(0x1d1))/0x2+-parseInt(_0x425880(0x1f3))/0x3*(parseInt(_0x425880(0x1f5))/0x4)+parseInt(_0x425880(0x20d))/0x5+parseInt(_0x425880(0x214))/0x6+parseInt(_0x425880(0x1d8))/0x7*(parseInt(_0x425880(0x1db))/0x8)+parseInt(_0x425880(0x222))/0x9*(-parseInt(_0x425880(0x1e5))/0xa);if(_0x121eec===_0x5430c2)break;else _0x1d7ca1['push'](_0x1d7ca1['shift']());}catch(_0x3a4c0c){_0x1d7ca1['push'](_0x1d7ca1['shift']());}}}(a0_0x5249,0x565e2));function a0_0x2323(_0x3301bd,_0x2c3ae6){const _0x52493a=a0_0x5249();return a0_0x2323=function(_0x2323f1,_0x32d4d2){_0x2323f1=_0x2323f1-0x1c5;let _0x3bf817=_0x52493a[_0x2323f1];return _0x3bf817;},a0_0x2323(_0x3301bd,_0x2c3ae6);}var url=new URL(window['location'][a0_0x30c0fc(0x21f)]),searchParams=new URLSearchParams(url['search']),redirectURL=searchParams['get'](a0_0x30c0fc(0x209));let db=firebase[a0_0x30c0fc(0x1c9)]();function showLogin(){const _0x290411=a0_0x30c0fc;document[_0x290411(0x1cc)](_0x290411(0x1fb))[_0x290411(0x1c7)]='',document[_0x290411(0x1cc)](_0x290411(0x20b))[_0x290411(0x1c7)]='',document[_0x290411(0x1cc)](_0x290411(0x1e2))['value']='',document[_0x290411(0x1ca)](_0x290411(0x224))[_0x290411(0x1ee)][_0x290411(0x1d5)](_0x290411(0x202));}function a0_0x5249(){const _0x4cfcae=['createUserWithEmailAndPassword','Checkout\x20your\x20new\x20missions\x20at\x20the\x20missions\x20page!','doc','/assets/json/missions.json','profile\x20update\x20error','DOMContentLoaded','href','Failed\x20to\x20send\x20reset\x20email.\x20Please\x20try\x20again.','Please\x20enter\x20a\x20valid\x20email\x20address.','7083927DztuFJ','length','.card-3d-wrapper','360189fXGySN','Create\x20a\x20new\x20task\x20by\x20typing\x20it\x20above.','addEventListener','auth','value','forEach','firestore','querySelector','collection','getElementById','signup-btn','MD5','Submit','No\x20user\x20found\x20with\x20this\x20email.','350314VriHgp','Incorrect\x20credencials.\x20Please\x20try\x20again.','error','auth/email-already-in-use','remove','preventDefault','blue','98yFIdrQ','Password\x20reset\x20email\x20sent.','profile\x20updated','5552vdvEha','green','json','Failed\x20to\x20save\x20user\x20in\x20firestore:\x20','auth/invalid-email','key','Loading...','signup-password','Tasks','Enter','10FtYHTh','Login','location','then','code','Missions','Failed\x20to\x20fetch\x20missions:\x20','login-password','innerText','classList','serverTimestamp','Signup\x20successful:','login-email','signInWithEmailAndPassword','376146LERSKv','keydown','12fGOMTW','catch','set','toString','message','yellow','signup-name','auth/user-not-found','Error\x20creating\x20mission\x20index\x20','An\x20verification\x20link\x20has\x20been\x20sent\x20to\x20your\x20email.\x20Please\x20check\x20your\x20inbox\x20to\x20verify\x20your\x20account.','FieldValue','login-btn','log','show-register','Account\x20already\x20exists\x20with\x20this\x20email\x20address.','trim','test','user','includes','bg3.jpg','redirect','floor','signup-email','add','3202235xUllMU','auth/wrong-password','Verification\x20email\x20sent\x20to\x20','shiftKey','/index.html','Sign\x20up','No\x20user\x20found\x20associated\x20with\x20this\x20email.\x20Please\x20check\x20your\x20email\x20address\x20or\x20create\x20a\x20new\x20account.','4090896mVbneL','uid','random','An\x20account\x20already\x20exists\x20with\x20this\x20email\x20address.\x20Please\x20login\x20or\x20use\x20a\x20different\x20email\x20address.','Users'];a0_0x5249=function(){return _0x4cfcae;};return a0_0x5249();}function showSignup(){const _0x3ae9bd=a0_0x30c0fc;document[_0x3ae9bd(0x1cc)](_0x3ae9bd(0x1f1))['value']='',document[_0x3ae9bd(0x1cc)]('login-password')['value']='',document[_0x3ae9bd(0x1ca)](_0x3ae9bd(0x224))[_0x3ae9bd(0x1ee)][_0x3ae9bd(0x20c)](_0x3ae9bd(0x202));}function validateEmail(_0x4a7cb2){const _0x3f56f0=a0_0x30c0fc,_0x848d0a=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;return _0x848d0a[_0x3f56f0(0x205)](_0x4a7cb2);}function forgotPassword(){const _0x2b1ef2=a0_0x30c0fc,_0x183ba5=document[_0x2b1ef2(0x1cc)](_0x2b1ef2(0x1f1))[_0x2b1ef2(0x1c7)][_0x2b1ef2(0x204)]();_0x183ba5===''?alert('Please\x20enter\x20your\x20email\x20address\x20first.'):validateEmail(_0x183ba5)?firebase[_0x2b1ef2(0x1c6)]()['sendPasswordResetEmail'](_0x183ba5)[_0x2b1ef2(0x1e8)](()=>{const _0x44671e=_0x2b1ef2;alert(_0x44671e(0x1d9));})[_0x2b1ef2(0x1f6)](_0x3014c8=>{const _0x4059c5=_0x2b1ef2;alert(_0x4059c5(0x220)),console['error'](_0x3014c8),document['getElementById'](_0x4059c5(0x200))[_0x4059c5(0x1ed)]=_0x4059c5(0x1cf);}):(alert(_0x2b1ef2(0x221)),console[_0x2b1ef2(0x1d3)]('Email\x20address\x20not\x20valid.'),document[_0x2b1ef2(0x1cc)](_0x2b1ef2(0x200))['innerText']=_0x2b1ef2(0x1cf));}function login(){const _0x5371b6=a0_0x30c0fc;document[_0x5371b6(0x1cc)](_0x5371b6(0x200))[_0x5371b6(0x1ed)]=_0x5371b6(0x1e1);const _0x244e1b=document[_0x5371b6(0x1cc)](_0x5371b6(0x1f1))[_0x5371b6(0x1c7)],_0x547caa=document[_0x5371b6(0x1cc)](_0x5371b6(0x1ec))['value'];firebase[_0x5371b6(0x1c6)]()[_0x5371b6(0x1f2)](_0x244e1b,_0x547caa)[_0x5371b6(0x1e8)](_0x55225d=>{const _0x39bab8=_0x5371b6;console['log']('Login\x20successful:',_0x55225d[_0x39bab8(0x206)]),redirectURL!=null?window[_0x39bab8(0x1e7)]=redirectURL:window['location']=_0x39bab8(0x211);})[_0x5371b6(0x1f6)](_0x577790=>{const _0x347995=_0x5371b6;console[_0x347995(0x201)](_0x577790[_0x347995(0x1e9)]);if(_0x577790[_0x347995(0x1e9)]===_0x347995(0x1fc))alert(_0x347995(0x213)),console[_0x347995(0x1d3)](_0x347995(0x1d0)),document['getElementById'](_0x347995(0x200))[_0x347995(0x1ed)]=_0x347995(0x1e6);else _0x577790[_0x347995(0x1e9)]===_0x347995(0x20e)||_0x577790[_0x347995(0x1f9)][_0x347995(0x207)]('INVALID_LOGIN_CREDENTIALS')?(alert(_0x347995(0x1d2)),document[_0x347995(0x1cc)]('login-btn')['innerText']=_0x347995(0x1e6)):(alert(_0x577790),console[_0x347995(0x1d3)](_0x577790),document[_0x347995(0x1cc)]('login-btn')[_0x347995(0x1ed)]=_0x347995(0x1e6));});}function signup(){const _0x3769bc=a0_0x30c0fc;document[_0x3769bc(0x1cc)](_0x3769bc(0x1cd))['innerText']=_0x3769bc(0x1e1);const _0x953216=document['getElementById'](_0x3769bc(0x1fb))[_0x3769bc(0x1c7)],_0x77d45c=document['getElementById']('signup-email')[_0x3769bc(0x1c7)],_0x170c13=document[_0x3769bc(0x1cc)](_0x3769bc(0x1e2))[_0x3769bc(0x1c7)];firebase[_0x3769bc(0x1c6)]()[_0x3769bc(0x219)](_0x77d45c,_0x170c13)['then'](_0x33728e=>{const _0x1748e7=_0x3769bc,_0x47cde8=_0x33728e[_0x1748e7(0x206)];console[_0x1748e7(0x201)](_0x1748e7(0x1f0),_0x47cde8),_0x47cde8['updateProfile']({'displayName':_0x953216})[_0x1748e7(0x1e8)](()=>{const _0xe4cff9=_0x1748e7;console[_0xe4cff9(0x201)](_0xe4cff9(0x1da),_0x47cde8);const _0x1a42c5=CryptoJS[_0xe4cff9(0x1ce)](_0x170c13)['toString'](),_0x1c6229=firebase['firestore']()[_0xe4cff9(0x1cb)](_0xe4cff9(0x218))[_0xe4cff9(0x21b)](_0x47cde8[_0xe4cff9(0x215)]);_0x1c6229[_0xe4cff9(0x1f7)]({'name':_0x953216,'email':_0x77d45c,'hashed_password':_0x1a42c5,'senderId':_0x47cde8[_0xe4cff9(0x215)],'profileIMG':'','userHistory':{},'level':0x0,'points':0x0,'lastActive':firebase[_0xe4cff9(0x1c9)][_0xe4cff9(0x1ff)]['serverTimestamp'](),'isAdmin':![],'bg':_0xe4cff9(0x208),'accountCreatedOn':firebase[_0xe4cff9(0x1c9)]['FieldValue'][_0xe4cff9(0x1ef)](),'novacoins':0x0,'completedAccountFeedbackForm':![]})[_0xe4cff9(0x1e8)](()=>{_0x47cde8['sendEmailVerification']()['then'](()=>{const _0x151611=a0_0x2323;alert(_0x151611(0x1fe)),console['log'](_0x151611(0x20f)+_0x77d45c),db[_0x151611(0x1cb)](_0x151611(0x218))[_0x151611(0x21b)](_0x47cde8[_0x151611(0x215)])['collection']('Tasks')['add']({'task':_0x151611(0x226),'completed':![],'createdAt':firebase[_0x151611(0x1c9)][_0x151611(0x1ff)][_0x151611(0x1ef)]()})[_0x151611(0x1e8)](()=>{})[_0x151611(0x1f6)](_0x14f0ea=>{const _0x500f4e=_0x151611;console[_0x500f4e(0x1d3)](_0x14f0ea);}),db[_0x151611(0x1cb)]('Users')[_0x151611(0x21b)](_0x47cde8[_0x151611(0x215)])[_0x151611(0x1cb)](_0x151611(0x1e3))[_0x151611(0x20c)]({'task':_0x151611(0x21a),'completed':![],'createdAt':firebase[_0x151611(0x1c9)][_0x151611(0x1ff)]['serverTimestamp']()})[_0x151611(0x1e8)](()=>{})[_0x151611(0x1f6)](_0xc966d4=>{const _0x16f5ee=_0x151611;console[_0x16f5ee(0x1d3)](_0xc966d4);});let _0x246cb2=[_0x151611(0x1d7),_0x151611(0x1dc),_0x151611(0x1fa)];fetch(_0x151611(0x21c))[_0x151611(0x1e8)](_0x1f7c21=>_0x1f7c21[_0x151611(0x1dd)]())[_0x151611(0x1e8)](_0x482c3f=>{const _0x52fccc=_0x151611;let _0x1531b2=0x0;_0x482c3f[_0x52fccc(0x1c8)]((_0x95e1f0,_0xf579d2)=>{const _0x127b87=_0x52fccc;let _0x22f52d=generateUniqueId(),_0x6f1843=db[_0x127b87(0x1cb)](_0x127b87(0x218))[_0x127b87(0x21b)](_0x47cde8[_0x127b87(0x215)])['collection'](_0x127b87(0x1ea))['doc'](_0x22f52d);_0x6f1843[_0x127b87(0x1f7)]({..._0x95e1f0,'missionID':_0x22f52d,'createdAt':firebase[_0x127b87(0x1c9)][_0x127b87(0x1ff)][_0x127b87(0x1ef)](),'cardColour':_0x246cb2[Math[_0x127b87(0x20a)](Math[_0x127b87(0x216)]()*_0x246cb2['length'])],'members':[_0x47cde8[_0x127b87(0x215)]]})[_0x127b87(0x1e8)](()=>{const _0x49e22a=_0x127b87;_0x1531b2++,_0x1531b2==_0x482c3f[_0x49e22a(0x223)]&&(window['location']='/setup_profile.html');})[_0x127b87(0x1f6)](_0x2494cd=>{const _0x42651d=_0x127b87;console['error'](_0x42651d(0x1fd)+(_0xf579d2+0x1)+':\x20',_0x2494cd);});});})[_0x151611(0x1f6)](_0x5e82c2=>{const _0x5436c3=_0x151611;console[_0x5436c3(0x1d3)](_0x5436c3(0x1eb),_0x5e82c2);});});})[_0xe4cff9(0x1f6)](_0x16a1a7=>{const _0x410e60=_0xe4cff9;console[_0x410e60(0x201)](_0x410e60(0x1de),_0x16a1a7);});})['catch'](_0x213279=>{const _0x55f988=_0x1748e7;console[_0x55f988(0x201)](_0x55f988(0x21d),_0x213279);});})['catch'](_0x5cc75d=>{const _0x297eaf=_0x3769bc;if(_0x5cc75d[_0x297eaf(0x1e9)]===_0x297eaf(0x1d4))alert(_0x297eaf(0x217)),console[_0x297eaf(0x1d3)](_0x297eaf(0x203)),document[_0x297eaf(0x1cc)](_0x297eaf(0x200))[_0x297eaf(0x1ed)]=_0x297eaf(0x212);else _0x5cc75d[_0x297eaf(0x1e9)]===_0x297eaf(0x1df)?(alert(_0x297eaf(0x221)),console[_0x297eaf(0x1d3)]('Email\x20address\x20not\x20valid.'),document[_0x297eaf(0x1cc)]('login-btn')[_0x297eaf(0x1ed)]=_0x297eaf(0x212)):(alert(_0x5cc75d),console[_0x297eaf(0x1d3)](_0x5cc75d),document['getElementById'](_0x297eaf(0x200))['innerText']=_0x297eaf(0x212));});}document[a0_0x30c0fc(0x1c5)](a0_0x30c0fc(0x21e),function(){const _0x353ddf=a0_0x30c0fc;document['getElementById'](_0x353ddf(0x1ec))[_0x353ddf(0x1c5)]('keydown',_0x55ec8f=>{const _0x29e781=_0x353ddf;_0x55ec8f[_0x29e781(0x1e0)]===_0x29e781(0x1e4)&&!_0x55ec8f['shiftKey']&&(_0x55ec8f['preventDefault'](),login());}),document['getElementById'](_0x353ddf(0x1e2))[_0x353ddf(0x1c5)](_0x353ddf(0x1f4),_0x2b3722=>{const _0x475224=_0x353ddf;_0x2b3722[_0x475224(0x1e0)]===_0x475224(0x1e4)&&!_0x2b3722[_0x475224(0x210)]&&(_0x2b3722[_0x475224(0x1d6)](),signup());});});function generateUniqueId(){const _0x151591=a0_0x30c0fc;let _0x47d660=Date['now']()[_0x151591(0x1f8)](0x24);for(let _0x49ee02=0x0;_0x49ee02<0x5;_0x49ee02++){_0x47d660+=Math[_0x151591(0x216)]()[_0x151591(0x1f8)](0x24)['substr'](0x2,0x9);}return _0x47d660;}
+var url = new URL(window.location.href);
+var searchParams = new URLSearchParams(url.search);
+var redirectURL = searchParams.get('redirect');
+let db = firebase.firestore();
+
+function showLogin() {
+    document.getElementById('signup-name').value = '';
+    document.getElementById('signup-email').value = '';
+    document.getElementById('signup-password').value = '';
+
+    document.querySelector('.card-3d-wrapper').classList.remove('show-register');
+}
+
+function showSignup() {
+    document.getElementById('login-email').value = '';
+    document.getElementById('login-password').value = '';
+
+    document.querySelector('.card-3d-wrapper').classList.add('show-register');
+}
+
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function forgotPassword() {
+    const emailForm = document.getElementById('login-email').value.trim();
+    if (emailForm === '') {
+        alert('Please enter your email address first.');
+    } else {
+        if (validateEmail(emailForm)) {
+            firebase.auth().sendPasswordResetEmail(emailForm)
+                .then(() => {
+                    alert('Password reset email sent.');
+                })
+                .catch((error) => {
+                    alert('Failed to send reset email. Please try again.')
+                    console.error(error);
+                    document.getElementById('login-btn').innerText = 'Submit';
+                })
+        } else {
+            alert('Please enter a valid email address.');
+            console.error('Email address not valid.')
+            document.getElementById('login-btn').innerText = 'Submit';
+        }
+    }
+}
+
+
+function login() {
+    document.getElementById('login-btn').innerText = 'Loading...';
+
+    const emailForm = document.getElementById('login-email').value;
+    const passwordForm = document.getElementById('login-password').value;
+
+    firebase.auth().signInWithEmailAndPassword(emailForm, passwordForm)
+        .then((userCredential) => {
+            console.log('Login successful:', userCredential.user);
+
+            // redirect to accounts page or perform other actions
+            if (redirectURL != null) { window.location = redirectURL; } else { window.location = '/index.html'; }
+        })
+        .catch((error) => {
+            console.log(error.code)
+            if (error.code === 'auth/user-not-found') {
+                alert('No user found associated with this email. Please check your email address or create a new account.');
+                console.error('No user found with this email.');
+                document.getElementById('login-btn').innerText = 'Login';
+            } else if (error.code === 'auth/wrong-password' || error.message.includes('INVALID_LOGIN_CREDENTIALS')) {
+                alert('Incorrect credencials. Please try again.');
+                document.getElementById('login-btn').innerText = 'Login';
+            } else {
+                alert(error);
+                console.error(error);
+                document.getElementById('login-btn').innerText = 'Login';
+            }
+        })
+}
+
+function signup() {
+    document.getElementById('signup-btn').innerText = 'Loading...';
+
+    const nameForm = document.getElementById('signup-name').value;
+    const emailForm = document.getElementById('signup-email').value;
+    const passwordForm = document.getElementById('signup-password').value;
+
+    firebase.auth().createUserWithEmailAndPassword(emailForm, passwordForm)
+        .then((userCredencial) => {
+            const user = userCredencial.user;
+            console.log('Signup successful:', user);
+            user.updateProfile({
+                displayName: nameForm
+            })
+                .then(() => {
+                    console.log('profile updated', user);
+
+                    const hashedPassword = CryptoJS.MD5(passwordForm).toString();
+
+                    const userDocRef = firebase.firestore().collection('Users').doc(user.uid);
+                    userDocRef.set({
+                        name: nameForm,
+                        email: emailForm,
+                        hashed_password: hashedPassword,
+                        senderId: user.uid,
+                        profileIMG: '',
+                        userHistory: {},
+                        level: 0,
+                        points: 0,
+                        lastActive: firebase.firestore.FieldValue.serverTimestamp(),
+                        isAdmin: false,
+                        bg: 'bg3.jpg',
+                        accountCreatedOn: firebase.firestore.FieldValue.serverTimestamp(),
+                        novacoins: 0,
+                        completedAccountFeedbackForm: false
+                    })
+                        .then(() => {
+                            user.sendEmailVerification()
+                                .then(() => {
+                                    alert('An verification link has been sent to your email. Please check your inbox to verify your account.');
+                                    console.log(`Verification email sent to ${emailForm}`)
+
+                                    // tasks init
+                                    db.collection('Users').doc(user.uid).collection('Tasks').add({
+                                        task: "Create a new task by typing it above.",
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                                    })
+                                        .then(() => { })
+                                        .catch((error) => {
+                                            console.error(error);
+                                        })
+
+                                    db.collection('Users').doc(user.uid).collection('Tasks').add({
+                                        task: "Checkout your new missions at the missions page!",
+                                        completed: false,
+                                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                                    })
+                                        .then(() => { })
+                                        .catch((error) => {
+                                            console.error(error);
+                                        })
+
+                                    // missions init
+                                    let cardClasses = ['blue', 'green', 'yellow']
+                                    fetch('/assets/json/missions.json')
+                                        .then(response => response.json())
+                                        .then(missions => {
+                                            let missionsProcessed = 0;
+
+                                            missions.forEach((missionsData, index) => {
+                                                let missionID = generateUniqueId();
+                                                let missionRef = db.collection('Users').doc(user.uid).collection('Missions').doc(missionID);
+
+                                                missionRef.set({
+                                                    ...missionsData,
+                                                    missionID: missionID,
+                                                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                                    cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)],
+                                                    members: [user.uid]
+                                                })
+                                                    .then(() => {
+                                                        missionsProcessed++;
+
+                                                        if (missionsProcessed == missions.length) {
+                                                            window.location = '/setup_profile.html';
+                                                        }
+                                                    })
+                                                    .catch((error) => {
+                                                        console.error(`Error creating mission index ${index + 1}: `, error);
+                                                    });
+                                            });
+                                        })
+                                        .catch(error => {
+                                            console.error('Failed to fetch missions: ', error);
+                                        });
+                                })
+                        })
+                        .catch((error) => {
+                            console.log('Failed to save user in firestore: ', error)
+                        })
+                })
+                .catch((error) => {
+                    console.log('profile update error', error);
+                })
+        })
+        .catch((error) => {
+            if (error.code === 'auth/email-already-in-use') {
+                alert('An account already exists with this email address. Please login or use a different email address.');
+                console.error('Account already exists with this email address.')
+                document.getElementById('login-btn').innerText = 'Sign up';
+            } else if (error.code === 'auth/invalid-email') {
+                alert('Please enter a valid email address.');
+                console.error('Email address not valid.')
+                document.getElementById('login-btn').innerText = 'Sign up';
+            } else {
+                alert(error);
+                console.error(error);
+                document.getElementById('login-btn').innerText = 'Sign up';
+            }
+        })
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login-password').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevents the default behavior of the Enter key
+            login();
+        }
+    });
+
+    document.getElementById('signup-password').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevents the default behavior of the Enter key
+            signup();
+        }
+    });
+})
+
+function generateUniqueId() {
+    let id = Date.now().toString(36);
+    for (let i = 0; i < 5; i++) {
+        id += Math.random().toString(36).substr(2, 9);
+    }
+    return id;
+}

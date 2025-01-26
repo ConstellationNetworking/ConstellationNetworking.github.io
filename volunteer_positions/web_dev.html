@@ -1,1 +1,172 @@
-<html><head><link rel="stylesheet" href="/assets/dist/tailwind.css"><script src="/assets/dist/tailwind.js"></script><link rel="stylesheet" href="/assets/css/volunteer_positions/web_dev.css"><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script><script src="/assets/js/firebase_init.js"></script></head><body><div><div class="px-4 sm:px-0"><h3 class="text-base font-semibold leading-7 text-gray-900">Application Information</h3><p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Position details and application.</p></div><div class="mt-6 border-t border-gray-100"><dl class="divide-y divide-gray-100"><div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"><dt class="text-sm font-medium leading-6 text-gray-900">Position title</dt><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="position-title"></dd></div><div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"><dt class="text-sm font-medium leading-6 text-gray-900">Weekly Commitment Hours Expectation</dt><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="weekly-hours"></dd></div><div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"><dt class="text-sm font-medium leading-6 text-gray-900">Location</dt><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="location"></dd></div><div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"><dt class="text-sm font-medium leading-6 text-gray-900">About</dt><dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="about"></dd></div><div class="space-y-12"><div class="border-b border-gray-900/10 pb-12"><div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"><div class="sm:col-span-4"><label for="instagram-username" class="block text-sm font-medium leading-6 text-gray-900">Linkedin Username</label><div class="mt-2"><div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"><span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">https://linkedin.com/in/</span> <input type="text" name="linkedin-username" id="linkedin-username" autocomplete="linkedin-username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"></div><p class="mt-3 text-sm leading-6 text-gray-600">If you don't have linkedin, simply put N/A. However, providing an linkedin username will greatly benefit your application.</p></div></div><div class="col-span-full"><label for="about-textarea" class="block text-sm font-medium leading-6 text-gray-900">About</label><div class="mt-2"><textarea id="about-textarea" name="about-textarea" rows="3" style="padding:10px" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea></div><p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself. Why would you be a great fit for this role? What are your areas of expertise? What can you bring to Constellation?</p></div><div class="col-span-full"><label for="skills-textarea" class="block text-sm font-medium leading-6 text-gray-900">Skills</label><div class="mt-2"><textarea id="skills-textarea" name="skills-textarea" rows="3" style="padding:10px" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea></div><p class="mt-3 text-sm leading-6 text-gray-600">What skills do you have? Past works? Feel free to include links to your past works.</p></div></div></div><div class="border-b border-gray-900/10 pb-12"><h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2><div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"><div class="sm:col-span-3"><label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label><div class="mt-2"><input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-3"><label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label><div class="mt-2"><input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-4"><label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label><div class="mt-2"><input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-3"><label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label><div class="mt-2"><select style="padding-left:10px" id="country" name="country" autocomplete="country-name" class="leading-6 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"><option>United States</option><option>Canada</option></select></div></div><div class="col-span-full"><label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label><div class="mt-2"><input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-2 sm:col-start-1"><label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label><div class="mt-2"><input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-2"><label for="region" class="block text-sm font-medium leading-6 text-gray-900">State / Province</label><div class="mt-2"><input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div><div class="sm:col-span-2"><label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label><div class="mt-2"><input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></div></div></div></div><div class="mt-6 flex items-center justify-end gap-x-6"><button id="cancelBtn" onclick="window.history.back()" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button> <button id="submitBtn" onclick="apply()" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Apply</button></div></div></dl></div></div></body><script src="/assets/js/volunteer_positions/web_dev.js"></script></html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/assets/dist/tailwind.css">
+    <script src="/assets/dist/tailwind.js"></script>
+    <link rel="stylesheet" href="/assets/css/volunteer_positions/web_dev.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="/assets/js/firebase_init.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="px-4 sm:px-0">
+            <h3 class="text-base font-semibold leading-7 text-gray-900">Application Information</h3>
+            <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Position details and application.</p>
+        </div>
+        <div class="mt-6 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Position title</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="position-title"></dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Weekly Commitment Hours Expectation</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="weekly-hours"></dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Location</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="location"></dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">About</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0" id="about"></dd>
+                </div>
+
+                <!-- Application form goes here. -->
+                <div class="space-y-12">
+                    <div class="border-b border-gray-900/10 pb-12">
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-4">
+                                <label for="instagram-username"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Linkedin Username</label>
+                                <div class="mt-2">
+                                    <div
+                                        class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                        <span
+                                            class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">https://linkedin.com/in/</span>
+                                        <input type="text" name="linkedin-username" id="linkedin-username"
+                                            autocomplete="linkedin-username"
+                                            class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                            placeholder="janesmith">
+                                    </div>
+                                    <p class="mt-3 text-sm leading-6 text-gray-600">If you don't have linkedin, simply put N/A. However, providing an linkedin username will greatly benefit your application.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-span-full">
+                                <label for="about-textarea"
+                                    class="block text-sm font-medium leading-6 text-gray-900">About</label>
+                                <div class="mt-2">
+                                    <textarea id="about-textarea" name="about-textarea" rows="3" style="padding: 10px;" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                </div>
+                                <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself. Why would you be a great fit for this role? What are your areas of expertise? What can you bring to Constellation?</p>
+                            </div>
+
+                            <div class="col-span-full">
+                                <label for="skills-textarea"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Skills</label>
+                                <div class="mt-2">
+                                    <textarea id="skills-textarea" name="skills-textarea" rows="3" style="padding: 10px;" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                </div>
+                                <p class="mt-3 text-sm leading-6 text-gray-600">What skills do you have? Past works? Feel free to include links to your past works.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-900/10 pb-12">
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-3">
+                                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First
+                                    name</label>
+                                <div class="mt-2">
+                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last
+                                    name</label>
+                                <div class="mt-2">
+                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
+                                    address</label>
+                                <div class="mt-2">
+                                    <input id="email" name="email" type="email" autocomplete="email"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-3">
+                                <label for="country"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+                                <div class="mt-2">
+                                    <select style="padding-left: 10px;" id="country" name="country" autocomplete="country-name" class="leading-6 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                        <option>United States</option>
+                                        <option>Canada</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-span-full">
+                                <label for="street-address"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Street
+                                    address</label>
+                                <div class="mt-2">
+                                    <input type="text" name="street-address" id="street-address"
+                                        autocomplete="street-address"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2 sm:col-start-1">
+                                <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                                <div class="mt-2">
+                                    <input type="text" name="city" id="city" autocomplete="address-level2"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State /
+                                    Province</label>
+                                <div class="mt-2">
+                                    <input type="text" name="region" id="region" autocomplete="address-level1"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP /
+                                    Postal
+                                    code</label>
+                                <div class="mt-2">
+                                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-end gap-x-6">
+                        <button id="cancelBtn" onclick="window.history.back()" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+                        <button id="submitBtn" onclick="apply()" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Apply</button>
+                    </div>
+                </div>
+            </dl>
+        </div>
+    </div>
+</body>
+<script src="/assets/js/volunteer_positions/web_dev.js"></script>
+</html>

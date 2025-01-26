@@ -1,1 +1,152 @@
-const a0_0x3f5798=a0_0x3b39;function a0_0x18e9(){const _0x5d427f=['3WwvUMk','replace','318812bHRrjQ','currentUser-profile-picture','Profile\x20picture\x20of\x20','406583lmbfxc','redeem','profileIMG','update','/signin.html','appendChild','toLowerCase','firestore','getElementById','scrollTo','10743700zdwaOL','Sell','auth','doc','30mHaekK','catch','error','inline-flex\x20items-center\x20px-3\x20py-2\x20text-sm\x20font-medium\x20text-center\x20text-white\x20bg-red-700\x20rounded-lg\x20hover:bg-red-800\x20focus:ring-4\x20focus:outline-none\x20focus:ring-blue-300\x20dark:bg-blue-600\x20dark:hover:bg-blue-700\x20dark:focus:ring-blue-800\x20mt-10','novacoins:\x20','.png','smooth','464086Wrvbkl','3496185LdXfEB','forEach','style','novacoins','2838176GBLJQL','DOMContentLoaded','set','pageYOffset','Unable\x20to\x20sell\x20item.\x20Please\x20try\x20again\x20later.','get','text-gray-600','uid','currentUser','/assets/img/default_user.jpeg','collection','reload','Error\x20deleting\x20redeemed\x20item','Successfully\x20Redeemed\x20','p-4','onAuthStateChanged','onclick','myrewards-items','exists','256825ZurIpW','item','className','dataset','delete','/assets/img/rewards/','where','innerHTML','currentUser-email','top','then','textContent','12cuuzoR','none','max-w-sm\x20bg-white\x20border\x20border-gray-200\x20rounded-lg\x20shadow-md','createElement','getBoundingClientRect','mb-2\x20text-xl\x20font-bold\x20tracking-tight\x20text-gray-900','Users','Are\x20you\x20sure\x20you\x20want\x20to\x20sell\x20','data','pointer','You\x20don\x27t\x20have\x20enough\x20astral\x20tokens\x20to\x20redeem!','src','div','Redeemed_Items'];a0_0x18e9=function(){return _0x5d427f;};return a0_0x18e9();}(function(_0x1aa91d,_0x198a96){const _0x4d9846=a0_0x3b39,_0x43fcda=_0x1aa91d();while(!![]){try{const _0x45e92b=-parseInt(_0x4d9846(0x116))/0x1+-parseInt(_0x4d9846(0x113))/0x2*(parseInt(_0x4d9846(0x111))/0x3)+-parseInt(_0x4d9846(0x103))/0x4*(-parseInt(_0x4d9846(0x143))/0x5)+parseInt(_0x4d9846(0x124))/0x6*(parseInt(_0x4d9846(0x12b))/0x7)+-parseInt(_0x4d9846(0x130))/0x8+-parseInt(_0x4d9846(0x12c))/0x9+parseInt(_0x4d9846(0x120))/0xa;if(_0x45e92b===_0x198a96)break;else _0x43fcda['push'](_0x43fcda['shift']());}catch(_0x189b83){_0x43fcda['push'](_0x43fcda['shift']());}}}(a0_0x18e9,0x3d369));function a0_0x3b39(_0x13dedb,_0x462bca){const _0x18e940=a0_0x18e9();return a0_0x3b39=function(_0x3b39c1,_0x5e7e47){_0x3b39c1=_0x3b39c1-0xf8;let _0x13a4b3=_0x18e940[_0x3b39c1];return _0x13a4b3;},a0_0x3b39(_0x13dedb,_0x462bca);}let db=firebase[a0_0x3f5798(0x11d)](),auth=firebase[a0_0x3f5798(0x122)]();function smoothScrollAboveElement(_0x3f40fb,_0x33425c){const _0x4254a8=a0_0x3f5798,_0x28640=document['getElementById'](_0x3f40fb);if(_0x28640){const _0x1594e6=_0x28640[_0x4254a8(0x107)](),_0x347f2b=_0x1594e6[_0x4254a8(0x100)]+window[_0x4254a8(0x133)];window[_0x4254a8(0x11f)]({'top':_0x347f2b-_0x33425c,'behavior':_0x4254a8(0x12a)});}}function sell(_0x5977ea,_0x480f00){const _0xfdf186=a0_0x3f5798;confirm(_0xfdf186(0x10a)+_0x5977ea+'?')&&db[_0xfdf186(0x13a)](_0xfdf186(0x109))[_0xfdf186(0x123)](auth[_0xfdf186(0x138)]['uid'])[_0xfdf186(0x13a)](_0xfdf186(0x110))[_0xfdf186(0xfd)](_0xfdf186(0xf8),'==',_0x5977ea)['get']()['then'](_0x6c6465=>{const _0x2496f4=_0xfdf186;_0x6c6465[_0x2496f4(0x12d)](_0x182a1e=>{const _0x5e3d81=_0x2496f4;db[_0x5e3d81(0x13a)](_0x5e3d81(0x109))[_0x5e3d81(0x123)](auth[_0x5e3d81(0x138)]['uid'])[_0x5e3d81(0x13a)](_0x5e3d81(0x110))['doc'](_0x182a1e['id'])[_0x5e3d81(0xfb)]()['then'](()=>{const _0x2abd38=_0x5e3d81;db[_0x2abd38(0x13a)](_0x2abd38(0x109))['doc'](auth['currentUser'][_0x2abd38(0x137)])['get']()[_0x2abd38(0x101)](_0x17b022=>{const _0x16a5a2=_0x2abd38;if(_0x17b022[_0x16a5a2(0x142)]){const _0x507e09=_0x17b022['data']();db['collection']('Users')[_0x16a5a2(0x123)](auth['currentUser'][_0x16a5a2(0x137)])[_0x16a5a2(0x119)]({'novacoins':_0x507e09[_0x16a5a2(0x12f)]+=parseInt(_0x480f00)})[_0x16a5a2(0x101)](()=>{const _0x533b79=_0x16a5a2;location[_0x533b79(0x13b)]();})[_0x16a5a2(0x125)](_0x3837b1=>{const _0x2ef2a5=_0x16a5a2;console['error'](_0x2ef2a5(0x13c),_0x3837b1),alert(_0x2ef2a5(0x134));});}})[_0x2abd38(0x125)](_0x1c14c7=>{const _0x3b0ff5=_0x2abd38;console['error']('Error\x20deleting\x20redeemed\x20item',_0x1c14c7),alert(_0x3b0ff5(0x134));});})[_0x5e3d81(0x125)](_0x4a4ff8=>{const _0x50de60=_0x5e3d81;console[_0x50de60(0x126)](_0x50de60(0x13c),_0x4a4ff8),alert(_0x50de60(0x134));});});});}function redeem(_0x45f254,_0x30585a){const _0x10d070=a0_0x3f5798;db[_0x10d070(0x13a)](_0x10d070(0x109))['doc'](auth['currentUser'][_0x10d070(0x137)])[_0x10d070(0x135)]()[_0x10d070(0x101)](_0x543c81=>{const _0x156cf4=_0x10d070;if(_0x543c81[_0x156cf4(0x142)]){const _0xeffea0=_0x543c81[_0x156cf4(0x10b)]();_0xeffea0[_0x156cf4(0x12f)]>=parseInt(_0x30585a)?(db[_0x156cf4(0x13a)](_0x156cf4(0x109))[_0x156cf4(0x123)](auth['currentUser']['uid'])[_0x156cf4(0x119)]({'novacoins':_0xeffea0['novacoins']-parseInt(_0x30585a)}),document[_0x156cf4(0x11e)]('available-novacoins')['innerHTML']=_0xeffea0['novacoins']-parseInt(_0x30585a),db[_0x156cf4(0x13a)]('Users')[_0x156cf4(0x123)](auth[_0x156cf4(0x138)]['uid'])[_0x156cf4(0x13a)](_0x156cf4(0x110))['add']({'item':_0x45f254,'novacoins':parseInt(_0x30585a),'redeemedAt':new Date()})[_0x156cf4(0x101)](()=>{const _0x1f3c2d=_0x156cf4;alert(_0x1f3c2d(0x13d)+_0x45f254+'!'),location[_0x1f3c2d(0x13b)]();})[_0x156cf4(0x125)](_0x3931fa=>{console['error'](_0x3931fa);})):alert(_0x156cf4(0x10d));}});}document['addEventListener'](a0_0x3f5798(0x131),function(){const _0x204989=a0_0x3f5798;auth[_0x204989(0x13f)](function(_0x128d77){const _0x33fd14=_0x204989;if(_0x128d77){const _0x1a42d1=db[_0x33fd14(0x13a)](_0x33fd14(0x109))[_0x33fd14(0x123)](_0x128d77[_0x33fd14(0x137)]),_0x13d38d=new Date();_0x1a42d1[_0x33fd14(0x132)]({'lastActive':_0x13d38d},{'merge':!![]}),db['collection'](_0x33fd14(0x109))[_0x33fd14(0x123)](auth[_0x33fd14(0x138)]['uid'])[_0x33fd14(0x135)]()[_0x33fd14(0x101)](_0x3e890f=>{const _0x535e9b=_0x33fd14;if(_0x3e890f[_0x535e9b(0x142)]){const _0x45727b=_0x3e890f[_0x535e9b(0x10b)]();document[_0x535e9b(0x11e)]('currentUser-name')[_0x535e9b(0xfe)]=_0x45727b['name'],document[_0x535e9b(0x11e)](_0x535e9b(0xff))[_0x535e9b(0xfe)]=_0x45727b['email'],document[_0x535e9b(0x11e)](_0x535e9b(0x114))[_0x535e9b(0x10e)]=_0x45727b[_0x535e9b(0x118)]==''?_0x535e9b(0x139):_0x45727b[_0x535e9b(0x118)],document[_0x535e9b(0x11e)](_0x535e9b(0x114))['alt']=_0x535e9b(0x115)+_0x45727b['name'],document['getElementById']('available-novacoins')[_0x535e9b(0xfe)]=_0x45727b[_0x535e9b(0x12f)];}}),db[_0x33fd14(0x13a)](_0x33fd14(0x109))[_0x33fd14(0x123)](auth[_0x33fd14(0x138)][_0x33fd14(0x137)])[_0x33fd14(0x13a)]('Redeemed_Items')[_0x33fd14(0x135)]()['then'](_0x4423c2=>{const _0x485ee4=_0x33fd14;_0x4423c2[_0x485ee4(0x12d)](_0x2c0f2e=>{const _0x26893f=_0x485ee4,_0x11227b=_0x2c0f2e[_0x26893f(0x10b)](),_0x304b2e=document[_0x26893f(0x106)](_0x26893f(0x10f));_0x304b2e[_0x26893f(0xf9)]=_0x26893f(0x105);const _0x5d906e=document[_0x26893f(0x106)]('img');_0x5d906e['className']='rounded-t-lg',_0x5d906e[_0x26893f(0x10e)]=_0x26893f(0xfc)+_0x11227b['item'][_0x26893f(0x11c)]()[_0x26893f(0x112)](/ /g,'_')+_0x26893f(0x129),_0x304b2e[_0x26893f(0x11b)](_0x5d906e);const _0x253db7=document[_0x26893f(0x106)](_0x26893f(0x10f));_0x253db7[_0x26893f(0xf9)]=_0x26893f(0x13e),_0x304b2e[_0x26893f(0x11b)](_0x253db7);const _0x4439d3=document['createElement']('h5');_0x4439d3['className']=_0x26893f(0x108),_0x4439d3[_0x26893f(0x102)]=_0x11227b['item'],_0x253db7[_0x26893f(0x11b)](_0x4439d3);const _0x2001ef=document[_0x26893f(0x106)]('p');_0x2001ef[_0x26893f(0xf9)]=_0x26893f(0x136),_0x2001ef['textContent']=_0x26893f(0x128)+_0x11227b[_0x26893f(0x12f)],_0x253db7[_0x26893f(0x11b)](_0x2001ef);const _0x4055bb=document[_0x26893f(0x106)](_0x26893f(0x121));_0x4055bb[_0x26893f(0xf9)]=_0x26893f(0x127),_0x4055bb[_0x26893f(0x12e)]['textDecoration']=_0x26893f(0x104),_0x4055bb[_0x26893f(0x12e)]['cursor']=_0x26893f(0x10c),_0x4055bb[_0x26893f(0xfa)]['name']=_0x11227b['item'],_0x4055bb['dataset'][_0x26893f(0x117)]=_0x11227b['novacoins'],_0x4055bb[_0x26893f(0x140)]=function(){const _0x33b052=_0x26893f;sell(_0x11227b[_0x33b052(0xf8)],_0x11227b['novacoins']);},_0x4055bb[_0x26893f(0x102)]=_0x26893f(0x121),_0x253db7['appendChild'](_0x4055bb),document[_0x26893f(0x11e)](_0x26893f(0x141))[_0x26893f(0x11b)](_0x304b2e);});});}else window['location']['href']=_0x33fd14(0x11a);});});
+let db = firebase.firestore();
+let auth = firebase.auth();
+
+function smoothScrollAboveElement(elementId, offset) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function sell(name, novacoins) {
+    if (confirm(`Are you sure you want to sell ${name}?`)) {
+        db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').where('item', '==', name).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').doc(doc.id).delete()
+                    .then(() => {
+                        db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
+                            if (doc.exists) {
+                                const data = doc.data();
+
+                                db.collection('Users').doc(auth.currentUser.uid).update({
+                                    novacoins: data.novacoins += parseInt(novacoins)
+                                })
+                                    .then(() => {
+                                        location.reload();
+                                    })
+                                    .catch((error) => {
+                                        console.error('Error deleting redeemed item', error);
+                                        alert('Unable to sell item. Please try again later.');
+                                    })
+                            }
+                        })
+                            .catch((error) => {
+                                console.error('Error deleting redeemed item', error);
+                                alert('Unable to sell item. Please try again later.');
+                            })
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting redeemed item', error);
+                        alert('Unable to sell item. Please try again later.');
+                    })
+            })
+        })
+    }
+}
+
+function redeem(name, novacoins) {
+    db.collection('Users').doc(auth.currentUser.uid).get()
+        .then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+
+                if (data.novacoins >= parseInt(novacoins)) {
+                    // redeem
+                    db.collection('Users').doc(auth.currentUser.uid).update({
+                        novacoins: data.novacoins - parseInt(novacoins)
+                    })
+                    document.getElementById('available-novacoins').innerHTML = data.novacoins - parseInt(novacoins);
+
+                    db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').add({
+                        item: name,
+                        novacoins: parseInt(novacoins),
+                        redeemedAt: new Date()
+                    })
+                        .then(() => {
+                            alert(`Successfully Redeemed ${name}!`)
+                            location.reload();
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        })
+                } else {
+                    alert('You don\'t have enough astral tokens to redeem!')
+                }
+            }
+        })
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+
+            db.collection('Users').doc(auth.currentUser.uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const data = doc.data();
+
+                        document.getElementById('currentUser-name').innerHTML = data.name;
+                        document.getElementById('currentUser-email').innerHTML = data.email;
+                        document.getElementById('currentUser-profile-picture').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
+                        document.getElementById('currentUser-profile-picture').alt = `Profile picture of ${data.name}`;
+                        document.getElementById('available-novacoins').innerHTML = data.novacoins;
+                    }
+                })
+
+            db.collection('Users').doc(auth.currentUser.uid).collection('Redeemed_Items').get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+
+                        const div = document.createElement('div');
+                        div.className = 'max-w-sm bg-white border border-gray-200 rounded-lg shadow-md';
+
+                        const img = document.createElement('img');
+                        img.className = 'rounded-t-lg';
+                        img.src = `/assets/img/rewards/${data.item.toLowerCase().replace(/ /g, '_')}.png`;
+                        div.appendChild(img);
+
+                        const divInner = document.createElement('div');
+                        divInner.className = 'p-4';
+                        div.appendChild(divInner);
+
+                        const h5 = document.createElement('h5');
+                        h5.className = 'mb-2 text-xl font-bold tracking-tight text-gray-900';
+                        h5.textContent = data.item;
+                        divInner.appendChild(h5);
+
+                        const p = document.createElement('p');
+                        p.className = 'text-gray-600';
+                        p.textContent = `novacoins: ${data.novacoins}`;
+                        divInner.appendChild(p);
+
+                        const button = document.createElement('Sell');
+                        button.className = 'inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10';
+                        button.style.textDecoration = 'none';
+                        button.style.cursor = 'pointer';
+                        button.dataset.name = data.item;
+                        button.dataset.redeem = data.novacoins;
+                        button.onclick = function () {
+                            sell(data.item, data.novacoins);
+                        };
+                        button.textContent = 'Sell';
+                        divInner.appendChild(button);
+
+                        document.getElementById('myrewards-items').appendChild(div);
+                    })
+                })
+        } else {
+            window.location.href = '/signin.html';
+        }
+    });
+});

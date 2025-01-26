@@ -1,1 +1,64 @@
-const a0_0xf7e9f7=a0_0x44c6;(function(_0x25b90d,_0x113f82){const _0x1dd2b6=a0_0x44c6,_0x214312=_0x25b90d();while(!![]){try{const _0x35bca4=-parseInt(_0x1dd2b6(0x119))/0x1*(-parseInt(_0x1dd2b6(0x133))/0x2)+parseInt(_0x1dd2b6(0x12e))/0x3+-parseInt(_0x1dd2b6(0x132))/0x4*(-parseInt(_0x1dd2b6(0x120))/0x5)+-parseInt(_0x1dd2b6(0x114))/0x6*(-parseInt(_0x1dd2b6(0x129))/0x7)+-parseInt(_0x1dd2b6(0x131))/0x8*(-parseInt(_0x1dd2b6(0x12c))/0x9)+-parseInt(_0x1dd2b6(0x118))/0xa*(-parseInt(_0x1dd2b6(0x113))/0xb)+parseInt(_0x1dd2b6(0x139))/0xc*(-parseInt(_0x1dd2b6(0x127))/0xd);if(_0x35bca4===_0x113f82)break;else _0x214312['push'](_0x214312['shift']());}catch(_0xd6d3a5){_0x214312['push'](_0x214312['shift']());}}}(a0_0x2d64,0x7f185));function parseDateAsUTC(_0x314bf2){const _0x567261=a0_0x44c6;var _0x16eccc=_0x314bf2[_0x567261(0x136)]('-');return new Date(Date[_0x567261(0x124)](_0x16eccc[0x0],_0x16eccc[0x1]-0x1,_0x16eccc[0x2]));}function timeSince(_0x5b2c01){const _0x2da9fb=a0_0x44c6,_0x8386ae=parseDateAsUTC(_0x5b2c01),_0x47ca20=new Date(),_0x317d00=Math[_0x2da9fb(0x11e)]((_0x47ca20-_0x8386ae)/0x3e8);let _0x2d666e=_0x317d00/0x1e13380;if(_0x2d666e>0x1)return Math[_0x2da9fb(0x11e)](_0x2d666e)+_0x2da9fb(0x135);_0x2d666e=_0x317d00/0x278d00;if(_0x2d666e>0x1)return Math[_0x2da9fb(0x11e)](_0x2d666e)+_0x2da9fb(0x134);_0x2d666e=_0x317d00/0x93a80;if(_0x2d666e>0x1)return Math[_0x2da9fb(0x11e)](_0x2d666e)+_0x2da9fb(0x11b);_0x2d666e=_0x317d00/0x15180;if(_0x2d666e>0x1)return Math['floor'](_0x2d666e)+'\x20days\x20ago';_0x2d666e=_0x317d00/0xe10;if(_0x2d666e>0x1)return Math[_0x2da9fb(0x11e)](_0x2d666e)+_0x2da9fb(0x115);_0x2d666e=_0x317d00/0x3c;if(_0x2d666e>0x1)return Math[_0x2da9fb(0x11e)](_0x2d666e)+_0x2da9fb(0x125);return Math[_0x2da9fb(0x11e)](_0x317d00)+_0x2da9fb(0x12b);}function a0_0x2d64(){const _0x51b9b5=['div','324yPlsUC','.html','6527114xkHSWS','247872EHHaTc','\x20hours\x20ago','replace','\x20—\x20','10HiFIFK','599922AkNhcp','toLocaleDateString','\x20weeks\x20ago','long','querySelectorAll','floor','en-US','5tsCPqS','innerHTML','includes','.release-date','UTC','\x20minutes\x20ago','addEventListener','732121psckUd','<a\x20href=\x22/','56LJjEfy','numeric','\x20seconds\x20ago','27uWdyIc','</a>','210576pIxGln','getAttribute','data-date','1052824xRGqxh','209388fUgzWy','2VkEgTC','\x20months\x20ago','\x20years\x20ago','split','forEach'];a0_0x2d64=function(){return _0x51b9b5;};return a0_0x2d64();}function a0_0x44c6(_0x722b27,_0x32437e){const _0x2d648e=a0_0x2d64();return a0_0x44c6=function(_0x44c675,_0x1be49e){_0x44c675=_0x44c675-0x112;let _0x18d913=_0x2d648e[_0x44c675];return _0x18d913;},a0_0x44c6(_0x722b27,_0x32437e);}function formatDate(_0x2d0782){const _0x1cd1aa=a0_0x44c6,_0x1d1f93={'weekday':'long','year':'numeric','month':_0x1cd1aa(0x11c),'day':_0x1cd1aa(0x12a),'timeZone':_0x1cd1aa(0x124)},_0x39f4df=parseDateAsUTC(_0x2d0782);return _0x39f4df[_0x1cd1aa(0x11a)](_0x1cd1aa(0x11f),_0x1d1f93);}function replaceTextWithSpan(_0xf94bbb){const _0x26f3f5=a0_0x44c6;_0xf94bbb[_0x26f3f5(0x121)]=_0xf94bbb[_0x26f3f5(0x121)][_0x26f3f5(0x116)](/`([^`]+)`/g,function(_0x41f22c,_0x18b398){const _0x8a6b4e=_0x26f3f5;return _0x18b398[_0x8a6b4e(0x122)](_0x8a6b4e(0x112))?_0x8a6b4e(0x128)+_0x18b398+'\x22>'+_0x18b398+_0x8a6b4e(0x12d):'<a>'+_0x18b398+_0x8a6b4e(0x12d);});}document[a0_0xf7e9f7(0x126)]('DOMContentLoaded',function(){const _0x26ddad=a0_0xf7e9f7,_0x4e84e7=document['querySelectorAll'](_0x26ddad(0x123));_0x4e84e7['forEach'](function(_0xb3d2f8){const _0x5be33a=_0x26ddad,_0x2a6b82=_0xb3d2f8[_0x5be33a(0x12f)](_0x5be33a(0x130));_0xb3d2f8['textContent']=timeSince(_0x2a6b82)+_0x5be33a(0x117)+formatDate(_0x2a6b82);});const _0x2c68a0=document[_0x26ddad(0x11d)](_0x26ddad(0x138));_0x2c68a0[_0x26ddad(0x137)](replaceTextWithSpan);});
+function parseDateAsUTC(dateString) {
+    var parts = dateString.split('-');
+    return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+}
+
+function timeSince(date) {
+    const releaseDate = parseDateAsUTC(date);
+    const currentDate = new Date();
+    const seconds = Math.floor((currentDate - releaseDate) / 1000);
+
+    let interval = seconds / 31536000;
+    if (interval > 1) {
+        return Math.floor(interval) + " years ago";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return Math.floor(interval) + " months ago";
+    }
+    interval = seconds / 604800;
+    if (interval > 1) {
+        return Math.floor(interval) + " weeks ago";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+        return Math.floor(interval) + " days ago";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+        return Math.floor(interval) + " hours ago";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+        return Math.floor(interval) + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+}
+
+function formatDate(dateString) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' };
+    const date = parseDateAsUTC(dateString);
+    return date.toLocaleDateString('en-US', options);
+}
+
+
+function replaceTextWithSpan(element) {
+    element.innerHTML = element.innerHTML.replace(/`([^`]+)`/g, function (match, p1) {
+        if (p1.includes('.html')) {
+            return `<a href="/${p1}">` + p1 + '</a>';
+        } else {
+            return `<a>` + p1 + '</a>';
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dates = document.querySelectorAll('.release-date');
+    dates.forEach(function (dateElement) {
+        const date = dateElement.getAttribute('data-date');
+        dateElement.textContent = timeSince(date) + " — " + formatDate(date);
+    });
+
+    const elements = document.querySelectorAll('div');
+    elements.forEach(replaceTextWithSpan);
+});

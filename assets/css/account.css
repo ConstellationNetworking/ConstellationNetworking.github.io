@@ -1,1 +1,182 @@
-:root{--colora:#ffe537;--colora2:#537fe7}body{font-family:Arial,sans-serif}.dropdown-menu{display:none}.dropdown:focus-within .dropdown-menu,.dropdown:hover .dropdown-menu{display:block}@keyframes load{0%{stroke-dashoffset:var(--initial-offset)}100%{stroke-dashoffset:var(--final-offset)}}.progress-ring__circle{transition:stroke-dashoffset .6s ease;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:var(--circumference);stroke-dashoffset:var(--initial-offset)}.progress-ring__percentage{font-size:.75rem}.add-widget-btn{transition:background-color .2s,transform .2s}.add-widget-btn:active{background-color:#e2e8f0;transform:scale(.98)}.user-box{transition:background-color .2s,transform .2s}.user-box:active{background-color:#e2e8f0;transform:scale(.98)}.messages-header{margin-bottom:15px;font-weight:700}.user-box:first-child{margin-top:20px}#toastPlacement{bottom:1rem;left:1rem;z-index:9999}.h1{position:absolute;z-index:1;left:15px;top:-55px}.h2{position:absolute;z-index:1;left:10px;top:8px;resize:both}.gradient{background:linear-gradient(45deg,var(--colora) 0,var(--colora2) 100%) border-box;border:solid 1px transparent}.avatar-container{position:relative;width:500px;height:500px}#glasses{position:absolute;top:0;left:0;width:100%;height:auto;z-index:2}#hair{position:absolute;top:0;left:0;width:100%;height:auto;z-index:1}#head{position:absolute;top:0;left:0;width:100%;height:auto;z-index:0}@keyframes scaleAnimation{0%,20%,40%{transform:scale(.95)}10%,30%{transform:scale(1.05)}100%,60%{transform:scale(.95)}}.animate-scale{animation:scaleAnimation 12s ease-in-out infinite}.flip-container{position:relative;width:100px;height:100px;perspective:1000px}.flipper{position:absolute;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s}.flip-container.flip .flipper{transform:rotateY(180deg)}.back,.front{position:absolute;width:100%;height:100%;backface-visibility:hidden}.back{transform:rotateY(180deg)}
+:root {
+    --colora: #ffe537;
+    --colora2: #537fe7;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+@keyframes load {
+    0% {
+        stroke-dashoffset: var(--initial-offset);
+    }
+
+    100% {
+        stroke-dashoffset: var(--final-offset);
+    }
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.6s ease;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: var(--circumference);
+    stroke-dashoffset: var(--initial-offset);
+}
+
+.progress-ring__percentage {
+    font-size: 0.75rem;
+    /* Adjust the font size as needed */
+}
+
+.add-widget-btn {
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.add-widget-btn:active {
+    background-color: #e2e8f0;
+    /* Lighter shade for feedback */
+    transform: scale(0.98);
+    /* Slight scale down effect */
+}
+
+.user-box {
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.user-box:active {
+    background-color: #e2e8f0;
+    /* Lighter shade for feedback */
+    transform: scale(0.98);
+    /* Slight scale down effect */
+}
+
+.messages-header {
+    margin-bottom: 15px;
+    font-weight: bold;
+    /* Adjust the space as needed */
+}
+
+.user-box:first-child {
+    margin-top: 20px;
+    /* Adds space to the top of the first user box */
+}
+
+#toastPlacement {
+    bottom: 1rem; /* Adjust the padding from the bottom */
+    left: 1rem; /* Adjust the padding from the left */
+    z-index: 9999; /* Ensure the toast is above other elements */
+}
+
+/* Avatar component */
+.h1 {
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    top: -55px;
+}
+
+.h2 {
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 8px;
+    resize: both;
+}
+
+.gradient {
+    background: linear-gradient(45deg, var(--colora) 0%, var(--colora2) 100%) border-box;
+    border: solid 1px transparent;;
+}
+
+.avatar-container {
+    position: relative;
+    width: 500px; /* Adjust as needed for smaller size */
+    height: 500px; /* Adjust as needed for smaller size */
+}
+
+#glasses {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2; /* Head below hair */
+}
+
+#hair {
+    position: absolute;
+    top: 0; /* Adjust this value to offset the hair vertically */
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1; /* Make sure hair is on top */
+}
+#head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0; /* Head below hair */
+}
+
+
+/* flip animation */
+/* Keyframes for the scale animation with a pause */
+@keyframes scaleAnimation {
+    0%, 20%, 40% {
+        transform: scale(0.95);
+    }
+    10%, 30% {
+        transform: scale(1.05);
+    }
+    60%, 100% {
+        transform: scale(0.95);
+    }
+}
+
+/* Apply the scale animation with pause */
+.animate-scale {
+    animation: scaleAnimation 12s ease-in-out infinite;
+}
+
+.flip-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+}
+
+.flipper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-container.flip .flipper {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+}

@@ -1,1 +1,414 @@
-const a0_0x408add=a0_0x1726;(function(_0x5e8ef4,_0x1e2fd9){const _0x474dce=a0_0x1726,_0x227494=_0x5e8ef4();while(!![]){try{const _0xb4d9c1=-parseInt(_0x474dce(0xe5))/0x1+-parseInt(_0x474dce(0xe3))/0x2*(parseInt(_0x474dce(0x12a))/0x3)+parseInt(_0x474dce(0xdb))/0x4+parseInt(_0x474dce(0x129))/0x5*(parseInt(_0x474dce(0xda))/0x6)+parseInt(_0x474dce(0xfc))/0x7+parseInt(_0x474dce(0x112))/0x8+-parseInt(_0x474dce(0x119))/0x9;if(_0xb4d9c1===_0x1e2fd9)break;else _0x227494['push'](_0x227494['shift']());}catch(_0x23b15e){_0x227494['push'](_0x227494['shift']());}}}(a0_0x41fa,0x5ba52));function a0_0x1726(_0x499195,_0x599ec8){const _0x41fa35=a0_0x41fa();return a0_0x1726=function(_0x1726b6,_0x1fd281){_0x1726b6=_0x1726b6-0xd5;let _0x443754=_0x41fa35[_0x1726b6];return _0x443754;},a0_0x1726(_0x499195,_0x599ec8);}let db=firebase[a0_0x408add(0x128)](),auth=firebase[a0_0x408add(0x10c)]();document[a0_0x408add(0xf1)](a0_0x408add(0xee),function(){auth['onAuthStateChanged'](function(_0x281043){const _0x571127=a0_0x1726;if(_0x281043){const _0x288d64=db[_0x571127(0x11a)](_0x571127(0x12f))['doc'](_0x281043[_0x571127(0xd7)]),_0x2fe7d9=new Date();_0x288d64['set']({'lastActive':_0x2fe7d9},{'merge':!![]}),db[_0x571127(0x11a)]('Users')['doc'](auth[_0x571127(0xe8)][_0x571127(0xd7)])[_0x571127(0x12c)]()[_0x571127(0x11e)](_0x36f802=>{const _0x20acee=_0x571127;if(_0x36f802[_0x20acee(0x140)]){const _0x4d3052=_0x36f802[_0x20acee(0xe2)]();document[_0x20acee(0xf9)](_0x20acee(0x139))['src']=_0x4d3052[_0x20acee(0xec)]==''?'/assets/img/default_user.jpeg':_0x4d3052[_0x20acee(0xec)],document[_0x20acee(0xf9)](_0x20acee(0x139))[_0x20acee(0xfb)]='Profile\x20picture\x20of\x20'+_0x4d3052['name'];}}),db[_0x571127(0x11a)](_0x571127(0x12f))[_0x571127(0xe0)](auth[_0x571127(0xe8)][_0x571127(0xd7)])['collection'](_0x571127(0x104))[_0x571127(0xff)]('createdAt',_0x571127(0xd9))[_0x571127(0x12c)]()[_0x571127(0x11e)](_0x4a5b39=>{const _0x37a5fa=_0x571127;_0x4a5b39[_0x37a5fa(0xed)](_0x1e4c5c=>{const _0x2da8c5=_0x37a5fa,_0x5750ce=_0x1e4c5c['data']();_0x5750ce[_0x2da8c5(0x126)]=_0x1e4c5c['id'],displayMissions(_0x5750ce);});}),db[_0x571127(0x11a)](_0x571127(0x12f))[_0x571127(0xe0)](auth[_0x571127(0xe8)][_0x571127(0xd7)])[_0x571127(0x11a)]('Missions')['where'](_0x571127(0xfe),'==',_0x571127(0x103))[_0x571127(0x12c)]()[_0x571127(0x11e)](_0x570a3d=>{const _0x4e7aa5=_0x571127;_0x570a3d[_0x4e7aa5(0xed)](_0x436f1e=>{const _0x55b7c2=_0x4e7aa5,_0x393747=_0x436f1e[_0x55b7c2(0xe2)]()['tasks']||{};_0x393747[_0x55b7c2(0x131)]=!![],db['collection'](_0x55b7c2(0x12f))[_0x55b7c2(0xe0)](auth[_0x55b7c2(0xe8)][_0x55b7c2(0xd7)])[_0x55b7c2(0x11a)](_0x55b7c2(0x104))[_0x55b7c2(0xe0)](_0x436f1e['id'])[_0x55b7c2(0xf8)]({'tasks':_0x393747})[_0x55b7c2(0x11e)](()=>{const _0x57ca9f=_0x55b7c2;fetchMissions()[_0x57ca9f(0x11e)](renderMission);})[_0x55b7c2(0xdc)](_0xd4863a=>{const _0x5dd91b=_0x55b7c2;console[_0x5dd91b(0xf5)](_0xd4863a);});});})[_0x571127(0xdc)](_0x21f3d4=>{const _0x6dd4d=_0x571127;console[_0x6dd4d(0xf5)](_0x6dd4d(0xd6),_0x21f3d4);}),setTimeout(()=>{const _0x31f4e7=_0x571127;missionRedeemTokens(auth[_0x31f4e7(0xe8)][_0x31f4e7(0xd7)]);},0x3e8);}else window['location'][_0x571127(0x13e)]=_0x571127(0x109);});});function a0_0x41fa(){const _0x1de396=['Missions','completed','\x20•\x20','keys','Completed','/signin.html','floor','left','auth','completed-missions-container','blue','checked','mission-card\x20bg-[#2B2B2B]\x20p-4\x20rounded-lg','createdAt','3338920ZgRjgo','%\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22padding-top:\x2020px;\x22>','fromEntries','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sm\x20font-medium\x20text-blue-400\x22>','FieldValue','className','toString','2072529vrxfEp','collection','parse','</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20bg-gray-300\x20rounded-full\x20h-2.5\x20dark:bg-gray-700\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-blue-600\x20h-2.5\x20rounded-full\x20progress-bar\x22\x20style=\x22width:\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20space-between;\x20padding-bottom:\x205px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20class=\x22form-check-input\x22\x20','then','Are\x20you\x20sure\x20you\x20want\x20to\x20delete\x20this\x20mission?','filter','onclick','now','div','missions-container','type','missionID','\x27)\x22\x20class=\x22border-2\x20border-blue-600\x20px-2\x20py-1.5\x20rounded-md\x20text-blue-500\x20hover:text-white\x20hover:bg-blue-600\x20duration-200\x22>Mark\x20as\x20incomplete</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22ml-2\x20border-2\x20border-red-500\x20px-3\x20py-1.5\x20rounded-md\x20hover:text-white\x20hover:bg-red-500\x20duration-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20width=\x2215\x22\x20height=\x2215\x22\x20fill=\x22white\x22\x20class=\x22bi\x20bi-trash-fill\x22\x20viewBox=\x220\x200\x2016\x2016\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<path\x20d=\x22M2.5\x201a1\x201\x200\x200\x200-1\x201v1a1\x201\x200\x200\x200\x201\x201H3v9a2\x202\x200\x200\x200\x202\x202h6a2\x202\x200\x200\x200\x202-2V4h.5a1\x201\x200\x200\x200\x201-1V2a1\x201\x200\x200\x200-1-1H10a1\x201\x200\x200\x200-1-1H7a1\x201\x200\x200\x200-1\x201zm3\x204a.5.5\x200\x200\x201\x20.5.5v7a.5.5\x200\x200\x201-1\x200v-7a.5.5\x200\x200\x201\x20.5-.5M8\x205a.5.5\x200\x200\x201\x20.5.5v7a.5.5\x200\x200\x201-1\x200v-7A.5.5\x200\x200\x201\x208\x205m3\x20.5v7a.5.5\x200\x200\x201-1\x200v-7a.5.5\x200\x200\x201\x201\x200\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','firestore','15XqDlCV','33qYRuOo','set','get','description','width','Users','progress','Visit\x20your\x20missions\x20page\x20to\x20see\x20your\x20missions.','</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-between;\x20margin-top:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20onclick=\x22toggleMissionCompletion(\x27','Get\x20started','dataset','Incomplete','createElement','innerHTML','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-semibold\x20mb-1\x22>','user-profile-img','mission','sort','alignItems','display','href','Error\x20updating\x20task:\x20','exists','join','delete','appendChild','Error\x20getting\x20mission:','uid','values','asc','1147680LHWWzZ','668972cOutJV','catch','tasks','querySelector','Error\x20updating\x20mission:\x20','doc','flex-start','data','94202eMBMav','stringify','250278StwlOv','green','textAlign','currentUser','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20justify-content:\x20space-between;\x20margin-top:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22ml-2\x20border-2\x20border-red-500\x20px-3\x20py-2\x20rounded-md\x20hover:text-white\x20hover:bg-red-500\x20duration-200\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20width=\x2215\x22\x20height=\x2215\x22\x20fill=\x22white\x22\x20class=\x22bi\x20bi-trash-fill\x22\x20viewBox=\x220\x200\x2016\x2016\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<path\x20d=\x22M2.5\x201a1\x201\x200\x200\x200-1\x201v1a1\x201\x200\x200\x200\x201\x201H3v9a2\x202\x200\x200\x200\x202\x202h6a2\x202\x200\x200\x200\x202-2V4h.5a1\x201\x200\x200\x200\x201-1V2a1\x201\x200\x200\x200-1-1H10a1\x201\x200\x200\x200-1-1H7a1\x201\x200\x200\x200-1\x201zm3\x204a.5.5\x200\x200\x201\x20.5.5v7a.5.5\x200\x200\x201-1\x200v-7a.5.5\x200\x200\x201\x20.5-.5M8\x205a.5.5\x200\x200\x201\x20.5.5v7a.5.5\x200\x200\x201-1\x200v-7A.5.5\x200\x200\x201\x208\x205m3\x20.5v7a.5.5\x200\x200\x201-1\x200v-7a.5.5\x200\x200\x201\x201\x200\x22/>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','flex','profileIMG','forEach','DOMContentLoaded','entries','push','addEventListener','length','</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22w-full\x20bg-gray-300\x20rounded-full\x20h-2.5\x20dark:bg-gray-700\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-blue-600\x20h-2.5\x20rounded-full\x22\x20style=\x22width:\x20','This\x20is\x20a\x20sample\x20mission.\x20You\x20can\x20edit\x20it\x20or\x20delete\x20it.','error','random','</p>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20style=\x22padding-top:\x2020px;\x20font-weight:\x20bold;\x22>Tasks:</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20id=\x22taskList\x22\x20style=\x22list-style-type:\x20none;\x20padding:\x2010px\x22>','update','getElementById','%\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','alt','1509200YcaGey','localeCompare','title','orderBy','map','style','log','Welcome\x20to\x20your\x20first\x20mission!'];a0_0x41fa=function(){return _0x1de396;};return a0_0x41fa();}function displayMissions(_0x253327){const _0x157377=a0_0x408add,_0x4dc9bd=document[_0x157377(0xf9)](_0x157377(0x124)),_0x13aca9=document['getElementById'](_0x157377(0x10d));if(!_0x253327['completed']){const _0x58c1ab=document[_0x157377(0x136)](_0x157377(0x123));_0x58c1ab[_0x157377(0x117)]=_0x157377(0x110),_0x58c1ab[_0x157377(0x121)]=()=>{openMission(_0x253327);},_0x58c1ab[_0x157377(0x101)][_0x157377(0xe7)]='left',_0x58c1ab['id']=_0x253327['missionID'],_0x58c1ab[_0x157377(0x134)][_0x157377(0x13a)]=JSON[_0x157377(0xe4)](_0x253327),_0x58c1ab[_0x157377(0x137)]=_0x157377(0x115)+_0x253327[_0x157377(0x125)]+_0x157377(0x106)+(_0x253327[_0x157377(0x105)]?_0x157377(0x108):'Incomplete')+_0x157377(0x138)+_0x253327[_0x157377(0xfe)]+_0x157377(0xf3)+_0x253327[_0x157377(0x130)]+_0x157377(0xfa),_0x4dc9bd['appendChild'](_0x58c1ab),openMission(_0x253327);}else{const _0x1dd486=document[_0x157377(0x136)]('div');_0x1dd486[_0x157377(0x117)]=_0x157377(0x110),_0x1dd486[_0x157377(0x121)]=()=>{openMission(_0x253327);},_0x1dd486[_0x157377(0x101)][_0x157377(0xe7)]='left',_0x1dd486['id']=_0x253327[_0x157377(0x126)],_0x1dd486[_0x157377(0x134)]['mission']=JSON[_0x157377(0xe4)](_0x253327),_0x1dd486[_0x157377(0x137)]=_0x157377(0x115)+_0x253327[_0x157377(0x125)]+_0x157377(0x106)+(_0x253327[_0x157377(0x105)]?_0x157377(0x108):_0x157377(0x135))+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-semibold\x20mb-1\x22>'+_0x253327[_0x157377(0xfe)]+_0x157377(0xf3)+_0x253327['progress']+_0x157377(0xfa),_0x13aca9[_0x157377(0xd5)](_0x1dd486),openMission(_0x253327);}}function openMission(_0x4e70fe){const _0x3eb36b=a0_0x408add;db[_0x3eb36b(0x11a)](_0x3eb36b(0x12f))[_0x3eb36b(0xe0)](auth[_0x3eb36b(0xe8)][_0x3eb36b(0xd7)])['collection'](_0x3eb36b(0x104))['doc'](_0x4e70fe[_0x3eb36b(0x126)])[_0x3eb36b(0x12c)]()[_0x3eb36b(0x11e)](_0x260dac=>{const _0x2fae93=_0x3eb36b,_0x50b8a8=_0x260dac[_0x2fae93(0xe2)]();let _0x9d2031=Object['entries'](_0x50b8a8['tasks']);_0x9d2031[_0x2fae93(0x13b)]((_0x415838,_0x5be2fb)=>_0x415838[0x0][_0x2fae93(0xfd)](_0x5be2fb[0x0]));let _0x20f741=Object[_0x2fae93(0x114)](_0x9d2031);_0x50b8a8[_0x2fae93(0xdd)]=_0x20f741;});const _0x5d9348=document['querySelectorAll']('.mission-card');_0x5d9348[_0x3eb36b(0xed)](_0x54ba77=>{const _0x39b8b2=_0x3eb36b,_0x584c28=JSON[_0x39b8b2(0x11b)](_0x54ba77['dataset']['mission']),_0x24c7cc=Object[_0x39b8b2(0xef)](_0x584c28[_0x39b8b2(0xdd)])[_0x39b8b2(0x100)](([_0x170c22,_0x5b1adf])=>_0x39b8b2(0x11d)+(_0x5b1adf?_0x39b8b2(0x10f):'')+_0x39b8b2(0xe9)+_0x170c22+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20')[_0x39b8b2(0x141)]('');_0x54ba77['style'][_0x39b8b2(0x13d)]=_0x39b8b2(0xeb),_0x54ba77['style']['flexDirection']='column',_0x54ba77[_0x39b8b2(0x101)][_0x39b8b2(0x13c)]=_0x39b8b2(0xe1),_0x4e70fe=JSON[_0x39b8b2(0x11b)](_0x54ba77[_0x39b8b2(0x134)]['mission']);_0x4e70fe[_0x39b8b2(0x105)]?_0x54ba77[_0x39b8b2(0x137)]=_0x39b8b2(0x115)+_0x4e70fe[_0x39b8b2(0x125)]+_0x39b8b2(0x106)+(_0x4e70fe[_0x39b8b2(0x105)]?_0x39b8b2(0x108):_0x39b8b2(0x135))+_0x39b8b2(0x138)+_0x4e70fe['title']+_0x39b8b2(0x11c)+_0x4e70fe[_0x39b8b2(0x130)]+'%\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22padding-top:\x2020px;\x22>'+_0x4e70fe[_0x39b8b2(0x12d)]+_0x39b8b2(0xf7)+_0x24c7cc+_0x39b8b2(0x132)+_0x4e70fe[_0x39b8b2(0x126)]+_0x39b8b2(0x127):_0x54ba77['innerHTML']=_0x39b8b2(0x115)+_0x4e70fe['type']+_0x39b8b2(0x106)+(_0x4e70fe[_0x39b8b2(0x105)]?_0x39b8b2(0x108):_0x39b8b2(0x135))+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-semibold\x20mb-1\x22>'+_0x4e70fe['title']+_0x39b8b2(0x11c)+_0x4e70fe['progress']+_0x39b8b2(0x113)+_0x4e70fe['description']+_0x39b8b2(0xf7)+_0x24c7cc+_0x39b8b2(0xea);const _0x53c3fc=_0x54ba77[_0x39b8b2(0xde)]('#taskList');_0x53c3fc[_0x39b8b2(0x137)]=_0x24c7cc;const _0x4d6876=_0x4e70fe[_0x39b8b2(0xdd)],_0x31cd1d=Object[_0x39b8b2(0x107)](_0x4d6876)['length'],_0x13efeb=Object[_0x39b8b2(0xd8)](_0x4d6876)[_0x39b8b2(0x120)](_0x3fffdb=>_0x3fffdb)[_0x39b8b2(0xf2)],_0x2330e3=_0x13efeb/_0x31cd1d*0x64,_0x106436=_0x54ba77[_0x39b8b2(0xde)]('.progress-bar');_0x106436['style'][_0x39b8b2(0x12e)]=_0x2330e3+'%',db[_0x39b8b2(0x11a)](_0x39b8b2(0x12f))[_0x39b8b2(0xe0)](auth[_0x39b8b2(0xe8)]['uid'])[_0x39b8b2(0x11a)](_0x39b8b2(0x104))[_0x39b8b2(0xe0)](_0x4e70fe[_0x39b8b2(0x126)])[_0x39b8b2(0xf8)]({'progress':_0x2330e3}),_0x2330e3===0x64&&!_0x4e70fe[_0x39b8b2(0x105)]&&toggleMissionCompletion(_0x4e70fe[_0x39b8b2(0x126)]);});}function toggleTaskCompletion(_0x4f541d,_0x2a7f26,_0x2d7e7b){const _0x23e2e3=a0_0x408add;db[_0x23e2e3(0x11a)](_0x23e2e3(0x12f))['doc'](auth[_0x23e2e3(0xe8)][_0x23e2e3(0xd7)])['collection'](_0x23e2e3(0x104))[_0x23e2e3(0xe0)](_0x4f541d)['get']()[_0x23e2e3(0x11e)](_0x165964=>{const _0x3dc38e=_0x23e2e3,_0xc7ad1d=_0x165964[_0x3dc38e(0xe2)]();return _0xc7ad1d[_0x3dc38e(0xdd)][_0x2a7f26]=_0x2d7e7b,db['collection'](_0x3dc38e(0x12f))[_0x3dc38e(0xe0)](auth[_0x3dc38e(0xe8)]['uid'])[_0x3dc38e(0x11a)](_0x3dc38e(0x104))['doc'](_0x4f541d)[_0x3dc38e(0xf8)]({'tasks':_0xc7ad1d[_0x3dc38e(0xdd)]});})[_0x23e2e3(0x11e)](()=>{const _0x2a3ba4=_0x23e2e3;fetchMissions()[_0x2a3ba4(0x11e)](renderMission);})[_0x23e2e3(0xdc)](_0x132eb1=>{const _0x4ae9b5=_0x23e2e3;console['error'](_0x4ae9b5(0x13f),_0x132eb1);});}function toggleMissionCompletion(_0x4398c5){const _0x413152=a0_0x408add;db['collection']('Users')['doc'](auth[_0x413152(0xe8)][_0x413152(0xd7)])[_0x413152(0x11a)]('Missions')[_0x413152(0xe0)](_0x4398c5)['get']()['then'](_0x148e8d=>{const _0x3a8f4e=_0x413152;if(!_0x148e8d[_0x3a8f4e(0x140)])console[_0x3a8f4e(0x102)]('No\x20such\x20document!');else{const _0x1f35f5=_0x148e8d['data']();if(_0x1f35f5[_0x3a8f4e(0x105)]){for(let _0x902752 in _0x1f35f5['tasks']){_0x1f35f5[_0x3a8f4e(0xdd)][_0x902752]=![];}const _0x411e01=![];return db['collection'](_0x3a8f4e(0x12f))[_0x3a8f4e(0xe0)](auth[_0x3a8f4e(0xe8)][_0x3a8f4e(0xd7)])[_0x3a8f4e(0x11a)](_0x3a8f4e(0x104))[_0x3a8f4e(0xe0)](_0x4398c5)[_0x3a8f4e(0xf8)]({'tasks':_0x1f35f5[_0x3a8f4e(0xdd)],'completed':_0x411e01,'progress':_0x411e01?0x64:0x0});}else{for(let _0x30dd42 in _0x1f35f5[_0x3a8f4e(0xdd)]){_0x1f35f5[_0x3a8f4e(0xdd)][_0x30dd42]=!![];}const _0x3915a6=!![];return db[_0x3a8f4e(0x11a)](_0x3a8f4e(0x12f))['doc'](auth[_0x3a8f4e(0xe8)]['uid'])['collection']('Missions')[_0x3a8f4e(0xe0)](_0x4398c5)[_0x3a8f4e(0xf8)]({'tasks':_0x1f35f5[_0x3a8f4e(0xdd)],'completed':_0x3915a6,'progress':_0x3915a6?0x64:0x0});}}})[_0x413152(0x11e)](()=>{const _0x1a3eb0=_0x413152;fetchMissions()[_0x1a3eb0(0x11e)](renderMission);})[_0x413152(0xdc)](_0x5b3888=>{const _0xe86469=_0x413152;console[_0xe86469(0xf5)](_0xe86469(0xdf),_0x5b3888);});}function fetchMissions(){const _0x54c7be=a0_0x408add;return db[_0x54c7be(0x11a)](_0x54c7be(0x12f))[_0x54c7be(0xe0)](auth['currentUser'][_0x54c7be(0xd7)])[_0x54c7be(0x11a)](_0x54c7be(0x104))[_0x54c7be(0xff)](_0x54c7be(0x111),_0x54c7be(0xd9))['get']()[_0x54c7be(0x11e)](_0x1083fe=>{const _0x134986=_0x54c7be,_0x133643=[];return _0x1083fe[_0x134986(0xed)](_0x4d7db1=>{const _0xdc1a9a=_0x134986;_0x133643[_0xdc1a9a(0xf0)](_0x4d7db1[_0xdc1a9a(0xe2)]());}),_0x133643;})[_0x54c7be(0xdc)](_0x4ec6e1=>{console['error']('Error\x20fetching\x20missions:\x20',_0x4ec6e1);});}function renderMission(_0x18cbe0){const _0x427f4e=a0_0x408add,_0xe744d0=document[_0x427f4e(0xf9)](_0x427f4e(0x124));_0xe744d0[_0x427f4e(0x137)]='',_0x18cbe0[_0x427f4e(0xed)](_0xf1c21c=>{const _0x341ae0=_0x427f4e;if(!_0xf1c21c[_0x341ae0(0x105)]){const _0x4e3379=document[_0x341ae0(0x136)](_0x341ae0(0x123));_0x4e3379[_0x341ae0(0x117)]=_0x341ae0(0x110),_0x4e3379[_0x341ae0(0x121)]=()=>{openMission(_0xf1c21c);},_0x4e3379[_0x341ae0(0x101)]['textAlign']='left',_0x4e3379['id']=_0xf1c21c['missionID'],_0x4e3379[_0x341ae0(0x134)][_0x341ae0(0x13a)]=JSON['stringify'](_0xf1c21c),_0x4e3379['innerHTML']=_0x341ae0(0x115)+_0xf1c21c[_0x341ae0(0x125)]+'\x20•\x20'+(_0xf1c21c[_0x341ae0(0x105)]?_0x341ae0(0x108):'Incomplete')+_0x341ae0(0x138)+_0xf1c21c[_0x341ae0(0xfe)]+_0x341ae0(0xf3)+_0xf1c21c['progress']+_0x341ae0(0xfa),_0xe744d0['appendChild'](_0x4e3379),openMission(_0xf1c21c);}else{const _0x4a4789=document[_0x341ae0(0xf9)](_0x341ae0(0x10d));_0x4a4789[_0x341ae0(0x137)]='';const _0x2c15cf=document[_0x341ae0(0x136)](_0x341ae0(0x123));_0x2c15cf['className']=_0x341ae0(0x110),_0x2c15cf[_0x341ae0(0x121)]=()=>{openMission(_0xf1c21c);},_0x2c15cf[_0x341ae0(0x101)][_0x341ae0(0xe7)]=_0x341ae0(0x10b),_0x2c15cf['id']=_0xf1c21c[_0x341ae0(0x126)],_0x2c15cf[_0x341ae0(0x134)][_0x341ae0(0x13a)]=JSON[_0x341ae0(0xe4)](_0xf1c21c),_0x2c15cf[_0x341ae0(0x137)]=_0x341ae0(0x115)+_0xf1c21c[_0x341ae0(0x125)]+_0x341ae0(0x106)+(_0xf1c21c[_0x341ae0(0x105)]?_0x341ae0(0x108):'Incomplete')+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-lg\x20font-semibold\x20mb-1\x22>'+_0xf1c21c['title']+_0x341ae0(0xf3)+_0xf1c21c[_0x341ae0(0x130)]+_0x341ae0(0xfa),_0x4a4789[_0x341ae0(0xd5)](_0x2c15cf),openMission(_0xf1c21c);}});}function deleteMission(_0x1c8606){const _0x4ca12a=a0_0x408add;confirm(_0x4ca12a(0x11f))&&db[_0x4ca12a(0x11a)](_0x4ca12a(0x12f))[_0x4ca12a(0xe0)](auth['currentUser']['uid'])[_0x4ca12a(0x11a)](_0x4ca12a(0x104))['doc'](_0x1c8606)[_0x4ca12a(0x142)]()[_0x4ca12a(0x11e)](()=>{const _0x1fa388=_0x4ca12a;fetchMissions()[_0x1fa388(0x11e)](renderMission);})[_0x4ca12a(0xdc)](_0x6f2841=>{const _0x43915a=_0x4ca12a;console[_0x43915a(0xf5)]('Error\x20deleting\x20mission:\x20',_0x6f2841);});}function resetMission(){const _0x221d87=a0_0x408add;let _0xade0de=generateUniqueId(),_0x2bec81=firebase[_0x221d87(0x128)]()['collection']('Users')[_0x221d87(0xe0)](auth[_0x221d87(0xe8)][_0x221d87(0xd7)])['collection'](_0x221d87(0x104))[_0x221d87(0xe0)](_0xade0de);cardClasses=[_0x221d87(0x10e),_0x221d87(0xe6),'yellow'],_0x2bec81[_0x221d87(0x12b)]({'title':_0x221d87(0x103),'description':_0x221d87(0xf4),'completed':![],'tokensredeemed':![],'createdAt':firebase['firestore'][_0x221d87(0x116)]['serverTimestamp'](),'members':[auth[_0x221d87(0xe8)][_0x221d87(0xd7)]],'tasks':{'Visit\x20your\x20missions\x20page\x20to\x20see\x20your\x20missions.':![],'Edit\x20your\x20avatar.':![]},'progress':0x0,'type':_0x221d87(0x133),'missionID':_0xade0de,'cardColour':cardClasses[Math[_0x221d87(0x10a)](Math[_0x221d87(0xf6)]()*cardClasses['length'])]})[_0x221d87(0x11e)](()=>{})[_0x221d87(0xdc)](_0x5592f4=>{const _0x556282=_0x221d87;console[_0x556282(0xf5)](_0x5592f4);});}function generateUniqueId(){const _0x3b46a0=a0_0x408add;let _0x43335d=Date[_0x3b46a0(0x122)]()[_0x3b46a0(0x118)](0x24);for(let _0x8f2504=0x0;_0x8f2504<0x5;_0x8f2504++){_0x43335d+=Math[_0x3b46a0(0xf6)]()[_0x3b46a0(0x118)](0x24)['substr'](0x2,0x9);}return _0x43335d;}
+// import { missionRedeemTokens } from './helpers/token_validator.js';
+let db = firebase.firestore();
+let auth = firebase.auth();
+
+document.addEventListener("DOMContentLoaded", function () {
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+
+            db.collection('Users').doc(auth.currentUser.uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const data = doc.data();
+
+                        document.getElementById('user-profile-img').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
+                        document.getElementById('user-profile-img').alt = `Profile picture of ${data.name}`;
+                    }
+                })
+
+            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').orderBy('createdAt', 'asc').get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const mission = doc.data();
+                    mission.missionID = doc.id;
+                    displayMissions(mission);
+                })
+            })
+
+            // update the user's mission for finishing the task
+            db.collection('Users').doc(auth.currentUser.uid).collection('Missions').where('title', '==', "Welcome to your first mission!").get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const tasks = doc.data().tasks || {};
+                        tasks['Visit your missions page to see your missions.'] = true;
+
+                        db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(doc.id).update({
+                            tasks: tasks,
+                        })
+                            .then(() => {
+                                fetchMissions().then(renderMission);
+                            })
+                            .catch((error) => {
+                                console.error(error);
+                            });
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error getting mission:', error);
+                });
+
+            // redeem mission tokens
+            setTimeout(() => {
+                missionRedeemTokens(auth.currentUser.uid);
+            }, 1000);
+        } else {
+            window.location.href = '/signin.html';
+        }
+    });
+});
+
+function displayMissions(mission) {
+    const missionsContainer = document.getElementById('missions-container');
+    const completedContainer = document.getElementById('completed-missions-container');
+
+    if (!mission.completed) {
+        const missionCard = document.createElement('div');
+        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+        missionCard.onclick = () => { openMission(mission) };
+        missionCard.style.textAlign = 'left';
+        missionCard.id = mission.missionID;
+        missionCard.dataset.mission = JSON.stringify(mission);
+
+        missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+        missionsContainer.appendChild(missionCard);
+        openMission(mission); // MARK:- Automatically opens all mission
+    } else {
+        const missionCard = document.createElement('div');
+        missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+        missionCard.onclick = () => { openMission(mission) };
+        missionCard.style.textAlign = 'left';
+        missionCard.id = mission.missionID;
+        missionCard.dataset.mission = JSON.stringify(mission);
+
+        missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+        completedContainer.appendChild(missionCard);
+        openMission(mission); // MARK:- Automatically opens all mission
+    }
+}
+
+function openMission(mission) {
+    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(mission.missionID).get()
+        .then(doc => {
+            const mission = doc.data();
+
+            // Sort tasks alphabetically
+            let tasksArray = Object.entries(mission.tasks);
+            tasksArray.sort((a, b) => a[0].localeCompare(b[0]));
+            let sortedTasks = Object.fromEntries(tasksArray);
+            mission.tasks = sortedTasks;
+        })
+
+    const missionCards = document.querySelectorAll('.mission-card');
+    missionCards.forEach(missionCard => {
+        const missionData = JSON.parse(missionCard.dataset.mission);
+        const tasksList = Object.entries(missionData.tasks).map(([task, isCompleted]) => `
+            <li>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 5px;">
+                    <div>
+                        <input type="checkbox" class="form-check-input" ${isCompleted ? 'checked' : ''}>
+                        ${task}
+                    </div>
+                </div>
+            </li>
+        `).join('');
+        // onclick="toggleTaskCompletion('${missionData.missionID}', '${task}', this.checked)" for the input
+
+        missionCard.style.display = 'flex';
+        missionCard.style.flexDirection = 'column';
+        missionCard.style.alignItems = 'flex-start';
+
+        mission = JSON.parse(missionCard.dataset.mission)
+
+        if (mission.completed) {
+            missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full progress-bar" style="width: ${mission.progress}%"></div>
+        </div>
+        <p style="padding-top: 20px;">${mission.description}</p>
+
+        <div>
+            <h4 style="padding-top: 20px; font-weight: bold;">Tasks:</h4>
+            <ul id="taskList" style="list-style-type: none; padding: 10px">${tasksList}</ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <button type="button" onclick="toggleMissionCompletion('${mission.missionID}')" class="border-2 border-blue-600 px-2 py-1.5 rounded-md text-blue-500 hover:text-white hover:bg-blue-600 duration-200">Mark as incomplete</button>
+            <button type="button" class="ml-2 border-2 border-red-500 px-3 py-1.5 rounded-md hover:text-white hover:bg-red-500 duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                    </svg>
+                </button>
+        </div>
+        `
+        } else {
+            missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full progress-bar" style="width: ${mission.progress}%"></div>
+        </div>
+        <p style="padding-top: 20px;">${mission.description}</p>
+
+        <div>
+            <h4 style="padding-top: 20px; font-weight: bold;">Tasks:</h4>
+            <ul id="taskList" style="list-style-type: none; padding: 10px">${tasksList}</ul>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <button type="button" class="ml-2 border-2 border-red-500 px-3 py-2 rounded-md hover:text-white hover:bg-red-500 duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                    </svg>
+                </button>
+        </div>
+        `
+        }
+
+        // Add tasksList to missionCard
+        const taskListContainer = missionCard.querySelector('#taskList');
+        taskListContainer.innerHTML = tasksList;
+
+        // Calculate the percentage of completed tasks
+        const tasks = mission.tasks;
+        const totalTasks = Object.keys(tasks).length;
+        const completedTasks = Object.values(tasks).filter(value => value).length;
+        const completionPercentage = (completedTasks / totalTasks) * 100;
+
+        // Update the progress bar
+        const progressBar = missionCard.querySelector('.progress-bar');
+        progressBar.style.width = `${completionPercentage}%`;
+
+        db.collection("Users").doc(auth.currentUser.uid).collection('Missions').doc(mission.missionID).update({
+            progress: completionPercentage
+        })
+
+        if (completionPercentage === 100 && !mission.completed) {
+            toggleMissionCompletion(mission.missionID);
+        }
+    })
+}
+
+function toggleTaskCompletion(missionID, task, newCompletionStatus) {
+    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).get()
+        .then(doc => {
+            const mission = doc.data();
+            mission.tasks[task] = newCompletionStatus;
+
+            return db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).update({
+                tasks: mission.tasks
+            })
+        })
+        .then(() => {
+            fetchMissions().then(renderMission);
+        })
+        .catch(error => {
+            console.error("Error updating task: ", error);
+        });
+}
+
+function toggleMissionCompletion(missionID) {
+    db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).get()
+        .then(doc => {
+            if (!doc.exists) {
+                console.log('No such document!');
+            } else {
+                const mission = doc.data();
+
+                if (mission.completed) {
+                    // Make all tasks incomplete
+                    for (let task in mission.tasks) {
+                        mission.tasks[task] = false;
+                    }
+
+                    // Set progress to 0
+                    const newCompletionStatus = false;
+
+                    return db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).update({
+                        tasks: mission.tasks,
+                        completed: newCompletionStatus,
+                        progress: newCompletionStatus ? 100 : 0
+                    })
+                } else {
+                    // Make all tasks complete
+                    for (let task in mission.tasks) {
+                        mission.tasks[task] = true;
+                    }
+
+                    // Set progress to 100
+                    const newCompletionStatus = true;
+
+                    return db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).update({
+                        tasks: mission.tasks,
+                        completed: newCompletionStatus,
+                        progress: newCompletionStatus ? 100 : 0
+                    })
+                }
+            }
+        })
+        .then(() => {
+            fetchMissions().then(renderMission);
+        })
+        .catch(error => {
+            console.error('Error updating mission: ', error);
+        });
+}
+
+function fetchMissions() {
+    return db.collection('Users').doc(auth.currentUser.uid).collection('Missions').orderBy('createdAt', 'asc').get()
+        .then(querySnapshot => {
+            const missions = [];
+            querySnapshot.forEach(doc => {
+                missions.push(doc.data());
+            });
+            return missions;
+        })
+        .catch(error => {
+            console.error('Error fetching missions: ', error);
+        })
+}
+
+function renderMission(missions) {
+    const missionsContainer = document.getElementById('missions-container');
+    missionsContainer.innerHTML = '';
+
+    missions.forEach(mission => {
+        if (!mission.completed) {
+            const missionCard = document.createElement('div');
+            missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+            missionCard.onclick = () => { openMission(mission) };
+            missionCard.style.textAlign = 'left';
+            missionCard.id = mission.missionID;
+            missionCard.dataset.mission = JSON.stringify(mission);
+            missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+            missionsContainer.appendChild(missionCard);
+            openMission(mission); // MARK:- Automatically opens all mission
+        } else {
+            const completedContainer = document.getElementById('completed-missions-container');
+            completedContainer.innerHTML = '';
+
+            const missionCard = document.createElement('div');
+            missionCard.className = `mission-card bg-[#2B2B2B] p-4 rounded-lg`;
+            missionCard.onclick = () => { openMission(mission) };
+            missionCard.style.textAlign = 'left';
+            missionCard.id = mission.missionID;
+            missionCard.dataset.mission = JSON.stringify(mission);
+            missionCard.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="text-sm font-medium text-blue-400">${mission.type} • ${mission.completed ? 'Completed' : 'Incomplete'}</div>
+        </div>
+        <h3 class="text-lg font-semibold mb-1">${mission.title}</h3>
+        <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${mission.progress}%"></div>
+        </div>
+    `;
+
+            completedContainer.appendChild(missionCard);
+            openMission(mission); // MARK:- Automatically opens all mission
+        }
+    })
+}
+function deleteMission(missionID) {
+    if (confirm('Are you sure you want to delete this mission?')) {
+        db.collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID).delete()
+            .then(() => {
+                fetchMissions().then(renderMission);
+            })
+            .catch(error => {
+                console.error('Error deleting mission: ', error);
+            })
+    }
+}
+
+function resetMission() {
+    let missionID = generateUniqueId();
+    let missionRef = firebase.firestore().collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID);
+    cardClasses = ['blue', 'green', 'yellow']
+
+    missionRef.set({
+        title: 'Welcome to your first mission!',
+        description: 'This is a sample mission. You can edit it or delete it.',
+        completed: false,
+        tokensredeemed: false,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        members: [auth.currentUser.uid],
+        tasks: { 'Visit your missions page to see your missions.': false, 'Edit your avatar.': false },
+        progress: 0,
+        type: 'Get started',
+        missionID: missionID,
+        cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+    })
+        .then(() => { })
+        .catch((error) => {
+            console.error(error);
+        })
+
+    // let missionID2 = generateUniqueId();
+    // let missionRef2 = firebase.firestore().collection('Users').doc(auth.currentUser.uid).collection('Missions').doc(missionID2);
+
+    // setTimeout(() => {
+    //     missionRef2.set({
+    //         title: 'Creating a todo',
+    //         description: 'Head over to your account and create a todo.',
+    //         completed: false,
+    //         tokensredeemed: false,
+    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    //         members: [auth.currentUser.uid],
+    //         tasks: { 'Create a new todo.': false },
+    //         progress: 0,
+    //         type: 'Get started',
+    //         missionID: missionID2,
+    //         cardColour: cardClasses[Math.floor(Math.random() * cardClasses.length)]
+    //     })
+    //         .then(() => {
+    //             fetchMissions().then(renderMission);
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //         });
+    // }, 1500);
+}
+
+function generateUniqueId() {
+    let id = Date.now().toString(36);
+    for (let i = 0; i < 5; i++) {
+        id += Math.random().toString(36).substr(2, 9);
+    }
+    return id;
+}

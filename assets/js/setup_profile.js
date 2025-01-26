@@ -1,1 +1,213 @@
-function a0_0x2ff1(){const _0x1a36a7=['There\x20was\x20an\x20error\x20reading\x20the\x20file.','email','error','update','Error\x20updating\x20profile.\x20Please\x20try\x20again\x20later.','bio','Error\x20uploading\x20profile\x20picture:','profileIMG','8JZntwf','change','set','14655ATPgog','takeoff\x20<span\x20style=\x22padding-left:\x205px;\x22>🚀</span>','click','There\x20was\x20an\x20error\x20reading\x20the\x20image.','1315304zlMBus','height','5415597wNNaqa','data','Error\x20setting\x20default\x20picture.\x20Please\x20try\x20again\x20later.','querySelector','4347984VpsXDi','ref','child','onAuthStateChanged','Profile\x20updated\x20with\x20new\x20image','onerror','src','target','addEventListener','auth','storage','They\x27re\x20still\x20thinking\x20of\x20a\x20bio...','result','profile-picture-picker','908397bOUmoD','onload','submitButton','blob','preventDefault','DOMContentLoaded','Users','split','users_profilePic/','/account.html?action=setupProfile','.profile-picture-picker-image','readAsDataURL','name','files','innerHTML','senderId','catch','uploading...','Error\x20setting\x20default\x20picture:','value','807510CioILt','currentUser','33838288ESnKnJ','User\x20is\x20not\x20authenticated','loading...','Using\x20default\x20image!','doc','exists','https://placeholder.co/100x100','get','/signin.html','Cannot\x20get\x20current\x20user\x20details.\x20Please\x20sign\x20in\x20first\x20or\x20refresh\x20the\x20page.','10TNYyjf','edit-profile-full-name','collection','done!','uid','1314VcLaZZ','User\x20is\x20not\x20authenticated.\x20Please\x20log\x20in\x20and\x20try\x20again.','then','location','innerText','getElementById','use-default-image','load','getDownloadURL','trim','14yEIvuO'];a0_0x2ff1=function(){return _0x1a36a7;};return a0_0x2ff1();}const a0_0x51101d=a0_0x469d;(function(_0x56f5f1,_0x14fb04){const _0x300eea=a0_0x469d,_0x37bcab=_0x56f5f1();while(!![]){try{const _0x699028=-parseInt(_0x300eea(0x144))/0x1+parseInt(_0x300eea(0x129))/0x2*(-parseInt(_0x300eea(0x158))/0x3)+parseInt(_0x300eea(0x136))/0x4+parseInt(_0x300eea(0x12c))/0x5*(-parseInt(_0x300eea(0x169))/0x6)+-parseInt(_0x300eea(0x120))/0x7*(parseInt(_0x300eea(0x130))/0x8)+-parseInt(_0x300eea(0x132))/0x9+-parseInt(_0x300eea(0x164))/0xa*(-parseInt(_0x300eea(0x15a))/0xb);if(_0x699028===_0x14fb04)break;else _0x37bcab['push'](_0x37bcab['shift']());}catch(_0x3749df){_0x37bcab['push'](_0x37bcab['shift']());}}}(a0_0x2ff1,0x93def));function a0_0x469d(_0x51aafb,_0x3b6ad8){const _0x2ff1a7=a0_0x2ff1();return a0_0x469d=function(_0x469d06,_0x253f6d){_0x469d06=_0x469d06-0x11c;let _0x5d03c8=_0x2ff1a7[_0x469d06];return _0x5d03c8;},a0_0x469d(_0x51aafb,_0x3b6ad8);}let db=firebase['firestore'](),auth=firebase[a0_0x51101d(0x13f)](),useDefaultImageFlag=![],usedDefaultImage=![];function validateForm(){const _0x17fc46=a0_0x51101d;document[_0x17fc46(0x16e)](_0x17fc46(0x143))[_0x17fc46(0x13e)](_0x17fc46(0x12a),_0x1e6ab1=>{const _0x27b084=_0x17fc46,_0x5a3f50=_0x1e6ab1[_0x27b084(0x13d)][_0x27b084(0x151)][0x0],_0x5882c5=new FileReader();_0x5882c5['addEventListener'](_0x27b084(0x11d),_0x43f587=>{const _0x340510=_0x27b084;document['querySelector']('.profile-picture-picker-image')[_0x340510(0x13c)]=_0x43f587[_0x340510(0x13d)][_0x340510(0x142)];}),_0x5a3f50&&_0x5882c5['readAsDataURL'](_0x5a3f50);});}function useDefaultImage(){const _0x257fb4=a0_0x51101d,_0x2607a7=firebase[_0x257fb4(0x140)]()[_0x257fb4(0x137)](),_0x2c5fe1=firebase[_0x257fb4(0x13f)](),_0x3f83c3=firebase['firestore'](),_0xdf348f='/assets/img/default_user.jpeg';fetch(_0xdf348f)[_0x257fb4(0x16b)](_0x5be53f=>_0x5be53f[_0x257fb4(0x147)]())['then'](_0x1ca673=>{const _0x56b6ee=_0x257fb4,_0x11ae5b=_0x2607a7[_0x56b6ee(0x138)]('users_profilePic/'+_0x2c5fe1['currentUser'][_0x56b6ee(0x168)]+'.jpeg');return _0x11ae5b['put'](_0x1ca673);})['then'](_0x95dc03=>_0x95dc03['ref'][_0x257fb4(0x11e)]())['then'](_0x23931d=>{const _0x378c70=_0x257fb4;return _0x3f83c3['collection']('Users')[_0x378c70(0x15e)](_0x2c5fe1['currentUser'][_0x378c70(0x168)])[_0x378c70(0x124)]({'profileIMG':_0x23931d});})[_0x257fb4(0x16b)](()=>{const _0x4f1efa=_0x257fb4;console['log']('Updated\x20profile\x20with\x20default\x20image'),document[_0x4f1efa(0x135)](_0x4f1efa(0x14e))[_0x4f1efa(0x13c)]=_0xdf348f;})[_0x257fb4(0x154)](_0x22cc4f=>{const _0xb6af92=_0x257fb4;console[_0xb6af92(0x123)](_0xb6af92(0x156),_0x22cc4f),alert(_0xb6af92(0x134));});}function submitProfile(){const _0x35c82a=a0_0x51101d,_0x48962b=document[_0x35c82a(0x16e)]('profile-picture-picker'),_0x434622=firebase['auth'](),_0xcb7ac7=firebase['firestore']();if(useDefaultImageFlag)useDefaultImage(_0x434622,_0xcb7ac7);else{const _0x2ee793=_0x48962b[_0x35c82a(0x151)][0x0];console['log'](usedDefaultImage);const _0x2abb5e=_0xcb7ac7['collection'](_0x35c82a(0x14a))['doc'](_0x434622[_0x35c82a(0x159)][_0x35c82a(0x168)]);_0x2abb5e[_0x35c82a(0x161)]()[_0x35c82a(0x16b)](_0x2dea12=>{const _0x31f54b=_0x35c82a;if(_0x2dea12[_0x31f54b(0x15f)]){const _0x507626=_0x2dea12['data']();if(_0x2ee793){document[_0x31f54b(0x16e)](_0x31f54b(0x146))[_0x31f54b(0x16d)]=_0x31f54b(0x15c);const _0x1ae028=new FileReader();_0x1ae028['onload']=function(_0x3d8a7f){const _0x2f300d=_0x31f54b,_0x3a67fe=new Image();_0x3a67fe[_0x2f300d(0x145)]=function(){const _0x20e933=_0x2f300d;_0x3a67fe['width']===_0x3a67fe[_0x20e933(0x131)]?uploadProfilePicture(_0x2ee793,_0x434622,_0xcb7ac7):(alert('Please\x20upload\x20a\x20square\x20image.'),document[_0x20e933(0x16e)](_0x20e933(0x146))[_0x20e933(0x152)]='takeoff\x20<span\x20style=\x22padding-left:\x205px;\x22>🚀</span>');},_0x3a67fe[_0x2f300d(0x13b)]=function(){const _0x2ddf48=_0x2f300d;alert(_0x2ddf48(0x12f)),document[_0x2ddf48(0x16e)](_0x2ddf48(0x146))[_0x2ddf48(0x152)]='takeoff\x20<span\x20style=\x22padding-left:\x205px;\x22>🚀</span>';},_0x3a67fe[_0x2f300d(0x13c)]=_0x3d8a7f[_0x2f300d(0x13d)][_0x2f300d(0x142)];},_0x1ae028[_0x31f54b(0x13b)]=function(){const _0x1e1bc0=_0x31f54b;alert(_0x1e1bc0(0x121)),document[_0x1e1bc0(0x16e)](_0x1e1bc0(0x146))[_0x1e1bc0(0x152)]=_0x1e1bc0(0x12d);},_0x1ae028[_0x31f54b(0x14f)](_0x2ee793);}else{if(_0x507626[_0x31f54b(0x128)])updateUserProfile(_0x507626[_0x31f54b(0x128)],_0x434622,_0xcb7ac7);else{if(usedDefaultImage){const _0x3c6792='/assets/img/default_user.jpeg';fetch(_0x3c6792)[_0x31f54b(0x16b)](_0x1980bc=>_0x1980bc[_0x31f54b(0x147)]())['then'](_0x5ea2c5=>{const _0x138bad=new File([_0x5ea2c5],'default_user.jpeg',{'type':'image/jpeg'});uploadProfilePicture(_0x138bad,_0x434622,_0xcb7ac7);});}else alert('Please\x20upload\x20a\x20profile\x20picture,\x20or\x20use\x20default.'),document[_0x31f54b(0x16e)](_0x31f54b(0x146))[_0x31f54b(0x152)]='takeoff\x20<span\x20style=\x22padding-left:\x205px;\x22>🚀</span>';}}}});}}function updateUserProfile(_0x17abef,_0x11d4d1,_0x4201d4){const _0x19da6e=a0_0x51101d,_0x3d2108=document['getElementById'](_0x19da6e(0x165)),_0x31006c=document[_0x19da6e(0x16e)](_0x19da6e(0x126));!_0x31006c[_0x19da6e(0x157)][_0x19da6e(0x11f)]()&&(_0x31006c['value']=_0x19da6e(0x141));if(_0x11d4d1[_0x19da6e(0x159)]){const _0x3dcb41=_0x4201d4[_0x19da6e(0x166)]('Users')[_0x19da6e(0x15e)](_0x11d4d1['currentUser'][_0x19da6e(0x168)]);document[_0x19da6e(0x16e)](_0x19da6e(0x146))[_0x19da6e(0x16d)]='saving...',_0x3dcb41[_0x19da6e(0x124)]({'name':_0x3d2108[_0x19da6e(0x157)],'bio':_0x31006c[_0x19da6e(0x157)],'profileIMG':_0x17abef})['then'](()=>{const _0x2aa7cb=_0x19da6e;console['log'](_0x2aa7cb(0x13a)),setTimeout(()=>{const _0x53763d=_0x2aa7cb;document[_0x53763d(0x16e)](_0x53763d(0x146))[_0x53763d(0x16d)]=_0x53763d(0x167),window[_0x53763d(0x16c)]['href']=_0x53763d(0x14d);},0x3e8);})[_0x19da6e(0x154)](_0x403a6a=>{const _0x5b859a=_0x19da6e;alert(_0x5b859a(0x125)),console[_0x5b859a(0x123)]('Error\x20updating\x20profile:',_0x403a6a);});}else console[_0x19da6e(0x123)](_0x19da6e(0x15b)),alert(_0x19da6e(0x16a));}function uploadProfilePicture(_0x1848b6,_0x15f8f3,_0xdbe163){const _0x3dc1ac=a0_0x51101d,_0x448d00=firebase['storage']()[_0x3dc1ac(0x137)](),_0x1406e2=_0x1848b6['name'][_0x3dc1ac(0x14b)]('.')['pop'](),_0x4a00db=_0x15f8f3[_0x3dc1ac(0x159)][_0x3dc1ac(0x168)]+'.'+_0x1406e2,_0x10fa86=_0x448d00[_0x3dc1ac(0x138)](_0x3dc1ac(0x14c)+_0x4a00db);document[_0x3dc1ac(0x16e)](_0x3dc1ac(0x146))['innerText']=_0x3dc1ac(0x155),_0x10fa86['put'](_0x1848b6)[_0x3dc1ac(0x16b)](_0x107726=>{const _0x65a16=_0x3dc1ac;return _0x107726[_0x65a16(0x137)][_0x65a16(0x11e)]();})[_0x3dc1ac(0x16b)](_0x2e7a45=>{return updateUserProfile(_0x2e7a45,_0x15f8f3,_0xdbe163);})['catch'](_0x223225=>{const _0x44fd2b=_0x3dc1ac;alert('Error\x20uploading\x20profile\x20picture.\x20Please\x20try\x20again\x20later.'),console[_0x44fd2b(0x123)](_0x44fd2b(0x127),_0x223225);});}document[a0_0x51101d(0x13e)](a0_0x51101d(0x149),()=>{const _0x189913=a0_0x51101d;let _0x4dfcba=firebase[_0x189913(0x13f)](),_0x12384e=firebase['firestore']();const _0x1828e0=document[_0x189913(0x16e)](_0x189913(0x165)),_0x40938d=document['getElementById']('edit-profile-userid'),_0x54f8f9=document[_0x189913(0x16e)]('edit-profile-email'),_0x1d4736=document[_0x189913(0x16e)](_0x189913(0x126)),_0x43ec6e=document['getElementById'](_0x189913(0x146)),_0xa6d2af=document[_0x189913(0x16e)](_0x189913(0x11c));_0x43ec6e[_0x189913(0x13e)]('click',_0xf7161f=>{const _0x51108b=_0x189913;_0xf7161f[_0x51108b(0x148)](),useDefaultImageFlag=![],submitProfile();}),_0xa6d2af[_0x189913(0x13e)](_0x189913(0x12e),()=>{const _0x4ec811=_0x189913;useDefaultImageFlag=!![],usedDefaultImage=!![],alert(_0x4ec811(0x15d)),submitProfile();}),_0x4dfcba[_0x189913(0x139)](function(_0x3ec17e){const _0x5982cc=_0x189913;if(_0x3ec17e){validateForm();const _0x54cdb3=_0x12384e[_0x5982cc(0x166)](_0x5982cc(0x14a))['doc'](_0x3ec17e[_0x5982cc(0x168)]),_0x4ce061=new Date();_0x54cdb3[_0x5982cc(0x12b)]({'lastActive':_0x4ce061},{'merge':!![]});const _0x203474=_0x12384e[_0x5982cc(0x166)](_0x5982cc(0x14a))['doc'](_0x4dfcba[_0x5982cc(0x159)]['uid']);_0x203474[_0x5982cc(0x161)]()[_0x5982cc(0x16b)](_0x3c1aa3=>{const _0x4f1cf7=_0x5982cc;if(_0x3c1aa3[_0x4f1cf7(0x15f)]){const _0x34f346=_0x3c1aa3[_0x4f1cf7(0x133)]();_0x1828e0[_0x4f1cf7(0x157)]=_0x34f346[_0x4f1cf7(0x150)],_0x40938d['value']=_0x34f346[_0x4f1cf7(0x153)],_0x54f8f9[_0x4f1cf7(0x157)]=_0x34f346[_0x4f1cf7(0x122)],bio['value']&&(bio[_0x4f1cf7(0x157)]=_0x34f346['bio']),console['log'](_0x34f346[_0x4f1cf7(0x128)]),document[_0x4f1cf7(0x135)](_0x4f1cf7(0x14e))['src']=_0x34f346[_0x4f1cf7(0x128)]==''?_0x4f1cf7(0x160):_0x34f346[_0x4f1cf7(0x128)];}});}else alert(_0x5982cc(0x163)),window[_0x5982cc(0x16c)]['href']=_0x5982cc(0x162);});});
+let db = firebase.firestore();
+let auth = firebase.auth();
+let useDefaultImageFlag = false;
+let usedDefaultImage = false;
+
+function validateForm() {
+    document.getElementById("profile-picture-picker").addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", (event) => {
+            document.querySelector(".profile-picture-picker-image").src =
+                event.target.result;
+        });
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+function useDefaultImage() {
+    const storageRef = firebase.storage().ref();
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const defaultURL = '/assets/img/default_user.jpeg';
+    fetch(defaultURL)
+        .then(response => response.blob())
+        .then(blob => {
+            const userProfileImageRef = storageRef.child(`users_profilePic/${auth.currentUser.uid}.jpeg`);
+            return userProfileImageRef.put(blob);
+        })
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(downloadURL => {
+            return db.collection('Users').doc(auth.currentUser.uid).update({
+                profileIMG: downloadURL
+            });
+        })
+        .then(() => {
+            console.log('Updated profile with default image');
+            document.querySelector(".profile-picture-picker-image").src = defaultURL;
+        })
+        .catch(error => {
+            console.error("Error setting default picture:", error);
+            alert('Error setting default picture. Please try again later.');
+        });
+}
+
+function submitProfile() {
+    const profilePictureImageInput = document.getElementById("profile-picture-picker");
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    if (useDefaultImageFlag) {
+        useDefaultImage(auth, db);
+    } else {
+        const file = profilePictureImageInput.files[0];
+        console.log(usedDefaultImage)
+
+        const currentuserRef = db.collection('Users').doc(auth.currentUser.uid);
+        currentuserRef.get().then((doc) => {
+            if (doc.exists) {
+                const data = doc.data();
+
+                if (file) {
+                    document.getElementById('submitButton').innerText = 'loading...'
+
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = new Image();
+                        img.onload = function () {
+                            if (img.width === img.height) {
+                                uploadProfilePicture(file, auth, db);
+                            } else {
+                                alert('Please upload a square image.');
+                                document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                            }
+                        };
+                        img.onerror = function () {
+                            alert('There was an error reading the image.');
+                            document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.onerror = function () {
+                        alert('There was an error reading the file.');
+                        document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                    };
+                    reader.readAsDataURL(file);
+                } else if (data.profileIMG) {
+                    updateUserProfile(data.profileIMG, auth, db);
+                } else if (usedDefaultImage) {
+                    const defaultURL = '/assets/img/default_user.jpeg';
+                    fetch(defaultURL)
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const defaultFile = new File([blob], `default_user.jpeg`, { type: 'image/jpeg' });
+                            uploadProfilePicture(defaultFile, auth, db);
+                        })
+                } else {
+                    alert('Please upload a profile picture, or use default.');
+                    document.getElementById('submitButton').innerHTML = 'takeoff <span style="padding-left: 5px;">🚀</span>';
+                }
+            }
+        })
+    }
+}
+
+function updateUserProfile(downloadURL, auth, db) {
+    const fullNameInput = document.getElementById("edit-profile-full-name");
+    const bioInput = document.getElementById("bio");
+    if (!bioInput.value.trim()) {
+        bioInput.value = "They're still thinking of a bio...";
+    }
+
+    if (auth.currentUser) {
+        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+
+        document.getElementById('submitButton').innerText = 'saving...'
+
+        currentUserRef.update({
+            name: fullNameInput.value,
+            bio: bioInput.value,
+            profileIMG: downloadURL
+        }).then(() => {
+            console.log('Profile updated with new image');
+
+            setTimeout(() => {
+                document.getElementById('submitButton').innerText = 'done!';
+                window.location.href = '/account.html?action=setupProfile';
+            }, 1000);
+        }).catch((error) => {
+            alert('Error updating profile. Please try again later.');
+            console.error("Error updating profile:", error);
+        });
+    } else {
+        console.error("User is not authenticated");
+        alert('User is not authenticated. Please log in and try again.');
+    }
+}
+
+function uploadProfilePicture(file, auth, db) {
+    const storageRef = firebase.storage().ref();
+    const fileExtension = file.name.split('.').pop();
+    const filename = `${auth.currentUser.uid}.${fileExtension}`;
+    const userProfileImageRef = storageRef.child(`users_profilePic/${filename}`);
+
+    document.getElementById('submitButton').innerText = 'uploading...'
+
+    userProfileImageRef.put(file).then(snapshot => {
+        return snapshot.ref.getDownloadURL();
+    }).then(downloadURL => {
+        return updateUserProfile(downloadURL, auth, db);
+    }).catch(error => {
+        alert('Error uploading profile picture. Please try again later.');
+        console.error("Error uploading profile picture:", error);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    let auth = firebase.auth();
+    let db = firebase.firestore();
+
+    const fullNameInput = document.getElementById("edit-profile-full-name");
+    const useridInput = document.getElementById('edit-profile-userid');
+    const userEmail = document.getElementById('edit-profile-email');
+    const userBio = document.getElementById('bio');
+    const submitButton = document.getElementById('submitButton');
+    const useDefaultButton = document.getElementById('use-default-image');
+
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        useDefaultImageFlag = false;
+        submitProfile();
+    });
+
+    useDefaultButton.addEventListener('click', () => {
+        useDefaultImageFlag = true;
+        usedDefaultImage = true;
+        alert('Using default image!');
+        submitProfile();
+    });
+
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            validateForm();
+
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+
+            const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+            currentUserRef.get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+
+                    fullNameInput.value = data.name;
+                    useridInput.value = data.senderId;
+                    userEmail.value = data.email;
+                    if (bio.value) { bio.value = data.bio; }
+                    console.log(data.profileIMG)
+                    document.querySelector(".profile-picture-picker-image").src = data.profileIMG == "" ? "https://placeholder.co/100x100" : data.profileIMG;
+                }
+            });
+        } else {
+            alert('Cannot get current user details. Please sign in first or refresh the page.');
+            window.location.href = '/signin.html';
+        }
+    });
+});

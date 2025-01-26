@@ -1,1 +1,180 @@
-const a0_0x45ed12=a0_0x30af;(function(_0x3d1092,_0x538ba2){const _0x4919a4=a0_0x30af,_0x5db2cc=_0x3d1092();while(!![]){try{const _0x305ea4=parseInt(_0x4919a4(0xcc))/0x1+-parseInt(_0x4919a4(0x90))/0x2+-parseInt(_0x4919a4(0xb9))/0x3*(parseInt(_0x4919a4(0xc9))/0x4)+-parseInt(_0x4919a4(0xb0))/0x5*(parseInt(_0x4919a4(0x8f))/0x6)+-parseInt(_0x4919a4(0x88))/0x7+parseInt(_0x4919a4(0xaf))/0x8+parseInt(_0x4919a4(0x9a))/0x9*(parseInt(_0x4919a4(0x99))/0xa);if(_0x305ea4===_0x538ba2)break;else _0x5db2cc['push'](_0x5db2cc['shift']());}catch(_0x186be3){_0x5db2cc['push'](_0x5db2cc['shift']());}}}(a0_0x5c99,0x92b2c));let db=firebase[a0_0x45ed12(0xbc)](),auth=firebase[a0_0x45ed12(0x8e)]();function smoothScrollAboveElement(_0x5320b1,_0x15c36c){const _0x3690c6=a0_0x45ed12,_0x31f1f9=document[_0x3690c6(0x92)](_0x5320b1);if(_0x31f1f9){const _0x373520=_0x31f1f9[_0x3690c6(0x91)](),_0x2acf6b=_0x373520[_0x3690c6(0x98)]+window['pageYOffset'];window[_0x3690c6(0xa1)]({'top':_0x2acf6b-_0x15c36c,'behavior':_0x3690c6(0xc8)});}}function displayUserCard(_0x2029e3,_0x351787){const _0x50a40c=a0_0x45ed12,_0x4ba41f=document[_0x50a40c(0xcf)](_0x50a40c(0xb6));_0x4ba41f[_0x50a40c(0xd2)]=_0x50a40c(0xbb);const _0x1e07d9=document[_0x50a40c(0xcf)]('p');_0x1e07d9[_0x50a40c(0xd2)]=_0x50a40c(0x8a),_0x1e07d9[_0x50a40c(0x96)]=_0x50a40c(0x9d)+_0x2029e3[_0x50a40c(0xc7)];const _0x1a6745=document[_0x50a40c(0xcf)](_0x50a40c(0xc6));_0x1a6745[_0x50a40c(0xd2)]=_0x50a40c(0xb4),_0x1a6745['textContent']='Chat',_0x1a6745[_0x50a40c(0xa7)]=function(){const _0x26a000=_0x50a40c;window[_0x26a000(0xcb)][_0x26a000(0xd1)]='/chat.html?userID='+_0x2029e3[_0x26a000(0x8b)];};const _0x51c809=document[_0x50a40c(0xcf)](_0x50a40c(0x9c));_0x51c809[_0x50a40c(0xc0)]=_0x2029e3[_0x50a40c(0xac)]==''?_0x50a40c(0xce):_0x2029e3[_0x50a40c(0xac)],_0x51c809[_0x50a40c(0xd2)]=_0x50a40c(0x8c),_0x51c809['style'][_0x50a40c(0xa8)]='75',_0x51c809[_0x50a40c(0xa0)][_0x50a40c(0x86)]='75',_0x51c809[_0x50a40c(0xa0)]['borderRadius']=_0x50a40c(0xad);const _0x3b9c35=document['createElement']('div');_0x3b9c35['className']=_0x50a40c(0xa4);const _0xd40f22=document['createElement']('h3');_0xd40f22[_0x50a40c(0xd2)]='text-lg\x20font-bold',_0xd40f22[_0x50a40c(0x96)]=_0x2029e3[_0x50a40c(0xb8)];const _0x32c713=document[_0x50a40c(0xcf)]('p');_0x32c713[_0x50a40c(0xd2)]='text-sm\x20truncate\x20overflow-ellipsis\x20overflow-hidden',_0x32c713['id']=_0x50a40c(0xb1),_0x32c713[_0x50a40c(0x96)]=_0x2029e3[_0x50a40c(0x84)],_0x3b9c35[_0x50a40c(0xa2)](_0xd40f22),_0x3b9c35['appendChild'](_0x32c713),_0x4ba41f['appendChild'](_0x1e07d9),_0x4ba41f['appendChild'](_0x1a6745),_0x4ba41f[_0x50a40c(0xa2)](_0x51c809),_0x4ba41f[_0x50a40c(0xa2)](_0x3b9c35),document['getElementById'](_0x351787)[_0x50a40c(0xa2)](_0x4ba41f);}function a0_0x30af(_0x1fe4dd,_0x1c704a){const _0x5c995b=a0_0x5c99();return a0_0x30af=function(_0x30af41,_0x442b7d){_0x30af41=_0x30af41-0x84;let _0x47a3d6=_0x5c995b[_0x30af41];return _0x47a3d6;},a0_0x30af(_0x1fe4dd,_0x1c704a);}document[a0_0x45ed12(0xd0)](a0_0x45ed12(0x93),function(){const _0x3b6f5c=a0_0x45ed12;auth[_0x3b6f5c(0xb7)](function(_0x50a3c7){const _0x3bf9bc=_0x3b6f5c;if(_0x50a3c7){const _0x21344c=db[_0x3bf9bc(0xba)](_0x3bf9bc(0xb3))[_0x3bf9bc(0x9e)](auth[_0x3bf9bc(0x9f)][_0x3bf9bc(0xc2)]),_0x3d6c6d=new Date();_0x21344c[_0x3bf9bc(0xa6)]({'lastActive':_0x3d6c6d},{'merge':!![]}),_0x21344c[_0x3bf9bc(0xc4)]()[_0x3bf9bc(0x87)](_0x4f4229=>{const _0x11dade=_0x3bf9bc;if(_0x4f4229['exists']){const _0x3a5fe1=_0x4f4229[_0x11dade(0xae)]();document[_0x11dade(0x92)](_0x11dade(0xc1))[_0x11dade(0xc0)]=_0x3a5fe1[_0x11dade(0xac)]==''?'/assets/img/default_user.jpeg':_0x3a5fe1[_0x11dade(0xac)];const _0x151d31=_0x3a5fe1[_0x11dade(0x85)];console['log'](_0x151d31),_0x151d31&&_0x151d31['length']>0x0&&_0x151d31[_0x11dade(0xbe)](_0x300fe2=>{const _0x5f4d94=_0x11dade;db[_0x5f4d94(0xba)]('Users')['doc'](_0x300fe2)[_0x5f4d94(0xc4)]()[_0x5f4d94(0x87)](_0x5b5216=>{const _0x2a3fc8=_0x5f4d94;if(_0x5b5216['exists']){const _0x18a8bf=_0x5b5216[_0x2a3fc8(0xae)]();displayUserCard(_0x18a8bf,'myconnections');}});});}});}else window[_0x3bf9bc(0xcb)][_0x3bf9bc(0xd1)]=_0x3bf9bc(0xa3);});const _0xabe313=document[_0x3b6f5c(0x92)](_0x3b6f5c(0x94));_0xabe313[_0x3b6f5c(0xd0)](_0x3b6f5c(0xaa),debounce(function(){const _0x206a39=_0x3b6f5c,_0x1962a0=_0xabe313[_0x206a39(0x9b)]['trim'](),_0x3115a8=document[_0x206a39(0x92)](_0x206a39(0xb2));_0x1962a0?(_0x3115a8[_0x206a39(0xa0)][_0x206a39(0xbd)]=_0x206a39(0xab),searchUsers(_0x1962a0)):_0x3115a8['style']['display']=_0x206a39(0x8d);},0x1f4));});function debounce(_0x5606d3,_0x4fdeff){let _0x3556e4;return function(){const _0x2b02c8=a0_0x30af,_0x12b9b5=this,_0x3913df=arguments;clearTimeout(_0x3556e4),_0x3556e4=setTimeout(()=>_0x5606d3[_0x2b02c8(0xa5)](_0x12b9b5,_0x3913df),_0x4fdeff);};}function searchUsers(_0x2c5c97){const _0x597c78=a0_0x45ed12,_0x14bf75=document['getElementById'](_0x597c78(0xc3));_0x14bf75['innerHTML']='';const _0x30f7d1=_0x2c5c97[_0x597c78(0xbf)]()[_0x597c78(0x89)](/\s+/),_0x50023f=[];if(_0x30f7d1[_0x597c78(0x97)]===0x1){const _0x3b9160=_0x30f7d1[0x0];_0x50023f['push'](db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0xb8),'>=',_0x3b9160[_0x597c78(0xb5)]())[_0x597c78(0xca)]('name','<=',_0x3b9160[_0x597c78(0xb5)]()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)]('name','>=',_0x3b9160['toUpperCase']())['where'](_0x597c78(0xb8),'<=',_0x3b9160[_0x597c78(0xc5)]()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0xb8),'>=',capitalize(_0x3b9160))[_0x597c78(0xca)](_0x597c78(0xb8),'<=',capitalize(_0x3b9160)+''));}else{const _0x20101c=_0x30f7d1[0x0],_0x11eb12=_0x30f7d1[_0x597c78(0xcd)](0x1)['join']('\x20');_0x50023f[_0x597c78(0xa9)](db['collection']('Users')[_0x597c78(0xca)](_0x597c78(0xb8),'>=',_0x2c5c97[_0x597c78(0xb5)]())[_0x597c78(0xca)](_0x597c78(0xb8),'<=',_0x2c5c97['toLowerCase']()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)]('name','>=',_0x2c5c97['toUpperCase']())['where']('name','<=',_0x2c5c97[_0x597c78(0xc5)]()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0xb8),'>=',capitalize(_0x2c5c97))['where'](_0x597c78(0xb8),'<=',capitalize(_0x2c5c97)+''),db['collection']('Users')[_0x597c78(0xca)](_0x597c78(0xb8),'>=',_0x20101c[_0x597c78(0xb5)]()+'\x20'+_0x11eb12[_0x597c78(0xb5)]())[_0x597c78(0xca)]('name','<=',_0x20101c[_0x597c78(0xb5)]()+'\x20'+_0x11eb12[_0x597c78(0xb5)]()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0xb8),'>=',_0x11eb12[_0x597c78(0xb5)]()+'\x20'+_0x20101c[_0x597c78(0xb5)]())[_0x597c78(0xca)](_0x597c78(0xb8),'<=',_0x11eb12['toLowerCase']()+'\x20'+_0x20101c[_0x597c78(0xb5)]()+''),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0xb8),'>=',_0x20101c['toUpperCase']()+'\x20'+_0x11eb12[_0x597c78(0xc5)]())[_0x597c78(0xca)]('name','<=',_0x20101c['toUpperCase']()+'\x20'+_0x11eb12[_0x597c78(0xc5)]()+''),db['collection'](_0x597c78(0xb3))['where'](_0x597c78(0xb8),'>=',_0x11eb12['toUpperCase']()+'\x20'+_0x20101c[_0x597c78(0xc5)]())[_0x597c78(0xca)](_0x597c78(0xb8),'<=',_0x11eb12[_0x597c78(0xc5)]()+'\x20'+_0x20101c[_0x597c78(0xc5)]()+''),db['collection']('Users')[_0x597c78(0xca)]('name','>=',capitalize(_0x20101c)+'\x20'+capitalize(_0x11eb12))[_0x597c78(0xca)]('name','<=',capitalize(_0x20101c)+'\x20'+capitalize(_0x11eb12)+''),db['collection']('Users')[_0x597c78(0xca)](_0x597c78(0xb8),'>=',capitalize(_0x11eb12)+'\x20'+capitalize(_0x20101c))[_0x597c78(0xca)](_0x597c78(0xb8),'<=',capitalize(_0x11eb12)+'\x20'+capitalize(_0x20101c)+''));}_0x50023f[_0x597c78(0xa9)](db[_0x597c78(0xba)](_0x597c78(0xb3))['where']('email','==',_0x2c5c97),db[_0x597c78(0xba)](_0x597c78(0xb3))[_0x597c78(0xca)](_0x597c78(0x8b),'==',_0x2c5c97)),_0x50023f[_0x597c78(0xbe)](_0x293efc=>{const _0x26465d=_0x597c78;_0x293efc['get']()[_0x26465d(0x87)](_0x2ca7db=>{const _0x3f9491=_0x26465d;_0x2ca7db[_0x3f9491(0xbe)](_0x4f9aec=>{const _0x489acb=_0x3f9491;displayUserCard(_0x4f9aec[_0x489acb(0xae)](),_0x489acb(0xc3));});});});}function a0_0x5c99(){const _0x25523d=['none','auth','94272zFtxJb','1627984wseKjj','getBoundingClientRect','getElementById','DOMContentLoaded','searchbox','charAt','textContent','length','top','100fDjEvc','2238507OnETCo','value','img','Level:\x20','doc','currentUser','style','scrollTo','appendChild','/signin.html','ml-4','apply','set','onclick','width','push','input','block','profileIMG','100%','data','5687672xJrjFz','160QGMEvx','user-bio','section:search-results','Users','bg-blue-600\x20text-sm\x20absolute\x20bottom-4\x20right-3\x20mt-2\x20mr-2\x20px-4\x20py-2\x20rounded-md\x20hover:bg-blue-700\x20duration-300','toLowerCase','div','onAuthStateChanged','name','8154ikHHmB','collection','bg-[#2B2B2B]\x20px-4\x20py-2\x20rounded-lg\x20flex\x20items-center\x20relative\x20select-none\x20cursor-pointer\x20hover:bg-gray-600\x20duration-200','firestore','display','forEach','trim','src','user-profile-img','uid','search-results','get','toUpperCase','button','level','smooth','1568QroGyx','where','location','857026iEBHCw','slice','/assets/img/default_user.jpeg','createElement','addEventListener','href','className','bio','connections','height','then','7504749xcYRyH','split','absolute\x20top-2\x20right-3\x20mt-2\x20mr-2\x20text-sm\x20text-gray-400','senderId','my-1\x20ml-1\x20rounded-md'];a0_0x5c99=function(){return _0x25523d;};return a0_0x5c99();}function capitalize(_0x3a677f){const _0x32f895=a0_0x45ed12;return _0x3a677f[_0x32f895(0x95)](0x0)['toUpperCase']()+_0x3a677f[_0x32f895(0xcd)](0x1)['toLowerCase']();}
+let db = firebase.firestore()
+let auth = firebase.auth();
+
+function smoothScrollAboveElement(elementId, offset) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top + window.pageYOffset;
+        window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function displayUserCard(data, containerID) {
+    const card = document.createElement('div');
+    card.className = 'bg-[#2B2B2B] px-4 py-2 rounded-lg flex items-center relative select-none cursor-pointer hover:bg-gray-600 duration-200';
+
+    const level = document.createElement('p');
+    level.className = 'absolute top-2 right-3 mt-2 mr-2 text-sm text-gray-400';
+    level.textContent = `Level: ${data.level}`;
+
+    const button = document.createElement('button');
+    button.className = 'bg-blue-600 text-sm absolute bottom-4 right-3 mt-2 mr-2 px-4 py-2 rounded-md hover:bg-blue-700 duration-300';
+    button.textContent = 'Chat';
+    button.onclick = function () {
+        window.location.href = `/chat.html?userID=${data.senderId}`;
+    }
+
+    const img = document.createElement('img');
+    img.src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG;
+    img.className = 'my-1 ml-1 rounded-md';
+    img.style.width = '75';
+    img.style.height = '75';
+    img.style.borderRadius = '100%';
+
+    const div = document.createElement('div');
+    div.className = 'ml-4';
+
+    const h3 = document.createElement('h3');
+    h3.className = 'text-lg font-bold';
+    h3.textContent = data.name;
+
+    const p = document.createElement('p');
+    p.className = 'text-sm truncate overflow-ellipsis overflow-hidden'
+    p.id = 'user-bio';
+    p.textContent = data.bio;
+
+    div.appendChild(h3);
+    div.appendChild(p);
+
+    card.appendChild(level);
+    card.appendChild(button);
+    card.appendChild(img);
+    card.appendChild(div);
+
+    document.getElementById(containerID).appendChild(card);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            const userRef = db.collection("Users").doc(auth.currentUser.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+
+            userRef.get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+
+                    document.getElementById('user-profile-img').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
+
+                    // load "my connections"
+                    const connectionsArray = data.connections;
+                    console.log(connectionsArray);
+
+                    if (connectionsArray && connectionsArray.length > 0) {
+                        connectionsArray.forEach(connection => {
+                            db.collection('Users').doc(connection).get().then((doc) => {
+                                if (doc.exists) {
+                                    const data = doc.data();
+
+                                    displayUserCard(data, 'myconnections');
+                                }
+                            })
+                        });
+                    }
+                }
+            })
+        } else {
+            window.location.href = '/signin.html';
+        }
+    });
+
+    const searchInput = document.getElementById('searchbox');
+    searchInput.addEventListener('input', debounce(function () {
+        const query = searchInput.value.trim();
+        const searchResultsSection = document.getElementById('section:search-results');
+
+        if (query) {
+            searchResultsSection.style.display = 'block';
+            searchUsers(query);
+        } else {
+            searchResultsSection.style.display = 'none';
+        }
+    }, 500))
+});
+
+// MARK: - Search Function
+function debounce(func, delay) {
+    let debounceTimer;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    }
+}
+
+function searchUsers(query) {
+    const searchResultsContainer = document.getElementById('search-results');
+    searchResultsContainer.innerHTML = '';
+
+    // Split query into parts (first name, last name)
+    const nameParts = query.trim().split(/\s+/);
+
+    const queries = [];
+
+    // Add combinations of name parts
+    if (nameParts.length === 1) {
+        // Single name part
+        const name = nameParts[0];
+        queries.push(
+            db.collection('Users').where('name', '>=', name.toLowerCase()).where('name', '<=', name.toLowerCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', name.toUpperCase()).where('name', '<=', name.toUpperCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', capitalize(name)).where('name', '<=', capitalize(name) + '\uf8ff')
+        );
+    } else {
+        // Multiple name parts
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(' ');
+
+        queries.push(
+            db.collection('Users').where('name', '>=', query.toLowerCase()).where('name', '<=', query.toLowerCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', query.toUpperCase()).where('name', '<=', query.toUpperCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', capitalize(query)).where('name', '<=', capitalize(query) + '\uf8ff'),
+
+            db.collection('Users').where('name', '>=', firstName.toLowerCase() + ' ' + lastName.toLowerCase()).where('name', '<=', firstName.toLowerCase() + ' ' + lastName.toLowerCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', lastName.toLowerCase() + ' ' + firstName.toLowerCase()).where('name', '<=', lastName.toLowerCase() + ' ' + firstName.toLowerCase() + '\uf8ff'),
+
+            db.collection('Users').where('name', '>=', firstName.toUpperCase() + ' ' + lastName.toUpperCase()).where('name', '<=', firstName.toUpperCase() + ' ' + lastName.toUpperCase() + '\uf8ff'),
+            db.collection('Users').where('name', '>=', lastName.toUpperCase() + ' ' + firstName.toUpperCase()).where('name', '<=', lastName.toUpperCase() + ' ' + firstName.toUpperCase() + '\uf8ff'),
+
+            db.collection('Users').where('name', '>=', capitalize(firstName) + ' ' + capitalize(lastName)).where('name', '<=', capitalize(firstName) + ' ' + capitalize(lastName) + '\uf8ff'),
+            db.collection('Users').where('name', '>=', capitalize(lastName) + ' ' + capitalize(firstName)).where('name', '<=', capitalize(lastName) + ' ' + capitalize(firstName) + '\uf8ff')
+        );
+    }
+
+    // Search by email and senderId
+    queries.push(
+        db.collection('Users').where('email', '==', query),
+        db.collection('Users').where('senderId', '==', query)
+    );
+
+    // Execute all queries
+    queries.forEach(query => {
+        query.get().then(snapshot => {
+            snapshot.forEach(doc => {
+                displayUserCard(doc.data(), 'search-results');
+            });
+        });
+    });
+}
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}

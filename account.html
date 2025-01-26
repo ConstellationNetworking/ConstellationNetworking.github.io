@@ -1,1 +1,161 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Account</title><script src="https://cdn.tailwindcss.com"></script><link rel="preload" as="style" onload='this.rel="stylesheet"' href="/assets/css/account.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"><meta name="description" content="Manage your Constellation Networking account settings and preferences."><meta name="keywords" content="Constellation Networking, account management, settings, preferences"><meta name="author" content="Constellation Networking Team"><script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-FTXQ5HF0C5")</script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script><script src="assets/js/firebase_init.js"></script></head><body class="bg-[#161616] text-white font-inter"><div class="container mx-auto px-4 py-6"><div class="flex justify-between items-center"><a href="/index.html"><div class="text-[#9CA3AF] text-sm tracking-widest">CONSTELLATION.</div></a><div class="flex items-center space-x-6"><a href="/missions.html"><div class="text-[#D1D5DB] text-xs tracking-widest">MISSION</div></a><a href="/connections.html"><div class="text-[#D1D5DB] text-xs tracking-widest">CONNECTIONS</div></a><a href="chat.html"><div class="text-[#D1D5DB] text-xs tracking-widest">CHAT</div></a><a href="rewards.html"><div class="text-[#D1D5DB] text-xs tracking-widest">REWARDS</div></a><div class="relative dropdown" tabindex="0"><img class="w-10 h-10 rounded-full" src="/assets/img/default_user.jpeg" id="profile-pic" alt="User Avatar"><div class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20" style="display:none"><a href="/setup_profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a> <a href="#" onclick="signout()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a></div></div></div></div><div class="container mx-auto px-4 py-6"><div class="grid grid-cols-1 md:grid-cols-4 gap-6"><div class="space-y-6 md:col-span-1"><div class="bg-[#1E1E1E] shadow-lg rounded-lg p-4 border border-[#292929]"><div class="flex justify-center"><div class="flip-container animate-scale" onclick='this.classList.toggle("flip")' onmouseover='this.classList.toggle("hover")' onmouseout='this.classList.toggle("hover")'><div class="flipper" style="cursor:pointer"><div class="front" style="position:relative;width:100%;height:100%"><img id="current-user-profile-picture" width="100" height="100" src="/assets/img/default_user.jpeg" alt="100x100" class="rounded-full"></div><div class="back" style="position:absolute;width:100%;height:100%;top:0;left:0;backface-visibility:hidden"><div class="avatar-container" style="position:relative;width:100%;height:100%;background-color:#fff8dc;border-radius:100%"></div><img id="glasses" style="width:100%;height:100%"> <img id="hair" style="width:100%;height:100%"> <img id="head" style="width:100%;height:100%;border-radius:50px"></div></div></div></div><div class="text-center mt-4"><p class="text-lg font-semibold" id="current-user-name"></p><p class="text-[#9CA3AF] text-sm" id="current-user-email"></p></div><div class="flex justify-between mt-4"><p class="bg-[#2B2B2B] rounded-lg px-4 py-2 text-center w-full mr-2 border border-[#313131]" id="current-user-level"></p><p class="bg-[#2B2B2B] rounded-lg px-4 py-2 text-center w-full ml-2 border border-[#313131]" id="current-user-points"></p></div></div><div class="bg-[#1E1E1E] shadow-lg rounded-lg p-4 border border-[#292929]"><div class="text-lg text-[#D1D5DB] font-semibold mb-4">Recent Contacts</div><div class="space-y-4 mb-4 messages-header" id="userHistoryList"></div><p class="text-sm text-gray-500 mb-2">Your recent contacts will appear here.</p></div></div><div class="md:col-span-3"><div class="bg-[#1E1E1E] shadow-lg rounded-lg p-2 border border-[#292929]"><iframe src="/create_avatar.html" width="100%" height="600px" style="border:none" id="main-iframe" class="rounded-lg"></iframe></div></div></div></div></div></body><script src="/assets/js/account.js"></script><script src="/assets/js/avatar_preview.js"></script></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/assets/css/account.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="Manage your Constellation Networking account settings and preferences.">
+    <meta name="keywords" content="Constellation Networking, account management, settings, preferences">
+    <meta name="author" content="Constellation Networking Team">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FTXQ5HF0C5');
+    </script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="assets/js/firebase_init.js"></script>
+
+</head>
+
+<body class="bg-[#161616] text-white font-inter">
+    <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+            <a href="/index.html">
+                <div class="text-[#9CA3AF] text-sm tracking-widest">
+                    CONSTELLATION.
+                </div>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="/missions.html">
+                    <div class="text-[#D1D5DB] text-xs tracking-widest">MISSION</div>
+                </a>
+                <a href="/connections.html">
+                    <div class="text-[#D1D5DB] text-xs tracking-widest">CONNECTIONS</div>
+                </a>
+                <a href="chat.html">
+                    <div class="text-[#D1D5DB] text-xs tracking-widest">CHAT</div>
+                </a>
+                <a href="rewards.html">
+                    <div class="text-[#D1D5DB] text-xs tracking-widest">REWARDS</div>
+                </a>
+
+                <div class="relative dropdown" tabindex="0">
+                    <img class="w-10 h-10 rounded-full" src="/assets/img/default_user.jpeg" id="profile-pic"
+                        alt="User Avatar">
+                    <div class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
+                        style="display: none;">
+                        <a href="/setup_profile.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                        <a href="#" onclick="signout()"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- User Info and Recent Contacts -->
+                <div class="space-y-6 md:col-span-1">
+                    <!-- User Info -->
+                    <div class="bg-[#1E1E1E] shadow-lg rounded-lg p-4 border border-[#292929]">
+                        <div class="flex justify-center">
+                            <div class="flip-container animate-scale" onclick="this.classList.toggle('flip');"
+                                onmouseover="this.classList.toggle('hover');"
+                                onmouseout="this.classList.toggle('hover');">
+                                <div class="flipper" style="cursor: pointer;">
+                                    <div class="front" style="position: relative; width: 100%; height: 100%;">
+                                        <img id="current-user-profile-picture" width="100" height="100"
+                                            src="/assets/img/default_user.jpeg" alt="100x100" class="rounded-full">
+                                    </div>
+                                    <div class="back"
+                                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; backface-visibility: hidden;">
+                                        <div class="avatar-container"
+                                            style="position: relative; width: 100%; height: 100%; background-color:cornsilk; border-radius: 100%;">
+                                        </div>
+
+                                        <!-- MARK:- sometimes will create a image not found error -->
+                                        <img id="glasses" style="width: 100%; height: 100%;">
+
+                                        <img id="hair" style="width: 100%; height: 100%;">
+                                        <img id="head" style="width: 100%; height: 100%; border-radius: 50px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <p class="text-lg font-semibold" id="current-user-name"></p>
+                            <p class="text-[#9CA3AF] text-sm" id="current-user-email"></p>
+                        </div>
+                        <div class="flex justify-between mt-4">
+                            <p class="bg-[#2B2B2B] rounded-lg px-4 py-2 text-center w-full mr-2 border border-[#313131]"
+                                id="current-user-level"></p>
+                            <p class="bg-[#2B2B2B] rounded-lg px-4 py-2 text-center w-full ml-2 border border-[#313131]"
+                                id="current-user-points"></p>
+                        </div>
+                    </div>
+
+                    <!-- Recent Contacts -->
+                    <div class="bg-[#1E1E1E] shadow-lg rounded-lg p-4 border border-[#292929]">
+                        <div class="text-lg text-[#D1D5DB] font-semibold mb-4">Recent Contacts</div>
+                        <div class="space-y-4 mb-4 messages-header" id="userHistoryList">
+                            <!-- <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-[#D9D9D9] rounded-full"></div>
+                                <div>
+                                    <div class="text-sm">Winnie Zhang</div>
+                                    <div class="text-[#9CA3AF] text-xs">wingsofzhang@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-[#D9D9D9] rounded-full"></div>
+                                <div>
+                                    <div class="text-sm">Test User 2</div>
+                                    <div class="text-[#9CA3AF] text-xs">testuser2@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-[#D9D9D9] rounded-full"></div>
+                                <div>
+                                    <div class="text-sm">Test User</div>
+                                    <div class="text-[#9CA3AF] text-xs">testuser@gmail.com</div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <p class="text-sm text-gray-500 mb-2">Your recent contacts will appear here.</p>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="md:col-span-3">
+                    <div class="bg-[#1E1E1E] shadow-lg rounded-lg p-2 border border-[#292929]">
+                        <iframe src="/create_avatar.html" width="100%" height="600px" style="border:none;"
+                            id="main-iframe" class="rounded-lg"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/assets/js/account.js"></script>
+<script src="/assets/js/avatar_preview.js"></script>
+
+</html>

@@ -1,1 +1,550 @@
-const a0_0x4d1312=a0_0x4847;(function(_0x5b0b95,_0x156143){const _0x5137a9=a0_0x4847,_0x4b09b2=_0x5b0b95();while(!![]){try{const _0x1edb91=parseInt(_0x5137a9(0x27f))/0x1*(parseInt(_0x5137a9(0x24e))/0x2)+-parseInt(_0x5137a9(0x22e))/0x3+-parseInt(_0x5137a9(0x236))/0x4+parseInt(_0x5137a9(0x280))/0x5*(-parseInt(_0x5137a9(0x260))/0x6)+parseInt(_0x5137a9(0x24c))/0x7*(-parseInt(_0x5137a9(0x28a))/0x8)+-parseInt(_0x5137a9(0x262))/0x9*(parseInt(_0x5137a9(0x26b))/0xa)+-parseInt(_0x5137a9(0x247))/0xb*(-parseInt(_0x5137a9(0x237))/0xc);if(_0x1edb91===_0x156143)break;else _0x4b09b2['push'](_0x4b09b2['shift']());}catch(_0x28e4bc){_0x4b09b2['push'](_0x4b09b2['shift']());}}}(a0_0x445b,0x2b52d));function a0_0x4847(_0x14bcfa,_0x3ad168){const _0x445b20=a0_0x445b();return a0_0x4847=function(_0x484741,_0x406962){_0x484741=_0x484741-0x1f4;let _0x45722d=_0x445b20[_0x484741];return _0x45722d;},a0_0x4847(_0x14bcfa,_0x3ad168);}function a0_0x445b(){const _0x12032f=['getHours','3277714jRFgHk','arrayUnion','Profile\x20picture\x20of\x20','classList','ConstellationBot','636937hToPdM','auth','104VWnmZx','src','rounded-full','Error\x20sending\x20message:\x20','Error\x20searching\x20for\x20user:\x20','forEach','error','User\x20is\x20not\x20signed\x20in.','scrollTop','floor','flex-end','Sat','User\x20signed\x20out\x20successfully','flex\x20items-center\x20space-x-4\x20rounded-full\x20hover:bg-[#313131]','getMonth','doc','update','docChanges','42aBIodh','textContent','487863IAgJaM','Tue','uid','onAuthStateChanged','signOut','alignItems','added','profile-img-sent','type','60mPOarF','getFullYear','Messages','received','user-history-item','user-ConstellationBot','onSnapshot','Users','shiftKey','docs','User\x20doesn\x27t\x20exist.','asc','firestore','width','where','style','user-','10px','addEventListener','justifyContent','4061nylRBk','215540wlqYxr','Wed','key','div','getDate','Mon','preventDefault','none','then','An\x20error\x20occured\x20while\x20signing\x20out.\x20Please\x20try\x20again\x20or\x20see\x20console\x20for\x20logs.','16yGUDZv','location','catch','search','Active','message','User\x20not\x20found.','join','padStart','height','appendChild','senderId','Error\x20updating\x20connections:\x20','orderBy','profileIMG','userHistory','getMinutes','value','set','messageText','button','entries','chatId','currentUser','Fri','dark:text-gray-400','className','scrollHeight','Error\x20updating\x20userHistory:\x20','rounded-full\x20mr-2','listStyleType','Inter','sort','/assets/img/default_user.jpeg','target-user','h-8','collection','Thu','click','get','text-[#9CA3AF]\x20text-xs','profile-img-received','text-gray-500','getDay','Error\x20getting\x20user:','\x20added\x20to\x20connections.','font-normal','getElementById','href','flex','font-bold','target-user-profile-pic','w-8','Sign-out\x20error:','innerHTML','userHistoryList','add','alt','empty','found-user-details','display','createElement','timestamp','toString','User\x20found:','771612iiicth','12px','img','message-history','text-sm','replace','Enter','toDate','637724oJJsxr','48CfrDGZ','trim','keydown','exists','log','borderRadius','#user-','name','target-user-name','message-input','center','/signin.html','data','FieldValue','span'];a0_0x445b=function(){return _0x12032f;};return a0_0x445b();}let db=firebase['firestore'](),auth=firebase['auth']();document[a0_0x4d1312(0x27d)]('DOMContentLoaded',function(){const _0x4823f9=a0_0x4d1312,_0x163fed=firebase[_0x4823f9(0x24d)](),_0x4c64f9=firebase[_0x4823f9(0x277)](),_0x16a73b=document[_0x4823f9(0x21c)]('message-history'),_0x3218c9=document[_0x4823f9(0x21c)]('send-button'),_0x29a530=document['getElementById'](_0x4823f9(0x240));let _0x4b2a80=null;const _0x2f9464=document[_0x4823f9(0x21c)](_0x4823f9(0x224));let _0x1fea8c=null;const _0x54f868=document[_0x4823f9(0x21c)]('user-search-email');_0x54f868[_0x4823f9(0x27d)](_0x4823f9(0x239),_0x51fbb6=>{const _0x11b69c=_0x4823f9;_0x51fbb6[_0x11b69c(0x282)]==='Enter'&&(_0x51fbb6['preventDefault'](),_0x36c2da(_0x54f868['value']));});function _0x13547c(){_0x1fea8c&&(_0x1fea8c(),_0x1fea8c=null);}function _0x2f827c(_0x25e73c){const _0x354f1b=_0x4823f9,_0x3959b5=new URLSearchParams(window['location'][_0x354f1b(0x28d)]);return _0x3959b5['get'](_0x25e73c);}function _0x4b75a6(_0x3dbcff){const _0x10daa1=_0x4823f9;_0x13547c();const _0x4465a1=_0x4c64f9[_0x10daa1(0x211)](_0x10daa1(0x26d));_0x4465a1[_0x10daa1(0x279)](_0x10daa1(0x203),'==',getChatId(_0x163fed['currentUser']['uid'],_0x3dbcff))[_0x10daa1(0x1fa)](_0x10daa1(0x22b),_0x10daa1(0x276))[_0x10daa1(0x271)](_0x45f1f0=>{const _0x2ca9d5=_0x10daa1;_0x45f1f0[_0x2ca9d5(0x25f)]()[_0x2ca9d5(0x253)](_0x369bbf=>{const _0x20b58a=_0x2ca9d5;_0x369bbf[_0x20b58a(0x26a)]===_0x20b58a(0x268)&&_0x43cfda(_0x369bbf[_0x20b58a(0x25d)][_0x20b58a(0x243)]());});});}function _0x23c05e(){const _0x382381=_0x4823f9,_0x34d3e1=document[_0x382381(0x21c)]('message-history');_0x34d3e1[_0x382381(0x223)]='';}function _0x373683(_0x2aea0f){_0x13547c(),_0x23c05e(),_0x4b75a6(_0x2aea0f);}function _0x43cfda(_0x2daf12){const _0x390682=_0x4823f9;_0x4c64f9[_0x390682(0x211)](_0x390682(0x272))[_0x390682(0x279)]('senderId','==',_0x2daf12[_0x390682(0x1f8)])['get']()['then'](_0x4c066b=>{const _0xdfdf75=_0x390682;_0x4c066b[_0xdfdf75(0x253)](_0x589be0=>{const _0x422d63=_0xdfdf75;if(_0x589be0[_0x422d63(0x23a)]){const _0x14dd90=_0x589be0[_0x422d63(0x243)](),_0x33597c=document[_0x422d63(0x21c)](_0x422d63(0x231));if(_0x2daf12[_0x422d63(0x1f8)]===_0x163fed[_0x422d63(0x204)][_0x422d63(0x264)])_0x4c64f9[_0x422d63(0x211)](_0x422d63(0x272))[_0x422d63(0x279)](_0x422d63(0x1f8),'==',_0x163fed['currentUser']['uid'])[_0x422d63(0x214)]()[_0x422d63(0x288)](_0x28d775=>{const _0x419662=_0x422d63;_0x28d775[_0x419662(0x253)](_0x47eb3f=>{const _0x1d6199=_0x419662;if(_0x47eb3f['exists']){const _0x2d5030=_0x47eb3f['data'](),_0x15b71b=document[_0x1d6199(0x22a)]('div');_0x15b71b[_0x1d6199(0x27a)][_0x1d6199(0x229)]=_0x1d6199(0x21e);const _0x4eae7e=document[_0x1d6199(0x22a)](_0x1d6199(0x230));_0x4eae7e[_0x1d6199(0x24a)][_0x1d6199(0x225)](_0x1d6199(0x221),_0x1d6199(0x210),_0x1d6199(0x269)),_0x4eae7e[_0x1d6199(0x27a)][_0x1d6199(0x23c)]=_0x1d6199(0x22f),_0x4eae7e[_0x1d6199(0x226)]=_0x1d6199(0x249)+_0x2d5030[_0x1d6199(0x23e)],_0x4eae7e['src']=_0x2d5030[_0x1d6199(0x1fb)]||_0x1d6199(0x20e);const _0x5bbb3a=document[_0x1d6199(0x22a)](_0x1d6199(0x245));_0x5bbb3a[_0x1d6199(0x24a)]['add'](_0x1d6199(0x28f)),_0x5bbb3a['classList'][_0x1d6199(0x225)]('sent'),_0x5bbb3a[_0x1d6199(0x223)]=_0x2daf12['messageText'],_0x5bbb3a[_0x1d6199(0x27a)]['fontFamily']=_0x1d6199(0x20c);const _0x8e79b2=document[_0x1d6199(0x22a)]('span');_0x8e79b2[_0x1d6199(0x24a)][_0x1d6199(0x225)](_0x1d6199(0x232),_0x1d6199(0x21b),_0x1d6199(0x217),_0x1d6199(0x206)),_0x8e79b2['style']['marginTop']=_0x1d6199(0x27c),_0x2daf12&&_0x2daf12[_0x1d6199(0x22b)]?_0x8e79b2['textContent']=_0x5bd49f(_0x2daf12[_0x1d6199(0x22b)][_0x1d6199(0x235)]()):_0x8e79b2[_0x1d6199(0x261)]=_0x5bd49f(new Date()),_0x15b71b[_0x1d6199(0x1f7)](_0x8e79b2),_0x15b71b[_0x1d6199(0x1f7)](_0x5bbb3a),_0x15b71b['appendChild'](_0x4eae7e),_0x33597c[_0x1d6199(0x1f7)](_0x15b71b),_0x33597c[_0x1d6199(0x256)]=_0x33597c[_0x1d6199(0x208)];}});});else{const _0x261fa8=document['createElement'](_0x422d63(0x283));_0x261fa8[_0x422d63(0x27a)]['display']='flex',_0x261fa8[_0x422d63(0x27a)][_0x422d63(0x27e)]=_0x422d63(0x258),_0x261fa8[_0x422d63(0x27a)][_0x422d63(0x267)]=_0x422d63(0x241);const _0x53c76f=document['createElement'](_0x422d63(0x230));_0x53c76f[_0x422d63(0x24a)][_0x422d63(0x225)](_0x422d63(0x221),_0x422d63(0x210),_0x422d63(0x250),_0x422d63(0x216)),_0x53c76f['alt']='Profile\x20picture\x20of\x20'+_0x14dd90[_0x422d63(0x23e)],_0x53c76f['src']=_0x14dd90[_0x422d63(0x1fb)]||_0x422d63(0x20e);const _0xe05cb5=document[_0x422d63(0x22a)](_0x422d63(0x283));_0xe05cb5[_0x422d63(0x24a)][_0x422d63(0x225)](_0x422d63(0x28f)),_0xe05cb5['classList'][_0x422d63(0x225)](_0x422d63(0x26e)),_0xe05cb5[_0x422d63(0x223)]=_0x2daf12[_0x422d63(0x200)];const _0x5f04a1=document[_0x422d63(0x22a)](_0x422d63(0x245));_0x5f04a1[_0x422d63(0x24a)][_0x422d63(0x225)](_0x422d63(0x232),_0x422d63(0x21b),_0x422d63(0x217),'dark:text-gray-400'),_0x5f04a1[_0x422d63(0x27a)]['marginTop']=_0x422d63(0x27c),_0x2daf12&&_0x2daf12['timestamp']?_0x5f04a1[_0x422d63(0x261)]=_0x5bd49f(_0x2daf12[_0x422d63(0x22b)][_0x422d63(0x235)]()):_0x5f04a1[_0x422d63(0x261)]=_0x5bd49f(new Date()),_0x261fa8[_0x422d63(0x1f7)](_0x53c76f),_0x261fa8[_0x422d63(0x1f7)](_0xe05cb5),_0x261fa8['appendChild'](_0x5f04a1),_0x33597c[_0x422d63(0x1f7)](_0x261fa8),_0x33597c['scrollTop']=_0x33597c[_0x422d63(0x208)];}}});});}function _0x5bd49f(_0x1c31ab){const _0x45675e=_0x4823f9,_0x56f1d5=new Date();let _0x751657;const _0x1a91d8=Math[_0x45675e(0x257)]((_0x56f1d5-_0x1c31ab)/0x3e8),_0xd21842=Math[_0x45675e(0x257)](_0x1a91d8/0x3c),_0x218444=Math[_0x45675e(0x257)](_0xd21842/0x3c),_0x466806=Math[_0x45675e(0x257)](_0x218444/0x18);if(_0x466806===0x0)_0x751657=_0x1c31ab[_0x45675e(0x246)]()['toString']()[_0x45675e(0x1f5)](0x2,'0')+':'+_0x1c31ab[_0x45675e(0x1fd)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0');else{if(_0x466806<0x7){const _0x140d7e=['Sun',_0x45675e(0x285),_0x45675e(0x263),_0x45675e(0x281),_0x45675e(0x212),_0x45675e(0x205),_0x45675e(0x259)];_0x751657=_0x140d7e[_0x1c31ab[_0x45675e(0x218)]()]+'\x20'+_0x1c31ab[_0x45675e(0x246)]()[_0x45675e(0x22c)]()['padStart'](0x2,'0')+':'+_0x1c31ab[_0x45675e(0x1fd)]()[_0x45675e(0x22c)]()['padStart'](0x2,'0');}else _0x56f1d5[_0x45675e(0x26c)]()===_0x1c31ab[_0x45675e(0x26c)]()?_0x751657=(_0x1c31ab[_0x45675e(0x25c)]()+0x1)['toString']()[_0x45675e(0x1f5)](0x2,'0')+':'+_0x1c31ab[_0x45675e(0x284)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0')+'\x20'+_0x1c31ab[_0x45675e(0x246)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0')+':'+_0x1c31ab[_0x45675e(0x1fd)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0'):_0x751657=_0x1c31ab[_0x45675e(0x26c)]()+':'+(_0x1c31ab[_0x45675e(0x25c)]()+0x1)[_0x45675e(0x22c)]()['padStart'](0x2,'0')+':'+_0x1c31ab[_0x45675e(0x284)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0')+'\x20'+_0x1c31ab[_0x45675e(0x246)]()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0')+':'+_0x1c31ab['getMinutes']()[_0x45675e(0x22c)]()[_0x45675e(0x1f5)](0x2,'0');}return _0x751657;}_0x163fed[_0x4823f9(0x265)](function(_0x240fe4){const _0x402f24=_0x4823f9;if(_0x240fe4){const _0x219284=_0x4c64f9['collection'](_0x402f24(0x272))['doc'](_0x240fe4[_0x402f24(0x264)]),_0x33c8ac=new Date();_0x219284[_0x402f24(0x1ff)]({'lastActive':_0x33c8ac},{'merge':!![]}),_0x3218c9[_0x402f24(0x27d)](_0x402f24(0x213),_0x1ef3cb),_0x29a530[_0x402f24(0x27d)](_0x402f24(0x239),_0xcaf4a0=>{const _0x355b8f=_0x402f24;_0xcaf4a0[_0x355b8f(0x282)]===_0x355b8f(0x234)&&!_0xcaf4a0[_0x355b8f(0x273)]&&(_0xcaf4a0[_0x355b8f(0x286)](),_0x1ef3cb());});const _0x2b03c8=_0x4c64f9['collection'](_0x402f24(0x272))[_0x402f24(0x25d)](_0x240fe4[_0x402f24(0x264)]);_0x2b03c8[_0x402f24(0x214)]()[_0x402f24(0x288)](_0x5c307f=>{const _0x3ef2ca=_0x402f24;if(_0x5c307f[_0x3ef2ca(0x23a)]){const _0x2da086=_0x5c307f[_0x3ef2ca(0x243)](),_0x3417fb=_0x2da086[_0x3ef2ca(0x1fc)];for(const [_0x3fe8f6,_0x5be2cc]of Object[_0x3ef2ca(0x202)](_0x3417fb)){const _0x5eb349=document['querySelector'](_0x3ef2ca(0x23d)+_0x3fe8f6);!_0x5eb349&&_0x4c64f9[_0x3ef2ca(0x211)]('Users')['doc'](_0x3fe8f6)[_0x3ef2ca(0x214)]()[_0x3ef2ca(0x288)](_0xc589fe=>{const _0x2c3c10=_0x3ef2ca;if(_0xc589fe[_0x2c3c10(0x23a)]){const _0x2fcadb=_0xc589fe[_0x2c3c10(0x243)](),_0xe18cae=_0x2fcadb[_0x2c3c10(0x1fb)]||_0x2c3c10(0x20e),_0x443912=document['createElement']('li');_0x443912[_0x2c3c10(0x27a)][_0x2c3c10(0x20b)]=_0x2c3c10(0x287);const _0xb1883f=document[_0x2c3c10(0x22a)](_0x2c3c10(0x283));_0xb1883f[_0x2c3c10(0x207)]=_0x2c3c10(0x26f);const _0x43565f=document[_0x2c3c10(0x22a)](_0x2c3c10(0x283));_0x43565f['classname']=_0x2c3c10(0x25b),_0x43565f['id']=_0x2c3c10(0x27b)+_0x3fe8f6,_0x322a5c(_0x43565f);const _0x532b8c=document[_0x2c3c10(0x22a)](_0x2c3c10(0x230));_0x532b8c[_0x2c3c10(0x24f)]=_0xe18cae,_0x532b8c['className']='w-12\x20h-12\x20rounded-full',_0x532b8c[_0x2c3c10(0x278)]=0x32,_0x532b8c[_0x2c3c10(0x1f6)]=0x32;const _0x4d4c8b=document[_0x2c3c10(0x22a)](_0x2c3c10(0x283));_0x4d4c8b['id']=_0x2c3c10(0x228);const _0x2d5f3d=document[_0x2c3c10(0x22a)]('p');_0x2d5f3d[_0x2c3c10(0x207)]='text-sm',_0x2d5f3d['id']=_0x2c3c10(0x20f),_0x2d5f3d['textContent']=_0x5be2cc;const _0x129897=document['createElement']('p');_0x129897[_0x2c3c10(0x207)]=_0x2c3c10(0x215),_0x129897['textContent']=_0x2c3c10(0x28e),_0x4d4c8b[_0x2c3c10(0x1f7)](_0x2d5f3d),_0x4d4c8b['appendChild'](_0x129897),_0x43565f[_0x2c3c10(0x1f7)](_0x532b8c),_0x43565f[_0x2c3c10(0x1f7)](_0x4d4c8b),_0xb1883f['appendChild'](_0x43565f),_0x443912[_0x2c3c10(0x1f7)](_0xb1883f),_0x2f9464[_0x2c3c10(0x1f7)](_0x443912),_0x322a5c(document['getElementById'](_0x2c3c10(0x270)));}else console['error']('User\x20doens\x27t\x20exist.',_0x3fe8f6);});}}else console[_0x3ef2ca(0x254)](_0x3ef2ca(0x290));})['catch'](_0x18f721=>{const _0x410f52=_0x402f24;console[_0x410f52(0x254)](_0x410f52(0x219),_0x18f721);});const _0x2e4f87=_0x2f827c('userID');_0x2e4f87&&(_0x1166f0(_0x2e4f87),_0x373683(_0x2e4f87));}else console[_0x402f24(0x254)](_0x402f24(0x255)),window[_0x402f24(0x28b)][_0x402f24(0x21d)]=_0x402f24(0x242);});function _0x1ef3cb(){const _0x5a1b2a=_0x4823f9,_0x8842d7=_0x29a530[_0x5a1b2a(0x1fe)][_0x5a1b2a(0x238)]();if(_0x8842d7&&_0x4b2a80){const _0xef81f0=_0x4c64f9[_0x5a1b2a(0x211)](_0x5a1b2a(0x26d));_0xef81f0[_0x5a1b2a(0x225)]({'senderId':_0x163fed[_0x5a1b2a(0x204)][_0x5a1b2a(0x264)],'receiverId':_0x4b2a80,'messageText':_0x8842d7,'chatId':getChatId(_0x163fed[_0x5a1b2a(0x204)][_0x5a1b2a(0x264)],_0x4b2a80),'timestamp':firebase['firestore'][_0x5a1b2a(0x244)]['serverTimestamp']()})[_0x5a1b2a(0x288)](()=>{const _0x38761e=_0x5a1b2a;_0x29a530['value']='',console['log']('Message\x20sent\x20successfully');const _0x370d37=_0x4c64f9[_0x38761e(0x211)](_0x38761e(0x272))[_0x38761e(0x25d)](_0x163fed[_0x38761e(0x204)][_0x38761e(0x264)]);_0x370d37[_0x38761e(0x25e)]({'connections':firebase[_0x38761e(0x277)][_0x38761e(0x244)][_0x38761e(0x248)](_0x4b2a80)})['then'](()=>{const _0x431c5c=_0x38761e;console[_0x431c5c(0x23b)]('User\x20'+_0x4b2a80+_0x431c5c(0x21a));})['catch'](_0x50e4dc=>{const _0x28a212=_0x38761e;console[_0x28a212(0x254)](_0x28a212(0x1f9)+_0x50e4dc);});})['catch'](_0x4a2bf8=>{const _0x85eb1f=_0x5a1b2a;console['error'](_0x85eb1f(0x251),_0x4a2bf8);});}}function _0x3537e8(_0x5e468a){const _0x4becc1=_0x4823f9;_0x4b2a80=_0x5e468a['id'],document[_0x4becc1(0x21c)](_0x4becc1(0x231))[_0x4becc1(0x223)]='',_0x55ab4d(_0x4b2a80);}function _0x36c2da(_0x152fb8){const _0x3dfedc=_0x4823f9,_0xa3e20b=firebase[_0x3dfedc(0x277)]()[_0x3dfedc(0x211)](_0x3dfedc(0x272));_0xa3e20b['where']('email','==',_0x152fb8)[_0x3dfedc(0x214)]()[_0x3dfedc(0x288)](_0x451664=>{const _0xc27a7a=_0x3dfedc;if(!_0x451664[_0xc27a7a(0x227)]){const _0x50a41c=_0x451664[_0xc27a7a(0x274)][0x0],_0x226e88=_0x50a41c['data']();_0x226e88['id']=_0x50a41c['id'],_0x3537e8(_0x226e88),_0x54f868[_0xc27a7a(0x1fe)]='';if(_0x163fed[_0xc27a7a(0x204)]){const _0x32609c=_0x4c64f9[_0xc27a7a(0x211)](_0xc27a7a(0x272))[_0xc27a7a(0x25d)](_0x163fed[_0xc27a7a(0x204)][_0xc27a7a(0x264)]);_0x32609c[_0xc27a7a(0x214)]()[_0xc27a7a(0x288)](_0xf0a8ff=>{const _0x307b87=_0xc27a7a;if(_0xf0a8ff[_0x307b87(0x23a)]){const _0x4c919b=_0xf0a8ff[_0x307b87(0x243)]()[_0x307b87(0x1fc)]||{};_0x4c919b[_0x226e88['id']]=_0x226e88[_0x307b87(0x23e)],_0x32609c[_0x307b87(0x25e)]({'userHistory':_0x4c919b})[_0x307b87(0x288)](()=>{const _0xcbbb6e=_0x307b87;_0x51fc09(_0x226e88['id'],_0x226e88['name'],_0x226e88[_0xcbbb6e(0x1fb)]||_0xcbbb6e(0x20e));})['catch'](_0x18b0c2=>{const _0x58170f=_0x307b87;console[_0x58170f(0x254)](_0x58170f(0x209),_0x18b0c2);});const _0x48c6d8=_0x4c64f9['collection']('Users')['doc'](_0x4b2a80);_0x48c6d8[_0x307b87(0x214)]()['then'](_0x53c3a0=>{const _0x585b7a=_0x307b87;if(_0x53c3a0['exists']){const _0x18d97a=_0x53c3a0[_0x585b7a(0x243)]()[_0x585b7a(0x1fc)]||{};_0x18d97a[_0x163fed['currentUser'][_0x585b7a(0x264)]]=_0xf0a8ff[_0x585b7a(0x243)]()[_0x585b7a(0x23e)],_0x48c6d8[_0x585b7a(0x25e)]({'userHistory':_0x18d97a})[_0x585b7a(0x288)](()=>{const _0x2267a1=_0x585b7a;_0x51fc09(_0x163fed[_0x2267a1(0x204)][_0x2267a1(0x264)],_0xf0a8ff[_0x2267a1(0x243)]()[_0x2267a1(0x23e)],_0xf0a8ff[_0x2267a1(0x243)]()[_0x2267a1(0x1fb)]||'/assets/img/default_user.jpeg');})[_0x585b7a(0x28c)](_0x432fce=>{console['error']('Error\x20updating\x20userHistory:\x20',_0x432fce);});}});}});}}else alert(_0xc27a7a(0x290)),console[_0xc27a7a(0x254)](_0xc27a7a(0x290));})[_0x3dfedc(0x28c)](_0xe52c80=>{const _0x516cb8=_0x3dfedc;alert(_0x516cb8(0x252)+_0xe52c80),console[_0x516cb8(0x254)](_0x516cb8(0x252),_0xe52c80);});}function _0x55ab4d(_0x1df24f){const _0xa01663=_0x4823f9,_0x4ba0e3=_0x4c64f9[_0xa01663(0x211)]('Messages');_0x16a73b[_0xa01663(0x223)]='';}function _0x2b3c57(){const _0x8c76cb=_0x4823f9;_0x163fed[_0x8c76cb(0x266)]()[_0x8c76cb(0x288)](()=>{const _0x344806=_0x8c76cb;console[_0x344806(0x23b)](_0x344806(0x25a)),window['location'][_0x344806(0x21d)]=_0x344806(0x242);})[_0x8c76cb(0x28c)](_0x34d5f9=>{const _0x11a36c=_0x8c76cb;console[_0x11a36c(0x254)](_0x11a36c(0x222),_0x34d5f9),alert(_0x11a36c(0x289));});}function _0x1166f0(_0x2b747e){const _0x3394e8=_0x4823f9,_0x4d4718=_0x2b747e[_0x3394e8(0x233)](_0x3394e8(0x27b),''),_0x2ca47a=document[_0x3394e8(0x21c)](_0x3394e8(0x23f)),_0x5ee742=document[_0x3394e8(0x21c)](_0x3394e8(0x220)),_0x16abd3=document[_0x3394e8(0x21c)](_0x3394e8(0x231));_0x16abd3[_0x3394e8(0x223)]='';if(_0x4d4718!=_0x3394e8(0x24b))firebase['firestore']()[_0x3394e8(0x211)]('Users')[_0x3394e8(0x279)](_0x3394e8(0x1f8),'==',_0x4d4718)[_0x3394e8(0x214)]()[_0x3394e8(0x288)](_0x82b469=>{const _0x2b49d9=_0x3394e8;if(!_0x82b469[_0x2b49d9(0x227)]){const _0x39dcff=_0x82b469[_0x2b49d9(0x274)][0x0],_0x5a50dc=_0x39dcff[_0x2b49d9(0x243)]();_0x5a50dc['id']=_0x39dcff['id'],_0x3537e8(_0x5a50dc),console['log'](_0x2b49d9(0x22d),_0x5a50dc),_0x54f868[_0x2b49d9(0x1fe)]='',_0x2ca47a['innerHTML']=_0x5a50dc[_0x2b49d9(0x23e)],_0x5ee742[_0x2b49d9(0x24f)]=_0x5a50dc[_0x2b49d9(0x1fb)]||'/assets/img/default_user.jpeg',_0x5ee742[_0x2b49d9(0x27a)][_0x2b49d9(0x229)]='block',_0x16abd3[_0x2b49d9(0x223)]='';if(_0x163fed[_0x2b49d9(0x204)]){const _0x357c88=_0x4c64f9[_0x2b49d9(0x211)](_0x2b49d9(0x272))[_0x2b49d9(0x25d)](_0x163fed['currentUser']['uid']);_0x357c88[_0x2b49d9(0x214)]()[_0x2b49d9(0x288)](_0x241493=>{const _0x38d433=_0x2b49d9;if(_0x241493['exists']){const _0x6b0494=_0x241493[_0x38d433(0x243)]()[_0x38d433(0x1fc)]||{};_0x6b0494[_0x5a50dc['id']]=_0x5a50dc[_0x38d433(0x23e)],_0x357c88[_0x38d433(0x25e)]({'userHistory':_0x6b0494})['then'](()=>{const _0x102175=_0x38d433;_0x51fc09(_0x5a50dc['id'],_0x5a50dc['name'],_0x5a50dc[_0x102175(0x1fb)]||_0x102175(0x20e));})['catch'](_0x1ec0fb=>{const _0x5f19c5=_0x38d433;console[_0x5f19c5(0x254)](_0x5f19c5(0x209),_0x1ec0fb);});}});}}else console[_0x2b49d9(0x254)](_0x2b49d9(0x290)),alert(_0x2b49d9(0x290));})['catch'](_0x166dc1=>{const _0x1a0d7e=_0x3394e8;console[_0x1a0d7e(0x254)]('Error\x20searching\x20for\x20user:\x20',_0x166dc1),alert(_0x1a0d7e(0x252)+_0x166dc1);});else{}}function _0x322a5c(_0x2a5b45){const _0x2b40a8=_0x4823f9;_0x2a5b45[_0x2b40a8(0x27d)](_0x2b40a8(0x213),()=>{const _0x8283b3=_0x2b40a8;_0x1166f0(_0x2a5b45['id']),_0x373683(_0x2a5b45['id'][_0x8283b3(0x233)]('user-',''));});}function _0x51fc09(_0x172b14,_0x1b0110,_0x1ab498){const _0x2844d3=_0x4823f9,_0x21a5c2=firebase['firestore'](),_0x3d4b54=firebase[_0x2844d3(0x24d)](),_0x5f083d=document['getElementById']('userHistoryList');_0x21a5c2['collection'](_0x2844d3(0x272))['doc'](_0x3d4b54['currentUser'][_0x2844d3(0x264)])[_0x2844d3(0x214)]()[_0x2844d3(0x288)](_0x160a54=>{const _0x54cc30=_0x2844d3;if(_0x160a54[_0x54cc30(0x23a)]){const _0x53a719=_0x160a54['data'](),_0x310a77=_0x53a719[_0x54cc30(0x1fc)];for(const [_0x5e8299,_0x3d2bea]of Object[_0x54cc30(0x202)](_0x310a77)){const _0x561a19=document['getElementById'](_0x54cc30(0x27b)+_0x5e8299);!_0x561a19&&_0x21a5c2[_0x54cc30(0x211)](_0x54cc30(0x272))['doc'](_0x5e8299)[_0x54cc30(0x214)]()[_0x54cc30(0x288)](_0x2bb7d1=>{const _0x21edfb=_0x54cc30;if(_0x2bb7d1['exists']){const _0x30cde6=_0x2bb7d1[_0x21edfb(0x243)](),_0x1bdafa=_0x30cde6[_0x21edfb(0x1fb)]||'/assets/img/default_user.jpeg',_0x3e1655=document[_0x21edfb(0x22a)]('li');_0x3e1655[_0x21edfb(0x207)]=_0x21edfb(0x26f);const _0x1ef896=document[_0x21edfb(0x22a)](_0x21edfb(0x201));_0x1ef896['className']='user-button\x20flex\x20items-center',_0x1ef896['id']=_0x21edfb(0x27b)+_0x5e8299;const _0x5038dd=document['createElement'](_0x21edfb(0x230));_0x5038dd[_0x21edfb(0x24f)]=_0x1bdafa,_0x5038dd[_0x21edfb(0x226)]=_0x21edfb(0x249)+_0x3d2bea,_0x5038dd[_0x21edfb(0x207)]=_0x21edfb(0x20a),_0x5038dd[_0x21edfb(0x278)]=0x32,_0x5038dd[_0x21edfb(0x1f6)]=0x32;const _0x1b7942=document[_0x21edfb(0x22a)](_0x21edfb(0x283));_0x1b7942['id']=_0x21edfb(0x228);const _0xd681e3=document[_0x21edfb(0x22a)]('p');_0xd681e3[_0x21edfb(0x207)]=_0x21edfb(0x21f),_0xd681e3[_0x21edfb(0x261)]=_0x3d2bea;const _0x3a05d9=document['createElement']('p');_0x3a05d9[_0x21edfb(0x207)]='text-green-500',_0x3a05d9[_0x21edfb(0x261)]=_0x21edfb(0x28e),_0x1b7942[_0x21edfb(0x1f7)](_0xd681e3),_0x1b7942[_0x21edfb(0x1f7)](_0x3a05d9),_0x1ef896[_0x21edfb(0x1f7)](_0x5038dd),_0x1ef896[_0x21edfb(0x1f7)](_0x1b7942),_0x3e1655[_0x21edfb(0x1f7)](_0x1ef896),_0x5f083d[_0x21edfb(0x1f7)](_0x3e1655),_0x322a5c(_0x1ef896);}else console['error'](_0x21edfb(0x275));});}}else console[_0x54cc30(0x254)]('User\x20not\x20found.');})[_0x2844d3(0x28c)](_0x567d1e=>{console['error']('Error\x20getting\x20user:',_0x567d1e);});}});function getChatId(_0x8d67d6,_0x32ef4e){const _0x3ea96f=a0_0x4d1312;return[_0x8d67d6,_0x32ef4e][_0x3ea96f(0x20d)]()[_0x3ea96f(0x1f4)]('-');}
+let db = firebase.firestore();
+let auth = firebase.auth();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const messageHistory = document.getElementById('message-history');
+    const sendButton = document.getElementById('send-button');
+    const messageInput = document.getElementById('message-input');
+    let otherUserID = null;
+    const userHistoryListDiv = document.getElementById('userHistoryList');
+    let currentMessagesListener = null;
+
+    const emailSearchInput = document.getElementById('user-search-email');
+    emailSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchUserByEmail(emailSearchInput.value);
+        }
+    });
+
+    function unbsubscribeFromMessages() {
+        if (currentMessagesListener) {
+            currentMessagesListener();
+            currentMessagesListener = null;
+        }
+    }
+
+    function getQueryParam(param) {
+        const urlParam = new URLSearchParams(window.location.search);
+        return urlParam.get(param);
+    }
+
+    function subscribeToMessages(otherUserID) {
+        unbsubscribeFromMessages();
+        const messageCollection = db.collection('Messages');
+
+        messageCollection
+            .where('chatId', '==', getChatId(auth.currentUser.uid, otherUserID))
+            .orderBy('timestamp', 'asc')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                        updateChatHistory(change.doc.data());
+                    }
+                })
+            })
+    }
+
+    function cleanChatHistory() {
+        const messageHistory = document.getElementById('message-history');
+        messageHistory.innerHTML = '';
+    }
+
+    function switchUserChat(otherUserID) {
+        unbsubscribeFromMessages();
+        cleanChatHistory();
+        subscribeToMessages(otherUserID);
+    }
+
+    function updateChatHistory(message) { // MARK:- Message Bubble
+        db.collection('Users').where('senderId', '==', message.senderId).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                if (doc.exists) {
+                    const senderUser = doc.data();
+                    const messageHistory = document.getElementById('message-history');
+
+                    if (message.senderId === auth.currentUser.uid) {
+                        db.collection('Users').where('senderId', '==', auth.currentUser.uid).get().then((querySnapshot2) => {
+                            querySnapshot2.forEach((doc2) => {
+                                if (doc2.exists) {
+                                    const receiverUser = doc2.data();
+                                    const div1 = document.createElement('div');
+                                    div1.style.display = 'flex';
+
+                                    const img = document.createElement('img');
+                                    img.classList.add('w-8', 'h-8', 'profile-img-sent');
+                                    img.style.borderRadius = '12px';
+                                    img.alt = 'Profile picture of ' + receiverUser.name;
+                                    img.src = receiverUser.profileIMG || '/assets/img/default_user.jpeg';
+
+                                    const messageElement = document.createElement('span');
+                                    messageElement.classList.add('message');
+                                    messageElement.classList.add('sent');
+                                    messageElement.innerHTML = message.messageText;
+                                    messageElement.style.fontFamily = 'Inter';
+
+                                    const span = document.createElement('span');
+                                    span.classList.add('text-sm', 'font-normal', 'text-gray-500', 'dark:text-gray-400');
+                                    span.style.marginTop = '10px'
+
+                                    if (message && message.timestamp) {
+                                        span.textContent = formatTimestamp(message.timestamp.toDate());
+                                    } else {
+                                        span.textContent = formatTimestamp(new Date());
+                                    }
+
+                                    div1.appendChild(span)
+                                    div1.appendChild(messageElement);
+                                    div1.appendChild(img);
+                                    messageHistory.appendChild(div1);
+                                    messageHistory.scrollTop = messageHistory.scrollHeight;
+                                }
+                            })
+                        })
+                    } else {
+                        const div1 = document.createElement('div');
+                        div1.style.display = 'flex';
+                        div1.style.justifyContent = 'flex-end';
+                        div1.style.alignItems = 'center';
+
+                        const img = document.createElement('img');
+                        img.classList.add('w-8', 'h-8', 'rounded-full', 'profile-img-received');
+                        img.alt = 'Profile picture of ' + senderUser.name;
+                        img.src = senderUser.profileIMG || '/assets/img/default_user.jpeg';
+
+                        const messageElement = document.createElement('div');
+                        messageElement.classList.add('message');
+                        messageElement.classList.add('received');
+                        messageElement.innerHTML = message.messageText;
+
+                        const span = document.createElement('span');
+                        span.classList.add('text-sm', 'font-normal', 'text-gray-500', 'dark:text-gray-400');
+                        span.style.marginTop = '10px'
+
+                        if (message && message.timestamp) {
+                            span.textContent = formatTimestamp(message.timestamp.toDate());
+                        } else {
+                            span.textContent = formatTimestamp(new Date());
+                        }
+
+                        div1.appendChild(img);
+                        div1.appendChild(messageElement);
+                        div1.appendChild(span)
+                        messageHistory.appendChild(div1);
+                        messageHistory.scrollTop = messageHistory.scrollHeight;
+                    }
+                }
+            })
+        })
+    }
+
+    function formatTimestamp(timestamp) {
+        const now = new Date();
+        let formattedTimestamp;
+
+        const secondsAgo = Math.floor((now - timestamp) / 1000);
+        const minutesAgo = Math.floor(secondsAgo / 60);
+        const hoursAgo = Math.floor(minutesAgo / 60);
+        const daysAgo = Math.floor(hoursAgo / 24);
+
+        if (daysAgo === 0) {
+            formattedTimestamp = timestamp.getHours().toString().padStart(2, '0') + ':' + timestamp.getMinutes().toString().padStart(2, '0');
+        } else if (daysAgo < 7) {
+            const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            formattedTimestamp = weekdays[timestamp.getDay()] + ' ' + timestamp.getHours().toString().padStart(2, '0') + ':' + timestamp.getMinutes().toString().padStart(2, '0');
+        } else if (now.getFullYear() === timestamp.getFullYear()) {
+            formattedTimestamp = (timestamp.getMonth() + 1).toString().padStart(2, '0') + ':' + timestamp.getDate().toString().padStart(2, '0') + ' ' + timestamp.getHours().toString().padStart(2, '0') + ':' + timestamp.getMinutes().toString().padStart(2, '0');
+        } else {
+            formattedTimestamp = timestamp.getFullYear() + ':' + (timestamp.getMonth() + 1).toString().padStart(2, '0') + ':' + timestamp.getDate().toString().padStart(2, '0') + ' ' + timestamp.getHours().toString().padStart(2, '0') + ':' + timestamp.getMinutes().toString().padStart(2, '0');
+        }
+
+        return formattedTimestamp;
+    }
+
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            const userRef = db.collection('Users').doc(user.uid);
+            const lastActive = new Date(); // Current timestamp
+            userRef.set({
+                lastActive: lastActive
+            }, { merge: true });
+
+            // send message
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // get history users
+            const userDocRef = db.collection('Users').doc(user.uid);
+            userDocRef.get().then((doc) => {
+                if (doc.exists) {
+                    const userData = doc.data();
+                    const userHistory = userData.userHistory;
+
+                    for (const [userID, name] of Object.entries(userHistory)) {
+                        const existingUserListElement = document.querySelector(`#user-${userID}`);
+
+                        if (!existingUserListElement) {
+                            db.collection('Users').doc(userID).get().then(userDoc => {
+                                if (userDoc.exists) {
+                                    const userDetails = userDoc.data();
+                                    const profileImgURL = userDetails.profileIMG || '/assets/img/default_user.jpeg';
+
+                                    const listItem = document.createElement('li');
+                                    listItem.style.listStyleType = 'none';
+                                    const userDiv = document.createElement('div');
+                                    userDiv.className = 'user-history-item';
+
+                                    const userButton = document.createElement('div');
+                                    userButton.classname = 'flex items-center space-x-4 rounded-full hover:bg-[#313131]'
+                                    userButton.id = `user-${userID}`;
+                                    setupUserButtonListener(userButton);
+
+                                    const userImage = document.createElement('img');
+                                    userImage.src = profileImgURL;
+                                    userImage.className = 'w-12 h-12 rounded-full';
+                                    userImage.width = 50;
+                                    userImage.height = 50;
+
+                                    const userDetailsDiv = document.createElement('div');
+                                    userDetailsDiv.id = 'found-user-details';
+
+                                    const userName = document.createElement('p');
+                                    userName.className = 'text-sm';
+                                    userName.id = 'target-user';
+                                    userName.textContent = name;
+
+                                    const userStatus = document.createElement('p');
+                                    userStatus.className = 'text-[#9CA3AF] text-xs';
+                                    userStatus.textContent = 'Active';
+
+                                    userDetailsDiv.appendChild(userName);
+                                    userDetailsDiv.appendChild(userStatus);
+
+                                    userButton.appendChild(userImage);
+                                    userButton.appendChild(userDetailsDiv);
+
+                                    userDiv.appendChild(userButton);
+                                    listItem.appendChild(userDiv);
+
+                                    userHistoryListDiv.appendChild(listItem);
+                                    setupUserButtonListener(document.getElementById('user-ConstellationBot'));
+
+                                    // const listItem = document.createElement('li');
+                                    // const userDiv = document.createElement('div');
+                                    // userDiv.className = 'user-history-item';
+
+                                    // const userButton = document.createElement('button');
+                                    // userButton.className = 'user-button flex items-center';
+                                    // userButton.id = `user-${userDetails.senderId}`;
+                                    // setupUserButtonListener(userButton);
+
+                                    // const userImage = document.createElement('img');
+                                    // userImage.src = profileImgURL;
+                                    // userImage.alt = 'Profile picture of ' + name;
+                                    // userImage.className = 'rounded-full mr-2';
+                                    // userImage.width = 50;
+                                    // userImage.height = 50;
+
+                                    // const userDetailsDiv = document.createElement('div');
+                                    // userDetailsDiv.id = 'found-user-details';
+
+                                    // const userNameP = document.createElement('p');
+                                    // userNameP.className = 'font-bold';
+                                    // userNameP.id = 'target-user';
+                                    // userNameP.textContent = name;
+
+                                    // const userActiveP = document.createElement('p');
+                                    // userActiveP.className = 'text-green-500';
+                                    // userActiveP.textContent = 'Active';
+
+                                    // // Add elements together
+                                    // userDetailsDiv.appendChild(userNameP);
+                                    // userDetailsDiv.appendChild(userActiveP);
+
+                                    // userButton.appendChild(userImage);
+                                    // userButton.appendChild(userDetailsDiv);
+
+                                    // userDiv.appendChild(userButton);
+                                    // listItem.appendChild(userDiv);
+
+                                    // userHistoryListDiv.appendChild(listItem);
+                                    // setupUserButtonListener(document.getElementById('user-ConstellationBot'));
+                                } else {
+                                    console.error('User doens\'t exist.', userID);
+                                }
+                            })
+                        }
+                    }
+                } else {
+                    console.error('User not found.');
+                }
+            }).catch((error) => {
+                console.error('Error getting user:', error);
+            });
+
+            const userID = getQueryParam('userID');
+            if (userID) {
+                handleSwitchChat(userID);
+                switchUserChat(userID)
+            }
+        } else {
+            console.error('User is not signed in.');
+            // alert('Please sign in first. You will be directed to a sign in page.');
+            window.location.href = '/signin.html';
+        }
+    });
+
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText && otherUserID) {
+            const messagesCollection = db.collection('Messages');
+            messagesCollection.add({
+                senderId: auth.currentUser.uid,
+                receiverId: otherUserID,
+                messageText: messageText,
+                chatId: getChatId(auth.currentUser.uid, otherUserID),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                messageInput.value = '';
+                console.log(`Message sent successfully`);
+
+                // MARK:- Update connections
+                const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+                currentUserRef.update({
+                    connections: firebase.firestore.FieldValue.arrayUnion(otherUserID)
+                }).then(() => {
+                    console.log(`User ${otherUserID} added to connections.`);
+                }).catch(error => {
+                    console.error(`Error updating connections: ${error}`);
+                })
+            }).catch(error => {
+                console.error("Error sending message: ", error);
+            });
+        }
+    }
+
+    function updateChat(user) {
+        otherUserID = user.id;
+        document.getElementById('message-history').innerHTML = '';
+
+        startListeningForMessages(otherUserID);
+    }
+
+    function searchUserByEmail(email) {
+        const usersCollection = firebase.firestore().collection('Users');
+
+        usersCollection.where('email', '==', email).get()
+            .then(snapshot => {
+                if (!snapshot.empty) {
+                    const userDoc = snapshot.docs[0];
+                    const user = userDoc.data();
+                    user.id = userDoc.id;
+                    updateChat(user);
+                    emailSearchInput.value = '';
+
+                    if (auth.currentUser) {
+                        const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+                        currentUserRef.get().then((currentUserDoc) => {
+                            if (currentUserDoc.exists) {
+                                const currentUserHistory = currentUserDoc.data().userHistory || {};
+                                currentUserHistory[user.id] = user.name;
+
+                                currentUserRef.update({
+                                    userHistory: currentUserHistory
+                                }).then(() => {
+                                    updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
+                                }).catch(error => {
+                                    console.error('Error updating userHistory: ', error);
+                                })
+
+                                // set other user's userHistory
+                                const otherUserRef = db.collection('Users').doc(otherUserID);
+                                otherUserRef.get().then((otherUserDoc) => {
+                                    if (otherUserDoc.exists) {
+                                        const otherUserHistory = otherUserDoc.data().userHistory || {};
+                                        otherUserHistory[auth.currentUser.uid] = currentUserDoc.data().name;
+
+                                        otherUserRef.update({
+                                            userHistory: otherUserHistory
+                                        }).then(() => {
+                                            updateUserHistoryList(auth.currentUser.uid, currentUserDoc.data().name, currentUserDoc.data().profileIMG || '/assets/img/default_user.jpeg') // MARK:- This line was commented out without reason.
+                                        }).catch(error => {
+                                            console.error('Error updating userHistory: ', error);
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                } else {
+                    alert('User not found.');
+                    console.error('User not found.');
+                }
+            })
+            .catch(error => {
+                alert(`Error searching for user: ${error}`);
+                console.error("Error searching for user: ", error);
+            });
+    }
+    function startListeningForMessages(otherUserID) {
+        const messagesCollection = db.collection('Messages');
+        messageHistory.innerHTML = '';
+    }
+
+    // signout
+    function signout() {
+        auth.signOut()
+            .then(() => {
+                console.log('User signed out successfully');
+                window.location.href = '/signin.html';
+            })
+            .catch((error) => {
+                console.error('Sign-out error:', error);
+                alert(`An error occured while signing out. Please try again or see console for logs.`)
+            });
+    }
+
+    // select chat
+    function handleSwitchChat(buttonID) {
+        const userID = buttonID.replace('user-', '');
+        const target_user_name = document.getElementById('target-user-name');
+        const target_user_profile_pic = document.getElementById('target-user-profile-pic');
+        const messageHistory = document.getElementById('message-history');
+        messageHistory.innerHTML = '';
+
+        if (userID != "ConstellationBot") {
+            firebase.firestore().collection('Users').where('senderId', '==', userID).get()
+                .then(snapshot => {
+                    if (!snapshot.empty) {
+                        const userDoc = snapshot.docs[0];
+                        const user = userDoc.data();
+                        user.id = userDoc.id;
+                        updateChat(user);
+                        console.log('User found:', user)
+                        emailSearchInput.value = '';
+                        target_user_name.innerHTML = user.name
+                        target_user_profile_pic.src = user.profileIMG || '/assets/img/default_user.jpeg';
+                        target_user_profile_pic.style.display = 'block';
+                        messageHistory.innerHTML = '';
+
+                        // add user to userHistory
+                        if (auth.currentUser) {
+                            const currentUserRef = db.collection('Users').doc(auth.currentUser.uid);
+
+                            currentUserRef.get().then((doc) => {
+                                if (doc.exists) {
+                                    const userHistory = doc.data().userHistory || {};
+                                    userHistory[user.id] = user.name;
+
+                                    currentUserRef.update({
+                                        userHistory: userHistory
+                                    }).then(() => {
+                                        updateUserHistoryList(user.id, user.name, user.profileIMG || '/assets/img/default_user.jpeg')
+                                    }).catch(error => {
+                                        console.error('Error updating userHistory: ', error);
+                                    })
+                                }
+                            })
+                        }
+                    } else {
+                        console.error('User not found.');
+                        alert('User not found.');
+                    }
+                })
+                .catch(error => {
+                    console.error("Error searching for user: ", error);
+                    alert(`Error searching for user: ${error}`);
+                });
+        } else {
+            // MARK:- add action for Constellation Bot AI
+        }
+    }
+
+    function setupUserButtonListener(button) {
+        button.addEventListener('click', () => {
+            handleSwitchChat(button.id);
+            switchUserChat(button.id.replace('user-', ''));
+        });
+    }
+
+    function updateUserHistoryList(userID, userName, profileImgURL) {
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+        const userHistoryListDiv = document.getElementById('userHistoryList');
+
+        db.collection('Users').doc(auth.currentUser.uid).get().then((doc) => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const userHistory = userData.userHistory;
+
+
+                for (const [userID, name] of Object.entries(userHistory)) {
+                    const existingUserListElement = document.getElementById(`user-${userID}`);
+
+                    if (!existingUserListElement) {
+                        db.collection('Users').doc(userID).get().then(userDoc => {
+                            if (userDoc.exists) {
+                                const userDetails = userDoc.data();
+                                const profileImg = userDetails.profileIMG || '/assets/img/default_user.jpeg';
+
+                                const listItem = document.createElement('li');
+                                listItem.className = 'user-history-item';
+
+                                const userButton = document.createElement('button');
+                                userButton.className = 'user-button flex items-center';
+                                userButton.id = `user-${userID}`;
+
+                                const userImage = document.createElement('img');
+                                userImage.src = profileImg;
+                                userImage.alt = 'Profile picture of ' + name;
+                                userImage.className = 'rounded-full mr-2';
+                                userImage.width = 50;
+                                userImage.height = 50;
+
+                                const userDetailsDiv = document.createElement('div');
+                                userDetailsDiv.id = 'found-user-details';
+
+                                const userNameP = document.createElement('p');
+                                userNameP.className = 'font-bold';
+                                userNameP.textContent = name;
+
+                                const userActiveP = document.createElement('p');
+                                userActiveP.className = 'text-green-500';
+                                userActiveP.textContent = 'Active';
+
+                                userDetailsDiv.appendChild(userNameP);
+                                userDetailsDiv.appendChild(userActiveP);
+
+                                userButton.appendChild(userImage);
+                                userButton.appendChild(userDetailsDiv);
+
+                                listItem.appendChild(userButton);
+
+                                userHistoryListDiv.appendChild(listItem);
+
+                                setupUserButtonListener(userButton);
+                            } else {
+                                console.error('User doesn\'t exist.');
+                            }
+                        });
+                    }
+                }
+            } else {
+                console.error('User not found.');
+            }
+        }).catch((error) => {
+            console.error('Error getting user:', error);
+        });
+    }
+});
+
+function getChatId(userId1, userId2) {
+    return [userId1, userId2].sort().join('-');
+}

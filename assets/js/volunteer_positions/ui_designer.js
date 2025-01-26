@@ -1,1 +1,74 @@
-function a0_0x5663(_0x587514,_0x382f4a){const _0x5e8399=a0_0x5e83();return a0_0x5663=function(_0x566337,_0x331fbb){_0x566337=_0x566337-0x1ad;let _0x28e064=_0x5e8399[_0x566337];return _0x28e064;},a0_0x5663(_0x587514,_0x382f4a);}const a0_0x328c96=a0_0x5663;(function(_0x202241,_0xb0e85b){const _0x9ba230=a0_0x5663,_0x10ba2b=_0x202241();while(!![]){try{const _0x543209=parseInt(_0x9ba230(0x1c0))/0x1+parseInt(_0x9ba230(0x1af))/0x2*(parseInt(_0x9ba230(0x1bf))/0x3)+parseInt(_0x9ba230(0x1cd))/0x4+parseInt(_0x9ba230(0x1b8))/0x5+parseInt(_0x9ba230(0x1d0))/0x6+-parseInt(_0x9ba230(0x1cf))/0x7+parseInt(_0x9ba230(0x1c9))/0x8*(-parseInt(_0x9ba230(0x1ae))/0x9);if(_0x543209===_0xb0e85b)break;else _0x10ba2b['push'](_0x10ba2b['shift']());}catch(_0x3f28d8){_0x10ba2b['push'](_0x10ba2b['shift']());}}}(a0_0x5e83,0xb4303));let auth=firebase['auth'](),db=firebase['firestore']();function a0_0x5e83(){const _0x1ced1a=['set','Please\x20fill\x20in\x20all\x20fields.','value','3wGAdRP','1434227ARXvxr','street-address','innerHTML','first-name','DOMContentLoaded','Please\x20enter\x20a\x20valid\x20email\x20address.','addEventListener','hours','get','65624rBdkFB','doc','getElementById','then','2171460rWkpIW','Application\x20submitted\x20successfully!','7591010TgXqKO','1747872ukOhcl','exists','Open_Volunteer','catch','collection','last-name','data','region','2250dghqRM','689030BMEaDu','linkedin-username','country','Error\x20getting\x20document:','Applicants','/volunteer_positions.html','about','ui_designer','onAuthStateChanged','6301560BorjkZ','error','location','postal-code'];a0_0x5e83=function(){return _0x1ced1a;};return a0_0x5e83();}function apply(){const _0x53c353=a0_0x5663;let _0x33a9e7=document[_0x53c353(0x1cb)](_0x53c353(0x1c3))['value'],_0x2e0901=document['getElementById'](_0x53c353(0x1d5))[_0x53c353(0x1be)],_0x239c68=document[_0x53c353(0x1cb)]('email')['value'],_0x220fc1=document[_0x53c353(0x1cb)](_0x53c353(0x1b1))[_0x53c353(0x1be)],_0x4fca48=document[_0x53c353(0x1cb)](_0x53c353(0x1c1))[_0x53c353(0x1be)],_0x34bfe6=document[_0x53c353(0x1cb)]('city')[_0x53c353(0x1be)],_0x2bf0b1=document[_0x53c353(0x1cb)](_0x53c353(0x1ad))[_0x53c353(0x1be)],_0x8a95ea=document[_0x53c353(0x1cb)](_0x53c353(0x1bb))[_0x53c353(0x1be)],_0x8d0d5f=document['getElementById'](_0x53c353(0x1b0))['value'],_0x3c422c=document[_0x53c353(0x1cb)]('about-textarea')[_0x53c353(0x1be)],_0x511ec4=document['getElementById']('skills-textarea')[_0x53c353(0x1be)];if(!_0x33a9e7||!_0x2e0901||!_0x239c68||!_0x220fc1||!_0x4fca48||!_0x34bfe6||!_0x2bf0b1||!_0x8a95ea||!_0x8d0d5f||!_0x3c422c||!_0x511ec4){alert(_0x53c353(0x1bd));return;}if(!_0x239c68['includes']('@')){alert(_0x53c353(0x1c5));return;}db[_0x53c353(0x1d4)]('Open_Volunteer')[_0x53c353(0x1ca)]('ui_designer')[_0x53c353(0x1d4)](_0x53c353(0x1b3))[_0x53c353(0x1ca)](_0x33a9e7+'-'+_0x2e0901)[_0x53c353(0x1bc)]({'name':_0x33a9e7+'\x20'+_0x2e0901,'email':_0x239c68,'country':_0x220fc1,'street_address':_0x4fca48,'city':_0x34bfe6,'region':_0x2bf0b1,'postal_code':_0x8a95ea,'linkedin_username':_0x8d0d5f,'about':_0x3c422c,'skills':_0x511ec4})[_0x53c353(0x1cc)](()=>{const _0x4e4dc9=_0x53c353;alert(_0x4e4dc9(0x1ce)),window[_0x4e4dc9(0x1ba)]=_0x4e4dc9(0x1b4);})['catch'](_0x5b394f=>{const _0x33a592=_0x53c353;console[_0x33a592(0x1b9)](_0x5b394f);});}document[a0_0x328c96(0x1c6)](a0_0x328c96(0x1c4),_0x3116a4=>{const _0x35925c=a0_0x328c96;auth[_0x35925c(0x1b7)](_0x570b44=>{const _0x10321e=_0x35925c;_0x570b44?db[_0x10321e(0x1d4)](_0x10321e(0x1d2))[_0x10321e(0x1ca)](_0x10321e(0x1b6))[_0x10321e(0x1c8)]()['then'](_0x54149c=>{const _0x562690=_0x10321e;if(_0x54149c[_0x562690(0x1d1)]){let _0x251d93=_0x54149c[_0x562690(0x1d6)](),_0x397c12=document[_0x562690(0x1cb)]('position-title'),_0x455265=document[_0x562690(0x1cb)]('weekly-hours'),_0x368956=document['getElementById'](_0x562690(0x1ba)),_0x54f4d0=document[_0x562690(0x1cb)](_0x562690(0x1b5));_0x397c12[_0x562690(0x1c2)]=_0x251d93['title'],_0x368956[_0x562690(0x1c2)]=_0x251d93[_0x562690(0x1ba)],_0x455265[_0x562690(0x1c2)]=_0x251d93[_0x562690(0x1c7)],_0x54f4d0[_0x562690(0x1c2)]=_0x251d93[_0x562690(0x1b5)];}else window['location']='/volunteer_positions.html';})[_0x10321e(0x1d3)](_0x1dbf59=>{const _0x388c7e=_0x10321e;console[_0x388c7e(0x1b9)](_0x388c7e(0x1b2),_0x1dbf59);}):window['location']='/signin.html';});});
+let auth = firebase.auth();
+let db = firebase.firestore();
+
+function apply() {
+    let firstname = document.getElementById('first-name').value;
+    let lastname = document.getElementById('last-name').value;
+    let email = document.getElementById('email').value;
+    let country = document.getElementById('country').value;
+    let street_address = document.getElementById('street-address').value;
+    let city = document.getElementById('city').value;
+    let region = document.getElementById('region').value;
+    let postal_code = document.getElementById('postal-code').value;
+    let linkedin_username = document.getElementById('linkedin-username').value;
+    let about_field = document.getElementById('about-textarea').value;
+    let skills_field = document.getElementById('skills-textarea').value;
+
+    if (!firstname || !lastname || !email || !country || !street_address || !city || !region || !postal_code || !linkedin_username || !about_field || !skills_field) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    db.collection('Open_Volunteer').doc('ui_designer').collection('Applicants').doc(`${firstname}-${lastname}`).set({
+        name: `${firstname} ${lastname}`,
+        email: email,
+        country: country,
+        street_address: street_address,
+        city: city,
+        region: region,
+        postal_code: postal_code,
+        linkedin_username: linkedin_username,
+        about: about_field,
+        skills: skills_field
+    }).then(() => {
+        alert('Application submitted successfully!');
+        window.location = '/volunteer_positions.html';
+    }).catch((err) => {
+        console.error(err);
+    })
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            db.collection('Open_Volunteer').doc('ui_designer').get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        let data = doc.data();
+
+                        let position_title = document.getElementById('position-title');
+                        let weekly_hours = document.getElementById('weekly-hours');
+                        let location = document.getElementById('location');
+                        let about = document.getElementById('about');
+
+                        position_title.innerHTML = data.title;
+                        location.innerHTML = data.location;
+                        weekly_hours.innerHTML = data.hours;
+                        about.innerHTML = data.about;
+
+                    } else {
+                        window.location = '/volunteer_positions.html';
+                    }
+                }).catch((error) => {
+                    console.error("Error getting document:", error);
+                });
+        } else {
+            window.location = '/signin.html';
+        }
+    });
+});
