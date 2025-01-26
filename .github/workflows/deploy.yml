@@ -31,28 +31,28 @@ jobs:
       # Step 4: Minify and obfuscate JavaScript files
       - name: Minify and Obfuscate JavaScript
         run: |
-          for file in $(find . -type f -name "*.js"); do
+          for file in $(find . -type f -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
             javascript-obfuscator "$file" --output "$file"
           done
 
       # Step 5: Minify CSS files
       - name: Minify CSS
         run: |
-          for file in $(find . -type f -name "*.css"); do
+          for file in $(find . -type f -name "*.css" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
             cleancss -o "$file" "$file"
           done
 
       # Step 6: Minify HTML files
       - name: Minify HTML
         run: |
-          for file in $(find . -type f -name "*.html"); do
+          for file in $(find . -type f -name "*.html" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
             html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o "$file" "$file"
           done
 
       # Step 7: Copy non-minifiable files (images, videos) directly
       - name: Copy Non-Minifiable Files
         run: |
-          for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js"); do
+          for file in $(find . -type f ! -name "*.html" ! -name "*.css" ! -name "*.js" ! -path "./node_modules/*" ! -path "./.vscode/*" ! -path "./.idea/*" ! -path "./bootstrap/*"); do
             mkdir -p "$(dirname $file)"
             cp "$file" "$(dirname $file)/"
           done
