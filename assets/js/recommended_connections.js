@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             userRef.get().then((doc) => {
                 if (doc.exists) {
                     const data = doc.data();
+                    const myconnections = data.connections || [];
 
                     document.getElementById('user-profile-img').src = data.profileIMG == "" ? '/assets/img/default_user.jpeg' : data.profileIMG
 
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         querySnapshot.forEach((doc) => {
                             if (doc.exists) {
                                 const data = doc.data();
-                                if (data.senderId !== auth.currentUser.uid) {
+                                if (data.senderId !== auth.currentUser.uid && !myconnections.includes(data.senderId)) {
                                     displayUserCard(data, 'recommendedconnections');
                                 }
                             }
