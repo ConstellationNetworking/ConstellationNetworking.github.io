@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // update userHistoryList
     auth.onAuthStateChanged(function (user) {
         if (user) {
+            updateCurrentUser();
             // console.log('User signed in:', user);
 
             const userRef = db.collection('Users').doc(user.uid);
