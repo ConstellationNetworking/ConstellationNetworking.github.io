@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         const userBox = document.createElement('div');
                                         userBox.id = `chat-user-${action}`;
                                         userBox.onclick = function () {
-                                            window.location = `/chat.html?action=${action}`;
+                                            window.location = `/chat.html?chat=${action}`;
                                         }
 
                                         const userInfo = `                                        
