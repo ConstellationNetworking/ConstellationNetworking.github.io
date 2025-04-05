@@ -129,8 +129,6 @@ sendButton.addEventListener("click", () => {
     chatId: getChatId(CURRENT_USER_ID, activeUserId),
     messageText: msg,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  }).then(() => {
-    add_message(CURRENT_USER_ID, true, CURRENT_USER_NAME, CURRENT_USER_PIC, msg);
   });
 
   chatInput.value = "";
