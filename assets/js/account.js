@@ -122,23 +122,23 @@ document.addEventListener('DOMContentLoaded', function () {
                     userHistory = data.userHistory;
 
                     // add each user to the messages pane
-                    for (const [action, name] of Object.entries(data.userHistory)) {
-                        const existinguserListElement = document.getElementById(`chat-user-${action}`);
+                    data.userHistory.forEach(userId => {
+                        const existinguserListElement = document.getElementById(`chat-user-${userId}`);
 
                         if (!existinguserListElement) {
-                            db.collection('Users').where('senderId', '==', action).get()
-                                .then(snapshot => {
-                                    if (!snapshot.empty) {
-                                        const userDoc = snapshot.docs[0].data();
+                            db.collection('Users').doc(userId).get()
+                                .then(doc => {
+                                    if (doc.exists) {
+                                        const userDoc = doc.data();
                                         const userBox = document.createElement('div');
-                                        userBox.id = `chat-user-${action}`;
+                                        userBox.id = `chat-user-${userId}`;
                                         userBox.onclick = function () {
-                                            window.location = `/chat.html?chat=${action}`;
+                                            window.location = `/chat.html?chat=${userId}`;
                                         }
 
                                         const userInfo = `                                        
-                                        <div class="flex items-center space-x-4">
-                                            <img class="w-12 h-12 rounded-full" src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG} alt="${userDoc.name}'s profile image."
+                                        <div class="flex items-center space-x-4 hover:bg-gray-700 hover:bg-opacity-20 rounded-lg p-2 cursor-pointer transition duration-100">
+                                            <img class="w-12 h-12 rounded-full" src="${userDoc.profileIMG == "" ? "/assets/img/default_user.jpeg" : userDoc.profileIMG}" alt="${userDoc.name}'s profile image.">
                                             <div>
                                                 <div>
                                                     <p class="text-sm">${userDoc.name}</p>
@@ -147,21 +147,17 @@ document.addEventListener('DOMContentLoaded', function () {
                                             </div>
                                         </div>`;
 
-
                                         userBox.innerHTML = userInfo;
                                         userHistoryList.appendChild(userBox);
-
-                                        // updateProgress(action, userProgressLevel / 10); // MARK:- Automatically adds lvl and pts to other users in current user's userHistory, can be removed/polished later.
                                     } else {
-                                        // no user found
-                                        console.error('No user found in userHistory')
+                                        console.error('No user found in userHistory');
                                     }
                                 })
                                 .catch(error => {
                                     console.error('Error getting user:', error);
                                 });
                         }
-                    }
+                    });
                 }
             })
         } else {
