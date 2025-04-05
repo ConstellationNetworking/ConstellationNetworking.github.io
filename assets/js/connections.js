@@ -21,6 +21,23 @@ function displayUserCard(data, containerID) {
     level.className = 'absolute top-2 right-3 mt-2 mr-2 text-sm text-gray-400';
     level.textContent = `Level: ${data.level}`;
 
+    const del = document.createElement('button');
+    del.className = 'bg-red-600 text-sm absolute bottom-4 right-20 mt-2 mr-2 px-4 py-2 rounded-md hover:bg-red-700 duration-300';
+    del.textContent = 'Remove';
+    del.onclick = function () {
+        const userRef = db.collection("Users").doc(auth.currentUser.uid);
+        userRef.update({
+            connections: firebase.firestore.FieldValue.arrayRemove(data.senderId)
+        }).then(() => {
+            console.log("User removed from connections successfully!");
+            card.remove();
+        }
+        ).catch((error) => {
+            console.error("Error removing user from connections: ", error);
+        }
+        );
+    }
+
     const button = document.createElement('button');
     button.className = 'bg-blue-600 text-sm absolute bottom-4 right-3 mt-2 mr-2 px-4 py-2 rounded-md hover:bg-blue-700 duration-300';
     button.textContent = 'Chat';
@@ -51,6 +68,7 @@ function displayUserCard(data, containerID) {
     div.appendChild(p);
 
     card.appendChild(level);
+    card.appendChild(del);
     card.appendChild(button);
     card.appendChild(img);
     card.appendChild(div);

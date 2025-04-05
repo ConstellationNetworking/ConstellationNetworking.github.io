@@ -1941,6 +1941,10 @@ select {
   right: 0px;
 }
 
+.right-20 {
+  right: 5rem;
+}
+
 .right-3 {
   right: 0.75rem;
 }
