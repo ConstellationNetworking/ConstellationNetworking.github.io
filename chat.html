@@ -1,124 +1,73 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <link rel="stylesheet" href="/assets/css/chat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    </link>
-    <link rel="stylesheet" href="/assets/dist/tailwind.css">
-    <script src="/assets/dist/tailwind.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-    <meta name="description"
-        content="Engage in real-time conversations with professionals in your network on Constellation Networking.">
-    <meta name="keywords" content="Constellation Networking, chat, real-time conversation, professional communication">
-    <meta name="author" content="Constellation Networking Team">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-FTXQ5HF0C5');
-    </script>
-
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="assets/js/firebase_init.js"></script>
-</head>
-
-<body class="bg-gray-100" onload="prepareChat()">
-    <div class="container mx-auto p-4">
-        <div class="flex justify-between items-center border-b-2 border-black pb-2">
-            <div class="flex space-x-4">
-                <a href="/index.html">
-                    <h1 class="font-bold text-xl">Constellation</h1>
-                </a>
-                <nav class="flex space-x-4" style="padding-top: 3px">
-                    <a href="/missions.html" class="hover:underline" style="text-decoration: none;">Missions</a>
-                    <a href="/connections.html" class="hover:underline" style="text-decoration: none;">Connections</a>
-                    <a href="/rewards.html" class="hover:underline" style="text-decoration: none;">Rewards</a>
-                    <a href="/account.html" class="hover:underline" style="text-decoration: none;">Account</a>
-                </nav>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        </link>
+        <link rel="stylesheet" href="/assets/dist/tailwind.css">
+        <script src="/assets/dist/tailwind.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+        <meta name="description"
+            content="Engage in real-time conversations with professionals in your network on Constellation Networking.">
+        <meta name="keywords" content="Constellation Networking, chat, real-time conversation, professional communication">
+        <meta name="author" content="Constellation Networking Team">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet">
+    
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTXQ5HF0C5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+    
+            gtag('config', 'G-FTXQ5HF0C5');
+        </script>
+    
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="assets/js/firebase_init.js"></script>
+    </head>
+    <body class="bg-gray-100">
+        <nav class="flex items-center justify-between px-6 py-2 bg-white border-b shadow-sm h-14">
+            <a href="index.html" class="text-2xl font-bold text-gray-800 hover:text-blue-600">Constellation</a>
+            <div class="space-x-4">
+              <a href="missions.html" class="text-gray-700 hover:text-blue-500 font-medium">Missions</a>
+              <a href="connections.html" class="text-gray-700 hover:text-blue-500 font-medium">Connections</a>
+              <a href="rewards.html" class="text-gray-700 hover:text-blue-500 font-medium">Rewards</a>
+              <a href="account.html" class="text-gray-700 hover:text-blue-500 font-medium">Account</a>
             </div>
-            <div class="flex space-x-2 items-center">
-                <div class="search-with-button">
-                    <input type="text" placeholder="Search..." class="rounded-full form-control">
-                    <button class="rounded-full bg-blue-500 text-white" style="margin-right: 2px;">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
+          </nav>
+        <div class="flex" style="height: calc(100vh - 3.5rem);">
+          <!-- Sidebar -->
+          <div class="w-1/4 bg-white border-r overflow-y-auto">
+            <div class="p-4">
+              <input id="user-search-email" placeholder="Search users..." class="w-full px-4 py-2 border rounded-lg" />
             </div>
+            <ul id="chat-sidebar-list" class="divide-y"></ul>
+          </div>
+      
+          <!-- Chat Window -->
+          <div class="flex-1 flex flex-col">
+            <div id="chat-header" class="p-4 border-b bg-white font-bold text-xl">Chat</div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4"></div>
+            <div class="p-4 flex border-t bg-white">
+              <input id="chat-input" placeholder="Type your message..." class="flex-1 px-4 py-2 border rounded-full" />
+              <button id="send-btn" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-full">Send</button>
+            </div>
+          </div>
         </div>
-
-        <div class="flex mt-4 mb-6">
-            <div class="w-1/3 bg-white border-2 border-black p-4 full-height">
-                <div class="mb-4">
-                    <div class="search-with-button">
-                        <input type="text" class="form-control" placeholder="Search for users" class="rounded-full"
-                            id="user-search-email" aria-label="Recipient's email" aria-describedby="button-search">
-                        <button class="rounded-full bg-blue-500 text-white" type="button" id="search-user-button"
-                            style="margin-right: 2px;">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-                <ul class="divide-y-2 divide-black overflow-y-auto h-5/6" id="userHistoryList">
-                    <!-- This list will be dynamically populated with users the main user has talked to -->
-                    <li>
-                        <div class="user-history-item">
-                            <button class="user-button flex items-center" id="user-ConstellationBot">
-                                <img src="/assets/img/constellation_bot.png" width="50" height="50"
-                                    alt="Profile picture of Constellation Bot" class="rounded-full mr-2">
-                                <div id="found-user-details">
-                                    <p class="font-bold" id="target-user">Constellation Bot</p>
-                                    <p class="text-green-500">Active</p>
-                                </div>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="w-2/3 ml-4 p-4 border-2 border-black bg-white full-height">
-                <div class="flex flex-col h-full">
-                    <!-- Placeholder for Your Messages -->
-                    <div class="flex flex-col items-center justify-center py-10">
-                        <i class="fas fa-bolt fa-2x mb-3" id="flash-bolt"></i>
-                        <img class="rounded-full text-center" style="margin: 15px; display: none;"
-                            id="target-user-profile-pic" width="65" height="65"
-                            alt="Profile picture of Constellation Bot">
-                        <p id="target-user-name">Your Messages</p>
-                    </div>
-                    <div id="message-history" class="flex-1 overflow-y-auto">
-                        <!-- Chat messages will go here when a user is selected -->
-                        <!-- <div class="message received">Test!</div> -->
-                    </div>
-                    <div class="mt-4 flex">
-                        <input type="text" placeholder="Type a message..." id="message-input"
-                            class="rounded-full border-2 border-black px-4 py-2 flex-grow">
-                        <button id="send-button"
-                            class="rounded-full border-2 border-black bg-blue-500 text-white px-6 py-2 ml-2">Send</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="assets/js/chat.js"></script>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
+      
+        <script src="/assets/js/chat.js"></script>
+      </body>
 </html>
