@@ -37,13 +37,17 @@ firebase.auth().onAuthStateChanged(async (user) => {
 });
 
 function loadSidebarFromUserHistory(history) {
-  for (const [uid, name] of Object.entries(history)) {
-    firebase.firestore().collection("Users").doc(uid).get().then(doc => {
-      const data = doc.data();
-      const img = data.profileIMG || "/assets/img/default_user.jpeg";
-      add_to_sidebar(name, img, uid, data.email || "");
+  history.forEach(userId => {
+    firebase.firestore().collection("Users").doc(userId).get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const name = data.name || "Unknown";
+        const profilePic = data.profileIMG || "/assets/img/default_user.jpeg";
+        const email = data.email || "";
+        add_to_sidebar(name, profilePic, userId, email);
+      }
     });
-  }
+  });
 }
 
 function add_to_sidebar(name, profilePic, userId, email) {
@@ -87,6 +91,25 @@ function updateSidebarList(filterText) {
       });
       sidebarList.appendChild(li);
     });
+
+  // Firebase email-based lookup for dynamic search
+  if (sidebarList.children.length === 0 && filterText.includes("@")) {
+    firebase.firestore().collection("Users")
+      .where("email", "==", filterText)
+      .get()
+      .then(snapshot => {
+        if (!snapshot.empty) {
+          const doc = snapshot.docs[0];
+          const data = doc.data();
+          const userId = doc.id;
+          const name = data.name || "Unknown";
+          const profilePic = data.profileIMG || "/assets/img/default_user.jpeg";
+          const email = data.email || "";
+          add_to_sidebar(name, profilePic, userId, email);
+          updateSidebarList(filterText); // re-run to show only matching user
+        }
+      });
+  }
 }
 
 searchInput.addEventListener("input", (e) => {
@@ -129,6 +152,9 @@ sendButton.addEventListener("click", () => {
     chatId: getChatId(CURRENT_USER_ID, activeUserId),
     messageText: msg,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  firebase.firestore().collection("Users").doc(CURRENT_USER_ID).update({
+    userHistory: firebase.firestore.FieldValue.arrayUnion(activeUserId)
   });
 
   chatInput.value = "";
