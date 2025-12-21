@@ -9,35 +9,35 @@ document.addEventListener("DOMContentLoaded", function () {
     currentDate.getDate()
   );
 
-  setTimeout(() => {
-    db.collection("Users")
-      .where("lastActive", ">=", lastMonth)
-      .get()
-      .then((querySnapshot) => {
-        animateValue("monthly-active-users", 0, querySnapshot.size, 500);
-      });
+  // setTimeout(() => {
+  //   db.collection("Users")
+  //     .where("lastActive", ">=", lastMonth)
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       animateValue("monthly-active-users", 0, querySnapshot.size, 500);
+  //     });
 
-    db.collection("Statistics")
-      .doc("website-views")
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          const data = doc.data();
-          animateValue("website-views", 0, data.views, 50);
-        } else {
-          console.error("No document exists.");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  //   db.collection("Statistics")
+  //     .doc("website-views")
+  //     .get()
+  //     .then((doc) => {
+  //       if (doc.exists) {
+  //         const data = doc.data();
+  //         animateValue("website-views", 0, data.views, 50);
+  //       } else {
+  //         console.error("No document exists.");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
 
-    db.collection("Messages")
-      .get()
-      .then((querySnapshot) => {
-        animateValue("messages-sent", 0, querySnapshot.size, 500);
-      });
-  }, 500);
+  //   db.collection("Messages")
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       animateValue("messages-sent", 0, querySnapshot.size, 500);
+  //     });
+  // }, 500);
 
   // if (window.mobileCheck()) {
   //     document.getElementById('members-container').classList.replace('grid', 'grid-cols-2', 'gap-6')
